@@ -13,10 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="JEngine">
+      <UniqueIdentifier>{67d2c34c-1c6f-4dd8-b852-672823b10e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\RenderWIndow">
+      <UniqueIdentifier>{d3f62174-8001-48d2-b4c1-1a7be142722a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\InputManager">
+      <UniqueIdentifier>{5db12792-722c-4aef-ab8e-1852f803c703}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>JEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWindow.cpp">
+      <Filter>JEngine\RenderWIndow</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>JEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWindow.h">
+      <Filter>JEngine\RenderWIndow</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
