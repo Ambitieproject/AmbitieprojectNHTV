@@ -1,9 +1,17 @@
 #include "Game.h"
+#include <iostream>
 
 int main() {
+	//Get game singleton's reference but sinds there
+	//hasn't been any made yet it makes a instance
 	Game* game = Game::GetInstance();
 
+	//Run start method of game class
 	game->Start();
 
-
+	//while the SFML Renderwindow is not closed
+	while (!game->GetWindowClass().IsClosed) {
+		//Run Update method of game class
+		game->Update();
+	}
 }

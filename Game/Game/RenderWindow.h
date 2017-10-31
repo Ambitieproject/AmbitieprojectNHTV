@@ -9,11 +9,13 @@
 //Class that holds the Window field and holds the window draw methods
 class RenderWindow {
 public:
-	//Constructor with values to create a window
+	//Constructor
 	RenderWindow();
-	void Intit(sf::Vector2u windowSize, std::string windowName);
 	//Destructor
 	~RenderWindow();
+
+	//Creates a window with custom values
+	void CreateWindow(sf::Vector2u windowSize, std::string windowName);
 
 	//Begin draw method
 	void BeginDraw();
@@ -26,11 +28,12 @@ public:
 	sf::Vector2u GetWindowSize();
 	//Gets the SFML Renderwindow
 	sf::RenderWindow& GetWindow();
+	
+public:
+	//Bool that holds the state of SFML Rendwerwindow being closed or not
+	bool IsClosed;
 
 private:
-	//Bool that holds the state of SFML Rendwerwindow being closed or not
-	bool isClosed;
-
 	//SFML Renderwindow 
 	sf::RenderWindow window;
 

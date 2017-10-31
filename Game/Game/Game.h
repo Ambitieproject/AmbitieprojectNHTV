@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 
 #include "RenderWindow.h"
+#include "InputManager.h"
 
 //Main Game class which is the upper class of all classes in this framework
 class Game {
@@ -36,7 +37,7 @@ public:
 	//Gets SceneManager method
 	//SceneManager* GetSceneManager();
 	//Gets InputManager Method
-	//InputManager& GetInputManager();
+	InputManager& GetInputManager();
 
 public:
 	//Main delta time  for the whole game to access
@@ -49,5 +50,5 @@ private:
 	///main components
 	RenderWindow window;
 	//SceneManager sceneManager = SceneManager(this);
-	//InputManager input = InputManager(this);
+	InputManager input;
 };
