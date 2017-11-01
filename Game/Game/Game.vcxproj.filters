@@ -19,8 +19,11 @@
     <Filter Include="JEngine\RenderWIndow">
       <UniqueIdentifier>{d3f62174-8001-48d2-b4c1-1a7be142722a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JEngine\InputManager">
+    <Filter Include="JEngine\Input">
       <UniqueIdentifier>{5db12792-722c-4aef-ab8e-1852f803c703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\SceneManagement">
+      <UniqueIdentifier>{d88e6ac5-383b-4dc0-8764-82de033343cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +37,12 @@
       <Filter>JEngine\RenderWIndow</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
+      <Filter>JEngine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,6 +54,12 @@
       <Filter>JEngine\RenderWIndow</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
+      <Filter>JEngine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

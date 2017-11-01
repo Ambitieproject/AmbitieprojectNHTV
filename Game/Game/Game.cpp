@@ -26,20 +26,17 @@ void Game::Start() {
 	window.CreateWindow(sf::Vector2u(500, 800), "Laser Space");
 	//Setup input so values are assigned the right way
 	input.SetupInput();
+	std::cout << &window << std::endl;
 }
 
 //Main Update function that runs in the whole game
 void Game::Update() {
+	//Set the deltaTime which is going to be passed troughout the whole game
 	DeltaTime = clock.restart().asSeconds();
 
-	if (input.KeyReleased(sf::Keyboard::D)) {
-		std::cout << "D" << std::endl;
-	}
-	else if (input.KeyReleased(sf::Keyboard::A)) {
-		std::cout << "A" << std::endl;
-	}
-
 	//sceneManager.UpdateCurrentScene(DeltaTime);
+
+	//call Update PollEvent method
 	input.UpdatePollEvent();
 }
 

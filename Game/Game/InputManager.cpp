@@ -36,7 +36,6 @@ void InputManager::UpdatePollEvent() {
 		//Set keypressed bool to false if a key is released
 		else if (_event.type == sf::Event::KeyReleased) {
 			keyPressed = false;
-			keyReleased = false;
 		}
 	}
 
@@ -60,7 +59,7 @@ bool InputManager::KeyPressed(sf::Keyboard::Key _key) {
 
 //Key down method, takes a key to check
 bool InputManager::KeyDown(sf::Keyboard::Key _key) {
-
+	//Using the standard IsKeyPressed method of SFML
 	if (sf::Keyboard::isKeyPressed(_key)) {
 		return true;
 	}
@@ -70,11 +69,16 @@ bool InputManager::KeyDown(sf::Keyboard::Key _key) {
 bool InputManager::KeyReleased(sf::Keyboard::Key _key) {
 	//if the key that is pressed is the given key,
 	//and the KeyReleased Event of SFML is called,
-	if (event.key.code == _key && event.type == sf::Event::KeyReleased && !keyReleased) {
-		keyReleased = true;
+	if (event.key.code == _key && event.type == sf::Event::KeyReleased) {
 		return true;
 	}
 	else {
 		return false;
 	}
+}
+
+//Method to get the mouse position as a vector2
+sf::Vector2i & InputManager::GetMousePosition() {
+	mousePosition = sf::Mouse::getPosition(*window);
+	return mousePosition;
 }

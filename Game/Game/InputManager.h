@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 
-//forward include the same hierachy class RenderWindow
+//Forward include the same hierachy class RenderWindow
 class RenderWindow;
 
 //Class that holds all the input logic needed in the game
@@ -27,6 +27,9 @@ public:
 	//Key released method, takes a key to check
 	bool KeyReleased(sf::Keyboard::Key _key);
 
+	//Method to get the mouse position as a vector2
+	sf::Vector2i& GetMousePosition();
+
 private:
 	//Window Event, when a Event happens it's basicly input
 	sf::Event event;
@@ -38,7 +41,8 @@ private:
 
 	//Bool to determine if a key is pressed
 	bool keyPressed;
-	//Bool to determine if a key is released
-	bool keyReleased;
+
+	//Local mouse position vector2
+	sf::Vector2i mousePosition;
 };
 
