@@ -1,5 +1,5 @@
 #include "InputManager.h"
-#include "RenderWindow.h"
+#include "Window.h"
 #include "Game.h"
 
 //Constructor

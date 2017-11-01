@@ -4,8 +4,8 @@
 
 #include "Scene.h"
 
-//Forward include the same hierachy class RenderWindow
-class RenderWindow;
+//Forward include the same hierachy class Window
+class Window;
 
 //all scenes includes
 //#include "MainScene.h"
@@ -31,7 +31,7 @@ public:
 
 private:
 	//Pointer to the window class
-	RenderWindow* window;
+	Window* window;
 
 	//Map with all the scenes available in the game
 	std::map<int, Scene*> scenes;

@@ -4,7 +4,7 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
-#include "RenderWindow.h"
+#include "Window.h"
 #include "InputManager.h"
 
 //Main Game class which is the upper class of all classes in this framework
@@ -33,7 +33,7 @@ public:
 	void Update();
 
 	//Gets Window class method
-	RenderWindow& GetWindowClass();
+	Window& GetWindowClass();
 	//Gets SceneManager method
 	//SceneManager* GetSceneManager();
 	//Gets InputManager Method
@@ -48,7 +48,7 @@ private:
 	sf::Clock clock;
 
 	///main components
-	RenderWindow window;
+	Window window;
 	//SceneManager sceneManager = SceneManager(this);
 	InputManager input;
 };

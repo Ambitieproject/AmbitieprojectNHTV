@@ -2,6 +2,7 @@
 
 //#include "GameObject.h"
 #include "Scene.h"
+#include "GameObject.h"
 
 #include <map>
 #include <list>
@@ -22,14 +23,14 @@ public:
 	virtual void Update(float deltaTime);
 
 	//Adds a given GameObject to the list of GameObjects in the scene
-	//void AddToGameObjectList(GameObject* gameObject);
+	void AddToGameObjectList(GameObject* gameObject);
 
 	//Finds a GameObject by name
-	//GameObject* FindGameObjectByName(std::string gameObjectName);
+	GameObject* FindGameObjectByName(std::string gameObjectName);
 
 public:
 	//Map of GameObjects in the scene
-	//std::map<int, GameObject*> GameObjects;
+	std::map<int, GameObject*> GameObjects;
 
 private:
 	//Local index of GameObjects in the scene

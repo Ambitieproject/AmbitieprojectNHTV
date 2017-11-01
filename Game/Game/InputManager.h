@@ -3,8 +3,8 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 
-//Forward include the same hierachy class RenderWindow
-class RenderWindow;
+//Forward include the same hierachy class Window
+class Window;
 
 //Class that holds all the input logic needed in the game
 class InputManager {
@@ -35,7 +35,7 @@ private:
 	sf::Event event;
 
 	//Pointer to the RenderWindow class
-	RenderWindow* renderWindow;
+	Window* renderWindow;
 	//Pointer to the window of the RenderWindow class
 	sf::RenderWindow* window;
 

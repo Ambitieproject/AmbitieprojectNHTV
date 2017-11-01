@@ -26,16 +26,13 @@ void Scene::Update(float deltaTime) {
 	}
 	*/
 }
-/*
 
 //Adds a given GameObject to the list of GameObjects in the scene
 void Scene::AddToGameObjectList(GameObject* gameObject) {
 	GameObjects.insert(std::pair<int, GameObject*>(gameObjectLayerIndex, gameObject));
 	gameObjectLayerIndex++;
 }
-*/
 
-/*
 //Finds a GameObject by name
 GameObject* Scene::FindGameObjectByName(std::string gameObjectName) {
 	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
@@ -46,4 +43,3 @@ GameObject* Scene::FindGameObjectByName(std::string gameObjectName) {
 
 	return nullptr;
 }
-*/

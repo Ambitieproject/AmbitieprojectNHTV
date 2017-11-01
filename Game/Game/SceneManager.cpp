@@ -34,26 +34,13 @@ void SceneManager::RenderCurrentScene() {
 	//Call BeginDraw function of the window class
 	window->BeginDraw();
 
-	/*
 	for (auto it = currentScene->GameObjects.begin(); it != currentScene->GameObjects.end(); it++) {
 		for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
 
-			//dynamic sprite casting
-			//dynamic sprite rendering
-			JE::Sprite* sprite = dynamic_cast<JE::Sprite*>(it2->second);
-
-			if (sprite) {
-				window->Draw(sprite->GetSprite());
-			}
-
-			JE::Text* text = dynamic_cast<JE::Text*>(it2->second);
-
-			if (text) {
-				window->Draw(text->GetText());
-			}
+			
 		}
 	}
-	*/
+	
 
 	//Call EndDraw function of the window class	
 	window->EndDraw();

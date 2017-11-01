@@ -41,7 +41,7 @@ void Game::Update() {
 }
 
 //Gets Window class method
-RenderWindow& Game::GetWindowClass() {
+Window& Game::GetWindowClass() {
 	return window;
 }
 
