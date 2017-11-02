@@ -11,11 +11,22 @@ class Window;
 //#include "MainScene.h"
 
 //SceneManager class. Takes care of the scene flow of the game and calls different methods of the "active" scene
-class SceneManager
-{
-public:
-	//Constructor
+class SceneManager {
+
+#pragma region Singleton
+private:
+	//Private static instance of class
+	static SceneManager* instance;
+
+	//Private constructor to prevent instancing
 	SceneManager();
+
+public:
+	//Static Get Method
+	static SceneManager* GetInstance();
+#pragma endregion
+
+public:
 	//Destructor
 	~SceneManager();
 

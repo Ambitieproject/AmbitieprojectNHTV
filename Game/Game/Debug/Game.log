@@ -1,3 +1,12 @@
-﻿  Game.cpp
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+﻿  Window.cpp
+  Game.cpp
+  Generating Code...
+  Compiling...
+  SceneManager.cpp
+  Renderer.cpp
+  Main.cpp
+  Input.cpp
+  Generating Code...
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\input.cpp(77): warning C4715: 'Input::KeyDown': not all control paths return a value
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

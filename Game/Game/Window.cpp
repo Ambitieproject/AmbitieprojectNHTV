@@ -1,11 +1,22 @@
 #include "Window.h"
 
+Window* Window::instance = 0;
+
 //Constructor with values to create a window
 Window::Window() {
 	//Load Icon
 	//icon.loadFromFile(pathToIconImage);
 	//Set Icon
 	//window.setIcon(32, 32, icon.getPixelsPtr());
+}
+
+//Static Get Method
+Window* Window::GetInstance() {
+	if (instance == 0) {
+		instance = new Window();
+	}
+
+	return instance;
 }
 
 //Destructor
@@ -23,24 +34,8 @@ void Window::CreateWindow(sf::Vector2u windowSize, std::string windowName) {
 	IsClosed = false;
 	//Set framerate
 	window.setFramerateLimit(60);
-}
 
-//Begin draw method
-void Window::BeginDraw() {
-	//Clears the window with the color black
-	window.clear(sf::Color::Black);
-}
-
-//Draw method that draws a SFML Drawable
-void Window::Draw(sf::Drawable & drawable) {
-	//Draw a drawable to the window
-	window.draw(drawable);
-}
-
-//End draw method
-void Window::EndDraw() {
-	//Display to the window
-	window.display();
+	renderer.SetupRenderer();
 }
 
 //Gets the window size
@@ -51,4 +46,8 @@ sf::Vector2u Window::GetWindowSize() {
 //Gets the SFML Renderwindow
 sf::RenderWindow& Window::GetWindow() {
 	return window;
+}
+
+Renderer & Window::GetRenderer() {
+	return renderer;
 }

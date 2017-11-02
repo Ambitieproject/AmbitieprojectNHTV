@@ -31,6 +31,9 @@
     <Filter Include="JEngine\Window">
       <UniqueIdentifier>{d3f62174-8001-48d2-b4c1-1a7be142722a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Renderer">
+      <UniqueIdentifier>{98052212-1367-4466-899b-883839d3103d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -38,9 +41,6 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>JEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>JEngine\Input</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>JEngine\SceneManagement</Filter>
@@ -57,13 +57,16 @@
     <ClCompile Include="Window.cpp">
       <Filter>JEngine\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>JEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>JEngine\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>JEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>JEngine\Input</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>JEngine\SceneManagement</Filter>
@@ -79,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>JEngine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>JEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>JEngine\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

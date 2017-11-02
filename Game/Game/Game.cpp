@@ -13,7 +13,9 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
-
+	input = Input::GetInstance();
+	sceneManager = SceneManager::GetInstance();
+	window = Window::GetInstance();
 }
 
 //Destructor
@@ -23,9 +25,9 @@ Game::~Game() {
 //Main Start function that runs in the whole game
 void Game::Start() {
 	//Creates window with custom values
-	window.CreateWindow(sf::Vector2u(500, 800), "Laser Space");
+	window->CreateWindow(sf::Vector2u(500, 800), "Laser Space");
 	//Setup input so values are assigned the right way
-	input.SetupInput();
+	input->SetupInput();
 	std::cout << &window << std::endl;
 }
 
@@ -33,19 +35,22 @@ void Game::Start() {
 void Game::Update() {
 	//Set the deltaTime which is going to be passed troughout the whole game
 	DeltaTime = clock.restart().asSeconds();
-
-	//sceneManager.UpdateCurrentScene(DeltaTime);
-
+	//Call Update method of SceneManager which calls the Update method of the current Scene
+	sceneManager->UpdateCurrentScene(DeltaTime);
 	//call Update PollEvent method
-	input.UpdatePollEvent();
+	input->UpdatePollEvent();
 }
 
 //Gets Window class method
 Window& Game::GetWindowClass() {
-	return window;
+	return *window;
+}
+
+SceneManager & Game::GetSceneManager() {
+	return *sceneManager;
 }
 
 //Gets InputManager Method
-InputManager& Game::GetInputManager() {
-	return input;
+Input& Game::GetInputManager() {
+	return *input;
 }
