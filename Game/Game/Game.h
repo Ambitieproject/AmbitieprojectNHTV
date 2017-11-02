@@ -38,7 +38,7 @@ public:
 	//Gets SceneManager method
 	SceneManager& GetSceneManager();
 	//Gets InputManager Method
-	Input& GetInputManager();
+	//Input& GetInputManager();
 
 public:
 	//Main delta time  for the whole game to access
@@ -51,5 +51,5 @@ private:
 	///main components
 	Window* window;
 	SceneManager* sceneManager;
-	Input* input;
+	//Input* input;
 };

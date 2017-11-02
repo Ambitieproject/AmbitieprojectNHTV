@@ -2,31 +2,16 @@
 #include "Window.h"
 #include "Game.h"
 
-Input* Input::instance = 0;
-
-//Constructor
-Input::Input() {
-	
-}
-
-//Static Get Method
-Input* Input::GetInstance() {
-	if (instance == 0) {
-		instance = new Input();
-	}
-
-	return instance;
-}
-
-//Destructor
-Input::~Input() {
-
-}
+sf::Event Input::event;
+Window* Input::renderWindow;
+sf::RenderWindow* Input::window;
+bool Input::keyPressed;
+sf::Vector2i Input::mousePosition;
 
 //Setup input method, sets references
 void Input::SetupInput() {
 	//Set RenderWindow references to Game class singleton's RenderWindow class
-	renderWindow = &Game::GetInstance()->GetWindowClass();
+	renderWindow = Window::GetInstance();
 	//Set SFML RenderWindow class
 	window = &renderWindow->GetWindow();
 	//Set key pressed bool to false
