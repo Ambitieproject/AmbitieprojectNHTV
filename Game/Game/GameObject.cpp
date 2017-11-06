@@ -7,9 +7,27 @@ GameObject::GameObject(std::string name, Scene& scene) : Name(name), scene(scene
 	componentIndex = 0;
 	//Add this gameobject to the list of gameobjects in the scene
 	scene.AddToGameObjectList(this);
+	//set state of GameObject to active by default
+	Active = true;
 }
 
 GameObject::~GameObject() {
+}
+
+//Start method of GameObject
+void GameObject::Start() {
+
+}
+
+//Update method of GameObject
+void GameObject::Update(float deltaTime) {
+	//For every Component in the scene
+	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+		//if GameObject is active
+		if (objects->second->Enabled) {
+			objects->second->Update(deltaTime);
+		}
+	}
 }
 
 //Adds a component to this gameobject given as a parameter

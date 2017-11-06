@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "Window.h"
 #include "Game.h"
+#include "Scene.h"
 
 //Constructor
 Renderer::Renderer() {
@@ -9,6 +10,7 @@ Renderer::Renderer() {
 
 //Destructor
 Renderer::~Renderer() {
+
 }
 
 //Sets the renderer up, does reference setup

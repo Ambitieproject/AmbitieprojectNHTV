@@ -16,6 +16,9 @@ public:
 
 	GameObject& GetGameObject();
 
+public:
+	bool Enabled;
+
 private:
 	GameObject& gameObject;
 };

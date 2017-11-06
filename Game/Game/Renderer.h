@@ -22,6 +22,9 @@ public:
 	void EndDraw();
 
 private:
+	//Reference to sfml renderwindow of the window class
 	sf::RenderWindow* window;
+
+	//Reference to the scene that needs to be rendered
 };
 

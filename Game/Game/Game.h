@@ -37,11 +37,9 @@ public:
 	Window& GetWindowClass();
 	//Gets SceneManager method
 	SceneManager& GetSceneManager();
-	//Gets InputManager Method
-	//Input& GetInputManager();
 
 public:
-	//Main delta time  for the whole game to access
+	//Main delta time for the whole game to access
 	float DeltaTime;
 
 private:
@@ -51,5 +49,5 @@ private:
 	///main components
 	Window* window;
 	SceneManager* sceneManager;
-	//Input* input;
+	Input* inputManager;
 };

@@ -19,6 +19,11 @@ public:
 	//Destructor
 	~GameObject();
 
+	//Start method of GameObject
+	void Start();
+	//Update method of GameObject
+	void Update(float deltaTime);
+
 	//Adds a component to this gameobject given as a parameter
 	void AddComponent(Component* component);
 

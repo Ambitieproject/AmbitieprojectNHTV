@@ -13,22 +13,22 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
-	//input = Input::GetInstance();
+	inputManager = Input::GetInstance();
 	sceneManager = SceneManager::GetInstance();
 	window = Window::GetInstance();
 }
 
 //Destructor
 Game::~Game() {
+
 }
 
 //Main Start function that runs in the whole game
 void Game::Start() {
 	//Creates window with custom values
 	window->CreateWindow(sf::Vector2u(500, 800), "Laser Space");
-	//Setup input so values are assigned the right way
-	//input->SetupInput();
-	Input::SetupInput();
+	//Start SceneManager method that loads the first scene
+	sceneManager->StartSceneManager();
 }
 
 //Main Update function that runs in the whole game
@@ -38,12 +38,7 @@ void Game::Update() {
 	//Call Update method of SceneManager which calls the Update method of the current Scene
 	sceneManager->UpdateCurrentScene(DeltaTime);
 	//call Update PollEvent method
-	//input->UpdatePollEvent();
-	Input::UpdatePollEvent();
-
-	if (Input::KeyReleased(sf::Keyboard::A)) {
-		std::cout << "JA" << std::endl;
-	}
+	inputManager->UpdatePollEvent();
 }
 
 //Gets Window class method
@@ -51,12 +46,6 @@ Window& Game::GetWindowClass() {
 	return *window;
 }
 
-SceneManager & Game::GetSceneManager() {
+SceneManager& Game::GetSceneManager() {
 	return *sceneManager;
 }
-/*
-//Gets InputManager Method
-Input& Game::GetInputManager() {
-	return *input;
-}
-*/

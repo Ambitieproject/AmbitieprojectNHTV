@@ -9,13 +9,19 @@ class Window;
 //Class that holds all the input logic needed in the game
 class Input {
 
+#pragma region Singleton
+private:
+	//Private static instance of class
+	static Input* instance;
+
+	//Private constructor to prevent instancing
+	Input();
+
+	//Static Get Method
+	static Input* GetInstance();
+#pragma endregion
+
 public:
-	//Setup input method, sets references
-	static void SetupInput();
-
-	//Update pollEvent method
-	static void UpdatePollEvent();
-
 	//Key pressed method, takes a key to check
 	static bool KeyPressed(sf::Keyboard::Key key);
 	//Key down method, takes a key to check
@@ -25,6 +31,16 @@ public:
 
 	//Method to get the mouse position as a vector2
 	static sf::Vector2i& GetMousePosition();
+
+private:
+	//Destructor
+	~Input();
+
+	//Update pollEvent method
+	void UpdatePollEvent();
+
+	//Define the friend class Game
+	friend class Game;
 
 private:
 	//Window Event, when a Event happens it's basicly input
@@ -41,4 +57,3 @@ private:
 	//Local mouse position vector2
 	static sf::Vector2i mousePosition;
 };
-

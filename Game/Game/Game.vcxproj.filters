@@ -34,6 +34,9 @@
     <Filter Include="JEngine\Renderer">
       <UniqueIdentifier>{98052212-1367-4466-899b-883839d3103d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Managment">
+      <UniqueIdentifier>{23fe68c2-370e-4b11-b73d-8993996b5d16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,6 +66,12 @@
     <ClCompile Include="Input.cpp">
       <Filter>JEngine\Input</Filter>
     </ClCompile>
+    <ClCompile Include="ExampleScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleScene2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -88,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>JEngine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleScene2.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

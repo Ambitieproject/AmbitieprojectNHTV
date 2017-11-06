@@ -3,6 +3,7 @@
 
 Component::Component(GameObject& gameObject) : gameObject(gameObject) {
 	gameObject.AddComponent(this);
+	Enabled = true;
 }
 
 Component::~Component() {

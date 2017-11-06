@@ -2,27 +2,45 @@
 #include "Window.h"
 #include "Game.h"
 
+Input* Input::instance = 0;
+
 sf::Event Input::event;
 Window* Input::renderWindow;
 sf::RenderWindow* Input::window;
 bool Input::keyPressed;
 sf::Vector2i Input::mousePosition;
 
-//Setup input method, sets references
-void Input::SetupInput() {
-	//Set RenderWindow references to Game class singleton's RenderWindow class
-	renderWindow = Window::GetInstance();
-	//Set SFML RenderWindow class
-	window = &renderWindow->GetWindow();
+//Constructor
+Input::Input() {
+	if (renderWindow == nullptr) {
+		//Set RenderWindow references to Game class singleton's RenderWindow class
+		renderWindow = Window::GetInstance();
+		//Set SFML RenderWindow class
+		window = &renderWindow->GetWindow();
+	}
+
 	//Set key pressed bool to false
 	keyPressed = false;
+}
+//Static Get Method
+Input* Input::GetInstance() {
+	if (instance == 0) {
+		instance = new Input();
+	}
+
+	return instance;
+}
+
+//Destructor
+Input::~Input() {
+
 }
 
 //Update pollEvent method
 void Input::UpdatePollEvent() {
 	//Make seperate Event just to check basic events
 	sf::Event _event;
-
+	
 	//PollEvent the sperate Event
 	if (window->pollEvent(_event)) {
 		//Close window if exit button is pressed
@@ -41,10 +59,9 @@ void Input::UpdatePollEvent() {
 
 //Key pressed method, takes a key to check
 bool Input::KeyPressed(sf::Keyboard::Key key) {
-	//if the key that is pressed is the given key,
-	//and the KeyPressed Event of SFML is called,
+	//Using the standard IsKeyPressed method of SFML
 	//and you didn't press a key yet
-	if (event.key.code == key && event.type == sf::Event::KeyPressed && !keyPressed) {
+	if (sf::Keyboard::isKeyPressed(key) && !keyPressed) {
 		keyPressed = true;
 		return true;
 	}
