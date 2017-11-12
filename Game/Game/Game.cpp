@@ -13,7 +13,6 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
-	inputManager = Input::GetInstance();
 	sceneManager = SceneManager::GetInstance();
 	window = Window::GetInstance();
 }
@@ -29,6 +28,8 @@ void Game::Start() {
 	window->CreateWindow(sf::Vector2u(500, 800), "Laser Space");
 	//Start SceneManager method that loads the first scene
 	sceneManager->StartSceneManager();
+
+	Input::SetupInput();
 }
 
 //Main Update function that runs in the whole game
@@ -38,7 +39,7 @@ void Game::Update() {
 	//Call Update method of SceneManager which calls the Update method of the current Scene
 	sceneManager->UpdateCurrentScene(DeltaTime);
 	//call Update PollEvent method
-	inputManager->UpdatePollEvent();
+	Input::UpdatePollEvent(DeltaTime);
 }
 
 //Gets Window class method

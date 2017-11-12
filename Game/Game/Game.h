@@ -49,5 +49,4 @@ private:
 	///main components
 	Window* window;
 	SceneManager* sceneManager;
-	Input* inputManager;
 };

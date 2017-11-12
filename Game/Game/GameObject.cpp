@@ -11,7 +11,9 @@ GameObject::GameObject(std::string name, Scene& scene) : Name(name), scene(scene
 	Active = true;
 }
 
+//Destructor
 GameObject::~GameObject() {
+
 }
 
 //Start method of GameObject
@@ -36,10 +38,11 @@ void GameObject::AddComponent(Component* component) {
 	Components.insert(std::pair<int, Component*>(componentIndex, component));
 	//Increase component index
 	componentIndex++;
+	//Set component's GameObject value to be equal to this GameObject
+	component->GameObject = this;
 }
 
 
-Scene & GameObject::GetScene()
-{
+Scene & GameObject::GetScene() {
 	return scene;
 }

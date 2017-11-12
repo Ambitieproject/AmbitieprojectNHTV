@@ -1,3 +1,7 @@
-﻿  ExampleScene.cpp
+﻿  Input.cpp
+  ExampleScene.cpp
+  Generating Code...
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\input.cpp(90): warning C4715: 'Input::GetKeyDown': not all control paths return a value
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\input.cpp(129): warning C4715: 'Input::GetAnyKeyDown': not all control paths return a value
   Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
   Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

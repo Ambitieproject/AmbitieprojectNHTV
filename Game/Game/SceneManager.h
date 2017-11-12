@@ -32,10 +32,17 @@ public:
 	//Load a scene specified by a scene name
 	static bool LoadScene(std::string sceneName);
 
+	//Gets the active scene
+	static Scene& GetActiveScene();
+
+	//Gets the amount of scenes in the game
+	static int GetSceneAmount();
+
 	//Gets a scene by the index specified as a parameter
 	static Scene& GetSceneByIndex(int sceneIndex);
 	//Gets a scene by a name specified as a parameter
 	static Scene& GetSceneByName(std::string sceneName);
+
 
 private:
 	//Destructor

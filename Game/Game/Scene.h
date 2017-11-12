@@ -2,7 +2,6 @@
 
 #include "GameObject.h"
 #include "Scene.h"
-#include "GameObject.h"
 
 //Forward include the upper class hierachy class SceneManager
 class SceneManager;

@@ -12,6 +12,11 @@ SceneManager::SceneManager() {
 
 }
 
+//Destructor
+SceneManager::~SceneManager() {
+
+}
+
 //Static Get Method
 SceneManager* SceneManager::GetInstance() {
 	if (instance == 0) {
@@ -78,6 +83,16 @@ bool SceneManager::LoadScene(std::string sceneName) {
 	}
 }
 
+//Gets the active scene
+Scene& SceneManager::GetActiveScene() {
+	return *currentScene;
+}
+
+//Gets the amount of scenes in the game
+int SceneManager::GetSceneAmount() {
+	return sceneIndexAmount;
+}
+
 //Gets a scene by the index specified as a parameter
 Scene& SceneManager::GetSceneByIndex(int sceneIndex) {
 	//For every scene, if the scene name of that scene is equal to parameter,
@@ -106,11 +121,6 @@ Scene& SceneManager::GetSceneByName(std::string sceneName) {
 	std::cout << "Scene with name " << sceneName << " not found" << std::endl;
 }
 
-//Destructor
-SceneManager::~SceneManager() {
-	
-}
-
 void SceneManager::StartSceneManager() {
 	currentScene = static_cast<Scene*>(&exampleScene);
 	currentScene->Start();
@@ -118,7 +128,7 @@ void SceneManager::StartSceneManager() {
 
 //Method that updates the current active scene
 void SceneManager::UpdateCurrentScene(float deltaTime) {
-	//currentScene->Update(deltaTime);
+	currentScene->Update(deltaTime);
 	//RenderCurrentScene();
 }
 
