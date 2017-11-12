@@ -79,4 +79,3 @@ private:
 	ExampleScene exampleScene = ExampleScene("ExampleScene");
 	ExampleScene2 exampleScene2 = ExampleScene2("ExampleScene2");
 };
-

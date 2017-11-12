@@ -49,4 +49,5 @@ private:
 	///main components
 	Window* window;
 	SceneManager* sceneManager;
+	//The Input component is a static class
 };
