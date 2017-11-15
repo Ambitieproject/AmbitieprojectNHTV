@@ -151,12 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationClip.cpp" />
+    <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ExampleScene.cpp" />
     <ClCompile Include="ExampleScene2.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -164,12 +167,16 @@
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationClip.h" />
+    <ClInclude Include="Animator.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="BaseComponents.hpp" />
     <ClInclude Include="ExampleScene.h" />
     <ClInclude Include="ExampleScene2.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Scene.h" />

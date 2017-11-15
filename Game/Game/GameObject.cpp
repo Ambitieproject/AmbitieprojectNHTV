@@ -18,7 +18,13 @@ GameObject::~GameObject() {
 
 //Start method of GameObject
 void GameObject::Start() {
-
+	//For every Component in the scene
+	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+		//if GameObject is active
+		if (objects->second->Enabled) {
+			objects->second->Start();
+		}
+	}
 }
 
 //Update method of GameObject

@@ -21,9 +21,20 @@ void Scene::Init() {
 	
 }
 
+//Virtual Awake Method of a scene that can be overwritten in a supper class 
+void Scene::Awake() {
+
+}
+
 //Virtual Start Method of a scene that can be overwritten in a supper class
 void Scene::Start() {
-	
+	//For every GameObject in the scene
+	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
+		//if GameObject is active
+		if (objects->second->Active) {
+			objects->second->Start();
+		}
+	}
 }
 
 //Virtual Update Method of a scene that can be overwritten in a supper class

@@ -34,8 +34,17 @@
     <Filter Include="JEngine\Renderer">
       <UniqueIdentifier>{98052212-1367-4466-899b-883839d3103d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JEngine\Managment">
+    <Filter Include="JEngine\Renderer\Managment">
       <UniqueIdentifier>{23fe68c2-370e-4b11-b73d-8993996b5d16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Graphics">
+      <UniqueIdentifier>{14250b65-9707-49f6-bbd4-9a2db5b5f853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Graphics\Sprites">
+      <UniqueIdentifier>{4be04788-eb7a-4d8c-9103-402eadf884d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Animation">
+      <UniqueIdentifier>{71c079a9-e79a-4651-8de8-60192140182f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +81,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>JEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>JEngine\Components\Graphics\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationClip.cpp">
+      <Filter>JEngine\Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -102,6 +120,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ExampleScene2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>JEngine\Components\Graphics\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseComponents.hpp">
+      <Filter>JEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>JEngine\Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

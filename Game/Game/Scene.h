@@ -22,6 +22,8 @@ public:
 	//Initialization method that runs all the nessesary code to setup a scene
 	void Init();
 
+	//Virtual Awake Method of a scene that can be overwritten in a supper class 
+	virtual void Awake();
 	//Virtual Start Method of a scene that can be overwritten in a supper class 
 	virtual void Start();
 	//Virtual Update Method of a scene that can be overwritten in a supper class

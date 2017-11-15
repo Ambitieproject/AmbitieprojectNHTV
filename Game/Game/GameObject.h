@@ -10,8 +10,7 @@
 class Scene;
 
 //Custom Object made to hold components and run them
-class GameObject
-{
+class GameObject {
 public:
 	//Constructor with name and scene to indentify this gameobject with
 	GameObject(std::string name, Scene& scene);

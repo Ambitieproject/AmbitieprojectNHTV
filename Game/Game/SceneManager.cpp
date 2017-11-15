@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "Game.h"
+#include "BaseComponents.hpp"
 
 SceneManager* SceneManager::instance = 0;
 
@@ -31,8 +32,10 @@ SceneManager* SceneManager::GetInstance() {
 bool SceneManager::LoadScene(int sceneIndex) {
 	bool canLoad = false;
 	//Quit previous Scene
-	currentScene->Quit();
-
+	if (currentScene != nullptr) {
+		currentScene->Quit();
+	}
+	
 	//For every scene, if index of that scene is equal to parameter,
 	//set new currentScene
 	for (auto it = scenes.begin(); it != scenes.end(); it++) {
@@ -43,9 +46,10 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	}
 
 	//If new currentScene is succesfully transferred than
-	//run start function of new scene
+	//run start and awake method of new scene
 	//Finally return out of function
 	if (canLoad) {
+		currentScene->Awake();
 		currentScene->Start();
 		return true;
 	}
@@ -71,9 +75,10 @@ bool SceneManager::LoadScene(std::string sceneName) {
 	}
 
 	//If new currentScene is succesfully transferred than
-	//run start function of new scene
+	//run start and awake method of new scene
 	//Finally return out of function
 	if (canLoad) {
+		currentScene->Awake();
 		currentScene->Start();
 		return true;
 	}
@@ -122,14 +127,13 @@ Scene& SceneManager::GetSceneByName(std::string sceneName) {
 }
 
 void SceneManager::StartSceneManager() {
-	currentScene = static_cast<Scene*>(&exampleScene);
-	currentScene->Start();
+	LoadScene(0);
 }
 
 //Method that updates the current active scene
 void SceneManager::UpdateCurrentScene(float deltaTime) {
 	currentScene->Update(deltaTime);
-	//RenderCurrentScene();
+	RenderCurrentScene();
 }
 
 //Method that renders the current active scene
@@ -145,7 +149,13 @@ void SceneManager::RenderCurrentScene() {
 			for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
 				//if Component is enabled
 				if (it2->second->Enabled) {
-					//RENDER STUFF
+					//dynamic sprite casting
+					//dynamic sprite rendering
+					BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
+
+					if (sprite) {
+						renderer->Draw(sprite->GetSprite());
+					}
 				}
 			}
 		}
