@@ -15,6 +15,8 @@ AnimationClip::AnimationClip(std::string animationName, std::string pathToSprite
 	localImagesCount = 0;
 	currentImageCoordinates.x = 0;
 	currentImageCoordinates.y = oneRowCount;
+
+	isPlaying = false;
 }
 
 //Destructor
@@ -30,9 +32,8 @@ void AnimationClip::Start() {
 //Override Update method from base Component class
 void AnimationClip::Update(float deltaTime) {
 	//If animation is on
-	if (isPlaying) {
+	if (this->isPlaying) {
 		Component::Update(deltaTime);
-
 		//Increase totalTime by deltaTime
 		totalTime += deltaTime;
 
@@ -47,13 +48,13 @@ void AnimationClip::Update(float deltaTime) {
 			//If local count of images is bigger or equal then the total images
 			//Reset variables
 			if (localImagesCount >= totalImages) {
-				if(oneRowCount > 0) {
+				if (oneRowCount > 0) {
 					currentImageCoordinates.y = oneRowCount;
 				}
 				else {
 					currentImageCoordinates.y = 0;
 				}
-				
+
 				currentImageCoordinates.x = 0;
 				localImagesCount = 0;
 			}
@@ -72,7 +73,6 @@ void AnimationClip::Update(float deltaTime) {
 			spriteToAnimate.setTextureRect(intRect);
 		}
 	}
-	
 }
 
 //Play animation method

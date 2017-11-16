@@ -34,8 +34,6 @@ namespace BC {
 		//Returns the name of the animation
 		std::string GetName();
 
-		//To set animation playing state
-		bool isPlaying;
 	private:
 		//Name of animation
 		std::string animationName;
@@ -65,7 +63,8 @@ namespace BC {
 		//To set if to animate in one row
 		int oneRowCount;
 
-		
+		//To set animation playing state
+		bool isPlaying;
 	};
 }
 

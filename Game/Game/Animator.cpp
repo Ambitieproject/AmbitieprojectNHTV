@@ -22,7 +22,7 @@ void Animator::Start() {
 		BC::AnimationClip* animationClip = dynamic_cast<BC::AnimationClip*>(it->second);
 
 		if (animationClip) {
-			Animations.push_back(*animationClip);
+			Animations.push_back(animationClip);
 		}
 	}
 }
@@ -36,14 +36,14 @@ void Animator::Update(float deltaTime) {
 AnimationClip* Animator::PlayAnimation(std::string animationName) {
 	
 	if (currentAnimationClip != nullptr) {
-		currentAnimationClip->isPlaying = false;
+		currentAnimationClip->Stop();
 	}
 	
 	//For length of components
 	//Play animation, set pointer and return
 	for (auto it = Animations.begin(); it != Animations.end(); it++) {
-		if (it->GetName() == animationName) {
-			currentAnimationClip = &it._Ptr->_Myval;
+		if (it._Ptr->_Myval->GetName() == animationName) {
+			currentAnimationClip = it._Ptr->_Myval;
 			currentAnimationClip->Play();
 			return currentAnimationClip;
 		}

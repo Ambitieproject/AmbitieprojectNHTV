@@ -1,18 +1,2 @@
-﻿  Animator.cpp
-  Generating Code...
-  Compiling...
-  AnimationClip.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Sprite.cpp
-  GameObject.cpp
-  ExampleScene2.cpp
-  SceneManager.cpp
-  Scene.cpp
-  Renderer.cpp
-  Main.cpp
-  Input.cpp
-  Game.cpp
-  ExampleScene.cpp
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+﻿  Collider.cpp
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\collider.cpp(5): error C2530: 'BC::Collider::sprite': references must be initialized

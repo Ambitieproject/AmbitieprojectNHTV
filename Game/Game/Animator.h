@@ -35,9 +35,9 @@ namespace BC {
 
 	private:
 		//All animations list
-		std::list<AnimationClip> Animations;
+		std::list<AnimationClip*> Animations;
 
 		//Current animation
-		AnimationClip* currentAnimationClip;
+		AnimationClip* currentAnimationClip = nullptr;
 	};
 }

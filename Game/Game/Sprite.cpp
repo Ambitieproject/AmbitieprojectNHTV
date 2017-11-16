@@ -36,6 +36,11 @@ void Sprite::SetPosition(float x, float y) {
 	sprite.setPosition(x, y);
 }
 
+//Set scale of sprite
+void BC::Sprite::SsetScale(float x, float y) {
+	sprite.setScale(x, y);
+}
+
 //Gets the sprite variable
 sf::Sprite& Sprite::GetSprite() {
 	return sprite;

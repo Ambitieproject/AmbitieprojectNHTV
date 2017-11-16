@@ -11,6 +11,11 @@ Component::~Component() {
 
 }
 
+//Awake method of this comopnent
+void Component::Awake() {
+
+}
+
 //Start method of this component
 void Component::Start() {
 

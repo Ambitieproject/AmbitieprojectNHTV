@@ -46,6 +46,12 @@
     <Filter Include="JEngine\Components\Animation">
       <UniqueIdentifier>{71c079a9-e79a-4651-8de8-60192140182f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Components\Collider">
+      <UniqueIdentifier>{44820384-3be4-4a1c-a67d-86462d4014e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Collider\Box">
+      <UniqueIdentifier>{4dff2ff6-49d8-45bd-9b7b-9b24a7cd6de2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -88,6 +94,9 @@
       <Filter>JEngine\Components\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Animator.cpp">
+      <Filter>JEngine\Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -132,6 +141,9 @@
       <Filter>JEngine\Components\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Animator.h">
+      <Filter>JEngine\Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

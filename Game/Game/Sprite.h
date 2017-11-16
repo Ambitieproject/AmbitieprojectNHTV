@@ -25,6 +25,8 @@ namespace BC {
 		void SetFillScale(int x, int y);
 		//Set position of sprite method
 		void SetPosition(float x, float y);
+		//Set scale of sprite
+		void SsetScale(float x, float y);
 
 		//Gets the sprite variable
 		sf::Sprite& GetSprite();

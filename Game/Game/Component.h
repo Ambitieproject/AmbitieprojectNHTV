@@ -14,6 +14,8 @@ public:
 	//Destructor
 	virtual ~Component();
 
+	//Awake method of this comopnent
+	virtual void Awake();
 	//Start method of this component
 	virtual void Start();
 	//Update method of this component
