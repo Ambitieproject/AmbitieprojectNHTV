@@ -1,2 +1,6 @@
-﻿  Collider.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\collider.cpp(5): error C2530: 'BC::Collider::sprite': references must be initialized
+﻿  ExampleScene.cpp
+  BoxCollider.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.cpp(25): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

@@ -17,16 +17,22 @@ public:
 	void Update(float deltaTime);
 
 private:
-	GameObject gameObject1 = GameObject("TextObject", *this);
+	GameObject gameObject1 = GameObject("TestObject", *this);
 
-	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png", false);
-	BC::Sprite hero = BC::Sprite("../Assets/kel.png", false);
+	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png");
+	BC::BoxCollider boxColliderTrump = BC::BoxCollider(trump);
+
+	BC::Sprite trump2 = BC::Sprite("../Assets/kel.png");
+	BC::BoxCollider boxColliderTrump2 = BC::BoxCollider(trump2);
+
+	BC::Sprite hero = BC::Sprite("../Assets/kel.png");
+	BC::BoxCollider boxColliderHero = BC::BoxCollider(hero);
 
 	BC::Animator animator = BC::Animator();
 	bool setAnims = false;
 
-	BC::AnimationClip forwardWalkAnim = BC::AnimationClip("backWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump.GetSprite(), 0);
-	BC::AnimationClip backWalkAnim = BC::AnimationClip("forwardWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump.GetSprite(), 2);
-	BC::AnimationClip rightWalkAnim = BC::AnimationClip("rightWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump.GetSprite(), 1);
-	BC::AnimationClip leftWalkAnim = BC::AnimationClip("leftWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump.GetSprite(), 3);
+	BC::AnimationClip forwardWalkAnim = BC::AnimationClip("backWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 0);
+	BC::AnimationClip backWalkAnim = BC::AnimationClip("forwardWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 2);
+	BC::AnimationClip rightWalkAnim = BC::AnimationClip("rightWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 1);
+	BC::AnimationClip leftWalkAnim = BC::AnimationClip("leftWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 3);
 };

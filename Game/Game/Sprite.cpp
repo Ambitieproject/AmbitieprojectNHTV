@@ -4,11 +4,11 @@
 using namespace BC;
 
 //Constructor with values to be added for a Sprite to be created
-Sprite::Sprite(std::string _pathToSPrite, bool _isStatic) {
+Sprite::Sprite(std::string _pathToSPrite) {
 	//Load texture from a file path
 	texture.loadFromFile(_pathToSPrite);
 	//Set texture to sprite 
-	sprite.setTexture(texture);
+	setTexture(texture);
 }
 
 //Destructor
@@ -26,27 +26,7 @@ void Sprite::Update(float deltaTime) {
 	Component::Update(deltaTime);
 }
 
-//SetFillScale Method that fills the scale of the sprite
-void Sprite::SetFillScale(int x, int y) {
-	sprite.setTextureRect(sf::IntRect(0, 0, x, y));
-}
-
-//Set position of sprite method
-void Sprite::SetPosition(float x, float y) {
-	sprite.setPosition(x, y);
-}
-
-//Set scale of sprite
-void BC::Sprite::SsetScale(float x, float y) {
-	sprite.setScale(x, y);
-}
-
-//Gets the sprite variable
-sf::Sprite& Sprite::GetSprite() {
-	return sprite;
-}
-
 //Gets the texture variable
-sf::Texture& Sprite::GetTexture() {
+sf::Texture & BC::Sprite::GetTexture() {
 	return texture;
 }

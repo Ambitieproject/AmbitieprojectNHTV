@@ -87,6 +87,7 @@ bool Input::GetKeyDown(sf::Keyboard::Key key) {
 	if (sf::Keyboard::isKeyPressed(key)) {
 		return true;
 	}
+	return false;
 }
 
 //Key released method, returns the key released state
@@ -126,6 +127,7 @@ bool Input::GetAnyKeyDown() {
 	if (!keyPressed) {
 		return false;
 	}
+	return false;
 }
 
 //Any key released method, checks for any input from keyboard

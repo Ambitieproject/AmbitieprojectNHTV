@@ -97,7 +97,10 @@
       <Filter>JEngine\Components\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>JEngine\Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>JEngine\Components\Collider\Box</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +147,10 @@
       <Filter>JEngine\Components\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Header Files</Filter>
+      <Filter>JEngine\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>JEngine\Components\Collider\Box</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

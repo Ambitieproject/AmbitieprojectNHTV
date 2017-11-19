@@ -17,6 +17,13 @@ AnimationClip::AnimationClip(std::string animationName, std::string pathToSprite
 	currentImageCoordinates.y = oneRowCount;
 
 	isPlaying = false;
+
+	//Set left and top of rect to be the same as the selected image multiplied by its width and height
+	intRect.left = currentImageCoordinates.x * intRect.width;
+	intRect.top = currentImageCoordinates.y * intRect.height;
+
+	//Set the texture rect to the sprite its texture
+	spriteToAnimate.setTextureRect(intRect);
 }
 
 //Destructor

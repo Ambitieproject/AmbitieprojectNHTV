@@ -1,19 +1,25 @@
 #pragma once
 
 #include <iostream>
-#include <map>
+#include <list>
 
 #include "Sprite.h"
 
 using namespace BC;
 
-//Namespace Base Component
+enum ColliderObjectType {
+	Sprite,
+	Shape,
+	Text,
+	None
+};
+
 namespace BC {
 	//Base collider class
 	class Collider : public Component {
 	public:
 		//Constructor with values to be added for a Collider to be created
-		Collider();
+		Collider(const sf::Transformable& transfrom);
 		//Destructor
 		~Collider();
 
@@ -22,17 +28,30 @@ namespace BC {
 		//Override Update method from base Component class
 		void Update(float deltaTime);
 
+		//Finds all the colliders in the scene
 		void FindCollideableObjects();
 
-		///getters
-		Sprite& GetSprite();
+		//Gets the object attached to this collider
+		const sf::Transformable& GetCollideObject();
 
-	public:
-		std::map<int, Collider&> collideableObjects;
-		int collideableObjectsIndex;
+		//Local collide transform variable
+		const sf::Transformable& Transformable;
+
+		ColliderObjectType& GetColliderObjectType();
+
+		const sf::Sprite& GetSpriteCast();
+
+		//Map of all the collideable objects in the scene
+		std::list<Collider*> CollideableObjects;
+
+		bool IsColliding;
+
+		Collider* collidingObject;
 
 	private:
-		Sprite& sprite;
+		ColliderObjectType colliderObjectType;
+
+		const sf::Sprite* spriteCast = nullptr;
 	};
 };
 
