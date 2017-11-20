@@ -25,6 +25,9 @@ public:
 	//Bool to determine if component is enabled
 	bool Enabled;
 
+	//Index of component in GameObject
+	int GameObjectLayerIndex;
+
 	//Pointer to the Component's GameObject
 	GameObject* GameObject = nullptr;
 };

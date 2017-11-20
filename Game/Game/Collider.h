@@ -7,6 +7,7 @@
 
 using namespace BC;
 
+//enum that holds different types of objects a colliding type can be
 enum ColliderObjectType {
 	Sprite,
 	Shape,
@@ -14,14 +15,19 @@ enum ColliderObjectType {
 	None
 };
 
+//Collider data struct that holds collider data for every colliding object
 struct ColliderData {
 public:
+	//Constructor
 	ColliderData(bool beginOverlap, bool endOverlap) : BeginOverlap(beginOverlap), EndOverlap(EndOverlap) {}
 
+	//Begin overlap callback bool
 	bool BeginOverlap;
+	//End overlap callback bool
 	bool EndOverlap;
 };
 
+//Namespace Base Component
 namespace BC {
 	//Base collider class
 	class Collider : public Component {
@@ -40,25 +46,29 @@ namespace BC {
 		void FindCollideableObjects();
 
 		//Gets the object attached to this collider
-		const sf::Transformable& GetCollideObject();
+		const sf::Transformable& GetCollidingObject();
 
-		//Local collide transform variable
-		const sf::Transformable& Transformable;
-
+		//Gets the collider type of the colliding object
 		ColliderObjectType& GetColliderObjectType();
 
+		//Gets the casted sprite type of the collider object
 		const sf::Sprite& GetSpriteCast();
+
+	public:
+		//Local collide transform variable
+		const sf::Transformable& Transformable;
 
 		//Map of all the collideable objects in the scene
 		std::map<Collider*, ColliderData*> CollideableObjects;
 
-		bool IsColliding;
-
+		//Colliding object pointer
 		Collider* collidingObject;
 
 	private:
+		//Enum that holds the type of the colliding object
 		ColliderObjectType colliderObjectType;
 
+		//The casted sprite type pointer of the colliding object
 		const sf::Sprite* spriteCast = nullptr;
 	};
 };

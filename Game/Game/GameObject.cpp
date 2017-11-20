@@ -13,12 +13,16 @@ GameObject::GameObject(std::string name, Scene& scene) : Name(name), scene(scene
 
 //Destructor
 GameObject::~GameObject() {
-
+	//For every Component on this GameObject
+	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+		//Destruct the component
+		objects->second->~Component();
+	}
 }
 
 //Start method of GameObject
 void GameObject::Start() {
-	//For every Component in the scene
+	//For every Component on this GameObject
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active
 		if (objects->second->Enabled) {
@@ -29,7 +33,8 @@ void GameObject::Start() {
 
 //Update method of GameObject
 void GameObject::Update(float deltaTime) {
-	//For every Component in the scene
+	std::cout << "Running update of object" << Name << std::endl;
+	//For every Component on this GameObject
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active
 		if (objects->second->Enabled) {
@@ -42,13 +47,15 @@ void GameObject::Update(float deltaTime) {
 void GameObject::AddComponent(Component* component) {
 	//Insert component as a pair into the component map
 	Components.insert(std::pair<int, Component*>(componentIndex, component));
+	//Set Component layer index
+	component->GameObjectLayerIndex = componentIndex;
 	//Increase component index
 	componentIndex++;
 	//Set component's GameObject value to be equal to this GameObject
 	component->GameObject = this;
 }
 
-
+//Gets the current Scene where this GameObject lives in
 Scene & GameObject::GetScene() {
 	return scene;
 }

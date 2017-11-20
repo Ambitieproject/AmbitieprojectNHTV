@@ -45,10 +45,11 @@ void ExampleScene::Start() {
 	trump.setPosition(100, 10);
 
 	trump2.setScale(0.1f, 0.1f);
-	trump2.setPosition(400, 10);
+	trump2.setPosition(280, 10);
 
 	hero.setScale(0.1f, 0.1f);
 	hero.setPosition(100, 300);
+
 }
 
 void ExampleScene::Update(float deltaTime) {
@@ -60,6 +61,8 @@ void ExampleScene::Update(float deltaTime) {
 
 	if (colBegin) {
 		std::cout << "Begin " << colBegin->GameObject->Name << std::endl;
+		GameObject gameOBJ = GameObject("BOEM", *this);
+		DestroyComponent(colBegin);
 	}
 	if (colStay) {
 		//std::cout << "Stay" << std::endl;

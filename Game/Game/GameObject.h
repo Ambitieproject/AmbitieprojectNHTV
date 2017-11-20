@@ -47,20 +47,24 @@ public:
 	//bool for getting and setting active state of this gameobject
 	bool Active;
 
+	//GameObject layer index
+	int GameObjectSceneIndex;
+
 private:
 	//Current scene where this gameobject lives in
 	Scene& scene;
 
 	//Index of how much components this gameobject has
 	int componentIndex;
-
 };
 
 template<class component>
 inline component* GameObject::GetComponent() {
+	//For Component size of map
 	for (int i = 0; i < Components.size(); i++) {
+		//Try to dynamic cast input template to a Component
 		component* comp = dynamic_cast<component*>(Components[i]);
-
+		//If cast is correctly casted then return the Component
 		if (comp) {
 			return comp;
 		}
@@ -69,18 +73,20 @@ inline component* GameObject::GetComponent() {
 }
 
 template<class component>
-inline std::vector<component*> GameObject::GetComponents()
-{
+inline std::vector<component*> GameObject::GetComponents() {
+	//Make empty vector of Component pointers
 	std::vector<component*> components;
 
+	//For Component size of map
 	for (int i = 0; i < Components.size(); i++) {
+		//Try to dynamic cast input template to a Component
 		component* comp = dynamic_cast<component*>(Components[i]);
 
+		//If cast is correctly casted then add to Component vector
 		if (comp) {
 			components.push_back(comp);
 		}
 	}
-
+	//Return the vector
 	return components;
 }
-
