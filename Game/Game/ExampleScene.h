@@ -17,7 +17,10 @@ public:
 	void Update(float deltaTime);
 
 private:
-	GameObject gameObject1 = GameObject("TestObject", *this);
+	GameObject trumpObject = GameObject("trump", *this);
+	GameObject trump2Object = GameObject("trump2", *this);
+
+	GameObject heroObject = GameObject("hero", *this);
 
 	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png");
 	BC::BoxCollider boxColliderTrump = BC::BoxCollider(trump);

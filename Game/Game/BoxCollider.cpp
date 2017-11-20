@@ -33,15 +33,20 @@ void BoxCollider::Update(float deltaTime) {
 }
 
 Collider* BoxCollider::OnBeginOverlap() {
-	if (!IsColliding) {
-		for (auto it = CollideableObjects.begin(); it != CollideableObjects.end(); it++) {
-			BoxCollider* boxCol = dynamic_cast<BoxCollider*>(it._Ptr->_Myval);
+	for (auto it = CollideableObjects.begin(); it != CollideableObjects.end(); it++) {
+		BoxCollider* boxCol = dynamic_cast<BoxCollider*>(it->first);
 
-			if (boxCol) {
+		if (boxCol) {
+			if (!it->second->BeginOverlap) {
 				if (boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
-					IsColliding = true;
-					collidingObject = it._Ptr->_Myval;
-					return it._Ptr->_Myval;
+					it->second->BeginOverlap = true;
+					return it->first;
+				}
+			}	
+			else {
+				if (!boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
+					it->second->BeginOverlap = false;
+					return nullptr;
 				}
 			}
 		}
@@ -52,11 +57,11 @@ Collider* BoxCollider::OnBeginOverlap() {
 
 Collider* BoxCollider::OnStayOverlap() {
 	for (auto it = CollideableObjects.begin(); it != CollideableObjects.end(); it++) {
-		BoxCollider* boxCol = dynamic_cast<BoxCollider*>(it._Ptr->_Myval);
+		BoxCollider* boxCol = dynamic_cast<BoxCollider*>(it->first);
 
 		if (boxCol) {
 			if (boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
-				return it._Ptr->_Myval;
+				return it->first;
 			}
 		}
 	}
@@ -65,20 +70,25 @@ Collider* BoxCollider::OnStayOverlap() {
 }
 
 Collider* BoxCollider::OnEndOverlap() {
-	if (IsColliding) {
-		BoxCollider* boxCol = dynamic_cast<BoxCollider*>(collidingObject);
+	for (auto it = CollideableObjects.begin(); it != CollideableObjects.end(); it++) {
+		BoxCollider* boxCol = dynamic_cast<BoxCollider*>(it->first);
 
-		if (!boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
-			IsColliding = false;
-			return collidingObject;
+		if (boxCol) {
+			if (!it->second->EndOverlap) {
+				if (!boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
+					it->second->EndOverlap = true;
+					return it->first;
+				}
+			}
+			else {
+				if (boxCol->boxCollider.getGlobalBounds().intersects(this->boxCollider.getGlobalBounds())) {
+					it->second->EndOverlap = false;
+					return nullptr;
+				}
+			}
 		}
+	}
 
-		return nullptr;
-	}
-	else {
-		OnBeginOverlap();
-		return nullptr;
-	}
 	return nullptr;
 }
 

@@ -1,6 +1,15 @@
 ﻿  ExampleScene.cpp
-  BoxCollider.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.cpp(25): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
   Generating Code...
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Compiling...
+  SceneManager.cpp
+  Scene.cpp
+  Renderer.cpp
+  Main.cpp
+  Input.cpp
+  Game.cpp
+  Collider.cpp
+  Generating Code...
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(113): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(127): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

@@ -20,23 +20,21 @@ void ExampleScene::Awake() {
 
 	std::cout << "Example scene 1 awake function runnning" << std::endl;
 
-	gameObject1.AddComponent(&trump);
-	gameObject1.AddComponent(&boxColliderTrump);
+	trumpObject.AddComponent(&trump);
+	trumpObject.AddComponent(&boxColliderTrump);
 
-	gameObject1.AddComponent(&trump2);
-	gameObject1.AddComponent(&boxColliderTrump2);
+	trump2Object.AddComponent(&animator);
 
-	gameObject1.AddComponent(&hero);
-	gameObject1.AddComponent(&boxColliderHero);
+	trump2Object.AddComponent(&forwardWalkAnim);
+	trump2Object.AddComponent(&backWalkAnim);
+	trump2Object.AddComponent(&rightWalkAnim);
+	trump2Object.AddComponent(&leftWalkAnim);
 
-	gameObject1.AddComponent(&animator);
+	trump2Object.AddComponent(&trump2);
+	trump2Object.AddComponent(&boxColliderTrump2);
 
-	gameObject1.AddComponent(&forwardWalkAnim);
-	gameObject1.AddComponent(&backWalkAnim);
-	gameObject1.AddComponent(&rightWalkAnim);
-	gameObject1.AddComponent(&leftWalkAnim);
-
-
+	heroObject.AddComponent(&hero);
+	heroObject.AddComponent(&boxColliderHero);
 }
 
 void ExampleScene::Start() {
@@ -47,7 +45,7 @@ void ExampleScene::Start() {
 	trump.setPosition(100, 10);
 
 	trump2.setScale(0.1f, 0.1f);
-	trump2.setPosition(200, 10);
+	trump2.setPosition(400, 10);
 
 	hero.setScale(0.1f, 0.1f);
 	hero.setPosition(100, 300);
@@ -56,14 +54,18 @@ void ExampleScene::Start() {
 void ExampleScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
 
-	if (boxColliderHero.OnBeginOverlap()) {
-		std::cout << "Begin" << std::endl;
+	BC::Collider* colBegin = boxColliderHero.OnBeginOverlap();
+	BC::Collider* colStay = boxColliderHero.OnStayOverlap();
+	BC::Collider* colEnd = boxColliderHero.OnEndOverlap();
+
+	if (colBegin) {
+		std::cout << "Begin " << colBegin->GameObject->Name << std::endl;
 	}
-	if (boxColliderHero.OnStayOverlap()) {
-		std::cout << "Stay" << std::endl;
+	if (colStay) {
+		//std::cout << "Stay" << std::endl;
 	}
-	if (boxColliderHero.OnEndOverlap()) {
-		std::cout << "End" << std::endl;
+	if (colEnd) {
+		std::cout << "End " << colEnd->GameObject->Name << std::endl;
 	}
 
 	if (Input::GetKeyDown(sf::Keyboard::A)) {

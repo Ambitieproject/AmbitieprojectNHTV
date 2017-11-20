@@ -30,16 +30,20 @@ void Collider::Update(float deltaTime) {
 	FindCollideableObjects();
 }
 
-void Collider::FindCollideableObjects() {
-	CollideableObjects.clear();
-	
+void Collider::FindCollideableObjects() {	
 	for (auto it = SceneManager::GetActiveScene().GameObjects.begin(); it != SceneManager::GetActiveScene().GameObjects.end(); it++) {
 		for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
 			Collider* collider = dynamic_cast<Collider*>(it2->second);
 
 			if (collider) {
 				if (collider != this) {
-					CollideableObjects.push_back(collider);
+					std::map<Collider*, ColliderData*>::iterator it;
+					//std::cout << CollideableObjects.size() << std::endl;
+					it = CollideableObjects.find(collider);
+					if (it == CollideableObjects.end()) {
+						ColliderData* colData = new ColliderData(false, false);
+						CollideableObjects.insert(std::pair<Collider*, ColliderData*>(collider, colData));
+					}
 				}
 			}
 		}

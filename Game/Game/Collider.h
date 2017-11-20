@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <list>
+#include <map>
 
 #include "Sprite.h"
 
@@ -12,6 +12,14 @@ enum ColliderObjectType {
 	Shape,
 	Text,
 	None
+};
+
+struct ColliderData {
+public:
+	ColliderData(bool beginOverlap, bool endOverlap) : BeginOverlap(beginOverlap), EndOverlap(EndOverlap) {}
+
+	bool BeginOverlap;
+	bool EndOverlap;
 };
 
 namespace BC {
@@ -42,7 +50,7 @@ namespace BC {
 		const sf::Sprite& GetSpriteCast();
 
 		//Map of all the collideable objects in the scene
-		std::list<Collider*> CollideableObjects;
+		std::map<Collider*, ColliderData*> CollideableObjects;
 
 		bool IsColliding;
 
