@@ -7,3 +7,6 @@
 
 #include "Animator.h"
 #include "AnimationClip.h"
+
+#include "Font.h"
+#include "Text.h"

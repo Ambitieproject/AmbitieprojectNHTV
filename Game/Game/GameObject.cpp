@@ -33,7 +33,6 @@ void GameObject::Start() {
 
 //Update method of GameObject
 void GameObject::Update(float deltaTime) {
-	std::cout << "Running update of object" << Name << std::endl;
 	//For every Component on this GameObject
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active

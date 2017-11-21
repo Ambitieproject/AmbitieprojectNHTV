@@ -13,6 +13,16 @@ Collider::Collider(const sf::Transformable& transform) : Transformable(transform
 	if (spriteCast) {
 		colliderObjectType = ColliderObjectType::Sprite;
 	}
+	else {
+		//Dynamic casting
+		textCast = dynamic_cast<const sf::Text*>(&transform);
+
+		//If dynamic casting then set colliderObjectType
+		if (textCast) {
+			colliderObjectType = ColliderObjectType::Text;
+		}
+	}
+	
 }
 
 //Destructor
@@ -75,4 +85,9 @@ ColliderObjectType& Collider::GetColliderObjectType() {
 //Gets the collider type of the colliding object
 const sf::Sprite& Collider::GetSpriteCast() {
 	return *spriteCast;
+}
+
+//Gets the casted text type of the collider object
+const sf::Text& Collider::GetTextCast() {
+	return *textCast;
 }

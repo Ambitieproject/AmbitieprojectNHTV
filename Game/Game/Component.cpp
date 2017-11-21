@@ -8,7 +8,7 @@ Component::Component() {
 
 //Destructor
 Component::~Component() {
-
+	std::cout << "destruct component" << std::endl;
 }
 
 //Awake method of this comopnent

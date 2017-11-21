@@ -35,6 +35,10 @@ void ExampleScene::Awake() {
 
 	heroObject.AddComponent(&hero);
 	heroObject.AddComponent(&boxColliderHero);
+
+	textObject.AddComponent(&font);
+	textObject.AddComponent(&text);
+	textObject.AddComponent(&boxColliderText);
 }
 
 void ExampleScene::Start() {
@@ -50,6 +54,8 @@ void ExampleScene::Start() {
 	hero.setScale(0.1f, 0.1f);
 	hero.setPosition(100, 300);
 
+	text.setPosition(50, 200);
+
 }
 
 void ExampleScene::Update(float deltaTime) {
@@ -61,7 +67,6 @@ void ExampleScene::Update(float deltaTime) {
 
 	if (colBegin) {
 		std::cout << "Begin " << colBegin->GameObject->Name << std::endl;
-		GameObject gameOBJ = GameObject("BOEM", *this);
 		DestroyComponent(colBegin);
 	}
 	if (colStay) {

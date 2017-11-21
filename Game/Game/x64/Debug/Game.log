@@ -1,1 +1,21 @@
-﻿sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
+﻿  SceneManager.cpp
+  Scene.cpp
+  Game.cpp
+  Main.cpp
+  Window.cpp
+  Sprite.cpp
+  Renderer.cpp
+  Input.cpp
+  GameObject.cpp
+  ExampleScene2.cpp
+  ExampleScene.cpp
+  Component.cpp
+  Collider.cpp
+  BoxCollider.cpp
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.cpp(28): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Animator.cpp
+  AnimationClip.cpp
+  Generating Code...
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(113): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(127): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'

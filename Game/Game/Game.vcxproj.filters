@@ -52,6 +52,12 @@
     <Filter Include="JEngine\Components\Collider\Box">
       <UniqueIdentifier>{4dff2ff6-49d8-45bd-9b7b-9b24a7cd6de2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Components\Graphics\Text">
+      <UniqueIdentifier>{bc39bb39-64fe-45dd-8fd3-55dda4b717f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Graphics\Font">
+      <UniqueIdentifier>{8a965539-cbca-463c-ba64-2e09bace05cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -102,6 +108,12 @@
     <ClCompile Include="BoxCollider.cpp">
       <Filter>JEngine\Components\Collider\Box</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>JEngine\Components\Graphics\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>JEngine\Components\Graphics\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -151,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
       <Filter>JEngine\Components\Collider\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>JEngine\Components\Graphics\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>JEngine\Components\Graphics\Text</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -53,11 +53,10 @@ namespace BC {
 
 		//Gets the casted sprite type of the collider object
 		const sf::Sprite& GetSpriteCast();
+		//Gets the casted text type of the collider object
+		const sf::Text& GetTextCast();
 
 	public:
-		//Local collide transform variable
-		const sf::Transformable& Transformable;
-
 		//Map of all the collideable objects in the scene
 		std::map<Collider*, ColliderData*> CollideableObjects;
 
@@ -65,11 +64,16 @@ namespace BC {
 		Collider* collidingObject;
 
 	private:
+		//Local collide transform variable
+		const sf::Transformable& Transformable;
+
 		//Enum that holds the type of the colliding object
 		ColliderObjectType colliderObjectType;
 
 		//The casted sprite type pointer of the colliding object
 		const sf::Sprite* spriteCast = nullptr;
+		//The casted text type pointer of the colliding object
+		const sf::Text* textCast = nullptr;
 	};
 };
 

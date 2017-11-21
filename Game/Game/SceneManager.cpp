@@ -162,6 +162,12 @@ void SceneManager::RenderCurrentScene() {
 					if (boxCollider) {
 						renderer->Draw(boxCollider->GetBoxCollider());
 					}
+
+					BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
+
+					if (text) {
+						renderer->Draw(*text);
+					}
 				}
 			}
 		}

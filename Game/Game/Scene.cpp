@@ -59,7 +59,6 @@ void Scene::AddToGameObjectList(GameObject* gameObject) {
 	GameObjects.insert(std::pair<int, GameObject*>(gameObjectLayerIndex, gameObject));
 	gameObject->GameObjectSceneIndex = gameObjectLayerIndex;
 	gameObjectLayerIndex++;
-	std::cout << "asdfaaf" << std::endl;
 }
 
 //Destroys a specified GameObject
@@ -90,7 +89,6 @@ bool Scene::DestroyComponent(Component* component) {
 
 	//Bool to determine if component is found
 	bool found = false;
-
 	//For length of GameObjects map size
 	for (auto it2 = GameObjects.begin(); it2 != GameObjects.end(); it2++) {
 		//If found is still false / not found

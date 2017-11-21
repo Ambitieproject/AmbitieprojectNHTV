@@ -1,5 +1,14 @@
 ﻿  Scene.cpp
-  GameObject.cpp
+  Component.cpp
+  Collider.cpp
   Generating Code...
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Skipping... (no relevant changes detected)
+  SceneManager.cpp
+  Renderer.cpp
+  Main.cpp
+  Input.cpp
+  Game.cpp
+  ExampleScene.cpp
+  BoxCollider.cpp
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
