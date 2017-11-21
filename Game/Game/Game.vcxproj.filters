@@ -58,6 +58,15 @@
     <Filter Include="JEngine\Components\Graphics\Font">
       <UniqueIdentifier>{8a965539-cbca-463c-ba64-2e09bace05cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Components\Audio">
+      <UniqueIdentifier>{02c20e2b-10bb-476f-a2d9-aceb6b0e9b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Audio\Sound">
+      <UniqueIdentifier>{7d17ddb5-079a-4640-a6a5-c3ffea1883e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Components\Audio\Music">
+      <UniqueIdentifier>{e7da237c-e0e4-4e1f-b2d6-b8a15d4e5874}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -114,6 +123,12 @@
     <ClCompile Include="Text.cpp">
       <Filter>JEngine\Components\Graphics\Text</Filter>
     </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>JEngine\Components\Audio\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>JEngine\Components\Audio\Music</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -169,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>JEngine\Components\Graphics\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>JEngine\Components\Audio\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>JEngine\Components\Audio\Music</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

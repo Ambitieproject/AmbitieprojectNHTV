@@ -10,3 +10,6 @@
 
 #include "Font.h"
 #include "Text.h"
+
+#include "Sound.h"
+#include "Music.h"

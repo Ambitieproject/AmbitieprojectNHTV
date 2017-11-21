@@ -25,6 +25,9 @@ void ExampleScene::Awake() {
 
 	trump2Object.AddComponent(&animator);
 
+	hero2Object.AddComponent(&hero2);
+	hero2Object.AddComponent(&boxColliderHero2);
+
 	trump2Object.AddComponent(&forwardWalkAnim);
 	trump2Object.AddComponent(&backWalkAnim);
 	trump2Object.AddComponent(&rightWalkAnim);
@@ -39,6 +42,8 @@ void ExampleScene::Awake() {
 	textObject.AddComponent(&font);
 	textObject.AddComponent(&text);
 	textObject.AddComponent(&boxColliderText);
+
+	textObject.AddComponent(&sound);
 }
 
 void ExampleScene::Start() {
@@ -54,6 +59,9 @@ void ExampleScene::Start() {
 	hero.setScale(0.1f, 0.1f);
 	hero.setPosition(100, 300);
 
+	hero2.setScale(0.1f, 0.1f);
+	hero2.setPosition(300, 300);
+
 	text.setPosition(50, 200);
 
 }
@@ -67,7 +75,7 @@ void ExampleScene::Update(float deltaTime) {
 
 	if (colBegin) {
 		std::cout << "Begin " << colBegin->GameObject->Name << std::endl;
-		DestroyComponent(colBegin);
+		DestroyGameObject(colBegin->GameObject);
 	}
 	if (colStay) {
 		//std::cout << "Stay" << std::endl;

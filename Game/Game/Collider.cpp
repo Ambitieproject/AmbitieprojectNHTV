@@ -27,7 +27,7 @@ Collider::Collider(const sf::Transformable& transform) : Transformable(transform
 
 //Destructor
 Collider::~Collider() {
-
+	std::cout << "bier " << GameObject->Name << std::endl;
 }
 
 //Override Start method from base Component class

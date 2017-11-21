@@ -67,7 +67,7 @@ bool Scene::DestroyGameObject(GameObject* gameObject) {
 	std::map<int, GameObject*>::iterator it;
 	it = GameObjects.find(gameObject->GameObjectSceneIndex);
 
-	//If found destruct it else cout message
+	//If found destruct and erase it else cout message
 	if (it != GameObjects.end()) {
 		GameObjects.erase(it);
 		gameObject->~GameObject();
@@ -83,35 +83,33 @@ bool Scene::DestroyGameObject(GameObject* gameObject) {
 
 //Destroys a specified Component
 bool Scene::DestroyComponent(Component* component) {
-	//Make iterator and try to find the Component 
-	//while going through all the GameObject's Component map
-	std::map<int, Component*>::iterator it;
-
 	//Bool to determine if component is found
 	bool found = false;
+	//Component pointer to set component to
+	Component* comp;
 	//For length of GameObjects map size
-	for (auto it2 = GameObjects.begin(); it2 != GameObjects.end(); it2++) {
-		//If found is still false / not found
-		if (!found) {
-			//Set iterator to find component in map
-			it = it2->second->Components.find(component->GameObjectLayerIndex);
-
-			//If found set found to true 
-			if (it != it2->second->Components.end()) {
-				found = true;
+	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
+		//For length of Components in a GameObject map size
+		for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
+			//Set Component if it is not yet found
+			if (!found) {
+				if (it2->second == component) {
+					comp = it2->second;
+					found = true;
+				}
 			}
 		}
 	}
-
 	//If found deconstruct Component else cout and return false
 	if (found) {
-		it->second->~Component();
+		comp->~Component();
 		return true;
 	}
 	else {
 		std::cout << "Could not delete Component " << component << std::endl;
 		return false;
 	}
+
 }
 
 //Finds a GameObject by name

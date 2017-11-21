@@ -22,6 +22,8 @@ private:
 	GameObject heroObject = GameObject("hero", *this);
 	GameObject textObject = GameObject("textObject", *this);
 
+	GameObject hero2Object = GameObject("hero2", *this);
+
 	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png");
 	BC::BoxCollider boxColliderTrump = BC::BoxCollider(trump);
 
@@ -31,12 +33,17 @@ private:
 	BC::Sprite hero = BC::Sprite("../Assets/kel.png");
 	BC::BoxCollider boxColliderHero = BC::BoxCollider(hero);
 
+	BC::Sprite hero2 = BC::Sprite("../Assets/kel.png");
+	BC::BoxCollider boxColliderHero2 = BC::BoxCollider(hero2);
+
 	BC::Animator animator = BC::Animator();
 	bool setAnims = false;
 
 	BC::Font font = BC::Font("../Assets/Heroes Legend.ttf");
 	BC::Text text = BC::Text(&font);
 	BC::BoxCollider boxColliderText = BC::BoxCollider(text);
+
+	BC::Sound sound = BC::Sound("../Assets/sound.wav");
 
 	BC::AnimationClip forwardWalkAnim = BC::AnimationClip("backWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 0);
 	BC::AnimationClip backWalkAnim = BC::AnimationClip("forwardWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 2);
