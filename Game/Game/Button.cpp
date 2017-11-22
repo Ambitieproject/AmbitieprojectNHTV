@@ -13,14 +13,14 @@ Button::Button(std::string normalImagePath, std::string hoveredImagePath, std::s
 	if (pressedImagePath != "") {
 		pressedTexture.loadFromFile(pressedImagePath);
 	}
-	std::cout << pressedImagePath << std::endl;
-	currentButtonSpriteImage = new Sprite(normalImagePath);
+
+	currentButtonSpriteImage.setTexture(normalTexture);
 	isClicked = false;
 }
 
 //Destructor
 Button::~Button() {
-	delete currentButtonSpriteImage;
+
 }
 
 void Button::Start() {
@@ -32,24 +32,35 @@ void Button::Update(float deltaTime) {
 
 	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
 
-	if (currentButtonSpriteImage->getLocalBounds().contains(mousePos)) {
+	if (currentButtonSpriteImage.getGlobalBounds().contains(mousePos)) {
 		if (Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
-			currentButtonSpriteImage->setTexture(pressedTexture);
+			currentButtonSpriteImage.setTexture(pressedTexture);
 		}
 		else {
-			currentButtonSpriteImage->setTexture(hoveredTexture);
+			currentButtonSpriteImage.setTexture(hoveredTexture);
 		}
 		
 	}
 	else {
-		currentButtonSpriteImage->setTexture(normalTexture);
+		if (!Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
+			currentButtonSpriteImage.setTexture(normalTexture);
+		}
+	}
+
+	if (Input::GetMouseKeyUp(sf::Mouse::Button::Left)) {
+		if (currentButtonSpriteImage.getTexture() == &pressedTexture) {
+			isClicked = true;
+			OnClicked();
+			currentButtonSpriteImage.setTexture(normalTexture);
+		}
 	}
 }
 
-bool BC::Button::OnClicked() {
+bool Button::OnClicked() {
 	return isClicked;
+	std::cout << "is clicked" << std::endl;
 }
 
-Sprite& Button::GetCurrentButtonSprite() {
-	return *currentButtonSpriteImage;
+sf::Sprite& Button::GetCurrentButtonSprite() {
+	return currentButtonSpriteImage;
 }

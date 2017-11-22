@@ -22,14 +22,14 @@ namespace BC {
 
 		bool OnClicked();
 
-		Sprite& GetCurrentButtonSprite();
+		sf::Sprite& GetCurrentButtonSprite();
 
 	private:
 		sf::Texture normalTexture;
 		sf::Texture hoveredTexture;
 		sf::Texture pressedTexture;
 
-		Sprite* currentButtonSpriteImage;
+		sf::Sprite currentButtonSpriteImage;
 
 		bool isClicked;
 	};

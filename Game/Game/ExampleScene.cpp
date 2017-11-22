@@ -57,6 +57,8 @@ void ExampleScene::Start() {
 
 	hero2.setScale(0.1f, 0.1f);
 	hero2.setPosition(300, 300);
+
+	button.GetCurrentButtonSprite().setPosition(400, 400);
 }
 
 void ExampleScene::Update(float deltaTime) {
