@@ -1,19 +1,4 @@
-﻿  Sound.cpp
-  Music.cpp
-  Generating Code...
-  Compiling...
-  Collider.cpp
-  Generating Code...
-  Compiling...
-  SceneManager.cpp
-  Scene.cpp
-  Game.cpp
-  Main.cpp
-  Renderer.cpp
-  Input.cpp
-  ExampleScene.cpp
-  Generating Code...
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(127): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(113): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+﻿  Button.cpp
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\button.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

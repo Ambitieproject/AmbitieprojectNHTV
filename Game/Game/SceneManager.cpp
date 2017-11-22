@@ -168,6 +168,12 @@ void SceneManager::RenderCurrentScene() {
 					if (text) {
 						renderer->Draw(*text);
 					}
+
+					BC::Button* button = dynamic_cast<BC::Button*>(it2->second);
+
+					if (button) {
+						renderer->Draw(button->GetCurrentButtonSprite());
+					}
 				}
 			}
 		}
