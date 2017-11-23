@@ -28,14 +28,12 @@ void BoxCollider::Update(float deltaTime) {
 		boxCollider.setSize(sf::Vector2f(GetSpriteCast().getLocalBounds().width, GetSpriteCast().getLocalBounds().height));
 		boxCollider.setScale(GetSpriteCast().getScale());
 		boxCollider.setPosition(GetSpriteCast().getPosition());
-		boxCollider.setFillColor(sf::Color::Blue);
 		break;
 	case ColliderObjectType::Text:
 		//Set box collider size, scale and position depending on the text casted object
 		boxCollider.setSize(sf::Vector2f(GetTextCast().getGlobalBounds().width, GetTextCast().getLocalBounds().height));
 		boxCollider.setScale(GetTextCast().getScale());
 		boxCollider.setPosition(GetTextCast().getPosition());
-		boxCollider.setFillColor(sf::Color::Red);
 		break;
 	}
 

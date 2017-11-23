@@ -1,4 +1,14 @@
 ﻿  Button.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\button.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\button.cpp(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  SceneManager.cpp
+  Scene.cpp
+  Renderer.cpp
+  Main.cpp
+  Input.cpp
+  Game.cpp
+  ExampleScene.cpp
+  Collider.cpp
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

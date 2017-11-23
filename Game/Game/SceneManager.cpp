@@ -157,11 +157,13 @@ void SceneManager::RenderCurrentScene() {
 						renderer->Draw(*sprite);
 					}
 
+					/*
 					BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
 
 					if (boxCollider) {
 						renderer->Draw(boxCollider->GetBoxCollider());
 					}
+					*/
 
 					BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
 

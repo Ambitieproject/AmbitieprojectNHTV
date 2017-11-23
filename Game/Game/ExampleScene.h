@@ -17,32 +17,19 @@ public:
 	void Update(float deltaTime);
 
 private:
-	GameObject trumpObject = GameObject("trump", *this);
-	GameObject trump2Object = GameObject("trump2", *this);
-	GameObject heroObject = GameObject("hero", *this);
-
-	GameObject buttonObject = GameObject("textObject", *this);
-	BC::Button button = BC::Button("../Assets/buttonNormal.png", "../Assets/buttonHovered.png", "../Assets/buttonPressed.png");
-
-	GameObject hero2Object = GameObject("hero2", *this);
-
+	///Enemy stuff
+	GameObject enemyGameObject = GameObject("trump", *this);
 	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png");
 	BC::BoxCollider boxColliderTrump = BC::BoxCollider(trump);
+	BC::Animator animator = BC::Animator();
+	BC::AnimationClip forwardWalkAnim = BC::AnimationClip("backWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 0);
 
-	BC::Sprite trump2 = BC::Sprite("../Assets/kel.png");
-	BC::BoxCollider boxColliderTrump2 = BC::BoxCollider(trump2);
-
+	///Hero stuff
+	GameObject heroGameObject = GameObject("hero", *this);
 	BC::Sprite hero = BC::Sprite("../Assets/kel.png");
 	BC::BoxCollider boxColliderHero = BC::BoxCollider(hero);
 
-	BC::Sprite hero2 = BC::Sprite("../Assets/kel.png");
-	BC::BoxCollider boxColliderHero2 = BC::BoxCollider(hero2);
-
-	BC::Animator animator = BC::Animator();
-	bool setAnims = false;
-
-	BC::AnimationClip forwardWalkAnim = BC::AnimationClip("backWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 0);
-	BC::AnimationClip backWalkAnim = BC::AnimationClip("forwardWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 2);
-	BC::AnimationClip rightWalkAnim = BC::AnimationClip("rightWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 1);
-	BC::AnimationClip leftWalkAnim = BC::AnimationClip("leftWalk", "../Assets/trump_run.png", sf::Vector2u(6, 4), 6, 0.1f, trump, 3);
+	///UI stuff
+	GameObject UIGameObject = GameObject("UIManager", *this);
+	BC::Button testButton = BC::Button("../Assets/buttonNormal.png", "../Assets/buttonHovered.png", "../Assets/buttonPressed.png");
 };
