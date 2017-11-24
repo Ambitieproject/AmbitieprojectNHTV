@@ -17,6 +17,7 @@ public:
 	void Update(float deltaTime);
 
 private:
+	/*
 	///Enemy stuff
 	GameObject enemyGameObject = GameObject("trump", *this);
 	BC::Sprite trump = BC::Sprite("../Assets/trump_run.png");
@@ -32,4 +33,8 @@ private:
 	///UI stuff
 	GameObject UIGameObject = GameObject("UIManager", *this);
 	BC::Button testButton = BC::Button("../Assets/buttonNormal.png", "../Assets/buttonHovered.png", "../Assets/buttonPressed.png");
+	*/
+
+	GameObject testObject = GameObject("TestObject", *this);
+	BC::Sprite prisma = BC::Sprite("../Assets/prisma.jpg");
 };
