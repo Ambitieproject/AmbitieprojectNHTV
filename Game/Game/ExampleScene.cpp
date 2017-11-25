@@ -15,20 +15,6 @@ ExampleScene::~ExampleScene() {
 
 void ExampleScene::Awake() {
 	Scene::Awake();
-	/*
-	//Enemy adding components
-	enemyGameObject.AddComponent(&trump);
-	enemyGameObject.AddComponent(&boxColliderTrump);
-
-	enemyGameObject.AddComponent(&animator);
-	enemyGameObject.AddComponent(&forwardWalkAnim);
-
-	//Hero adding componets
-	heroGameObject.AddComponent(&hero);
-	heroGameObject.AddComponent(&boxColliderHero);
-	
-	//UIManager adding components
-	*/
 
 	testObject.AddComponent(&prisma);
 }
@@ -40,15 +26,16 @@ void ExampleScene::Start() {
 	prisma.setPosition(175, 500);
 	prisma.setOrigin(prisma.getTexture()->getSize().x / 2, prisma.getTexture()->getSize().y / 2);
 
-	prisma.setColor(sf::Color::Red);
+	sf::Image colorValueImage;
+	colorValueImage.loadFromFile("../Assets/colorScheme.png");
 
-	/*
-	animator.PlayAnimation("backWalk");
-	trump.setPosition(100, 10);
+	for (int i = 0; i < colorValueImage.getSize().x; i++) {
+		prismaColors.push_back(colorValueImage.getPixel(i, 0));
+	}
 
-	hero.setScale(0.1f, 0.1f);
-	hero.setPosition(200, 600);
-	*/
+	currentPrismaColorIndex = 0;
+	currentPrismaColor = prismaColors[currentPrismaColorIndex];
+	prisma.setColor(currentPrismaColor);
 }
 
 void ExampleScene::Update(float deltaTime) {
@@ -56,17 +43,27 @@ void ExampleScene::Update(float deltaTime) {
 
 	if (Input::GetKeyDown(sf::Keyboard::A)) {
 		prisma.setRotation(prisma.getRotation() - 50 * deltaTime);
+
+		if (currentPrismaColorIndex < 0 + 1) {
+			currentPrismaColorIndex = prismaColors.size();
+		}
+
+		currentPrismaColorIndex--;
+		currentPrismaColor = prismaColors[currentPrismaColorIndex];
+		prisma.setColor(currentPrismaColor);
 	}
 	if (Input::GetKeyDown(sf::Keyboard::D)) {
 		prisma.setRotation(prisma.getRotation() + 50 * deltaTime);
-		
-		if (prisma.getColor().r == 255 && prisma.getColor().g == 0) {
-			std::cout << "1" << std::endl;
-			prisma.setColor(sf::Color(prisma.getColor().r, prisma.getColor().g, prisma.getColor().b + 10));
+
+		if (currentPrismaColorIndex >= prismaColors.size() - 1) {
+			currentPrismaColorIndex = 0;
 		}
-		else if (prisma.getColor().g == 0 && prisma.getColor().b == 255) {
-			std::cout << "2" << std::endl;
-			prisma.setColor(sf::Color(prisma.getColor().r - 10, prisma.getColor().g, prisma.getColor().b));
-		}
+
+		currentPrismaColorIndex++;
+		currentPrismaColor = prismaColors[currentPrismaColorIndex];
+		prisma.setColor(currentPrismaColor);
 	}
+
+	
+	
 }

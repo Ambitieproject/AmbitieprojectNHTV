@@ -1,4 +1,6 @@
 ﻿  ExampleScene.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\examplescene.cpp(41): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\examplescene.cpp(27): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\examplescene.cpp(32): warning C4018: '<': signed/unsigned mismatch
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\examplescene.cpp(58): warning C4018: '>=': signed/unsigned mismatch
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
