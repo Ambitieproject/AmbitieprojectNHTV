@@ -22,12 +22,15 @@ public:
 
 private:
 	GameObject GOPrisma = GameObject("Prisma", *this);
-	BC::Sprite prismaSprite = BC::Sprite("../Assets/prisma.jpg");
-
+	BC::Sprite prismaSprite = BC::Sprite("../Assets/prisma.png");
 	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
 
+
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
-	ReflectorBeam reflectorBeam = ReflectorBeam("../Assets/prisma.jpg");
+	ReflectorBeam reflectorBeam = ReflectorBeam("../Assets/pixelWhite.png");
+
+
+	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
 
 	std::vector<sf::Color> prismaColors;
 

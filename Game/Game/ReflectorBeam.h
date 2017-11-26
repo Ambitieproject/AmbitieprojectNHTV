@@ -14,7 +14,9 @@ public:
 	~ReflectorBeam();
 
 	std::string beamFilePath;
+	BC::Sprite* beam;
 
 	void Awake();
+	void Update(float deltaTime);
 };
 

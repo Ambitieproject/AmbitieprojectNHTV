@@ -15,7 +15,7 @@ PrismaMovementController::~PrismaMovementController() {
 void PrismaMovementController::Start() {
 	prisma->setScale(0.5f, 0.5f);
 	prisma->setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y / 4 * 3);
-	prisma->setOrigin(prisma->getTexture()->getSize().x / 2, prisma->getTexture()->getSize().y / 2);
+	prisma->setOrigin(prisma->getTexture()->getSize().x / 2 - 10, prisma->getTexture()->getSize().y / 2);
 
 	rotateSpeed = 80;
 }
