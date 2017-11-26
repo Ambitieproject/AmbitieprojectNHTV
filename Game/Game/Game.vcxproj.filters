@@ -70,6 +70,15 @@
     <Filter Include="JEngine\Components\Graphics\Button">
       <UniqueIdentifier>{5a9531ae-c4ce-4a80-9396-ea7dab69c24f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{ef0b1e24-73a3-4b19-903d-0b2eff265bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Prisma">
+      <UniqueIdentifier>{0c04935d-c5c4-4975-9dfa-870ae4efafd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Beam">
+      <UniqueIdentifier>{666b1cb2-b6d9-46ad-a395-d6590543872c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -135,6 +144,12 @@
     <ClCompile Include="Button.cpp">
       <Filter>JEngine\Components\Graphics\Button</Filter>
     </ClCompile>
+    <ClCompile Include="PrismaMovementController.cpp">
+      <Filter>Game\Prisma</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectorBeam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -199,6 +214,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>JEngine\Components\Graphics\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="PrismaMovementController.h">
+      <Filter>Game\Prisma</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectorBeam.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

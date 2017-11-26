@@ -26,6 +26,14 @@ void GameObject::Start() {
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active
 		if (objects->second->Enabled) {
+			objects->second->Awake();
+		}
+	}
+
+	//For every Component on this GameObject
+	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+		//if GameObject is active
+		if (objects->second->Enabled) {
 			objects->second->Start();
 		}
 	}

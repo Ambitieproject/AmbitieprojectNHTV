@@ -8,6 +8,9 @@
 #include "BaseComponents.hpp"
 #include "GameObject.h"
 
+#include "PrismaMovementController.h"
+#include "ReflectorBeam.h"
+
 class ExampleScene : public Scene {
 public:
 	ExampleScene(std::string sceneName);
@@ -18,9 +21,13 @@ public:
 	void Update(float deltaTime);
 
 private:
+	GameObject GOPrisma = GameObject("Prisma", *this);
+	BC::Sprite prismaSprite = BC::Sprite("../Assets/prisma.jpg");
 
-	GameObject testObject = GameObject("TestObject", *this);
-	BC::Sprite prisma = BC::Sprite("../Assets/prisma.jpg");
+	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
+
+	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
+	ReflectorBeam reflectorBeam = ReflectorBeam("../Assets/prisma.jpg");
 
 	std::vector<sf::Color> prismaColors;
 

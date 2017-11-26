@@ -163,6 +163,8 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Music.cpp" />
+    <ClCompile Include="PrismaMovementController.cpp" />
+    <ClCompile Include="ReflectorBeam.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -187,6 +189,8 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Music.h" />
+    <ClInclude Include="PrismaMovementController.h" />
+    <ClInclude Include="ReflectorBeam.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
