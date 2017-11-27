@@ -28,12 +28,16 @@ void BoxCollider::Update(float deltaTime) {
 		boxCollider.setSize(sf::Vector2f(GetSpriteCast().getLocalBounds().width, GetSpriteCast().getLocalBounds().height));
 		boxCollider.setScale(GetSpriteCast().getScale());
 		boxCollider.setPosition(GetSpriteCast().getPosition());
+		boxCollider.setOrigin(GetSpriteCast().getOrigin());
+		boxCollider.setRotation(GetSpriteCast().getRotation());
 		break;
 	case ColliderObjectType::Text:
 		//Set box collider size, scale and position depending on the text casted object
 		boxCollider.setSize(sf::Vector2f(GetTextCast().getGlobalBounds().width, GetTextCast().getLocalBounds().height));
 		boxCollider.setScale(GetTextCast().getScale());
 		boxCollider.setPosition(GetTextCast().getPosition());
+		boxCollider.setOrigin(GetTextCast().getOrigin());
+		boxCollider.setRotation(GetTextCast().getRotation());
 		break;
 	}
 
@@ -114,6 +118,77 @@ Collider* BoxCollider::OnEndOverlap() {
 	}
 
 	return nullptr;
+}
+
+bool BoxCollider::OnMouseEnter() {
+	//Get the mouse position
+	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
+
+	if (!isMouseOverlapping) {
+		if (boxCollider.getGlobalBounds().contains(mousePos)) {
+			isMouseOverlapping = true;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		if (!boxCollider.getGlobalBounds().contains(mousePos)) {
+			isMouseOverlapping = false;
+			return false;
+		}
+		else {
+			return false;
+		}
+	}
+}
+
+bool BoxCollider::OnMouseDown(sf::Mouse::Button mouseButton) {
+	//Get the mouse position
+	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
+
+	if (boxCollider.getGlobalBounds().contains(mousePos)) {
+		isMouseDown = true;
+	}
+	if(OnMouseExit() && Input::GetMouseKeyUp(mouseButton)) {
+		isMouseDown = false;
+	}
+
+	if (Input::GetMouseKeyDown(mouseButton) && isMouseDown) {
+		return true;
+	}
+	if (!isMouseDown) {
+		return false;
+	}
+	if (Input::GetMouseKeyUp(mouseButton)) {
+		isMouseDown = false;
+		return false;
+	}
+}
+
+bool BoxCollider::OnMouseExit() {
+	//Get the mouse position
+	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
+
+	if (isMouseOverlapping) {
+		if (!boxCollider.getGlobalBounds().contains(mousePos)) {
+			isMouseOverlapping = false;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		if (boxCollider.getGlobalBounds().contains(mousePos)) {
+			isMouseOverlapping = true;
+			return false;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 //Gets the box collider

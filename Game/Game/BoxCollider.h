@@ -24,11 +24,18 @@ namespace BC {
 		//Collide method that returns the Collider that is colliding with this object when in the end overlap state
 		Collider* OnEndOverlap();
 
+		bool OnMouseEnter();
+		bool OnMouseDown(sf::Mouse::Button mouseButton);
+		bool OnMouseExit();
+
 		//Gets the box collider
 		sf::RectangleShape& GetBoxCollider();
 		
 	private:
 		//The box collider
 		sf::RectangleShape boxCollider;
+
+		bool isMouseOverlapping;
+		bool isMouseDown;
 	};
 }

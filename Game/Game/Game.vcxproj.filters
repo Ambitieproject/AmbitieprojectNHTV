@@ -150,6 +150,9 @@
     <ClCompile Include="ReflectorBeam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MirrorManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -219,6 +222,9 @@
       <Filter>Game\Prisma</Filter>
     </ClInclude>
     <ClInclude Include="ReflectorBeam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MirrorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

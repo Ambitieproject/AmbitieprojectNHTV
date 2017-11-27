@@ -10,6 +10,7 @@
 
 #include "PrismaMovementController.h"
 #include "ReflectorBeam.h"
+#include "MirrorManager.h"
 
 class ExampleScene : public Scene {
 public:
@@ -29,8 +30,8 @@ private:
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
 	ReflectorBeam reflectorBeam = ReflectorBeam("../Assets/pixelWhite.png");
 
-
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
+	MirrorManager mirrorManager = MirrorManager();
 
 	std::vector<sf::Color> prismaColors;
 

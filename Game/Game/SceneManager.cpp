@@ -176,6 +176,13 @@ void SceneManager::RenderCurrentScene() {
 					if (button) {
 						renderer->Draw(button->GetCurrentButtonSprite());
 					}
+
+
+					BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
+				
+					if (boxCollider) {
+						renderer->Draw(boxCollider->GetBoxCollider());
+					}
 				}
 			}
 		}

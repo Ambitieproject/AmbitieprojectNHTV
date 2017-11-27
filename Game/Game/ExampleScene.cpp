@@ -20,6 +20,8 @@ void ExampleScene::Awake() {
 	GOPrisma.AddComponent(&prisma);
 
 	GOReflectorBeamManager.AddComponent(&reflectorBeam);
+
+	GOMirrorManager.AddComponent(&mirrorManager);
 }
 
 void ExampleScene::Start() {
