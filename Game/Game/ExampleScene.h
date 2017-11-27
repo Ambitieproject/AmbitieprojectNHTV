@@ -32,9 +32,4 @@ private:
 
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
 	MirrorManager mirrorManager = MirrorManager();
-
-	std::vector<sf::Color> prismaColors;
-
-	int currentPrismaColorIndex;
-	sf::Color currentPrismaColor;
 };

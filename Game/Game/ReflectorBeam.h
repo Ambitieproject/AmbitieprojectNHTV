@@ -3,12 +3,14 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
+#include "PrismaMovementController.h"
 
 struct Beam {
 	BC::Sprite beam = BC::Sprite("../Assets/pixelWhite.png");
@@ -27,6 +29,8 @@ public:
 private:
 	void AddBeam(Beam* beam);
 
+	void SetBeamColor();
+
 	void ResetBeam();
 
 private:
@@ -37,5 +41,12 @@ private:
 
 	BC::Sprite* prisma;
 	MirrorManager* mirrorManager;
+	PrismaMovementController* prismaMovementController;
+
+	///Color handeling
+	std::vector<sf::Color> prismaColors;
+
+	int currentPrismaColorIndex;
+	sf::Color currentPrismaColor;
 };
 

@@ -18,6 +18,9 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	bool IsMovingLeft();
+	bool IsMovingRight();
+
 private:
 	BC::Sprite* prisma;
 
