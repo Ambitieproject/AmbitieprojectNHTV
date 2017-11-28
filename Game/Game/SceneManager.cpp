@@ -34,6 +34,7 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	//Quit previous Scene
 	if (currentScene != nullptr) {
 		currentScene->Quit();
+		//GetInstance()->ResetScene();
 	}
 	
 	//For every scene, if index of that scene is equal to parameter,
@@ -63,7 +64,9 @@ bool SceneManager::LoadScene(int sceneIndex) {
 bool SceneManager::LoadScene(std::string sceneName) {
 	bool canLoad = false;
 	//Quit previous Scene
-	currentScene->Quit();
+	if (currentScene != nullptr) {
+		currentScene->Quit();
+	}
 
 	//For every scene, if the scene name of that scene is equal to parameter,
 	//set new currentScene
@@ -157,13 +160,13 @@ void SceneManager::RenderCurrentScene() {
 						renderer->Draw(*sprite);
 					}
 
-					/*
+					
 					BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
 
 					if (boxCollider) {
 						renderer->Draw(boxCollider->GetBoxCollider());
 					}
-					*/
+					
 
 					BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
 
@@ -192,6 +195,11 @@ void SceneManager::RenderCurrentScene() {
 
 	//Call EndDraw function of the renderer class	
 	renderer->EndDraw();
+}
+
+void SceneManager::ResetScene() {
+	menuSceneClass.~MenuScene();
+	new (&menuSceneClass) MenuScene("MenuScene");
 }
 
 //Adds scene to list of scenes

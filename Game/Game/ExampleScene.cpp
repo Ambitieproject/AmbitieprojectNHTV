@@ -30,4 +30,8 @@ void ExampleScene::Start() {
 
 void ExampleScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
+
+	if (Input::GetAnyKeyReleased()) {
+		SceneManager::LoadScene(0);
+	}
 }

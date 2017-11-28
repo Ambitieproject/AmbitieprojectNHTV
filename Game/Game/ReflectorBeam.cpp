@@ -39,6 +39,7 @@ void ReflectorBeam::Start() {
 
 	for (auto it = beams.begin(); it != beams.end(); it++) {
 		it->second->beam.setColor(currentPrismaColor);
+		it->second->beam.rotate(180);
 		it->second->positions.push_back(it->second->beam.getPosition());
 	}
 }
@@ -48,28 +49,41 @@ void ReflectorBeam::Update(float deltaTime) {
 
 	SetBeamColor();
 
+	//for every beam
 	for (auto it = beams.begin(); it != beams.end(); it++) {
+		//Get begin, stay and end overlap colliders
+		Collider* beginOverlapCollider = it->second->beamBoxCollider.OnBeginOverlap();
 		Collider* stayOverlapCollider = it->second->beamBoxCollider.OnStayOverlap();
+		Collider* endOverlapCollider = it->second->beamBoxCollider.OnEndOverlap();
 
-		if (stayOverlapCollider && stayOverlapCollider->GameObject->Name == "MirrorManager") {
-
-			if (Input::GetKeyDown(sf::Keyboard::T)) {
-				std::vector<sf::Vector2f> positionsBeam = it->second->positions;
-				sf::Vector2f mirrorPosition = stayOverlapCollider->GetSpriteCast().getPosition();
-
-				for (auto it2 = positionsBeam.begin(); it2 != positionsBeam.end(); it2++) {
-					mirrorManager->GetCurrentMirror()->GetPositionsInMirror(positionsBeam);
-				}
+		//If begin collider is not nullptr and the gameobject colliding is a mirror
+		if (beginOverlapCollider && beginOverlapCollider->gameObject->Name == "Mirror") {
+			//set Reflecting to true;
+			it->second->isReflecting = true;
+		}
+		if (stayOverlapCollider && stayOverlapCollider->gameObject->Name == "Mirror") {
+			//set Reflecting to true;
+			std::cout << "COLLIDE" << std::endl;
+		}
+		//If end collider is not nullptr and the gameobject colliding is a mirror
+		if (endOverlapCollider && endOverlapCollider->gameObject->Name == "Mirror") {
+			//set Reflecting to false;
+			it->second->isReflecting = false;
+		}
+		
+		if (it->second->isReflecting) {
+			sf::Sprite sprite = stayOverlapCollider->GetSpriteCast();
+			std::vector<sf::Vector2f> positionsBeam = it->second->positions;
+			float diff = std::abs(mirrorManager->GetPositionsInMirror(&sprite, positionsBeam));
+			if (diff > 0) {
+				it->second->beam.setScale(it->second->beam.getScale().x, it->second->beam.getScale().y - (diff * deltaTime));
 			}
-
-			ResetBeam();
 		}
 		else {
 			if (it->second->beam.getScale().y != 1000) {
-				it->second->beam.setScale(it->second->beam.getScale().x, it->second->beam.getScale().y - 10 * deltaTime);
-				sf::Vector2f newPos = sf::Vector2f(std::abs(std::abs(it->second->beam.getTexture()->getSize().x) * it->second->beam.getScale().x), std::abs(std::abs(it->second->beam.getTexture()->getSize().y) * it->second->beam.getScale().y));
+				it->second->beam.setScale(it->second->beam.getScale().x, it->second->beam.getScale().y + 10 * deltaTime);
+				sf::Vector2f newPos = sf::Vector2f(it->second->beam.getPosition().x - (it->second->beam.getTexture()->getSize().x * it->second->beam.getScale().x), it->second->beam.getPosition().y - (it->second->beam.getTexture()->getSize().y * it->second->beam.getScale().y));
 				it->second->positions.push_back(newPos);
-
 			}
 		}
 	}
@@ -78,9 +92,8 @@ void ReflectorBeam::Update(float deltaTime) {
 }
 
 void ReflectorBeam::AddBeam(Beam* beam) {
-	GameObject->AddComponent(&beam->beam);
-	GameObject->AddComponent(&beam->beamBoxCollider);
-	
+	gameObject->AddComponent(&beam->beam);
+	gameObject->AddComponent(&beam->beamBoxCollider);
 	beams.insert(std::pair<int, Beam*>(beamIndex, beam));
 	beamIndex++;
 }
@@ -109,11 +122,5 @@ void ReflectorBeam::SetBeamColor() {
 		for (auto it = beams.begin(); it != beams.end(); it++) {
 			it->second->beam.setColor(currentPrismaColor);
 		}
-	}
-}
-
-void ReflectorBeam::ResetBeam() {
-	for (auto it = beams.begin(); it != beams.end(); it++) {
-		//delete &it->second->beam;
 	}
 }

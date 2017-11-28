@@ -59,7 +59,7 @@ void GameObject::AddComponent(Component* component) {
 	//Increase component index
 	componentIndex++;
 	//Set component's GameObject value to be equal to this GameObject
-	component->GameObject = this;
+	component->gameObject = this;
 }
 
 //Gets the current Scene where this GameObject lives in

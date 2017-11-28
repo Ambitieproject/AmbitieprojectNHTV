@@ -18,7 +18,7 @@ void Animator::Start() {
 
 	//For length of components
 	//If component is AnimationClip then add to list
-	for (auto it = GameObject->Components.begin(); it != GameObject->Components.end(); it++) {
+	for (auto it = gameObject->Components.begin(); it != gameObject->Components.end(); it++) {
 		BC::AnimationClip* animationClip = dynamic_cast<BC::AnimationClip*>(it->second);
 
 		if (animationClip) {

@@ -9,7 +9,7 @@ class Renderer;
 
 //all scenes includes
 #include "ExampleScene.h"
-#include "ExampleScene2.h"
+#include "MenuScene.h"
 
 //SceneManager class. Takes care of the scene flow of the game and calls different methods of the "active" scene
 class SceneManager {
@@ -58,6 +58,8 @@ private:
 	//Method that renders the current active scene
 	void RenderCurrentScene();
 
+	void ResetScene();
+
 private:
 	//Define the friend class Game
 	friend class Game;
@@ -76,6 +78,7 @@ private:
 	static Scene* currentScene;
 
 	///all scenes in game
-	ExampleScene exampleScene = ExampleScene("ExampleScene");
-	ExampleScene2 exampleScene2 = ExampleScene2("ExampleScene2");
+	MenuScene menuSceneClass = MenuScene("MenuScene");
+	ExampleScene mainScene = ExampleScene("MainScene");
+	
 };

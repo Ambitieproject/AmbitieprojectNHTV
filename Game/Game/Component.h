@@ -29,5 +29,5 @@ public:
 	int GameObjectLayerIndex;
 
 	//Pointer to the Component's GameObject
-	GameObject* GameObject = nullptr;
+	GameObject* gameObject = nullptr;
 };

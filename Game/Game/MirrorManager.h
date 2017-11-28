@@ -7,13 +7,9 @@
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 
-#include "BaseComponents.hpp"
+#include "GameObject.h"
 
-struct Mirror {
-	BC::Sprite mirrorSprite = BC::Sprite("../Assets/Mirror.png");
-	BC::BoxCollider mirrorBoxCollider = BC::BoxCollider(mirrorSprite);
-	void GetPositionsInMirror(std::vector<sf::Vector2f>& positions);
-};
+#include "BaseComponents.hpp"
 
 class MirrorManager : public Component
 {
@@ -24,17 +20,24 @@ public:
 	void Start();
 	void Update(float deltaTime);
 
-	bool IsMovingAMirror();
-	Mirror* GetCurrentMirror();
+	float GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions);
 
-	void AddMirror(Mirror* mirror);
+	bool IsMovingAMirror();
+	GameObject* GetCurrentMirror();
+
+	void AddMirror();
 
 private:
-	Mirror* currentMirror;
+	GameObject* currentMirror;
 
-	std::map<int, Mirror*> mirrors;
+	std::map<int, GameObject*> mirrors;
 	int mirrorIndex;
 
 	bool isMovingAMirror;
+};
+
+class Mirror : public Component {
+public:
+	bool canMove;
 };
 

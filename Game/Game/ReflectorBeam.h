@@ -16,6 +16,7 @@ struct Beam {
 	BC::Sprite beam = BC::Sprite("../Assets/pixelWhite.png");
 	BC::BoxCollider beamBoxCollider = BC::BoxCollider(beam);
 	std::vector<sf::Vector2f> positions;
+	bool isReflecting;
 };
 
 class ReflectorBeam : public Component {
@@ -31,8 +32,6 @@ private:
 	void AddBeam(Beam* beam);
 
 	void SetBeamColor();
-
-	void ResetBeam();
 
 private:
 	std::string beamFilePath;
