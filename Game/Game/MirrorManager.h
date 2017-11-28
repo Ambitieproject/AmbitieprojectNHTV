@@ -12,6 +12,7 @@
 struct Mirror {
 	BC::Sprite mirrorSprite = BC::Sprite("../Assets/Mirror.png");
 	BC::BoxCollider mirrorBoxCollider = BC::BoxCollider(mirrorSprite);
+	void GetPositionsInMirror(std::vector<sf::Vector2f>& positions);
 };
 
 class MirrorManager : public Component
@@ -24,10 +25,13 @@ public:
 	void Update(float deltaTime);
 
 	bool IsMovingAMirror();
+	Mirror* GetCurrentMirror();
 
 	void AddMirror(Mirror* mirror);
 
 private:
+	Mirror* currentMirror;
+
 	std::map<int, Mirror*> mirrors;
 	int mirrorIndex;
 

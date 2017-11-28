@@ -1,6 +1,7 @@
 #include "ReflectorBeam.h"
 #include "GameObject.h"
 #include "SceneManager.h"
+#include "Window.h"
 
 
 
@@ -38,6 +39,7 @@ void ReflectorBeam::Start() {
 
 	for (auto it = beams.begin(); it != beams.end(); it++) {
 		it->second->beam.setColor(currentPrismaColor);
+		it->second->positions.push_back(it->second->beam.getPosition());
 	}
 }
 
@@ -50,13 +52,24 @@ void ReflectorBeam::Update(float deltaTime) {
 		Collider* stayOverlapCollider = it->second->beamBoxCollider.OnStayOverlap();
 
 		if (stayOverlapCollider && stayOverlapCollider->GameObject->Name == "MirrorManager") {
-			if (mirrorManager->IsMovingAMirror()) {
-				ResetBeam();
+
+			if (Input::GetKeyDown(sf::Keyboard::T)) {
+				std::vector<sf::Vector2f> positionsBeam = it->second->positions;
+				sf::Vector2f mirrorPosition = stayOverlapCollider->GetSpriteCast().getPosition();
+
+				for (auto it2 = positionsBeam.begin(); it2 != positionsBeam.end(); it2++) {
+					mirrorManager->GetCurrentMirror()->GetPositionsInMirror(positionsBeam);
+				}
 			}
+
+			ResetBeam();
 		}
 		else {
 			if (it->second->beam.getScale().y != 1000) {
 				it->second->beam.setScale(it->second->beam.getScale().x, it->second->beam.getScale().y - 10 * deltaTime);
+				sf::Vector2f newPos = sf::Vector2f(std::abs(std::abs(it->second->beam.getTexture()->getSize().x) * it->second->beam.getScale().x), std::abs(std::abs(it->second->beam.getTexture()->getSize().y) * it->second->beam.getScale().y));
+				it->second->positions.push_back(newPos);
+
 			}
 		}
 	}
@@ -101,8 +114,6 @@ void ReflectorBeam::SetBeamColor() {
 
 void ReflectorBeam::ResetBeam() {
 	for (auto it = beams.begin(); it != beams.end(); it++) {
-		
+		//delete &it->second->beam;
 	}
-
-	//beams.clear();
 }

@@ -1,11 +1,11 @@
 ﻿  ReflectorBeam.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(26): warning C4018: '<': signed/unsigned mismatch
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(78): warning C4018: '>=': signed/unsigned mismatch
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(64): warning C4018: '<': signed/unsigned mismatch
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(19): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(91): warning C4018: '>=': signed/unsigned mismatch
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(64): warning C4018: '<': signed/unsigned mismatch
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(20): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
           with
           [
               component=BC::Sprite
           ]
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
