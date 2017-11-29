@@ -51,7 +51,7 @@ void Scene::Update(float deltaTime) {
 
 //Virutal Quit Method of a scene that can be overwritten in a supper class
 void Scene::Quit() {
-	
+	canUpdate = false;
 }
 
 //Adds a given GameObject to the list of GameObjects in the scene

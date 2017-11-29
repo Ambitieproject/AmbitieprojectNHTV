@@ -58,7 +58,8 @@ private:
 	//Method that renders the current active scene
 	void RenderCurrentScene();
 
-	void ResetScene();
+	//Reset method to reset a scene
+	void ResetScene(Scene* scene);
 
 private:
 	//Define the friend class Game
@@ -79,6 +80,6 @@ private:
 
 	///all scenes in game
 	MenuScene menuSceneClass = MenuScene("MenuScene");
-	ExampleScene mainScene = ExampleScene("MainScene");
+	ExampleScene mainSceneClass = ExampleScene("MainScene");
 	
 };

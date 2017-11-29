@@ -30,6 +30,7 @@ Button::~Button() {
 
 void Button::Start() {
 	Component::Start();
+	deActiveButtonTimer = 0;
 }
 
 void Button::Update(float deltaTime) {
@@ -50,6 +51,7 @@ void Button::Update(float deltaTime) {
 				//If texture is buttonPressed so it is actually being pressed
 				if (currentButtonSpriteImage.getTexture() == &pressedTexture) {
 					HandleClicking();
+					// isClicked = true;
 					currentButtonSpriteImage.setTexture(hoveredTexture);
 				}
 			}
@@ -72,7 +74,6 @@ void Button::Update(float deltaTime) {
 	if (activateButtonUp) {
 		//Increase timer with deltaTime
 		deActiveButtonTimer += deltaTime;
-
 		//If timer is bigger then deltaTime which should be one time
 		if (deActiveButtonTimer > deltaTime) {
 			//Reset variable

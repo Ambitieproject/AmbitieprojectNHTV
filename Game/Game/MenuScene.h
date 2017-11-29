@@ -14,14 +14,18 @@ public:
 	//Destructor
 	~MenuScene();
 
+	//Override Awake method from base Component class
+	void Awake();
 	//Override Start method from base Component class
 	void Start();
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
 private:
-	//UIManager GameObject
-	GameObject GOUIManager = GameObject("UIManager", *this);
+	//StartButton GameObject
+	GameObject GOStartButton = GameObject("StartButton", *this);
+	//QuitButton GameObject
+	GameObject GOSQuitButton = GameObject("QuitButton", *this);
 
 	///Button Components
 	BC::Button startButton = BC::Button("../Assets/UI/STARTBUTTON/buttonStartNormal.png", "../Assets/UI/STARTBUTTON/buttonStartHighlighted.png", "../Assets/UI/STARTBUTTON/buttonStartPressed.png");

@@ -52,6 +52,8 @@ public:
 	//Map of GameObjects in the scene
 	std::map<int, GameObject*> GameObjects;
 
+	bool canUpdate;
+
 private:
 	//Local index of GameObjects in the scene
 	int gameObjectLayerIndex;

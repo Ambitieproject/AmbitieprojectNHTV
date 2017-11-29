@@ -31,10 +31,11 @@ SceneManager* SceneManager::GetInstance() {
 //Load a scene specified by a scene index
 bool SceneManager::LoadScene(int sceneIndex) {
 	bool canLoad = false;
+	Scene* lastScene = nullptr;
 	//Quit previous Scene
 	if (currentScene != nullptr) {
+		lastScene = currentScene;
 		currentScene->Quit();
-		//GetInstance()->ResetScene();
 	}
 	
 	//For every scene, if index of that scene is equal to parameter,
@@ -52,6 +53,13 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	if (canLoad) {
 		currentScene->Awake();
 		currentScene->Start();
+
+		//If there is a last scene
+		if (lastScene) {
+			//Reset the last scene
+			GetInstance()->ResetScene(lastScene);
+		}
+			
 		return true;
 	}
 	else {
@@ -63,8 +71,10 @@ bool SceneManager::LoadScene(int sceneIndex) {
 //Load a scene specified by a scene name
 bool SceneManager::LoadScene(std::string sceneName) {
 	bool canLoad = false;
+	Scene* lastScene = nullptr;
 	//Quit previous Scene
 	if (currentScene != nullptr) {
+		lastScene = currentScene;
 		currentScene->Quit();
 	}
 
@@ -83,6 +93,13 @@ bool SceneManager::LoadScene(std::string sceneName) {
 	if (canLoad) {
 		currentScene->Awake();
 		currentScene->Start();
+
+		//If there is a last scene
+		if (lastScene) {
+			//Reset the last scene
+			GetInstance()->ResetScene(lastScene);
+		}
+
 		return true;
 	}
 	else {
@@ -197,9 +214,41 @@ void SceneManager::RenderCurrentScene() {
 	renderer->EndDraw();
 }
 
-void SceneManager::ResetScene() {
-	menuSceneClass.~MenuScene();
-	new (&menuSceneClass) MenuScene("MenuScene");
+//Reset method to reset a scene
+void SceneManager::ResetScene(Scene* scene) {
+	//Get Scene index of parameter scene
+	int lastSceneIndex = scene->SceneIndex;
+
+	//Local Iterator
+	std::map<int, Scene*>::iterator LocalIt;
+	//For every scene
+	for (auto it = scenes.begin(); it != scenes.end(); it++) {
+		//If scene name is equal to iterator scene name
+		//set local iterator
+		if (it->second->Name == scene->Name) {
+			LocalIt = it;
+		}
+	}
+
+	//If parameter scene has a certain name
+	//erase from scenes map
+	//call destructor of that scene
+	//make a new scene scene
+	//set scene index to be the last index
+	//which is the index the scene lived in previously
+	if (scene->Name == "MenuScene") {
+		scenes.erase(LocalIt);
+		menuSceneClass.~MenuScene();
+		new (&menuSceneClass) MenuScene("MenuScene");
+		menuSceneClass.SceneIndex = lastSceneIndex;
+	}
+	if (scene->Name == "MainScene") {
+		scenes.erase(LocalIt);
+		mainSceneClass.~ExampleScene();
+		new (&mainSceneClass) ExampleScene("MainScene");
+		mainSceneClass.SceneIndex = lastSceneIndex;
+	}
+	
 }
 
 //Adds scene to list of scenes

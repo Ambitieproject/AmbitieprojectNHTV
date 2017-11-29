@@ -12,16 +12,17 @@ MenuScene::~MenuScene()
 {
 }
 
+//Override Awake method from base Component class
+void MenuScene::Awake() {
+	Scene::Awake();
+
+	//Adding components to the GameObjects
+	GOStartButton.AddComponent(&startButton);
+	GOSQuitButton.AddComponent(&quitButton);
+}
+
 //Override Start method from base Component class
 void MenuScene::Start() {
-	Scene::Start();
-
-	std::cout << "Menu Scene start function runnning" << std::endl;
-
-	//Adding components to the UIManager GameObject
-	GOUIManager.AddComponent(&startButton);
-	GOUIManager.AddComponent(&quitButton);
-
 	//Set positions of buttons, relative to the window width and height
 	startButton.GetCurrentButtonSprite().setOrigin(startButton.GetCurrentButtonSprite().getTexture()->getSize().x / 2, startButton.GetCurrentButtonSprite().getTexture()->getSize().y / 2);
 	quitButton.GetCurrentButtonSprite().setOrigin(quitButton.GetCurrentButtonSprite().getTexture()->getSize().x / 2, quitButton.GetCurrentButtonSprite().getTexture()->getSize().y / 2);
@@ -42,5 +43,4 @@ void MenuScene::Update(float deltaTime) {
 	if (quitButton.IsClicked()) {
 		Window::GetInstance()->IsClosed = true;
 	}
-
 }
