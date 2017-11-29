@@ -40,7 +40,10 @@ void BoxCollider::Update(float deltaTime) {
 		boxCollider.setRotation(GetTextCast().getRotation());
 		break;
 	}
-
+	sf::IntRect  r = boxCollider.getTextureRect();
+	r.top = boxCollider.getPosition().x;
+	r.left = boxCollider.getPosition().y;
+	boxCollider.setTextureRect(r);
 	
 }
 

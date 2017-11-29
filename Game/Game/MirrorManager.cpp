@@ -46,7 +46,6 @@ void MirrorManager::Update(float deltaTime) {
 
 		if (mirror->canMove) {
 			if (Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
-				currentMirror = it->second;
 				if (Input::GetKeyDown(sf::Keyboard::E)) {
 					sprite->rotate(50 * deltaTime);
 				}

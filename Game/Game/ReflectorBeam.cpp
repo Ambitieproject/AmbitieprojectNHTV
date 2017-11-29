@@ -51,6 +51,20 @@ void ReflectorBeam::Update(float deltaTime) {
 
 	//for every beam
 	for (auto it = beams.begin(); it != beams.end(); it++) {
+
+		if (mirrorManager->IsMovingAMirror()) {
+			if (mirrorManager->GetCurrentMirror()) {
+				BC::BoxCollider* boxCol = mirrorManager->GetCurrentMirror()->GetComponent<BC::BoxCollider>();
+
+				if (it->second->beamBoxCollider.BoundingBoxTest(it->second->beamBoxCollider.GetBoxCollider(), boxCol->GetBoxCollider())) {
+					std::cout << "Collision" << std::endl;
+				}
+			}
+			
+		}
+		
+
+		/*
 		//Get begin, stay and end overlap colliders
 		Collider* beginOverlapCollider = it->second->beamBoxCollider.OnBeginOverlap();
 		Collider* stayOverlapCollider = it->second->beamBoxCollider.OnStayOverlap();
@@ -86,6 +100,7 @@ void ReflectorBeam::Update(float deltaTime) {
 				it->second->positions.push_back(newPos);
 			}
 		}
+		*/
 	}
 
 	
