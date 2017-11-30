@@ -160,7 +160,7 @@
       <Filter>Game\Managers\Beam</Filter>
     </ClCompile>
     <ClCompile Include="ReflectorBeam.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Managers\Beam</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -237,7 +237,7 @@
       <Filter>Game\Managers\Beam</Filter>
     </ClInclude>
     <ClInclude Include="ReflectorBeam.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\Managers\Beam</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

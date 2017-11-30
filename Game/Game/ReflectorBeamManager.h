@@ -21,11 +21,10 @@ public:
 	void Start();
 	void Update(float deltaTime);
 
+	//Adds a beam with a position and rotation
+	ReflectorBeam& AddBeam(sf::Vector2f position, float rotateAngel);
 	
 private:
-	//Adds a beam with a position and rotation
-	void AddBeam(sf::Vector2f position, float rotateAngel);
-
 	//Sets the colors of every beam
 	void SetBeamColor();
 

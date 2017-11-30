@@ -1,12 +1,13 @@
 #include "ReflectorBeam.h"
 #include "GameObject.h"
+#include "MirrorManager.h"
+#include "ReflectorBeamManager.h"
 
-
-
-ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager) : mirrorManager(mirrorManager) {
+ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager) : mirrorManager(mirrorManager), reflectorBeamManager(reflectorBeamManager) {
 	growSpeed = 10.0f;
 	isReflecting = false;
 	reflectorBeamSprite.rotate(180);
+	beamReflectMirror = nullptr;
 }
 
 ReflectorBeam::~ReflectorBeam()
@@ -20,26 +21,40 @@ void ReflectorBeam::Update(float deltaTime) {
 	Collider* endOverlapCollider = reflectorBeamBoxCollider.OnEndOverlap();
 	//If begin collider is not nullptr and the gameobject colliding is a mirror
 	if (beginOverlapCollider && beginOverlapCollider->gameObject->Name == "Mirror") {
-		//set Reflecting to true;
-		isReflecting = true;
+		if (beginOverlapCollider->gameObject != cantReflectMirror) {
+			//set Reflecting to true;
+			isReflecting = true;
+		}
+		
 	}
 	//If end collider is not nullptr and the gameobject colliding is a mirror
 	if (endOverlapCollider && endOverlapCollider->gameObject->Name == "Mirror") {
-		//set Reflecting to false;
-		isReflecting = false;
+		if (endOverlapCollider->gameObject != cantReflectMirror) {
+			//set Reflecting to true;
+			isReflecting = false;
+		}
 	}
 
 	if (isReflecting && mirrorManager->IsMovingAMirror()) {
 		sf::Sprite* sprite = stayOverlapCollider->gameObject->GetComponent<BC::Sprite>();
 		float diff = std::abs(mirrorManager->GetPositionsInMirror(sprite, positions));
-		std::cout << diff << std::endl;
 		if (diff > 0) {
 			reflectorBeamSprite.setScale(reflectorBeamSprite.getScale().x, reflectorBeamSprite.getScale().y - ((growSpeed * deltaTime) * diff));
+		}
+
+		if (!beamReflectMirror) {
+			beamReflectMirror = stayOverlapCollider->gameObject;
+			ReflectorBeam& newBeam = reflectorBeamManager->AddBeam(beamReflectMirror->GetComponent<BC::Sprite>()->getPosition(), 180 + beamReflectMirror->GetComponent<BC::Sprite>()->getRotation());
+			newBeam.cantReflectMirror = beamReflectMirror;
 		}
 	}
 	else if(!isReflecting) {
 		if (reflectorBeamSprite.getScale().y != 1000) {
 			Grow(deltaTime);
+
+			if (beamReflectMirror) {
+				beamReflectMirror = nullptr;
+			}
 		}
 	}
 }
@@ -73,6 +88,11 @@ std::vector<sf::Vector2f>& ReflectorBeam::GetPositions() {
 
 float ReflectorBeam::GetGrowSpeed() {
 	return growSpeed;
+}
+
+GameObject * ReflectorBeam::GetBeamReflectMirror()
+{
+	return nullptr;
 }
 
 bool ReflectorBeam::IsReflecting() {

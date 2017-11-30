@@ -3,8 +3,6 @@
 #include "SceneManager.h"
 #include "Window.h"
 
-
-
 ReflectorBeamManager::ReflectorBeamManager(std::string beamFilePath) : beamFilePath(beamFilePath) {
 	beamIndex = 0;
 }
@@ -48,9 +46,9 @@ void ReflectorBeamManager::Update(float deltaTime) {
 }
 
 //Adds a beam with a position and rotation
-void ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
+ReflectorBeam& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
 	//Make new beam instance pointer
-	ReflectorBeam* beam = new ReflectorBeam(mirrorManager);
+	ReflectorBeam* beam = new ReflectorBeam(mirrorManager, this);
 
 	//Add components from the beam to the GameObject
 	gameObject->AddComponent(&beam->GetSprite());
@@ -63,6 +61,8 @@ void ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
 	//Insert beam into beam map and increase beamIndex
 	beams.insert(std::pair<int, ReflectorBeam*>(beamIndex, beam));
 	beamIndex++;
+
+	return *beam;
 }
 
 //Sets the colors of every beam

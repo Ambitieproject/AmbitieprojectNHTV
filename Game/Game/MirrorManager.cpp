@@ -119,12 +119,10 @@ int MirrorManager::GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vect
 
 	for (auto it = positions.begin(); it != positions.end(); it++) {
 		if (it->x >= xMin && it->x <= xMax && it->y >= yMin && it->y <= yMax) {
-			std::cout << "hallo" << std::endl;
 			while (it != positions.end()) {
 				count++;
 				it = positions.erase(it);
 			}
-			std::cout << count << std::endl;
 			return count;
 		}
 	}

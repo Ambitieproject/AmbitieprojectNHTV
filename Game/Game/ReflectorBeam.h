@@ -5,9 +5,12 @@
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
 
+class MirrorManager;
+class ReflectorBeamManager;
+
 class ReflectorBeam {
 public:
-	ReflectorBeam(MirrorManager* mirrorManager);
+	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager);
 	~ReflectorBeam();
 
 	void Update(float deltaTime);
@@ -20,9 +23,13 @@ public:
 	std::vector<sf::Vector2f>& GetPositions();
 	std::vector<sf::Vector2f> positions;
 	float GetGrowSpeed();
+	GameObject* GetBeamReflectMirror();
 
 	bool IsReflecting();
 	void SetReflecting(bool state);
+
+public:
+	GameObject* cantReflectMirror;
 
 private:
 	float growSpeed;
@@ -30,8 +37,10 @@ private:
 	BC::Sprite reflectorBeamSprite = BC::Sprite("../Assets/pixelWhite.png");
 	BC::BoxCollider reflectorBeamBoxCollider = BC::BoxCollider(reflectorBeamSprite);
 	
-	
 	MirrorManager* mirrorManager;
+	ReflectorBeamManager* reflectorBeamManager;
+
+	GameObject* beamReflectMirror;
 
 	bool isReflecting;
 	bool hasReflectingBeam;
