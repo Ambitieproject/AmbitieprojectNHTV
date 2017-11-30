@@ -9,7 +9,7 @@
 #include "GameObject.h"
 
 #include "PrismaMovementController.h"
-#include "ReflectorBeam.h"
+#include "ReflectorBeamManager.h"
 #include "MirrorManager.h"
 
 class ExampleScene : public Scene {
@@ -28,7 +28,7 @@ private:
 
 
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
-	ReflectorBeam reflectorBeam = ReflectorBeam("../Assets/pixelWhite.png");
+	ReflectorBeamManager reflectorBeam = ReflectorBeamManager("../Assets/pixelWhite.png");
 
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
 	MirrorManager mirrorManager = MirrorManager();

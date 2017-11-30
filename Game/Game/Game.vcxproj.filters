@@ -76,8 +76,14 @@
     <Filter Include="Game\Prisma">
       <UniqueIdentifier>{0c04935d-c5c4-4975-9dfa-870ae4efafd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Beam">
+    <Filter Include="Game\Managers">
+      <UniqueIdentifier>{cd2eef44-73c8-4e38-8224-326c66fde12d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Managers\Beam">
       <UniqueIdentifier>{666b1cb2-b6d9-46ad-a395-d6590543872c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Beam">
+      <UniqueIdentifier>{13f7a9cd-f277-4654-8c6f-8226e2edfcb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,13 +150,16 @@
     <ClCompile Include="PrismaMovementController.cpp">
       <Filter>Game\Prisma</Filter>
     </ClCompile>
-    <ClCompile Include="ReflectorBeam.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MirrorManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectorBeamManager.cpp">
+      <Filter>Game\Managers\Beam</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflectorBeam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -218,13 +227,16 @@
     <ClInclude Include="PrismaMovementController.h">
       <Filter>Game\Prisma</Filter>
     </ClInclude>
-    <ClInclude Include="ReflectorBeam.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MirrorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectorBeamManager.h">
+      <Filter>Game\Managers\Beam</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflectorBeam.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

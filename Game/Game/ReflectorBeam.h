@@ -1,52 +1,39 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
 #include <iostream>
-#include <map>
-#include <vector>
-
-//Include upper hierachy class Component because it does inherit from the base class Component
-#include "Component.h"
 
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
-#include "PrismaMovementController.h"
 
-struct Beam {
-	BC::Sprite beam = BC::Sprite("../Assets/pixelWhite.png");
-	BC::BoxCollider beamBoxCollider = BC::BoxCollider(beam);
-	std::vector<sf::Vector2f> positions;
-	bool isReflecting;
-};
-
-class ReflectorBeam : public Component {
+class ReflectorBeam {
 public:
-	ReflectorBeam(std::string beamFilePath);
+	ReflectorBeam(MirrorManager* mirrorManager);
 	~ReflectorBeam();
 
-	void Start();
 	void Update(float deltaTime);
+	void Grow(float deltaTime);
 
+	void SetGrowSpeed(float growSpeed);
+
+	BC::Sprite& GetSprite();
+	BC::BoxCollider& GetBoxCollider();
+	std::vector<sf::Vector2f>& GetPositions();
+	std::vector<sf::Vector2f> positions;
+	float GetGrowSpeed();
+
+	bool IsReflecting();
+	void SetReflecting(bool state);
+
+private:
+	float growSpeed;
+
+	BC::Sprite reflectorBeamSprite = BC::Sprite("../Assets/pixelWhite.png");
+	BC::BoxCollider reflectorBeamBoxCollider = BC::BoxCollider(reflectorBeamSprite);
 	
-private:
-	void AddBeam(Beam* beam);
-
-	void SetBeamColor();
-
-private:
-	std::string beamFilePath;
-
-	std::map<int, Beam*> beams;
-	int beamIndex;
-
-	BC::Sprite* prisma;
+	
 	MirrorManager* mirrorManager;
-	PrismaMovementController* prismaMovementController;
 
-	///Color handeling
-	std::vector<sf::Color> prismaColors;
-
-	int currentPrismaColorIndex;
-	sf::Color currentPrismaColor;
+	bool isReflecting;
+	bool hasReflectingBeam;
 };
 

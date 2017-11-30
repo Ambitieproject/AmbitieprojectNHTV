@@ -3,8 +3,6 @@
 #include "SceneManager.h"
 #include "Window.h"
 
-
-
 MirrorManager::MirrorManager() {
 	
 }
@@ -106,7 +104,7 @@ void MirrorManager::AddMirror() {
 	mirrorIndex++;
 }
 
-float MirrorManager::GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions) {
+int MirrorManager::GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions) {
 
 	float width = sprite->getTexture()->getSize().x * sprite->getScale().x;
 	float height = sprite->getTexture()->getSize().y * sprite->getScale().y;
@@ -117,20 +115,18 @@ float MirrorManager::GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Ve
 	float yMin = sprite->getPosition().y - (height / 2);
 	float yMax = sprite->getPosition().y + (height / 2);
 
-	sf::Vector2f lastItem;
+	int count = 0;
 
 	for (auto it = positions.begin(); it != positions.end(); it++) {
 		if (it->x >= xMin && it->x <= xMax && it->y >= yMin && it->y <= yMax) {
-			lastItem = positions.back();
+			std::cout << "hallo" << std::endl;
 			while (it != positions.end()) {
+				count++;
 				it = positions.erase(it);
 			}
-			float diff = lastItem.y - positions.back().y;
-			return diff;
+			std::cout << count << std::endl;
+			return count;
 		}
 	}
-
-	
 	return 0;
-	
 }

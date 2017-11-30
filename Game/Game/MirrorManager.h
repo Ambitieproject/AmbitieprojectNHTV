@@ -20,7 +20,7 @@ public:
 	void Start();
 	void Update(float deltaTime);
 
-	float GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions);
+	int GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions);
 
 	bool IsMovingAMirror();
 	GameObject* GetCurrentMirror();
