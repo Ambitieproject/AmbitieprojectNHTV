@@ -44,7 +44,7 @@ void ReflectorBeam::Update(float deltaTime) {
 
 		if (!beamReflectMirror) {
 			beamReflectMirror = stayOverlapCollider->gameObject;
-			ReflectorBeam& newBeam = reflectorBeamManager->AddBeam(beamReflectMirror->GetComponent<BC::Sprite>()->getPosition(), 180 + beamReflectMirror->GetComponent<BC::Sprite>()->getRotation());
+			ReflectorBeam& newBeam = reflectorBeamManager->AddBeam(positions.back(), 180 + beamReflectMirror->GetComponent<BC::Sprite>()->getRotation());
 			newBeam.cantReflectMirror = beamReflectMirror;
 		}
 	}
