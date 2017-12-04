@@ -62,12 +62,15 @@ void ReflectorBeam::Update(float deltaTime) {
 void ReflectorBeam::Grow(float deltaTime) {
 	reflectorBeamSprite.setScale(reflectorBeamSprite.getScale().x, reflectorBeamSprite.getScale().y + (growSpeed * deltaTime));
 
+	sf::Vector2f vector = sf::Vector2f(reflectorBeamBoxCollider.GetBoxCollider().getTransform().transformPoint(reflectorBeamBoxCollider.GetBoxCollider().getPoint(3)).x , reflectorBeamBoxCollider.GetBoxCollider().getTransform().transformPoint(reflectorBeamBoxCollider.GetBoxCollider().getPoint(3)).y);
+	std::cout << reflectorBeamBoxCollider.GetBoxCollider().getTransform().transformPoint(reflectorBeamBoxCollider.GetBoxCollider().getPoint(3)).x << " " << reflectorBeamBoxCollider.GetBoxCollider().getTransform().transformPoint(reflectorBeamBoxCollider.GetBoxCollider().getPoint(3)).y << std::endl;
+
 	sf::Vector2f newPos = sf::Vector2f(
 		reflectorBeamSprite.getPosition().x - (reflectorBeamSprite.getTexture()->getSize().x * reflectorBeamSprite.getScale().x), 
 		reflectorBeamSprite.getPosition().y - (reflectorBeamSprite.getTexture()->getSize().y * reflectorBeamSprite.getScale().y)
 	);
 	
-	positions.push_back(newPos);
+	positions.push_back(vector);
 }
 
 void ReflectorBeam::SetGrowSpeed(float growSpeed) {

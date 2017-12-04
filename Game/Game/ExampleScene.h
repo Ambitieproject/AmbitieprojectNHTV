@@ -26,7 +26,6 @@ private:
 	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
 	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
 
-
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
 	ReflectorBeamManager reflectorBeam = ReflectorBeamManager("../Assets/pixelWhite.png");
 

@@ -3,4 +3,11 @@ c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieproj
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(63): error C3867: 'sf::Transform::getMatrix': non-standard syntax; use '&' to create a pointer to member
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(64): warning C4018: '<': signed/unsigned mismatch
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(39): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+          with
+          [
+              component=BC::Sprite
+          ]
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
