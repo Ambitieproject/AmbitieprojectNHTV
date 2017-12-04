@@ -20,8 +20,8 @@ void Renderer::SetupRenderer() {
 
 //Begin draw method
 void Renderer::BeginDraw() {
-	//Clears the window with the color black
-	window->clear(sf::Color::Black);
+	//Clears the window with a given color as a parameter
+	window->clear(sf::Color(97,97,97,255));
 }
 
 //Draw method that draws a SFML Drawable

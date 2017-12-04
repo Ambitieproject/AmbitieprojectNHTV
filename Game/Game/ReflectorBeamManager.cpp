@@ -21,14 +21,14 @@ void ReflectorBeamManager::Start() {
 	sf::Image colorValueImage;
 	colorValueImage.loadFromFile("../Assets/colorScheme.png");
 
+	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 70), 30);
+
 	for (int i = 0; i < colorValueImage.getSize().x; i++) {
 		prismaColors.push_back(colorValueImage.getPixel(i, 0));
 	}
 
 	currentPrismaColorIndex = 0;
 	currentPrismaColor = prismaColors[currentPrismaColorIndex];
-
-	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 70), 0);
 }
 
 void ReflectorBeamManager::Update(float deltaTime) {

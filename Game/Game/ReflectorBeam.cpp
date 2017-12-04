@@ -44,8 +44,8 @@ void ReflectorBeam::Update(float deltaTime) {
 
 		if (!beamReflectMirror) {
 			beamReflectMirror = stayOverlapCollider->gameObject;
-			ReflectorBeam& newBeam = reflectorBeamManager->AddBeam(positions.back(), 180 + beamReflectMirror->GetComponent<BC::Sprite>()->getRotation());
-			newBeam.cantReflectMirror = beamReflectMirror;
+			//ReflectorBeam& newBeam = reflectorBeamManager->AddBeam(positions.back(), 180 + beamReflectMirror->GetComponent<BC::Sprite>()->getRotation());
+			//newBeam.cantReflectMirror = beamReflectMirror;
 		}
 	}
 	else if(!isReflecting) {
@@ -66,7 +66,7 @@ void ReflectorBeam::Grow(float deltaTime) {
 		reflectorBeamSprite.getPosition().x - (reflectorBeamSprite.getTexture()->getSize().x * reflectorBeamSprite.getScale().x), 
 		reflectorBeamSprite.getPosition().y - (reflectorBeamSprite.getTexture()->getSize().y * reflectorBeamSprite.getScale().y)
 	);
-
+	
 	positions.push_back(newPos);
 }
 

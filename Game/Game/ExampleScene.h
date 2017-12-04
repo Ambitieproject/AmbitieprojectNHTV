@@ -23,7 +23,7 @@ public:
 
 private:
 	GameObject GOPrisma = GameObject("Prisma", *this);
-	BC::Sprite prismaSprite = BC::Sprite("../Assets/prisma.png");
+	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
 	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
 
 

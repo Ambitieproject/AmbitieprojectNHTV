@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iostream>
+#include <string>
+
 //Include Scene header so this class can inherit from Scene
 #include "Scene.h"
 
@@ -22,13 +25,32 @@ public:
 	void Update(float deltaTime);
 
 private:
-	//StartButton GameObject
-	GameObject GOStartButton = GameObject("StartButton", *this);
-	//QuitButton GameObject
-	GameObject GOSQuitButton = GameObject("QuitButton", *this);
+	//UI Logo Holder
+	GameObject GOUILogoHolder = GameObject("UILogoHolder", *this);
+	//Logo prism sprite
+	BC::Sprite logoPrism = BC::Sprite("../Assets/Prism.png");
+	//Logo prism text sprite
+	BC::Sprite logoPrismText = BC::Sprite("../Assets/Menu/PrismText.png");
 
-	///Button Components
-	BC::Button startButton = BC::Button("../Assets/UI/STARTBUTTON/buttonStartNormal.png", "../Assets/UI/STARTBUTTON/buttonStartHighlighted.png", "../Assets/UI/STARTBUTTON/buttonStartPressed.png");
-	BC::Button quitButton = BC::Button("../Assets/UI/QUITBUTTON/buttonQuitNormal.png", "../Assets/UI/QUITBUTTON/buttonQuitHighlighted.png", "../Assets/UI/QUITBUTTON/buttonQuitPressed.png");
+	//UI Sound Holder
+	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this);
+
+	//UI Button Holder
+	GameObject GOUIButtonHolder = GameObject("GOUIButtonHolder", *this);
+	//Start button
+	BC::Button buttonStart = BC::Button("../Assets/Menu/Buttons/Start/ButtonStartIdle.png", "../Assets/Menu/Buttons/Start/ButtonStartHovered.png", "../Assets/Menu/Buttons/Start/ButtonStartPressed.png");
+	//Shop button
+	BC::Button buttonShop = BC::Button("../Assets/Menu/Buttons/Shop/ButtonShopIdle.png", "../Assets/Menu/Buttons/Shop/ButtonShopHovered.png", "../Assets/Menu/Buttons/Shop/ButtonShopPressed.png");
+	//Score button
+	BC::Button buttonScore = BC::Button("../Assets/Menu/Buttons/Score/ButtonScoreIdle.png", "../Assets/Menu/Buttons/Score/ButtonScoreHovered.png", "../Assets/Menu/Buttons/Score/ButtonScorePressed.png");
+	//Quit button
+	BC::Button buttonQuit = BC::Button("../Assets/Menu/Buttons/Quit/ButtonQuitIdle.png", "../Assets/Menu/Buttons/Quit/ButtonQuitHovered.png", "../Assets/Menu/Buttons/Quit/ButtonQuitPressed.png");
+	//List of menu buttons
+	std::list<BC::Button*> menuButton;
+
+	//UI Reference holder GameObject
+	GameObject GOUIRefHolder = GameObject("GORefHolder", *this);
+	//Reference sprite
+	BC::Sprite refSprite = BC::Sprite("../Assets/Menu/JP2017.png");
 };
 

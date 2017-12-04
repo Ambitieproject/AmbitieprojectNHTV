@@ -13,7 +13,7 @@ PrismaMovementController::~PrismaMovementController() {
 }
 
 void PrismaMovementController::Start() {
-	prisma->setScale(0.5f, 0.5f);
+	prisma->setScale(0.25f, 0.25f);
 	prisma->setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y / 4 * 3);
 	prisma->setOrigin(prisma->getTexture()->getSize().x * 0.5f, (prisma->getTexture()->getSize().y * 0.5f) + 40);
 

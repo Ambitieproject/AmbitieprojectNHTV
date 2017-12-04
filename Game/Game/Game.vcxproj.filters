@@ -34,9 +34,6 @@
     <Filter Include="JEngine\Renderer">
       <UniqueIdentifier>{98052212-1367-4466-899b-883839d3103d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JEngine\Renderer\Managment">
-      <UniqueIdentifier>{23fe68c2-370e-4b11-b73d-8993996b5d16}</UniqueIdentifier>
-    </Filter>
     <Filter Include="JEngine\Components\Graphics">
       <UniqueIdentifier>{14250b65-9707-49f6-bbd4-9a2db5b5f853}</UniqueIdentifier>
     </Filter>
@@ -85,6 +82,12 @@
     <Filter Include="Game\Beam">
       <UniqueIdentifier>{13f7a9cd-f277-4654-8c6f-8226e2edfcb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Menu">
+      <UniqueIdentifier>{d48041f1-6cfc-4397-bae0-4a4f9f19acd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes">
+      <UniqueIdentifier>{6702af9c-8a34-4ced-b15a-c5c63a9c7bc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -110,9 +113,6 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>JEngine\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ExampleScene.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>JEngine</Filter>
@@ -153,14 +153,17 @@
     <ClCompile Include="MirrorManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ReflectorBeamManager.cpp">
       <Filter>Game\Managers\Beam</Filter>
     </ClCompile>
     <ClCompile Include="ReflectorBeam.cpp">
       <Filter>Game\Managers\Beam</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleScene.cpp">
+      <Filter>Game\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>JEngine\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="ExampleScene.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>JEngine\Components\Graphics\Sprites</Filter>
@@ -230,14 +230,17 @@
     <ClInclude Include="MirrorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ReflectorBeamManager.h">
       <Filter>Game\Managers\Beam</Filter>
     </ClInclude>
     <ClInclude Include="ReflectorBeam.h">
       <Filter>Game\Managers\Beam</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleScene.h">
+      <Filter>Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
