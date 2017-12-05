@@ -21,45 +21,42 @@ void ReflectorBeamManager::Start() {
 	sf::Image colorValueImage;
 	colorValueImage.loadFromFile("../Assets/colorScheme.png");
 
-	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 70), 30);
-
 	for (int i = 0; i < colorValueImage.getSize().x; i++) {
 		prismaColors.push_back(colorValueImage.getPixel(i, 0));
 	}
 
 	currentPrismaColorIndex = 0;
 	currentPrismaColor = prismaColors[currentPrismaColorIndex];
+
+	for (auto it = beams.begin(); it != beams.end(); it++) {
+		it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
+	}
+
+	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100), 30);
 }
 
 void ReflectorBeamManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
 	SetBeamColor();
-
-	//for every beam
-	for (auto it = beams.begin(); it != beams.end(); it++) {
-		//Put pointer in temperary storage
-		ReflectorBeam* reflectorBeam = it->second;
-
-		reflectorBeam->Update(deltaTime);
-	}
 }
 
 //Adds a beam with a position and rotation
-ReflectorBeam& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
+GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
+	//Make new GameObject instance pointer
+	GameObject* beam = new GameObject("Beam", gameObject->GetScene());
+
 	//Make new beam instance pointer
-	ReflectorBeam* beam = new ReflectorBeam(mirrorManager, this);
+	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this);
 
 	//Add components from the beam to the GameObject
-	gameObject->AddComponent(&beam->GetSprite());
-	gameObject->AddComponent(&beam->GetBoxCollider());
+	beam->AddComponent(reflectorBeamComponent);
 
-	//Set beam position and rotation
-	beam->GetSprite().setPosition(position);
-	beam->GetSprite().rotate(rotateAngel);
+	reflectorBeamComponent->GetLine()[0].position = position;
+	reflectorBeamComponent->GetLine()[1].position = position + sf::Vector2f(0, -80);
 
 	//Insert beam into beam map and increase beamIndex
-	beams.insert(std::pair<int, ReflectorBeam*>(beamIndex, beam));
+	beams.insert(std::pair<int, GameObject*>(beamIndex, beam));
 	beamIndex++;
 
 	return *beam;
@@ -76,7 +73,7 @@ void ReflectorBeamManager::SetBeamColor() {
 		currentPrismaColor = prismaColors[currentPrismaColorIndex];
 
 		for (auto it = beams.begin(); it != beams.end(); it++) {
-			it->second->GetSprite().setColor(currentPrismaColor);
+			it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
 		}
 	}
 	if (prismaMovementController->IsMovingLeft()) {
@@ -88,13 +85,7 @@ void ReflectorBeamManager::SetBeamColor() {
 		currentPrismaColor = prismaColors[currentPrismaColorIndex];
 
 		for (auto it = beams.begin(); it != beams.end(); it++) {
-			it->second->GetSprite().setColor(currentPrismaColor);
+			it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
 		}
 	}
-}
-
-void ReflectorBeamManager::CalculateNewBeam(ReflectorBeam* previousBeam, GameObject* reflectingMirror) {
-	BC::Sprite* mirrorSprite = gameObject->GetComponent<BC::Sprite>();
-
-	AddBeam(mirrorSprite->getPosition(), mirrorSprite->getRotation());
 }

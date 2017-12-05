@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "Game.h"
 #include "BaseComponents.hpp"
+#include "ReflectorBeam.h"
 
 SceneManager* SceneManager::instance = 0;
 
@@ -187,6 +188,12 @@ void SceneManager::RenderCurrentScene() {
 
 					if (button) {
 						renderer->Draw(button->GetCurrentButtonSprite());
+					}
+
+					ReflectorBeam* reflectorBeam = dynamic_cast<ReflectorBeam*>(it2->second);
+
+					if (reflectorBeam) {
+						renderer->Draw(reflectorBeam->GetLine(), 2, sf::Lines);
 					}
 
 					/*

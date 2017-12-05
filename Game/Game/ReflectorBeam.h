@@ -4,45 +4,28 @@
 
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
+#include "Component.h"
 
 class MirrorManager;
 class ReflectorBeamManager;
 
-class ReflectorBeam {
+class ReflectorBeam : public Component {
 public:
 	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager);
 	~ReflectorBeam();
 
 	void Update(float deltaTime);
-	void Grow(float deltaTime);
 
-	void SetGrowSpeed(float growSpeed);
+	sf::Vertex* GetLine();
 
-	BC::Sprite& GetSprite();
-	BC::BoxCollider& GetBoxCollider();
-	std::vector<sf::Vector2f>& GetPositions();
-	std::vector<sf::Vector2f> positions;
-	float GetGrowSpeed();
-	GameObject* GetBeamReflectMirror();
-
-	bool IsReflecting();
-	void SetReflecting(bool state);
-
-public:
-	GameObject* cantReflectMirror;
+	void SetLineColor(sf::Color color);
 
 private:
-	float growSpeed;
+	sf::Vertex* line = new sf::Vertex[2];
 
-	BC::Sprite reflectorBeamSprite = BC::Sprite("../Assets/pixelWhite.png");
-	BC::BoxCollider reflectorBeamBoxCollider = BC::BoxCollider(reflectorBeamSprite);
-	
+	//MirrorManager reference
 	MirrorManager* mirrorManager;
+	//ReflectorBeamManager reference
 	ReflectorBeamManager* reflectorBeamManager;
-
-	GameObject* beamReflectMirror;
-
-	bool isReflecting;
-	bool hasReflectingBeam;
 };
 

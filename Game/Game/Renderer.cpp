@@ -30,6 +30,11 @@ void Renderer::Draw(sf::Drawable& drawable) {
 	window->draw(drawable);
 }
 
+//Draw method that draws a vertex count
+void Renderer::Draw(const sf::Vertex * vertices, size_t vertexCount, sf::PrimitiveType primitiveType, const sf::RenderStates & states) {
+	window->draw(vertices, vertexCount, primitiveType, states);
+}
+
 //End draw method
 void Renderer::EndDraw() {
 	//Display to the window

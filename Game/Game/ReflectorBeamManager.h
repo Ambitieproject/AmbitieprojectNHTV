@@ -22,18 +22,16 @@ public:
 	void Update(float deltaTime);
 
 	//Adds a beam with a position and rotation
-	ReflectorBeam& AddBeam(sf::Vector2f position, float rotateAngel);
+	GameObject& AddBeam(sf::Vector2f position, float rotateAngel);
 	
 private:
 	//Sets the colors of every beam
 	void SetBeamColor();
 
-	void CalculateNewBeam(ReflectorBeam* previousBeam, GameObject* reflectingMirror);
-
 private:
 	std::string beamFilePath;
 
-	std::map<int, ReflectorBeam*> beams;
+	std::map<int, GameObject*> beams;
 	int beamIndex;
 
 	//Prisma reference

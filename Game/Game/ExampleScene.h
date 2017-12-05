@@ -31,4 +31,6 @@ private:
 
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
 	MirrorManager mirrorManager = MirrorManager();
+
+	sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(150, 5));
 };

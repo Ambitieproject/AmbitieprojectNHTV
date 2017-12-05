@@ -18,6 +18,8 @@ public:
 	void BeginDraw();
 	//Draw method that draws a SFML Drawable
 	void Draw(sf::Drawable& drawable);
+	//Draw method that draws a vertex count
+	void Draw(const sf::Vertex* vertices, size_t vertexCount, sf::PrimitiveType primitiveType, const sf::RenderStates& states = sf::RenderStates::Default);
 	//End draw method
 	void EndDraw();
 

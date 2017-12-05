@@ -1,10 +1,11 @@
-﻿  ReflectorBeam.cpp
+﻿  ReflectorBeamManager.cpp
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(69): warning C4018: '>=': signed/unsigned mismatch
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(64): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(39): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(17): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
           with
           [
               component=BC::Sprite
