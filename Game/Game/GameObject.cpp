@@ -3,7 +3,7 @@
 
 
 //Constructor that sets the name of scene of this gameobject
-GameObject::GameObject(std::string name, Scene& scene) : Name(name), scene(scene) {
+GameObject::GameObject(std::string name, Scene& scene, int drawIndex) : Name(name), scene(scene), drawIndex(drawIndex) {
 	componentIndex = 0;
 	//Add this gameobject to the list of gameobjects in the scene
 	scene.AddToGameObjectList(this);

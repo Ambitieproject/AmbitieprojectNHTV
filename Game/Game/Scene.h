@@ -52,7 +52,11 @@ public:
 	//Map of GameObjects in the scene
 	std::map<int, GameObject*> GameObjects;
 
-	bool canUpdate;
+	//Vector of Ordered GameObjects in the scene based on the draw index
+	std::map<int, GameObject*> OrderedGameObjects;
+
+private:
+	void ResetOrderedGameObjects();
 
 private:
 	//Local index of GameObjects in the scene

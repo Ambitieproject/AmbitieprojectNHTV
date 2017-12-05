@@ -1,10 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <limits>
 
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
 #include "Component.h"
+
 
 class MirrorManager;
 class ReflectorBeamManager;
@@ -21,7 +23,12 @@ public:
 	void SetLineColor(sf::Color color);
 
 private:
+	//Line in Vertexes
 	sf::Vertex* line = new sf::Vertex[2];
+
+	float slope;
+
+	bool isCollidingWithMirror;
 
 	//MirrorManager reference
 	MirrorManager* mirrorManager;

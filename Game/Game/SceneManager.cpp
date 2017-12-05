@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "BaseComponents.hpp"
 #include "ReflectorBeam.h"
+#include "MirrorManager.h"
 
 SceneManager* SceneManager::instance = 0;
 
@@ -147,6 +148,7 @@ Scene& SceneManager::GetSceneByName(std::string sceneName) {
 	std::cout << "Scene with name " << sceneName << " not found" << std::endl;
 }
 
+//Start the SceneManager
 void SceneManager::StartSceneManager() {
 	LoadScene(0);
 }
@@ -162,51 +164,54 @@ void SceneManager::RenderCurrentScene() {
 	//Call BeginDraw function of the renderer class
 	renderer->BeginDraw();
 
-	//for every GameObject in the scene
 	for (auto it = currentScene->GameObjects.begin(); it != currentScene->GameObjects.end(); it++) {
-		//if GameObject is active
-		if (it->second->Active) {
-			//for every Component in the GameObject
-			for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
-				//if Component is enabled
-				if (it2->second->Enabled) {
-					//dynamic sprite casting
-					//dynamic sprite rendering
-					BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
+		//for every Component in the GameObject
+		for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
+			//if Component is enabled
+			if (it2->second->Enabled) {
+				//dynamic sprite casting
+				//dynamic sprite rendering
+				BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
 
-					if (sprite) {
-						renderer->Draw(*sprite);
-					}
-
-					BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
-
-					if (text) {
-						renderer->Draw(*text);
-					}
-
-					BC::Button* button = dynamic_cast<BC::Button*>(it2->second);
-
-					if (button) {
-						renderer->Draw(button->GetCurrentButtonSprite());
-					}
-
-					ReflectorBeam* reflectorBeam = dynamic_cast<ReflectorBeam*>(it2->second);
-
-					if (reflectorBeam) {
-						renderer->Draw(reflectorBeam->GetLine(), 2, sf::Lines);
-					}
-
-					/*
-					BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
-				
-					if (boxCollider) {
-						renderer->Draw(boxCollider->GetBoxCollider());
-					}
-					*/
+				if (sprite) {
+					renderer->Draw(*sprite);
 				}
+
+				BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
+
+				if (text) {
+					renderer->Draw(*text);
+				}
+
+				BC::Button* button = dynamic_cast<BC::Button*>(it2->second);
+
+				if (button) {
+					renderer->Draw(button->GetCurrentButtonSprite());
+				}
+
+				ReflectorBeam* reflectorBeam = dynamic_cast<ReflectorBeam*>(it2->second);
+
+				if (reflectorBeam) {
+					renderer->Draw(reflectorBeam->GetLine(), 2, sf::Lines);
+				}
+
+				Mirror* mirror = dynamic_cast<Mirror*>(it2->second);
+
+				if (mirror) {
+					if (mirror->GetLine()) {
+						renderer->Draw(mirror->GetLine(), 2, sf::Lines);
+					}
+				}
+
+				/*
+				BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
+
+				if (boxCollider) {
+				renderer->Draw(boxCollider->GetBoxCollider());
+				}
+				*/
 			}
 		}
-		
 	}
 
 	//Call EndDraw function of the renderer class	
@@ -248,6 +253,10 @@ void SceneManager::ResetScene(Scene* scene) {
 		mainSceneClass.SceneIndex = lastSceneIndex;
 	}
 	
+}
+
+void SceneManager::ResetOrderedDrawGameObjectVector() {
+
 }
 
 //Adds scene to list of scenes

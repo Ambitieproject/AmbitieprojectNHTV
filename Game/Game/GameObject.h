@@ -13,7 +13,7 @@ class Scene;
 class GameObject {
 public:
 	//Constructor with name and scene to indentify this gameobject with
-	GameObject(std::string name, Scene& scene);
+	GameObject(std::string name, Scene& scene, int drawIndex);
 
 	//Destructor
 	~GameObject();
@@ -49,6 +49,9 @@ public:
 
 	//GameObject layer index
 	int GameObjectSceneIndex;
+
+	//Index objects will be drawn at
+	int drawIndex;
 
 private:
 	//Current scene where this gameobject lives in

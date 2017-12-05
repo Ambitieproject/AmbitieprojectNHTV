@@ -21,6 +21,8 @@ void ReflectorBeamManager::Start() {
 	sf::Image colorValueImage;
 	colorValueImage.loadFromFile("../Assets/colorScheme.png");
 
+	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100), 30);
+
 	for (int i = 0; i < colorValueImage.getSize().x; i++) {
 		prismaColors.push_back(colorValueImage.getPixel(i, 0));
 	}
@@ -31,8 +33,6 @@ void ReflectorBeamManager::Start() {
 	for (auto it = beams.begin(); it != beams.end(); it++) {
 		it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
 	}
-
-	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100), 30);
 }
 
 void ReflectorBeamManager::Update(float deltaTime) {
@@ -44,7 +44,7 @@ void ReflectorBeamManager::Update(float deltaTime) {
 //Adds a beam with a position and rotation
 GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
 	//Make new GameObject instance pointer
-	GameObject* beam = new GameObject("Beam", gameObject->GetScene());
+	GameObject* beam = new GameObject("Beam", gameObject->GetScene(), 1);
 
 	//Make new beam instance pointer
 	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this);
@@ -53,7 +53,6 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAng
 	beam->AddComponent(reflectorBeamComponent);
 
 	reflectorBeamComponent->GetLine()[0].position = position;
-	reflectorBeamComponent->GetLine()[1].position = position + sf::Vector2f(0, -80);
 
 	//Insert beam into beam map and increase beamIndex
 	beams.insert(std::pair<int, GameObject*>(beamIndex, beam));

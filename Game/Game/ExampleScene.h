@@ -22,15 +22,17 @@ public:
 	void Update(float deltaTime);
 
 private:
-	GameObject GOPrisma = GameObject("Prisma", *this);
+	GameObject GOPrisma = GameObject("Prisma", *this, 1);
 	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
 	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
 
-	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
+	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this, 1);
 	ReflectorBeamManager reflectorBeam = ReflectorBeamManager("../Assets/pixelWhite.png");
 
-	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
+	GameObject GOMirrorManager = GameObject("MirrorManager", *this, 1);
 	MirrorManager mirrorManager = MirrorManager();
 
-	sf::RectangleShape line = sf::RectangleShape(sf::Vector2f(150, 5));
+	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this, 0);
+	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Level/TopAndDownBar.png");
+	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Level/TopAndDownBar.png");
 };

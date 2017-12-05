@@ -26,17 +26,17 @@ public:
 
 private:
 	//UI Logo Holder
-	GameObject GOUILogoHolder = GameObject("UILogoHolder", *this);
+	GameObject GOUILogoHolder = GameObject("UILogoHolder", *this, 0);
 	//Logo prism sprite
 	BC::Sprite logoPrism = BC::Sprite("../Assets/Prism.png");
 	//Logo prism text sprite
 	BC::Sprite logoPrismText = BC::Sprite("../Assets/Menu/PrismText.png");
 
 	//UI Sound Holder
-	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this);
+	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this, 0);
 
 	//UI Button Holder
-	GameObject GOUIButtonHolder = GameObject("GOUIButtonHolder", *this);
+	GameObject GOUIButtonHolder = GameObject("GOUIButtonHolder", *this, 0);
 	//Start button
 	BC::Button buttonStart = BC::Button("../Assets/Menu/Buttons/Start/ButtonStartIdle.png", "../Assets/Menu/Buttons/Start/ButtonStartHovered.png", "../Assets/Menu/Buttons/Start/ButtonStartPressed.png");
 	//Shop button
@@ -49,7 +49,7 @@ private:
 	std::list<BC::Button*> menuButton;
 
 	//UI Reference holder GameObject
-	GameObject GOUIRefHolder = GameObject("GORefHolder", *this);
+	GameObject GOUIRefHolder = GameObject("GORefHolder", *this, 0);
 	//Reference sprite
 	BC::Sprite refSprite = BC::Sprite("../Assets/Menu/JP2017.png");
 };

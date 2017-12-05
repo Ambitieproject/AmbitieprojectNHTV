@@ -13,7 +13,7 @@ Scene::Scene(std::string sceneName) {
 
 //Destructor
 Scene::~Scene() {
-
+	GameObjects.clear();
 }
 
 //Initialization method that runs all the nessesary code to setup a scene
@@ -51,7 +51,7 @@ void Scene::Update(float deltaTime) {
 
 //Virutal Quit Method of a scene that can be overwritten in a supper class
 void Scene::Quit() {
-	canUpdate = false;
+
 }
 
 //Adds a given GameObject to the list of GameObjects in the scene
@@ -59,6 +59,8 @@ void Scene::AddToGameObjectList(GameObject* gameObject) {
 	GameObjects.insert(std::pair<int, GameObject*>(gameObjectLayerIndex, gameObject));
 	gameObject->GameObjectSceneIndex = gameObjectLayerIndex;
 	gameObjectLayerIndex++;
+
+	ResetOrderedGameObjects();
 }
 
 //Destroys a specified GameObject
@@ -71,6 +73,7 @@ bool Scene::DestroyGameObject(GameObject* gameObject) {
 	if (it != GameObjects.end()) {
 		GameObjects.erase(it);
 		gameObject->~GameObject();
+		ResetOrderedGameObjects();
 		return true;
 	}
 	else {
@@ -124,3 +127,19 @@ GameObject* Scene::FindGameObjectByName(std::string gameObjectName) {
 
 	return nullptr;
 }
+
+void Scene::ResetOrderedGameObjects() {
+	OrderedGameObjects.clear();
+	std::cout << " " << std::endl;
+
+	for (int i = 0; i < 2; i++) {
+		for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
+			std::cout << it->second->drawIndex << std::endl;
+			if (i == it->second->drawIndex) {
+				OrderedGameObjects.insert(*it);
+			}
+		}
+	}
+	std::cout << " " << std::endl;
+}
+ 

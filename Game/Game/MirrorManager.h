@@ -20,9 +20,9 @@ public:
 	void Start();
 	void Update(float deltaTime);
 
-	int GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions);
-
 	bool IsMovingAMirror();
+
+	std::map<int, GameObject*>& GetMirrors();
 	GameObject* GetCurrentMirror();
 
 	void AddMirror();
@@ -39,5 +39,12 @@ private:
 class Mirror : public Component {
 public:
 	bool canMove;
+
+	sf::Vertex* GetLine();
+	float GetSlope();
+
+	sf::Vertex* line = new sf::Vertex[2];
+
+	void DrawMirrorLine();
 };
 

@@ -18,7 +18,6 @@ void MirrorManager::Start() {
 	isMovingAMirror = false;
 
 	AddMirror();
-	AddMirror();
 }
 
 void MirrorManager::Update(float deltaTime) {
@@ -75,13 +74,17 @@ bool MirrorManager::IsMovingAMirror() {
 	return isMovingAMirror;
 }
 
+std::map<int, GameObject*>& MirrorManager::GetMirrors() {
+	return mirrors;
+}
+
 GameObject* MirrorManager::GetCurrentMirror() {
 	return currentMirror;
 }
 
 void MirrorManager::AddMirror() { 
 	//Make mirror GameObject and Components
-	GameObject* mirror = new GameObject("Mirror", gameObject->GetScene());
+	GameObject* mirror = new GameObject("Mirror", gameObject->GetScene(), 1);
 	Mirror* mirrorComponent = new Mirror();
 	BC::Sprite* mirrorSprite = new BC::Sprite("../Assets/Mirror.png");
 	BC::BoxCollider* mirrorBoxCollider = new BC::BoxCollider(*mirrorSprite);
@@ -91,41 +94,56 @@ void MirrorManager::AddMirror() {
 	mirror->AddComponent(mirrorSprite);
 	mirror->AddComponent(mirrorBoxCollider);
 
+	mirrorSprite->rotate(-30);
+
 	//Add GameObject to scene
 	gameObject->GetScene().AddToGameObjectList(mirror);
 
 	//Set origin of mirror sprite to be in the middle
 	mirrorSprite->setOrigin(mirrorSprite->GetTexture().getSize().x / 2, mirrorSprite->GetTexture().getSize().y / 2);
 	//Set position to be random across the window width size
-	mirrorSprite->setPosition(sf::Vector2f(rand() % ((Window::GetInstance()->GetWindowSize().x - 40) - 40 + 1) + 40, 20));
+	mirrorSprite->setPosition(sf::Vector2f(rand() % ((Window::GetInstance()->GetWindowSize().x - 40) - 40 + 1) + 40, rand() % (200 - 100 + 1) + 100));
 	
 	//Add mirror to the mirror list and increment the index of that list
 	mirrors.insert(std::pair<int, GameObject*>(mirrorIndex, mirror));
 	mirrorIndex++;
 }
 
-int MirrorManager::GetPositionsInMirror(sf::Sprite* sprite, std::vector<sf::Vector2f>& positions) {
+sf::Vertex* Mirror::GetLine() {
+	if (line != nullptr) {
+		return line;
+	}
+	else {
+		return nullptr;
+	}
+}
 
-	float width = sprite->getTexture()->getSize().x * sprite->getScale().x;
-	float height = sprite->getTexture()->getSize().y * sprite->getScale().y;
-
-	float xMin = sprite->getPosition().x - (width / 2);
-	float xMax = sprite->getPosition().x + (width / 2);
-
-	float yMin = sprite->getPosition().y - (height / 2);
-	float yMax = sprite->getPosition().y + (height / 2);
-
-	int count = 0;
-
-	for (auto it = positions.begin(); it != positions.end(); it++) {
-		if (it->x >= xMin && it->x <= xMax && it->y >= yMin && it->y <= yMax) {
-			std::cout << "inside" << std::endl;
-			while (it != positions.end()) {
-				count++;
-				it = positions.erase(it);
-			}
-			return count;
-		}
+float Mirror::GetSlope() {
+	if (line != nullptr) {
+		float y = line[0].position.y - line[1].position.y;
+		float x = line[0].position.x - line[1].position.y;
+		return y / x;
 	}
 	return 0;
+}
+
+void Mirror::DrawMirrorLine() {
+	if (line != nullptr) {
+		BC::BoxCollider* thisCollider = gameObject->GetComponent<BC::BoxCollider>();
+
+		sf::Vector2f leftBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(3));
+		sf::Vector2f rightBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(2));
+
+		//std::cout << leftBottomPoint.x << " " << leftBottomPoint.y << std::endl;
+		//std::cout << rightBottomPoint.x << " " << rightBottomPoint.y << std::endl;
+
+		line = new sf::Vertex[2];
+		line[0].position = leftBottomPoint;
+		line[0].color = sf::Color::Red;
+		line[1].position = rightBottomPoint;
+		line[1].color = sf::Color::Red;
+	}
+	else {
+		Window::GetInstance()->GetRenderer().Draw(line, 2, sf::Lines);
+	}
 }

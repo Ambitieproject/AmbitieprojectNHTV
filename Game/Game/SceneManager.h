@@ -51,6 +51,7 @@ private:
 	//Adds scene to list of scenes
 	static void AddSceneToSceneManager(Scene* scene);
 
+	//Start the SceneManager
 	void StartSceneManager();
 
 	//Method that updates the current active scene
@@ -60,6 +61,8 @@ private:
 
 	//Reset method to reset a scene
 	void ResetScene(Scene* scene);
+
+	void ResetOrderedDrawGameObjectVector();
 
 private:
 	//Define the friend class Game
@@ -74,6 +77,8 @@ private:
 	static std::map<int, Scene*> scenes;
 	//Index that holds the amount of Scenes in the game
 	static int sceneIndexAmount;
+
+	std::vector<GameObject*> orderedDrawGameObjectVector;
 
 	//Pointer that holds the current active scene
 	static Scene* currentScene;
