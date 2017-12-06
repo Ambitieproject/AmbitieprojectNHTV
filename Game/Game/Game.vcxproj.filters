@@ -88,6 +88,9 @@
     <Filter Include="Game\Scenes">
       <UniqueIdentifier>{6702af9c-8a34-4ced-b15a-c5c63a9c7bc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Managers\Time">
+      <UniqueIdentifier>{ca61cde9-9c48-429f-a62e-913dc80681d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -165,6 +168,9 @@
     <ClCompile Include="ExampleScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -241,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="ExampleScene.h">
       <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

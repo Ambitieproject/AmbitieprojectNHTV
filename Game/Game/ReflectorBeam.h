@@ -2,11 +2,13 @@
 
 #include <iostream>
 #include <limits>
+#include <math.h>
 
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
 #include "Component.h"
 
+#define PI 3.14159265
 
 class MirrorManager;
 class ReflectorBeamManager;
@@ -16,11 +18,14 @@ public:
 	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager);
 	~ReflectorBeam();
 
+	void Start();
 	void Update(float deltaTime);
 
 	sf::Vertex* GetLine();
 
 	void SetLineColor(sf::Color color);
+
+	sf::Vector2f GetDirection();
 
 private:
 	//Line in Vertexes
@@ -29,6 +34,8 @@ private:
 	float slope;
 
 	bool isCollidingWithMirror;
+
+	GameObject* mirrorSpawningFrom = nullptr;
 
 	//MirrorManager reference
 	MirrorManager* mirrorManager;

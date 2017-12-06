@@ -84,7 +84,8 @@ GameObject* MirrorManager::GetCurrentMirror() {
 
 void MirrorManager::AddMirror() { 
 	//Make mirror GameObject and Components
-	GameObject* mirror = new GameObject("Mirror", gameObject->GetScene(), 1);
+	GameObject* mirror = new GameObject("Mirror", gameObject->GetScene());
+	mirror->SetDrawIndex(3);
 	Mirror* mirrorComponent = new Mirror();
 	BC::Sprite* mirrorSprite = new BC::Sprite("../Assets/Mirror.png");
 	BC::BoxCollider* mirrorBoxCollider = new BC::BoxCollider(*mirrorSprite);
@@ -131,8 +132,8 @@ void Mirror::DrawMirrorLine() {
 	if (line != nullptr) {
 		BC::BoxCollider* thisCollider = gameObject->GetComponent<BC::BoxCollider>();
 
-		sf::Vector2f leftBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(3));
-		sf::Vector2f rightBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(2));
+		sf::Vector2f leftBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(0));
+		sf::Vector2f rightBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(1));
 
 		//std::cout << leftBottomPoint.x << " " << leftBottomPoint.y << std::endl;
 		//std::cout << rightBottomPoint.x << " " << rightBottomPoint.y << std::endl;

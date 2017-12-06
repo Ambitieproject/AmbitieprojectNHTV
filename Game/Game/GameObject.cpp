@@ -3,7 +3,7 @@
 
 
 //Constructor that sets the name of scene of this gameobject
-GameObject::GameObject(std::string name, Scene& scene, int drawIndex) : Name(name), scene(scene), drawIndex(drawIndex) {
+GameObject::GameObject(std::string name, Scene& scene) : Name(name), scene(scene) {
 	componentIndex = 0;
 	//Add this gameobject to the list of gameobjects in the scene
 	scene.AddToGameObjectList(this);
@@ -48,6 +48,12 @@ void GameObject::Update(float deltaTime) {
 			objects->second->Update(deltaTime);
 		}
 	}
+}
+
+//Sets the draw index of this GameObject
+void GameObject::SetDrawIndex(int index) {
+	drawIndex = index;
+	GetScene().OrderedGameObjects[this->drawIndex].insert(GetScene().OrderedGameObjects[this->drawIndex].end(), this);
 }
 
 //Adds a component to this gameobject given as a parameter

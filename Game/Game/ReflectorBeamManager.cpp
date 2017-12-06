@@ -44,7 +44,10 @@ void ReflectorBeamManager::Update(float deltaTime) {
 //Adds a beam with a position and rotation
 GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAngel) {
 	//Make new GameObject instance pointer
-	GameObject* beam = new GameObject("Beam", gameObject->GetScene(), 1);
+	GameObject* beam = new GameObject("Beam", gameObject->GetScene());
+
+	//Set draw index of GameObject
+	beam->SetDrawIndex(3);
 
 	//Make new beam instance pointer
 	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this);

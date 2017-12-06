@@ -13,7 +13,7 @@ class Scene;
 class GameObject {
 public:
 	//Constructor with name and scene to indentify this gameobject with
-	GameObject(std::string name, Scene& scene, int drawIndex);
+	GameObject(std::string name, Scene& scene);
 
 	//Destructor
 	~GameObject();
@@ -22,6 +22,9 @@ public:
 	void Start();
 	//Update method of GameObject
 	void Update(float deltaTime);
+
+	//Sets the draw index of this GameObject
+	void SetDrawIndex(int index);
 
 	//Adds a component to this gameobject given as a parameter
 	void AddComponent(Component* component);

@@ -17,6 +17,12 @@ MenuScene::~MenuScene() {
 void MenuScene::Awake() {
 	Scene::Awake();
 
+	//Setting drawing indexes of GameObjects
+	GOUILogoHolder.SetDrawIndex(0);
+	GOUIAudioHolder.SetDrawIndex(0);
+	GOUIButtonHolder.SetDrawIndex(0);
+	GOUIRefHolder.SetDrawIndex(0);
+
 	//Adding components to UILogo holder GameObject
 	GOUILogoHolder.AddComponent(&logoPrism);
 	GOUILogoHolder.AddComponent(&logoPrismText);
