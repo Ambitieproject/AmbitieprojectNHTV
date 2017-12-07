@@ -167,7 +167,6 @@ void SceneManager::RenderCurrentScene() {
 	for (int i = 4; i >= 0; i--) {
 		if (currentScene->OrderedGameObjects[i].size() > 0) {
 			for (auto it = currentScene->OrderedGameObjects[i].begin(); it != currentScene->OrderedGameObjects[i].end(); it++) {
-				//std::cout << it->second->Name << std::endl;
 				//for every Component in the GameObject
 				for (auto it2 = it._Ptr->_Myval->Components.begin(); it2 != it._Ptr->_Myval->Components.end(); it2++) {
 					//if Component is enabled
@@ -253,8 +252,8 @@ void SceneManager::ResetScene(Scene* scene) {
 	}
 	if (scene->Name == "MainScene") {
 		scenes.erase(LocalIt);
-		mainSceneClass.~ExampleScene();
-		new (&mainSceneClass) ExampleScene("MainScene");
+		mainSceneClass.~MainScene();
+		new (&mainSceneClass) MainScene("MainScene");
 		mainSceneClass.SceneIndex = lastSceneIndex;
 	}
 	

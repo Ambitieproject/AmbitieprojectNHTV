@@ -8,8 +8,6 @@
 #include "MirrorManager.h"
 #include "Component.h"
 
-#define PI 3.14159265
-
 class MirrorManager;
 class ReflectorBeamManager;
 

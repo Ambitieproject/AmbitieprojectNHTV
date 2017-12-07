@@ -91,6 +91,18 @@
     <Filter Include="Game\Managers\Time">
       <UniqueIdentifier>{ca61cde9-9c48-429f-a62e-913dc80681d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Managers\Score">
+      <UniqueIdentifier>{ffe85f1d-e467-4cb4-8cb9-be71795c8150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Managers\Mirror">
+      <UniqueIdentifier>{3df52825-c487-4ffd-85b0-5b465c9c7db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Managers\Assignments">
+      <UniqueIdentifier>{887d715d-cc96-4058-94fd-e160c2460056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JEngine\Helpers">
+      <UniqueIdentifier>{5ac471ca-a0f9-4dd4-a4f9-615cc649581b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -153,22 +165,34 @@
     <ClCompile Include="PrismaMovementController.cpp">
       <Filter>Game\Prisma</Filter>
     </ClCompile>
-    <ClCompile Include="MirrorManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ReflectorBeamManager.cpp">
-      <Filter>Game\Managers\Beam</Filter>
-    </ClCompile>
-    <ClCompile Include="ReflectorBeam.cpp">
       <Filter>Game\Managers\Beam</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="ExampleScene.cpp">
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Game\Managers\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Game\Managers\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
+    <ClCompile Include="ReflectorBeam.cpp">
+      <Filter>Game\Beam</Filter>
+    </ClCompile>
+    <ClCompile Include="MirrorManager.cpp">
+      <Filter>Game\Managers\Mirror</Filter>
+    </ClCompile>
+    <ClCompile Include="Equations.cpp">
+      <Filter>JEngine\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAssignmentManager.cpp">
+      <Filter>Game\Managers\Assignments</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperMethods.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,22 +257,34 @@
     <ClInclude Include="PrismaMovementController.h">
       <Filter>Game\Prisma</Filter>
     </ClInclude>
-    <ClInclude Include="MirrorManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ReflectorBeamManager.h">
-      <Filter>Game\Managers\Beam</Filter>
-    </ClInclude>
-    <ClInclude Include="ReflectorBeam.h">
       <Filter>Game\Managers\Beam</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="ExampleScene.h">
+    <ClInclude Include="TimeManager.h">
+      <Filter>Game\Managers\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Game\Managers\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="TimeManager.h">
+    <ClInclude Include="ReflectorBeam.h">
+      <Filter>Game\Beam</Filter>
+    </ClInclude>
+    <ClInclude Include="MirrorManager.h">
+      <Filter>Game\Managers\Mirror</Filter>
+    </ClInclude>
+    <ClInclude Include="Equations.h">
+      <Filter>JEngine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAssignmentManager.h">
+      <Filter>Game\Managers\Assignments</Filter>
+    </ClInclude>
+    <ClInclude Include="HelperMethods.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

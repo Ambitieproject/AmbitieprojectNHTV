@@ -31,13 +31,12 @@ void MirrorManager::Update(float deltaTime) {
 		BC::BoxCollider* boxCollider = it->second->GetComponent<BC::BoxCollider>();
 		Mirror* mirror = it->second->GetComponent<Mirror>();
 
-		if (boxCollider->OnMouseEnter()) {
+		if (boxCollider->GetBoxCollider().getGlobalBounds().contains(mousePos)) {
 			if (!currentMirror) {
 				mirror->canMove = true;
 			}
-			
 		}
-		if (boxCollider->OnMouseExit()) {
+		else {
 			mirror->canMove = false;
 		}
 
@@ -95,7 +94,7 @@ void MirrorManager::AddMirror() {
 	mirror->AddComponent(mirrorSprite);
 	mirror->AddComponent(mirrorBoxCollider);
 
-	mirrorSprite->rotate(-30);
+	mirrorSprite->rotate(225);
 
 	//Add GameObject to scene
 	gameObject->GetScene().AddToGameObjectList(mirror);
@@ -122,7 +121,7 @@ sf::Vertex* Mirror::GetLine() {
 float Mirror::GetSlope() {
 	if (line != nullptr) {
 		float y = line[0].position.y - line[1].position.y;
-		float x = line[0].position.x - line[1].position.y;
+		float x = line[0].position.x - line[1].position.x;
 		return y / x;
 	}
 	return 0;
@@ -140,7 +139,7 @@ void Mirror::DrawMirrorLine() {
 
 		line = new sf::Vertex[2];
 		line[0].position = leftBottomPoint;
-		line[0].color = sf::Color::Red;
+		line[0].color = sf::Color::Blue;
 		line[1].position = rightBottomPoint;
 		line[1].color = sf::Color::Red;
 	}
