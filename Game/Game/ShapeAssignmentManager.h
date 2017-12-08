@@ -15,7 +15,8 @@ enum ShapeAssignment {
 	Square,
 	Trapezoid,
 	Parrallelogram,
-	Rectangle
+	Rectangle,
+	Count
 };
 
 //ShapeAssignmentManager class
@@ -32,7 +33,7 @@ public:
 	void Update(float deltaTime);
 
 	//Sets a new shape assignment
-	ShapeAssignment& SetNewShapeAssignment(ShapeAssignment newShapeAssignment);
+	ShapeAssignment& SetNewShapeAssignment();
 
 private:
 	//Displays the assignment as text

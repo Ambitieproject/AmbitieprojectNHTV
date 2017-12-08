@@ -1,17 +1,13 @@
 ﻿  ShapeAssignmentManager.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\shapeassignmentmanager.cpp(66): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(70): warning C4018: '<': signed/unsigned mismatch
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\shapeassignmentmanager.cpp(19): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Text>(void)' being compiled
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\shapeassignmentmanager.cpp(67): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(70): warning C4018: '<': signed/unsigned mismatch
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\shapeassignmentmanager.cpp(20): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Text>(void)' being compiled
           with
           [
               component=BC::Text
           ]
-  HelperMethods.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\helpermethods.cpp(16): warning C4244: 'initializing': conversion from 'std::chrono::system_clock::rep' to 'unsigned int', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\helpermethods.cpp(19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
