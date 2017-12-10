@@ -96,9 +96,6 @@ void MirrorManager::AddMirror() {
 
 	mirrorSprite->rotate(225);
 
-	//Add GameObject to scene
-	gameObject->GetScene().AddToGameObjectList(mirror);
-
 	//Set origin of mirror sprite to be in the middle
 	mirrorSprite->setOrigin(mirrorSprite->GetTexture().getSize().x / 2, mirrorSprite->GetTexture().getSize().y / 2);
 	//Set position to be random across the window width size

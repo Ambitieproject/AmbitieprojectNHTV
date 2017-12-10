@@ -1,5 +1,7 @@
 #include "Equations.h"
 
+sf::Vector2f Equations::pointOfIntersect;
+
 //Constructor
 Equations::Equations() {
 
@@ -19,23 +21,19 @@ float Equations::CalculateSlopeOfLine(sf::Vector2f p1, sf::Vector2f p2) {
 }
 
 //Checks if two line given as parameters are colliding
-bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f direction, sf::Vector2f c1, sf::Vector2f c2) {
+bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f direction, sf::Vector2f c1, sf::Vector2f c2, BC::BoxCollider* mirrorCollider) {
 	float pm = CalculateSlopeOfLine(p1, direction);
-	//std::cout << "slope of laser: " << pm << std::endl;
 	float pb = p1.y - pm * p1.x;
 	
 	float cm = CalculateSlopeOfLine(c1, c2);
-	//std::cout << "slope of mirror: " << cm << std::endl;
 	float cb = c1.y - cm * c1.x;
-
-	//std::cout << pm << std::endl;
-	//std::cout << cm << std::endl;
 
 	if (pm != cm) {
 		float x = (cb - pb) / (pm - cm);
 		float y = cm * x + cb;
-		
-		if (x >= c1.x && x <= c2.x && y >= c1.y && y <= c2.y) {
+
+		if (mirrorCollider->GetBoxCollider().getGlobalBounds().contains(sf::Vector2f(x,y))) {
+			pointOfIntersect = sf::Vector2f(x, y);
 			return true;
 		}
 		else {

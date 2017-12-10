@@ -14,16 +14,26 @@
 #include "PrismaMovementController.h"
 #include "ColorManager.h"
 
+//Manager class that takes care of managing the reflector beams
 class ReflectorBeamManager : public Component {
 public:
+	//Constructor
 	ReflectorBeamManager(std::string beamFilePath);
+	//Destructor
 	~ReflectorBeamManager();
 
+	//Override Start method from base Component class
 	void Start();
+	//Override Update method from base Component class
 	void Update(float deltaTime);
 
-	//Adds a beam with a position and rotation
-	GameObject& AddBeam(sf::Vector2f position, float rotateAngel);
+	//Adds a beam with a position
+	GameObject& AddBeam(sf::Vector2f position);
+
+	void DestroyBeam(GameObject* beam);
+
+	//Gets the beams map
+	std::map<int, GameObject*>& GetBeams();
 
 private:
 	std::string beamFilePath;

@@ -4,8 +4,9 @@
 #include "ReflectorBeamManager.h"
 #include "Window.h"
 #include "Equations.h"
+#include "SceneManager.h"
 
-ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager) : mirrorManager(mirrorManager), reflectorBeamManager(reflectorBeamManager) {
+ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap) : mirrorManager(mirrorManager), reflectorBeamManager(reflectorBeamManager), beamIndexInMap(beamIndexInMap) {
 	isCollidingWithMirror = false;
 }
 
@@ -15,33 +16,50 @@ ReflectorBeam::~ReflectorBeam() {
 
 void ReflectorBeam::Start() {
 	Component::Start();
-
-	if (!isCollidingWithMirror) {
-		sf::Vector2f dir = GetDirection();
-
-		std::cout << "direction of laser: " << GetDirection().x << " / " << GetDirection().y << std::endl;
-		
-		sf::Vector2f newPos = line[0].position + sf::Vector2f(dir.x * 300, dir.y * 300);
-		line[1].position = newPos;
-	}
 }
 
 void ReflectorBeam::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
+	bool nobodyCollides = false;
+
 	for (auto it = mirrorManager->GetMirrors().begin(); it != mirrorManager->GetMirrors().end(); it++) {
-		
-		sf::Vector2f p1 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(0));
-		sf::Vector2f p2 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(1));
+		GameObject* mirror = it->second;
 
-		bool collide = Equations::LineCollide(line[0].position, line[0].position + GetDirection(), p1, p2);
+		if (mirror != mirrorSpawningFrom) {
+			sf::Vector2f p1 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(0));
+			sf::Vector2f p2 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(1));
 
-		if (collide) {
-			std::cout << "thanks David" << std::endl;
+			bool collide = Equations::LineCollide(line[0].position, line[0].position + GetDirection(), p1, p2, it->second->GetComponent<BC::BoxCollider>());
+
+			if (collide) {
+				nobodyCollides = true;
+				reflectingMirror = mirror;
+				line[1].position = Equations::pointOfIntersect;
+
+				if (!newBeam) {
+					newBeam = &reflectorBeamManager->AddBeam(Equations::pointOfIntersect);
+					newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+				}
+				else {
+					newBeam->GetComponent<ReflectorBeam>()->line[0].position = Equations::pointOfIntersect;
+				}
+			}
+			//Draw border of calculating at the mirror
+			it->second->GetComponent<Mirror>()->DrawMirrorLine();
 		}
-		
-		//Draw border of calculating at the mirror
-		it->second->GetComponent<Mirror>()->DrawMirrorLine();
+	}
+
+	if (!nobodyCollides) {
+		reflectingMirror = nullptr;
+	}
+
+	if (!reflectingMirror) {
+		line[1].position = line[0].position + sf::Vector2f(GetDirection().x * 1000, GetDirection().y * 1000);
+
+		if (newBeam) {
+			DestroyNewLaser();
+		}
 	}
 }
 
@@ -60,15 +78,31 @@ sf::Vector2f ReflectorBeam::GetDirection() {
 	float y = 0;
 
 	if (mirrorSpawningFrom) {
-		x = sin(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation());
-		y = cos(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation());
+		x = sin(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() * PI / 180);
+		y = cos(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() * PI / 180);
 		y = -y;
 	}
 	else {
-		x = sin(10 * PI / 180);
-		y = cos(10 * PI / 180);
+		x = sin(1 * PI / 180);
+		y = cos(1 * PI / 180);
 		y = -y;
 	}
 
 	return sf::Vector2f(x, y);
+}
+
+int ReflectorBeam::GetBeamIndexInMap() {
+	return beamIndexInMap;
+}
+
+void ReflectorBeam::DestroyNewLaser() {
+	std::cout << "Destroy" << std::endl;
+
+	if (newBeam->GetComponent<ReflectorBeam>()->newBeam) {
+		newBeam->GetComponent<ReflectorBeam>()->DestroyNewLaser();
+	}
+
+	reflectorBeamManager->DestroyBeam(newBeam);
+	
+	newBeam = nullptr;
 }

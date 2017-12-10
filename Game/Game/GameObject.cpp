@@ -44,13 +44,16 @@ void GameObject::Start() {
 
 //Update method of GameObject
 void GameObject::Update(float deltaTime) {
-	//For every Component on this GameObject
-	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
-		//if GameObject is active
-		if (objects->second->Enabled) {
-			objects->second->Update(deltaTime);
+	if (Components.size() > 0) {
+		//For every Component on this GameObject
+		for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+			//if GameObject is active
+			if (objects->second && objects->second->Enabled) {
+				objects->second->Update(deltaTime);
+			}
 		}
 	}
+	
 }
 
 //Sets the draw index of this GameObject

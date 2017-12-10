@@ -15,7 +15,7 @@ class ReflectorBeamManager;
 
 class ReflectorBeam : public Component {
 public:
-	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager);
+	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap);
 	~ReflectorBeam();
 
 	void Start();
@@ -26,6 +26,10 @@ public:
 	void SetLineColor(sf::Color color);
 
 	sf::Vector2f GetDirection();
+	int GetBeamIndexInMap();
+
+private:
+	void DestroyNewLaser();
 
 private:
 	//Line in Vertexes
@@ -35,7 +39,11 @@ private:
 
 	bool isCollidingWithMirror;
 
+	GameObject* newBeam = nullptr;
 	GameObject* mirrorSpawningFrom = nullptr;
+	GameObject* reflectingMirror = nullptr;
+	
+	int beamIndexInMap;
 
 	//MirrorManager reference
 	MirrorManager* mirrorManager;

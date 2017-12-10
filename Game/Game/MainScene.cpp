@@ -113,4 +113,8 @@ void MainScene::Update(float deltaTime) {
 			mirrorManager.AddMirror();
 		}
 	}
+
+	if (Input::GetKeyReleased(sf::Keyboard::Escape)) {
+		SceneManager::LoadScene(0);
+	}
 }

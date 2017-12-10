@@ -46,25 +46,31 @@ void Collider::Update(float deltaTime) {
 void Collider::FindCollideableObjects() {	
 	//For every GameObject in the active scene
 	for (auto it = SceneManager::GetActiveScene().GameObjects.begin(); it != SceneManager::GetActiveScene().GameObjects.end(); it++) {
-		//For every Component on a GameObject
-		for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
-			//Dynamic cast collider
-			Collider* collider = dynamic_cast<Collider*>(it2->second);
+		if (it->second != nullptr) {
+			if (it->second->Components.size() > 0) {
+				//For every Component on a GameObject
+				for (auto it2 = it->second->Components.begin(); it2 != it->second->Components.end(); it2++) {
+					if (it2->second != nullptr) {
+						//Dynamic cast collider
+						Collider* collider = dynamic_cast<Collider*>(it2->second);
 
-			//If dynamic cast is correctly casted
-			if (collider) {
-				//If collider is not equal to this collider
-				//and if the Component is enabled
-				if (collider != this && it2->second->Enabled) {
-					//Make iterator and try to find this object in already existing map
-					std::map<Collider*, ColliderData*>::iterator it;
-					it = CollideableObjects.find(collider);
+						//If dynamic cast is correctly casted
+						if (collider) {
+							//If collider is not equal to this collider
+							//and if the Component is enabled
+							if (collider != this && it2->second->Enabled) {
+								//Make iterator and try to find this object in already existing map
+								std::map<Collider*, ColliderData*>::iterator it;
+								it = CollideableObjects.find(collider);
 
-					//If the object is not found in the map
-					//Make a new ColliderData struct for the collider and add both to the map
-					if (it == CollideableObjects.end()) {
-						ColliderData* colData = new ColliderData(false, false);
-						CollideableObjects.insert(std::pair<Collider*, ColliderData*>(collider, colData));
+								//If the object is not found in the map
+								//Make a new ColliderData struct for the collider and add both to the map
+								if (it == CollideableObjects.end()) {
+									ColliderData* colData = new ColliderData(false, false);
+									CollideableObjects.insert(std::pair<Collider*, ColliderData*>(collider, colData));
+								}
+							}
+						}
 					}
 				}
 			}

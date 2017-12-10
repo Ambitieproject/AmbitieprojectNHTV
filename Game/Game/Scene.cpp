@@ -50,11 +50,19 @@ void Scene::Start() {
 
 //Virtual Update Method of a scene that can be overwritten in a supper class
 void Scene::Update(float deltaTime) {
+	std::cout << GameObjects.size() << std::endl;
 	//For every GameObject in the scene
-	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
-		//if GameObject is active
-		if (objects->second->Active) {
-			objects->second->Update(deltaTime);
+	for (auto objects = GameObjects.begin(); objects != GameObjects.end();) {
+
+		if (objects->second != nullptr) {
+			//if GameObject is active
+			if (objects->second->Active) {
+				objects->second->Update(deltaTime);
+				objects++;
+			}
+		}
+		else {
+			objects = GameObjects.erase(objects);
 		}
 	}
 }
@@ -73,22 +81,30 @@ void Scene::AddToGameObjectList(GameObject* gameObject) {
 
 //Destroys a specified GameObject
 bool Scene::DestroyGameObject(GameObject* gameObject) {
-	//Make iterator and try to find the GameObject
-	std::map<int, GameObject*>::iterator it;
-	it = GameObjects.find(gameObject->GameObjectSceneIndex);
-
-	//If found destruct and erase it else cout message
-	if (it != GameObjects.end()) {
-		GameObjects.erase(it);
-		gameObject->~GameObject();
+	//Bool to determine if component is found
+	bool found = false;
+	//GameObject pointer to set GameObject to
+	GameObject* go;
+	//For length of GameObjects map size
+	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
+		if (!found) {
+			//Set GameObject if it is not yet found
+			if (it->second == gameObject) {
+				found = true;
+				it->second->~GameObject();
+				it->second = nullptr;
+			}
+		}
+	}
+	//If found deconstruct GameObject else cout and return false
+	if (found) {
+		gameObject = nullptr;
 		return true;
 	}
 	else {
 		std::cout << "Could not delete GameObject " << gameObject->Name << std::endl;
 		return false;
 	}
-
-	return false;
 }
 
 //Destroys a specified Component

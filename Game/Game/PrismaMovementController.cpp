@@ -24,7 +24,7 @@ void PrismaMovementController::Start() {
 	prisma->setOrigin(prisma->getTexture()->getSize().x * 0.5f, (prisma->getTexture()->getSize().y * 0.5f) + 40);
 
 	rotateSpeed = 80;
-	std::cout << "prism movement controller start" << std::endl;
+
 	//Setting first pixel
 	currentPrismaColorIndex = 0;
 	currentPrismaColor = colorManager->GetColors()[currentPrismaColorIndex];

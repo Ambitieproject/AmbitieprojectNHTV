@@ -169,53 +169,56 @@ void SceneManager::RenderCurrentScene() {
 	for (int i = 4; i >= 0; i--) {
 		if (currentScene->OrderedGameObjects[i].size() > 0) {
 			for (auto it = currentScene->OrderedGameObjects[i].begin(); it != currentScene->OrderedGameObjects[i].end(); it++) {
-				//for every Component in the GameObject
-				for (auto it2 = it._Ptr->_Myval->Components.begin(); it2 != it._Ptr->_Myval->Components.end(); it2++) {
-					//if Component is enabled
-					if (it2->second->Enabled) {
-						//dynamic sprite casting
-						//dynamic sprite rendering
-						BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
+				if ((*it)->Components.size() > 0) {
+					//for every Component in the GameObject
+					for (auto it2 = (*it)->Components.begin(); it2 != (*it)->Components.end(); it2++) {
+						//if Component is enabled
+						if (it2->second != nullptr && it2->second->Enabled) {
+							//dynamic sprite casting
+							//dynamic sprite rendering
+							BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
 
-						if (sprite) {
-							renderer->Draw(*sprite);
-						}
-
-						BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
-
-						if (text) {
-							renderer->Draw(*text);
-						}
-
-						BC::Button* button = dynamic_cast<BC::Button*>(it2->second);
-
-						if (button) {
-							renderer->Draw(button->GetCurrentButtonSprite());
-						}
-
-						ReflectorBeam* reflectorBeam = dynamic_cast<ReflectorBeam*>(it2->second);
-
-						if (reflectorBeam) {
-							renderer->Draw(reflectorBeam->GetLine(), 2, sf::Lines);
-						}
-
-						Mirror* mirror = dynamic_cast<Mirror*>(it2->second);
-
-						if (mirror) {
-							if (mirror->GetLine()) {
-								renderer->Draw(mirror->GetLine(), 2, sf::Lines);
+							if (sprite) {
+								renderer->Draw(*sprite);
 							}
-						}
 
-						/*
-						BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
+							BC::Text* text = dynamic_cast<BC::Text*>(it2->second);
 
-						if (boxCollider) {
-						renderer->Draw(boxCollider->GetBoxCollider());
+							if (text) {
+								renderer->Draw(*text);
+							}
+
+							BC::Button* button = dynamic_cast<BC::Button*>(it2->second);
+
+							if (button) {
+								renderer->Draw(button->GetCurrentButtonSprite());
+							}
+
+							ReflectorBeam* reflectorBeam = dynamic_cast<ReflectorBeam*>(it2->second);
+
+							if (reflectorBeam) {
+								renderer->Draw(reflectorBeam->GetLine(), 2, sf::Lines);
+							}
+
+							Mirror* mirror = dynamic_cast<Mirror*>(it2->second);
+
+							if (mirror) {
+								if (mirror->GetLine()) {
+									renderer->Draw(mirror->GetLine(), 2, sf::Lines);
+								}
+							}
+
+							/*
+							BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
+
+							if (boxCollider) {
+							renderer->Draw(boxCollider->GetBoxCollider());
+							}
+							*/
 						}
-						*/
 					}
 				}
+				
 			}
 		}
 	}

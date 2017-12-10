@@ -17,7 +17,7 @@ void ColorManager::Awake() {
 	//Make and load an image of a color scheme
 	sf::Image colorValueImage;
 	colorValueImage.loadFromFile("../Assets/colorScheme.png");
-	std::cout << "pushing colors" << std::endl;
+
 	//Push back every pixel of the color scheme to the vector on the x as
 	for (int i = 0; i < colorValueImage.getSize().x; i++) {
 		colors.push_back(colorValueImage.getPixel(i, 0));
