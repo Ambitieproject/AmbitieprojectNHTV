@@ -14,14 +14,18 @@ MainScene::~MainScene() {
 }
 
 
-void MainScene::Awake() {
-	Scene::Awake();
+void MainScene::Setup() {
+	Scene::Setup();
 
 	//Setting draw indexes of GameObjects
 	GOUIManager.SetDrawIndex(1);
 	GOUIBackgroundBars.SetDrawIndex(2);
 	GOPrisma.SetDrawIndex(2);
+	GOColorManager.SetDrawIndex(2);
 	GOShapeAssignmentManager.SetDrawIndex(1);
+
+	//Adding components to ColorManager GameObject
+	GOColorManager.AddComponent(&colorManager);
 
 	//Adding components to Prisma GameObject
 	GOPrisma.AddComponent(&prismaSprite);
@@ -102,9 +106,7 @@ void MainScene::Update(float deltaTime) {
 
 			sf::Vector2f mirrorPos = it->second->GetComponent<BC::Sprite>()->getPosition();
 			float width = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getGlobalBounds().width;
-			float height = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getGlobalBounds().height;
-
-			
+			float height = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getGlobalBounds().height;	
 		}
 
 		if (!isNotInWay) {

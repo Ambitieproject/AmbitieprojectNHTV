@@ -22,6 +22,9 @@ public:
 	//Initialization method that runs all the nessesary code to setup a scene
 	void Init();
 
+	//Virtual Setup Method of a scene that can be overwritten in a supper class 
+	virtual void Setup();
+
 	//Virtual Awake Method of a scene that can be overwritten in a supper class 
 	virtual void Awake();
 	//Virtual Start Method of a scene that can be overwritten in a supper class 
@@ -53,9 +56,6 @@ public:
 	std::map<int, GameObject*> GameObjects;
 
 	std::list<GameObject*> OrderedGameObjects[5];
-
-private:
-	void ResetOrderedGameObjects();
 
 private:
 	//Local index of GameObjects in the scene

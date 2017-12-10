@@ -18,6 +18,8 @@ public:
 	//Destructor
 	~GameObject();
 
+	//Awake method of GameObject
+	void Awake();
 	//Start method of GameObject
 	void Start();
 	//Update method of GameObject

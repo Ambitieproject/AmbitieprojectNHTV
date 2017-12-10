@@ -21,9 +21,20 @@ void Scene::Init() {
 	
 }
 
+//Virtual Setup Method of a scene that can be overwritten in a supper class 
+void Scene::Setup() {
+
+}
+
 //Virtual Awake Method of a scene that can be overwritten in a supper class 
 void Scene::Awake() {
-
+	//For every GameObject in the scene
+	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
+		//if GameObject is active
+		if (objects->second->Active) {
+			objects->second->Awake();
+		}
+	}
 }
 
 //Virtual Start Method of a scene that can be overwritten in a supper class
@@ -46,7 +57,6 @@ void Scene::Update(float deltaTime) {
 			objects->second->Update(deltaTime);
 		}
 	}
-	
 }
 
 //Virutal Quit Method of a scene that can be overwritten in a supper class
@@ -71,7 +81,6 @@ bool Scene::DestroyGameObject(GameObject* gameObject) {
 	if (it != GameObjects.end()) {
 		GameObjects.erase(it);
 		gameObject->~GameObject();
-		ResetOrderedGameObjects();
 		return true;
 	}
 	else {
@@ -124,9 +133,5 @@ GameObject* Scene::FindGameObjectByName(std::string gameObjectName) {
 	}
 
 	return nullptr;
-}
-
-void Scene::ResetOrderedGameObjects() {
-
 }
  

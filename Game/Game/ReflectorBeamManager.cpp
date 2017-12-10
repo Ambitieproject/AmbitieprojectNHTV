@@ -17,28 +17,24 @@ void ReflectorBeamManager::Start() {
 	prisma = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<BC::Sprite>();
 	prismaMovementController = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<PrismaMovementController>();
 	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("MirrorManager")->GetComponent<MirrorManager>();
+	colorManager = SceneManager::GetActiveScene().FindGameObjectByName("ColorManager")->GetComponent<ColorManager>();
 
-	sf::Image colorValueImage;
-	colorValueImage.loadFromFile("../Assets/colorScheme.png");
-
+	//Add first beam
 	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100), 30);
-
-	for (int i = 0; i < colorValueImage.getSize().x; i++) {
-		prismaColors.push_back(colorValueImage.getPixel(i, 0));
-	}
-
-	currentPrismaColorIndex = 0;
-	currentPrismaColor = prismaColors[currentPrismaColorIndex];
-
+	std::cout << "reflector beam start" << std::endl;
 	for (auto it = beams.begin(); it != beams.end(); it++) {
-		it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
+		it->second->GetComponent<ReflectorBeam>()->SetLineColor(prismaMovementController->GetCurrentPrismColor());
 	}
 }
 
 void ReflectorBeamManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
-	SetBeamColor();
+	if (prismaMovementController->IsMovingRight() || prismaMovementController->IsMovingLeft()) {
+		for (auto it = beams.begin(); it != beams.end(); it++) {
+			it->second->GetComponent<ReflectorBeam>()->SetLineColor(prismaMovementController->GetCurrentPrismColor());
+		}
+	}
 }
 
 //Adds a beam with a position and rotation
@@ -62,32 +58,4 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, float rotateAng
 	beamIndex++;
 
 	return *beam;
-}
-
-//Sets the colors of every beam
-void ReflectorBeamManager::SetBeamColor() {
-	if (prismaMovementController->IsMovingRight()) {
-		if (currentPrismaColorIndex >= prismaColors.size() - 1) {
-			currentPrismaColorIndex = 0;
-		}
-
-		currentPrismaColorIndex++;
-		currentPrismaColor = prismaColors[currentPrismaColorIndex];
-
-		for (auto it = beams.begin(); it != beams.end(); it++) {
-			it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
-		}
-	}
-	if (prismaMovementController->IsMovingLeft()) {
-		if (currentPrismaColorIndex < 0 + 1) {
-			currentPrismaColorIndex = prismaColors.size();
-		}
-
-		currentPrismaColorIndex--;
-		currentPrismaColor = prismaColors[currentPrismaColorIndex];
-
-		for (auto it = beams.begin(); it != beams.end(); it++) {
-			it->second->GetComponent<ReflectorBeam>()->SetLineColor(currentPrismaColor);
-		}
-	}
 }

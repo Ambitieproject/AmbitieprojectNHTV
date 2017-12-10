@@ -65,8 +65,8 @@ sf::Vector2f ReflectorBeam::GetDirection() {
 		y = -y;
 	}
 	else {
-		x = sin(120);
-		y = cos(120);
+		x = sin(10 * PI / 180);
+		y = cos(10 * PI / 180);
 		y = -y;
 	}
 

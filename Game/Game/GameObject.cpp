@@ -20,8 +20,8 @@ GameObject::~GameObject() {
 	}
 }
 
-//Start method of GameObject
-void GameObject::Start() {
+//Awake method of GameObject
+void GameObject::Awake() {
 	//For every Component on this GameObject
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active
@@ -29,7 +29,10 @@ void GameObject::Start() {
 			objects->second->Awake();
 		}
 	}
+}
 
+//Start method of GameObject
+void GameObject::Start() {
 	//For every Component on this GameObject
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active

@@ -9,6 +9,8 @@
 
 #include "BaseComponents.hpp"
 
+#include "ColorManager.h"
+
 //Enum that holds the different shape assignment options available
 enum ShapeAssignment {
 	Triangle,
@@ -43,7 +45,13 @@ private:
 	//Local shape assignment enum holder
 	ShapeAssignment shapeAssignment;
 
+	//Local color assignment
+	sf::Color* assignmentColor;
+
 	//Shape assignment display text
 	BC::Text* shapeAssignmentText;
+
+	//Color Manager reference
+	ColorManager* colorManager;
 };
 

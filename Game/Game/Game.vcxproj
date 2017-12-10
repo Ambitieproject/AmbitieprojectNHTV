@@ -156,6 +156,7 @@
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Equations.cpp" />
     <ClCompile Include="HelperMethods.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColorManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="BaseComponents.hpp" />
     <ClInclude Include="Equations.h" />

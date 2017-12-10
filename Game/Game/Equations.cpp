@@ -21,11 +21,11 @@ float Equations::CalculateSlopeOfLine(sf::Vector2f p1, sf::Vector2f p2) {
 //Checks if two line given as parameters are colliding
 bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f direction, sf::Vector2f c1, sf::Vector2f c2) {
 	float pm = CalculateSlopeOfLine(p1, direction);
-	std::cout << "slope of laser: " << pm << std::endl;
+	//std::cout << "slope of laser: " << pm << std::endl;
 	float pb = p1.y - pm * p1.x;
 	
 	float cm = CalculateSlopeOfLine(c1, c2);
-	std::cout << "slope of mirror: " << cm << std::endl;
+	//std::cout << "slope of mirror: " << cm << std::endl;
 	float cb = c1.y - cm * c1.x;
 
 	//std::cout << pm << std::endl;

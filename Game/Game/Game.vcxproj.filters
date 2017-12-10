@@ -103,6 +103,9 @@
     <Filter Include="JEngine\Helpers">
       <UniqueIdentifier>{5ac471ca-a0f9-4dd4-a4f9-615cc649581b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Managers\Color">
+      <UniqueIdentifier>{605ff0af-ab5c-41f4-915d-46648b88c5c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -193,7 +196,10 @@
       <Filter>Game\Managers\Assignments</Filter>
     </ClCompile>
     <ClCompile Include="HelperMethods.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>JEngine\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorManager.cpp">
+      <Filter>Game\Managers\Color</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -285,7 +291,10 @@
       <Filter>Game\Managers\Assignments</Filter>
     </ClInclude>
     <ClInclude Include="HelperMethods.h">
-      <Filter>Header Files</Filter>
+      <Filter>JEngine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorManager.h">
+      <Filter>Game\Managers\Color</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

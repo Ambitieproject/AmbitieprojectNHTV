@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Window.h"
 #include "HelperMethods.h"
+#include "SceneManager.h"
 
 //Constructor
 ShapeAssignmentManager::ShapeAssignmentManager() {
@@ -17,8 +18,9 @@ ShapeAssignmentManager::~ShapeAssignmentManager() {
 void ShapeAssignmentManager::Start() {
 	Component::Start();
 
-	//Getting Component
+	//Setting Components
 	shapeAssignmentText = gameObject->GetComponent<BC::Text>();
+	colorManager = SceneManager::GetActiveScene().FindGameObjectByName("ColorManager")->GetComponent<ColorManager>();
 
 	//Setting new Shape Assignment
 	SetNewShapeAssignment();
@@ -27,17 +29,25 @@ void ShapeAssignmentManager::Start() {
 //Override Update method from base Component class
 void ShapeAssignmentManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
+
+	if (Input::GetKeyReleased(sf::Keyboard::T)) {
+		SetNewShapeAssignment();
+	}
 }
 
 //Sets a new shape assignment
 ShapeAssignment& ShapeAssignmentManager::SetNewShapeAssignment() {
 	//Getting max count as int casted of the ShapeAssignment enum
-	int count = (int)ShapeAssignment::Count;
+	int shapeCount = (int)ShapeAssignment::Count;
+
 	//Getting random ShapeAssignment value
-	ShapeAssignment shapeAssignmentTemp = ShapeAssignment(HelperMethods::GetRandomInt(0, count));
+	ShapeAssignment shapeAssignmentTemp = ShapeAssignment(HelperMethods::GetRandomInt(0, shapeCount));
 
 	//Setting current shapeAssignment
 	shapeAssignment = shapeAssignmentTemp;
+
+	//Getting random color from the color manager vector
+	assignmentColor = &colorManager->GetColors()[HelperMethods::GetRandomInt(0, colorManager->GetColors().size())];
 
 	//Display assignment
 	DisplayAssignment();
@@ -73,6 +83,8 @@ void ShapeAssignmentManager::DisplayAssignment() {
 
 	//Setting string content
 	shapeAssignmentText->setString(textContent);
+	//Setting color of text
+	shapeAssignmentText->setColor(*assignmentColor);
 
 	//Get bounds of text content
 	sf::FloatRect bounds = shapeAssignmentText->getGlobalBounds();

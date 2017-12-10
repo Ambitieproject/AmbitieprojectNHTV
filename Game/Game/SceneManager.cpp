@@ -50,9 +50,10 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	}
 
 	//If new currentScene is succesfully transferred than
-	//run start and awake method of new scene
+	//run setup, start and awake method of new scene
 	//Finally return out of function
 	if (canLoad) {
+		currentScene->Setup();
 		currentScene->Awake();
 		currentScene->Start();
 
@@ -90,9 +91,10 @@ bool SceneManager::LoadScene(std::string sceneName) {
 	}
 
 	//If new currentScene is succesfully transferred than
-	//run start and awake method of new scene
+	//run setup, start and awake method of new scene
 	//Finally return out of function
 	if (canLoad) {
+		currentScene->Setup();
 		currentScene->Awake();
 		currentScene->Start();
 

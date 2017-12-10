@@ -14,13 +14,14 @@
 #include "TimeManager.h"
 #include "ScoreManager.h"
 #include "ShapeAssignmentManager.h"
+#include "ColorManager.h"
 
 class MainScene : public Scene {
 public:
 	MainScene(std::string sceneName);
 	~MainScene();
 
-	void Awake();
+	void Setup();
 	void Start();
 	void Update(float deltaTime);
 
@@ -36,6 +37,9 @@ private:
 	//ReflectorBeamManager GameObject and Components
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
 	ReflectorBeamManager reflectorBeam = ReflectorBeamManager("../Assets/pixelWhite.png");
+
+	GameObject GOColorManager = GameObject("ColorManager", *this);
+	ColorManager colorManager = ColorManager();
 
 	//MirrorManager GameObject and Components
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);

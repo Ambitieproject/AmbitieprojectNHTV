@@ -12,6 +12,7 @@
 #include "MirrorManager.h"
 #include "ReflectorBeam.h"
 #include "PrismaMovementController.h"
+#include "ColorManager.h"
 
 class ReflectorBeamManager : public Component {
 public:
@@ -23,10 +24,6 @@ public:
 
 	//Adds a beam with a position and rotation
 	GameObject& AddBeam(sf::Vector2f position, float rotateAngel);
-	
-private:
-	//Sets the colors of every beam
-	void SetBeamColor();
 
 private:
 	std::string beamFilePath;
@@ -40,12 +37,7 @@ private:
 	MirrorManager* mirrorManager;
 	//PrismaMovementController reference
 	PrismaMovementController* prismaMovementController;
-
-	//Color vector
-	std::vector<sf::Color> prismaColors;
-	//Index that holds the current prisma color selected
-	int currentPrismaColorIndex;
-	//sf::Color that holds the current prisma color selected
-	sf::Color currentPrismaColor;
+	//ColorManager reference
+	ColorManager* colorManager;
 };
 
