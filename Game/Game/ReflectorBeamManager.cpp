@@ -24,17 +24,31 @@ void ReflectorBeamManager::Start() {
 	//Set begin values
 	beamIndex = 0;
 
-	//Add first beam
-	AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100));
+	sf::Vector2f beamPos = sf::Vector2f(Window::GetInstance()->GetWindowSize().x / 6, 200);
+
+	//Add first beams
+	for (int i = 0; i < 6; i++) {
+		AddBeam(sf::Vector2f(beamPos.x * i, beamPos.y));
+	}
+	//AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100));
 }
 
 //Override Update method from base Component class
 void ReflectorBeamManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
+	//If prism is moving
 	if (prismaMovementController->IsMovingRight() || prismaMovementController->IsMovingLeft()) {
-		for (auto it = beams.begin(); it != beams.end(); it++) {
-			it->second->GetComponent<ReflectorBeam>()->SetLineColor(prismaMovementController->GetCurrentPrismColor());
+		for (auto it = beams.begin(); it != beams.end();) {
+			if (it->second != nullptr) {
+				//Set line color
+				it->second->GetComponent<ReflectorBeam>()->SetLineColor(prismaMovementController->GetCurrentPrismColor());
+				//Increase iterator
+				it++;
+			}
+			else {
+				it = beams.erase(it);
+			}
 		}
 	}
 }
@@ -67,9 +81,11 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position) {
 }
 
 void ReflectorBeamManager::DestroyBeam(GameObject* beam) {
+	bool found = false;
 	for (auto it = beams.begin(); it != beams.end(); it++) {
-		if (it->second = beam) {
-			//beams.erase(it->second);
+		if (it->second == beam) {
+			found = true;
+			it->second = nullptr;
 		}
 	}
 	SceneManager::GetActiveScene().DestroyGameObject(beam);

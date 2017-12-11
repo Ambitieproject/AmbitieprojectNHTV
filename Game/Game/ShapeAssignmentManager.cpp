@@ -56,6 +56,11 @@ ShapeAssignment& ShapeAssignmentManager::SetNewShapeAssignment() {
 	return shapeAssignment;
 }
 
+//Gets the maximum
+int ShapeAssignmentManager::GetShapeLaserAmount() {
+	return shapeLaserAmount;
+}
+
 //Displays the assignment as text
 void ShapeAssignmentManager::DisplayAssignment() {
 	//String that will hold new content of text
@@ -66,18 +71,23 @@ void ShapeAssignmentManager::DisplayAssignment() {
 	switch (shapeAssignment) {
 	case ShapeAssignment::Parrallelogram:
 		textContent = "Parrallelogram";
+		shapeLaserAmount = 4;
 		break;
 	case ShapeAssignment::Rectangle:
 		textContent = "Rectangle";
+		shapeLaserAmount = 4;
 		break;
 	case ShapeAssignment::Square:
 		textContent = "Square";
+		shapeLaserAmount = 4;
 		break;
 	case ShapeAssignment::Trapezoid:
 		textContent = "Trapezoid";
+		shapeLaserAmount = 4;
 		break;
 	case ShapeAssignment::Triangle:
 		textContent = "Triangle";
+		shapeLaserAmount = 3;
 		break;
 	}
 

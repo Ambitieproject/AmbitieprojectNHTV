@@ -50,7 +50,6 @@ void Scene::Start() {
 
 //Virtual Update Method of a scene that can be overwritten in a supper class
 void Scene::Update(float deltaTime) {
-	std::cout << GameObjects.size() << std::endl;
 	//For every GameObject in the scene
 	for (auto objects = GameObjects.begin(); objects != GameObjects.end();) {
 
@@ -83,8 +82,6 @@ void Scene::AddToGameObjectList(GameObject* gameObject) {
 bool Scene::DestroyGameObject(GameObject* gameObject) {
 	//Bool to determine if component is found
 	bool found = false;
-	//GameObject pointer to set GameObject to
-	GameObject* go;
 	//For length of GameObjects map size
 	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
 		if (!found) {

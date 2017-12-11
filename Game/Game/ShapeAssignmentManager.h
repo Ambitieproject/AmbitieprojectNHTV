@@ -37,6 +37,9 @@ public:
 	//Sets a new shape assignment
 	ShapeAssignment& SetNewShapeAssignment();
 
+	//Gets the maximum
+	int GetShapeLaserAmount();
+
 private:
 	//Displays the assignment as text
 	void DisplayAssignment();
@@ -44,6 +47,9 @@ private:
 private:
 	//Local shape assignment enum holder
 	ShapeAssignment shapeAssignment;
+
+	//Maximum laser amount
+	int shapeLaserAmount;
 
 	//Local color assignment
 	sf::Color* assignmentColor;

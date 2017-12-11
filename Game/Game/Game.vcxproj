@@ -172,7 +172,6 @@
     <ClCompile Include="ReflectorBeamManager.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
-    <ClCompile Include="ShapeAssignmentManager.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Text.cpp" />
@@ -206,7 +205,6 @@
     <ClInclude Include="ReflectorBeamManager.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ScoreManager.h" />
-    <ClInclude Include="ShapeAssignmentManager.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Text.h" />

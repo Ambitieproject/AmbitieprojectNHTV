@@ -4,11 +4,12 @@
 #include "Window.h"
 #include "BaseComponents.hpp"
 
+//Constructor
 MainScene::MainScene(std::string sceneName) : Scene(sceneName) {
 
 }
 
-
+//Destructor
 MainScene::~MainScene() {
 
 }
@@ -22,7 +23,6 @@ void MainScene::Setup() {
 	GOUIBackgroundBars.SetDrawIndex(2);
 	GOPrisma.SetDrawIndex(2);
 	GOColorManager.SetDrawIndex(2);
-	GOShapeAssignmentManager.SetDrawIndex(1);
 
 	//Adding components to ColorManager GameObject
 	GOColorManager.AddComponent(&colorManager);
@@ -37,10 +37,6 @@ void MainScene::Setup() {
 	//Adding components to MirrorManager GameObject
 	GOMirrorManager.AddComponent(&mirrorManager);
 
-	//Adding components to ShapeAssignmentManager GameObject
-	GOShapeAssignmentManager.AddComponent(&shapeAssignmentManager);
-	GOShapeAssignmentManager.AddComponent(&shapeAssignmentText);
-
 	//Adding components to UIManager GameObject
 	GOUIManager.AddComponent(&timeBackgroundSprite);
 	GOUIManager.AddComponent(&timeText);
@@ -54,13 +50,8 @@ void MainScene::Setup() {
 
 	//Adding components to BackgroundBars GameObject
 	GOUIBackgroundBars.AddComponent(&backgroundBarTop);
-	GOUIBackgroundBars.AddComponent(&backgroundBarBottom);
 
-	float size = 0.5155f;
-
-	backgroundBarTop.setScale(size, size);
-	backgroundBarBottom.setScale(size, size);
-	backgroundBarBottom.setPosition(0, Window::GetInstance()->GetWindowSize().y - backgroundBarBottom.getScale().y * backgroundBarBottom.getTexture()->getSize().y);
+	backgroundBarTop.setScale(0.5155f, 0.5155f);
 
 	timeBackgroundSprite.setOrigin(timeBackgroundSprite.getTexture()->getSize().x / 2, timeBackgroundSprite.getTexture()->getSize().y / 2);
 	timeBackgroundSprite.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 70);
@@ -82,10 +73,6 @@ void MainScene::Setup() {
 	scoreTextStatic.setScale(0.7, 0.7);
 	scoreTextStatic.setPosition(10, 32);
 	scoreTextStatic.setColor(sf::Color::Black);
-
-	//Setting standard values for the ShapeAssignmentText
-	shapeAssignmentText.setScale(0.7, 0.7);
-	shapeAssignmentText.setColor(sf::Color::Black);
 
 	//Setting standard values of the addMirrorButton
 	addMirrorButton.GetCurrentButtonSprite().setScale(0.5f, 0.5f);

@@ -36,7 +36,7 @@ void ReflectorBeam::Update(float deltaTime) {
 				nobodyCollides = true;
 				reflectingMirror = mirror;
 				line[1].position = Equations::pointOfIntersect;
-
+				
 				if (!newBeam) {
 					newBeam = &reflectorBeamManager->AddBeam(Equations::pointOfIntersect);
 					newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;

@@ -1,26 +1,13 @@
-﻿  MainScene.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(65): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(66): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(92): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(72): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(78): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(84): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(88): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(107): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+﻿  ReflectorBeamManager.cpp
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(27): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(19): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
           with
           [
               component=BC::Sprite
           ]
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

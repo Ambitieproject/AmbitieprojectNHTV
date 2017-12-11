@@ -97,9 +97,6 @@
     <Filter Include="Game\Managers\Mirror">
       <UniqueIdentifier>{3df52825-c487-4ffd-85b0-5b465c9c7db1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Managers\Assignments">
-      <UniqueIdentifier>{887d715d-cc96-4058-94fd-e160c2460056}</UniqueIdentifier>
-    </Filter>
     <Filter Include="JEngine\Helpers">
       <UniqueIdentifier>{5ac471ca-a0f9-4dd4-a4f9-615cc649581b}</UniqueIdentifier>
     </Filter>
@@ -192,9 +189,6 @@
     <ClCompile Include="Equations.cpp">
       <Filter>JEngine\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="ShapeAssignmentManager.cpp">
-      <Filter>Game\Managers\Assignments</Filter>
-    </ClCompile>
     <ClCompile Include="HelperMethods.cpp">
       <Filter>JEngine\Helpers</Filter>
     </ClCompile>
@@ -286,9 +280,6 @@
     </ClInclude>
     <ClInclude Include="Equations.h">
       <Filter>JEngine\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeAssignmentManager.h">
-      <Filter>Game\Managers\Assignments</Filter>
     </ClInclude>
     <ClInclude Include="HelperMethods.h">
       <Filter>JEngine\Helpers</Filter>

@@ -45,11 +45,6 @@ private:
 	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
 	MirrorManager mirrorManager = MirrorManager();
 
-	//AssignmentManager GameObject and Components
-	GameObject GOShapeAssignmentManager = GameObject("Main", *this);
-	ShapeAssignmentManager shapeAssignmentManager = ShapeAssignmentManager();
-	BC::Text shapeAssignmentText = BC::Text(&font);
-
 	//UIManager GameObject and components
 	GameObject GOUIManager = GameObject("GOUIManager", *this);
 	BC::Sprite timeBackgroundSprite = BC::Sprite("../Assets/Level/TopCircle.png");
@@ -65,5 +60,4 @@ private:
 	//BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
 	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Level/TopAndDownBar.png");
-	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Level/TopAndDownBar.png");
 };
