@@ -3,14 +3,8 @@
 
 
 //Constructor
-TimeManager::TimeManager(int timeInSeconds) {
-	//Setting variables to begin value
-	seconds = timeInSeconds;
-
-	minutes = 0;
-	totalTime = 0;
-
-	canCount = true;
+TimeManager::TimeManager() {
+	
 }
 
 //Destructor
@@ -22,15 +16,15 @@ TimeManager::~TimeManager() {
 void TimeManager::Start() {
 	Component::Start();
 
+	//Setting variables to begin value
+	minutes = 0;
+	seconds = 0;
+	totalTime = 0;
+
+	canCount = true;
+
 	//Getting Text component of GameObject
 	timeText = gameObject->GetComponent<BC::Text>();
-
-	//Devide seconds by 60 as an int, this way it will return the minutes
-	minutes = seconds / 60;
-	//For each minute there is remove 60 seconds from the seconds variable
-	for (int i = 0; i < minutes; i++) {
-		seconds = seconds - 60;
-	}
 }
 
 //Override Update method from base Component class
@@ -45,23 +39,14 @@ void TimeManager::Update(float deltaTime) {
 			//Setting totalTime to 1 just to be sure it is rounded
 			totalTime = 1;
 
-			//If seconds is 0 and minutes not then reset counter to 60 seconds
-			//and remove 1 minute from the minute variable
-			if (seconds == 0 && minutes != 0) {
-				seconds = 60;
-				minutes--;
+			//If seconds is 59 add 1 minute to the minute variable and reset seconds
+			if (seconds == 59) {
+				seconds = -1;
+				minutes++;
 			}
 
-			//If seconds and minutes are 0 then counter has ended and you return
-			if (seconds == 0) {
-				if (minutes == 0) {
-					canCount = false;
-					return;
-				}
-			}
-
-			//Decrease seconds by the totalTime as an int
-			seconds = seconds - (int)totalTime;
+			//Increase seconds by the totalTime as an int
+			seconds = seconds + (int)totalTime;
 
 			//Resetting totalTime
 			totalTime = 0;

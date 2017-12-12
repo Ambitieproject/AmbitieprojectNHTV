@@ -29,7 +29,6 @@ void MainScene::Setup() {
 
 	//Adding components to Prisma GameObject
 	GOPrisma.AddComponent(&prismaSprite);
-	GOPrisma.AddComponent(&prisma);
 
 	//Adding components to ReflectorBeamManager GameObject
 	GOReflectorBeamManager.AddComponent(&reflectorBeam);
@@ -47,6 +46,11 @@ void MainScene::Setup() {
 	GOUIManager.AddComponent(&scoreManager);
 
 	GOUIManager.AddComponent(&addMirrorButton);
+
+	//Setting default values of prism
+	prismaSprite.setScale(0.25f, 0.25f);
+	prismaSprite.setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y - 60);
+	prismaSprite.setOrigin(prismaSprite.getTexture()->getSize().x * 0.5f, (prismaSprite.getTexture()->getSize().y * 0.5f) + 40);
 
 	//Adding components to BackgroundBars GameObject
 	GOUIBackgroundBars.AddComponent(&backgroundBarTop);

@@ -32,32 +32,26 @@ void ReflectorBeam::Update(float deltaTime) {
 			sf::Vector2f p2 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(2));
 			sf::Vector2f p3 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(3));
 
+			
+
 			bool frontsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p1, *it->second->GetComponent<Mirror>());
 			bool backsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p2, p3, *it->second->GetComponent<Mirror>());
 			bool rightsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p1, p2, *it->second->GetComponent<Mirror>());
 			bool leftsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p3, *it->second->GetComponent<Mirror>());
 
-			if (backsideMirrorCollider || rightsideMirrorCollider || leftsideMirrorCollider) {
+			if(frontsideMirrorCollider) {
+				std::cout << "front" << std::endl;
 				nobodyCollides = true;
 				reflectingMirror = mirror;
-				line[1].position = mirror->GetComponent<Mirror>()->pointOfIntersect;
-			}
-			else if(frontsideMirrorCollider) {
-				nobodyCollides = true;
-				reflectingMirror = mirror;
-				line[1].position = mirror->GetComponent<Mirror>()->pointOfIntersect;
+				line[1].position = Equations::pointOfIntersection;;
 				if (!newBeam) {
-					newBeam = &reflectorBeamManager->AddBeam(mirror->GetComponent<Mirror>()->pointOfIntersect);
+					newBeam = &reflectorBeamManager->AddBeam(Equations::pointOfIntersection, line[0].color);
 					newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 				}
 				else {
-					newBeam->GetComponent<ReflectorBeam>()->line[0].position = mirror->GetComponent<Mirror>()->pointOfIntersect;
+					newBeam->GetComponent<ReflectorBeam>()->line[0].position = Equations::pointOfIntersection;;
 				}
 			}
-			
-			
-			//Draw border of calculating at the mirror
-			it->second->GetComponent<Mirror>()->DrawMirrorLine();
 		}
 	}
 

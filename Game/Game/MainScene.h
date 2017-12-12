@@ -8,7 +8,6 @@
 #include "BaseComponents.hpp"
 #include "GameObject.h"
 
-#include "PrismaMovementController.h"
 #include "ReflectorBeamManager.h"
 #include "MirrorManager.h"
 #include "TimeManager.h"
@@ -32,11 +31,10 @@ private:
 	//Prisma GameObject and Components
 	GameObject GOPrisma = GameObject("Prisma", *this);
 	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
-	PrismaMovementController prisma = PrismaMovementController(&prismaSprite);
 
 	//ReflectorBeamManager GameObject and Components
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
-	ReflectorBeamManager reflectorBeam = ReflectorBeamManager("../Assets/pixelWhite.png");
+	ReflectorBeamManager reflectorBeam = ReflectorBeamManager();
 
 	GameObject GOColorManager = GameObject("ColorManager", *this);
 	ColorManager colorManager = ColorManager();
@@ -49,7 +47,7 @@ private:
 	GameObject GOUIManager = GameObject("GOUIManager", *this);
 	BC::Sprite timeBackgroundSprite = BC::Sprite("../Assets/Level/TopCircle.png");
 	BC::Text timeText = BC::Text(&font);
-	TimeManager timeManager = TimeManager(120);
+	TimeManager timeManager = TimeManager();
 
 	BC::Text scoreText = BC::Text(&font);
 	BC::Text scoreTextStatic = BC::Text(&font);
@@ -59,5 +57,5 @@ private:
 
 	//BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
-	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Level/TopAndDownBar.png");
+	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
 };

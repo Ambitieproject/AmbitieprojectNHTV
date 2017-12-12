@@ -261,11 +261,13 @@ void SceneManager::ResetScene(Scene* scene) {
 		new (&mainSceneClass) MainScene("MainScene");
 		mainSceneClass.SceneIndex = lastSceneIndex;
 	}
+	if (scene->Name == "LevelSelectScene") {
+		scenes.erase(LocalIt);
+		levelSelectScene.~LevelSelectScene();
+		new (&levelSelectScene) LevelSelectScene("LevelSelectScene");
+		levelSelectScene.SceneIndex = lastSceneIndex;
+	}
 	
-}
-
-void SceneManager::ResetOrderedDrawGameObjectVector() {
-
 }
 
 //Adds scene to list of scenes

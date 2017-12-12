@@ -1,5 +1,7 @@
 #include "Equations.h"
 
+sf::Vector2f Equations::pointOfIntersection;
+
 //Constructor
 Equations::Equations() {
 
@@ -31,52 +33,8 @@ bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f p2, sf::Vector2f direc
 		float y = cm * x + cb;
 
 		if (mirrorCollider.gameObject->GetComponent<BC::BoxCollider>()->GetBoxCollider().getGlobalBounds().contains(sf::Vector2f(x,y))) {
-			//line faced down
-			if (p1.y < p2.y) {
-				//line faced right
-				if (p1.x < p2.x) {
-					if (y >= p1.y && y <= p2.y && x >= p1.x && x <= p2.x) {
-						mirrorCollider.pointOfIntersect = sf::Vector2f(x, y);
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-				//line faced left
-				else {
-					if (y >= p1.y && y <= p2.y && x >= p2.x && x <= p1.x) {
-						mirrorCollider.pointOfIntersect = sf::Vector2f(x, y);
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-			}
-			//line faced up
-			else {
-				//line faced right
-				if (p1.x < p2.x) {
-					if (y >= p2.y && y <= p1.y && x >= p1.x && x <= p2.x) {
-						mirrorCollider.pointOfIntersect = sf::Vector2f(x, y);
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-				//line faced left
-				else {
-					if (y >= p2.y && y <= p1.y && x >= p2.x && x <= p1.x) {
-						mirrorCollider.pointOfIntersect = sf::Vector2f(x, y);
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-			}
+			pointOfIntersection = sf::Vector2f(x, y);
+			return true;
 		}
 		else {
 			return false;

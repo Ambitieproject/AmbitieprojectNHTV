@@ -18,7 +18,8 @@ void Component::Awake() {
 
 //Start method of this component
 void Component::Start() {
-
+	//Set CanStart state to be true
+	DidStart = true;
 }
 
 //Update method of this component

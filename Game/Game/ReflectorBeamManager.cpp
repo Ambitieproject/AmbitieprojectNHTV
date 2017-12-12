@@ -4,7 +4,7 @@
 #include "Window.h"
 
 //Constructor
-ReflectorBeamManager::ReflectorBeamManager(std::string beamFilePath) : beamFilePath(beamFilePath) {
+ReflectorBeamManager::ReflectorBeamManager() {
 	
 }
 
@@ -17,44 +17,63 @@ ReflectorBeamManager::~ReflectorBeamManager() {
 void ReflectorBeamManager::Start() {
 	//Setting references
 	prisma = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<BC::Sprite>();
-	prismaMovementController = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<PrismaMovementController>();
 	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("MirrorManager")->GetComponent<MirrorManager>();
 	colorManager = SceneManager::GetActiveScene().FindGameObjectByName("ColorManager")->GetComponent<ColorManager>();
 
 	//Set begin values
 	beamIndex = 0;
 
-	sf::Vector2f beamPos = sf::Vector2f(Window::GetInstance()->GetWindowSize().x / 7, 200);
-
-	//Add first beams
+	//Add beams
 	for (int i = 0; i != 6; i++) {
-		AddBeam(sf::Vector2f((beamPos.x + 20) * i, beamPos.y));
+		sf::Vector2f position;
+		sf::Color color;
+		switch (i) {
+		case 0:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color::Red;
+			break;
+		case 1:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color(255, 153, 0);
+			break;
+		case 2:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color::Yellow;
+			break;
+		case 3:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color::Green;
+			break;
+		case 4:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color::Blue;
+			break;
+		case 5:
+			position = sf::Vector2f(83 * (i + 1), 20);
+			color = sf::Color(153, 0, 204);
+			break;
+		}
+
+		AddBeam(position, color);
 	}
-	//AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100));
 }
 
 //Override Update method from base Component class
 void ReflectorBeamManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
-	//If prism is moving
-	if (prismaMovementController->IsMovingRight() || prismaMovementController->IsMovingLeft()) {
-		for (auto it = beams.begin(); it != beams.end();) {
-			if (it->second != nullptr) {
-				//Set line color
-				it->second->GetComponent<ReflectorBeam>()->SetLineColor(prismaMovementController->GetCurrentPrismColor());
-				//Increase iterator
-				it++;
-			}
-			else {
-				it = beams.erase(it);
-			}
+	for (auto it = beams.begin(); it != beams.end();) {
+		if (it->second != nullptr) {
+			it++;
+		}
+		else {
+			it = beams.erase(it);
 		}
 	}
 }
 
 //Adds a beam with a position and rotation
-GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position) {
+GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, sf::Color color) {
 	//Make new GameObject instance pointer
 	GameObject* beam = new GameObject("Beam", SceneManager::GetActiveScene());
 
@@ -71,7 +90,7 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position) {
 	reflectorBeamComponent->GetLine()[0].position = position;
 
 	//Set begin line color
-	reflectorBeamComponent->SetLineColor(prismaMovementController->GetCurrentPrismColor());
+	reflectorBeamComponent->SetLineColor(color);
 
 	//Insert beam into beam map and increase beamIndex
 	beams.insert(std::pair<int, GameObject*>(beamIndex, beam));
@@ -80,6 +99,7 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position) {
 	return *beam;
 }
 
+//Destroy a beam
 void ReflectorBeamManager::DestroyBeam(GameObject* beam) {
 	bool found = false;
 	for (auto it = beams.begin(); it != beams.end(); it++) {
@@ -88,6 +108,7 @@ void ReflectorBeamManager::DestroyBeam(GameObject* beam) {
 			it->second = nullptr;
 		}
 	}
+	//Call destroy GameObject method from scene class
 	SceneManager::GetActiveScene().DestroyGameObject(beam);
 }
 

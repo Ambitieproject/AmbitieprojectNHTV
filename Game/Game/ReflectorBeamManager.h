@@ -11,14 +11,13 @@
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
 #include "ReflectorBeam.h"
-#include "PrismaMovementController.h"
 #include "ColorManager.h"
 
 //Manager class that takes care of managing the reflector beams
 class ReflectorBeamManager : public Component {
 public:
 	//Constructor
-	ReflectorBeamManager(std::string beamFilePath);
+	ReflectorBeamManager();
 	//Destructor
 	~ReflectorBeamManager();
 
@@ -28,15 +27,15 @@ public:
 	void Update(float deltaTime);
 
 	//Adds a beam with a position
-	GameObject& AddBeam(sf::Vector2f position);
+	GameObject& AddBeam(sf::Vector2f position, sf::Color color);
 
+	//Destroy a beam
 	void DestroyBeam(GameObject* beam);
 
 	//Gets the beams map
 	std::map<int, GameObject*>& GetBeams();
 
 private:
-	std::string beamFilePath;
 
 	std::map<int, GameObject*> beams;
 	int beamIndex;
@@ -45,8 +44,6 @@ private:
 	BC::Sprite* prisma;
 	//MirrorManager reference
 	MirrorManager* mirrorManager;
-	//PrismaMovementController reference
-	PrismaMovementController* prismaMovementController;
 	//ColorManager reference
 	ColorManager* colorManager;
 };

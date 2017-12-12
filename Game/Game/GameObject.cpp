@@ -33,13 +33,16 @@ void GameObject::Awake() {
 
 //Start method of GameObject
 void GameObject::Start() {
-	//For every Component on this GameObject
-	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
-		//if GameObject is active
-		if (objects->second->Enabled) {
-			objects->second->Start();
+	if (Components.size() > 0) {
+		//For every Component on this GameObject
+		for (auto objects = Components.begin(); objects != Components.end(); objects++) {
+			//if GameObject is active
+			if (objects->second->Enabled) {
+				objects->second->Start();
+			}
 		}
 	}
+	
 }
 
 //Update method of GameObject

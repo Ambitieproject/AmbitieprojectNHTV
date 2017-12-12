@@ -9,6 +9,7 @@ class Renderer;
 
 //all scenes includes
 #include "MainScene.h"
+#include "LevelSelectScene.h"
 #include "MenuScene.h"
 
 //SceneManager class. Takes care of the scene flow of the game and calls different methods of the "active" scene
@@ -62,8 +63,6 @@ private:
 	//Reset method to reset a scene
 	void ResetScene(Scene* scene);
 
-	void ResetOrderedDrawGameObjectVector();
-
 private:
 	//Define the friend class Game
 	friend class Game;
@@ -85,6 +84,7 @@ private:
 
 	///all scenes in game
 	MenuScene menuSceneClass = MenuScene("MenuScene");
+	LevelSelectScene levelSelectScene = LevelSelectScene("LevelSelectScene");
 	MainScene mainSceneClass = MainScene("MainScene");
 	
 };

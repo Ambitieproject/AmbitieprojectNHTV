@@ -10,7 +10,7 @@
 class TimeManager : public Component {
 public:
 	//Constructor
-	TimeManager(int timeInSeconds);
+	TimeManager();
 	//Destructor
 	~TimeManager();
 

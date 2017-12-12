@@ -70,38 +70,47 @@
     <Filter Include="Game">
       <UniqueIdentifier>{ef0b1e24-73a3-4b19-903d-0b2eff265bf5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Prisma">
-      <UniqueIdentifier>{0c04935d-c5c4-4975-9dfa-870ae4efafd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Managers">
-      <UniqueIdentifier>{cd2eef44-73c8-4e38-8224-326c66fde12d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Managers\Beam">
-      <UniqueIdentifier>{666b1cb2-b6d9-46ad-a395-d6590543872c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Beam">
-      <UniqueIdentifier>{13f7a9cd-f277-4654-8c6f-8226e2edfcb2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Menu">
       <UniqueIdentifier>{d48041f1-6cfc-4397-bae0-4a4f9f19acd6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Scenes">
       <UniqueIdentifier>{6702af9c-8a34-4ced-b15a-c5c63a9c7bc2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Managers\Time">
-      <UniqueIdentifier>{ca61cde9-9c48-429f-a62e-913dc80681d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Managers\Score">
-      <UniqueIdentifier>{ffe85f1d-e467-4cb4-8cb9-be71795c8150}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Managers\Mirror">
-      <UniqueIdentifier>{3df52825-c487-4ffd-85b0-5b465c9c7db1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="JEngine\Helpers">
       <UniqueIdentifier>{5ac471ca-a0f9-4dd4-a4f9-615cc649581b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Managers\Color">
+    <Filter Include="Game\Level">
+      <UniqueIdentifier>{be50a5c7-711e-4fe7-8d7d-2cc3ae1e9e3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers">
+      <UniqueIdentifier>{cd2eef44-73c8-4e38-8224-326c66fde12d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers\Beam">
+      <UniqueIdentifier>{666b1cb2-b6d9-46ad-a395-d6590543872c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers\Time">
+      <UniqueIdentifier>{ca61cde9-9c48-429f-a62e-913dc80681d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers\Score">
+      <UniqueIdentifier>{ffe85f1d-e467-4cb4-8cb9-be71795c8150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers\Mirror">
+      <UniqueIdentifier>{3df52825-c487-4ffd-85b0-5b465c9c7db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Managers\Color">
       <UniqueIdentifier>{605ff0af-ab5c-41f4-915d-46648b88c5c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Beam">
+      <UniqueIdentifier>{13f7a9cd-f277-4654-8c6f-8226e2edfcb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Mirror">
+      <UniqueIdentifier>{7113a397-d356-44f3-90c3-423ae5022808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Prisma">
+      <UniqueIdentifier>{0c04935d-c5c4-4975-9dfa-870ae4efafd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\LevelSelect">
+      <UniqueIdentifier>{90de92d1-0beb-40d5-b172-174381f986ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -162,29 +171,26 @@
     <ClCompile Include="Button.cpp">
       <Filter>JEngine\Components\Graphics\Button</Filter>
     </ClCompile>
-    <ClCompile Include="PrismaMovementController.cpp">
-      <Filter>Game\Prisma</Filter>
-    </ClCompile>
     <ClCompile Include="ReflectorBeamManager.cpp">
-      <Filter>Game\Managers\Beam</Filter>
+      <Filter>Game\Level\Managers\Beam</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
-      <Filter>Game\Managers\Time</Filter>
+      <Filter>Game\Level\Managers\Time</Filter>
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
-      <Filter>Game\Managers\Score</Filter>
+      <Filter>Game\Level\Managers\Score</Filter>
     </ClCompile>
     <ClCompile Include="MainScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="ReflectorBeam.cpp">
-      <Filter>Game\Beam</Filter>
+      <Filter>Game\Level\Beam</Filter>
     </ClCompile>
     <ClCompile Include="MirrorManager.cpp">
-      <Filter>Game\Managers\Mirror</Filter>
+      <Filter>Game\Level\Managers\Mirror</Filter>
     </ClCompile>
     <ClCompile Include="Equations.cpp">
       <Filter>JEngine\Helpers</Filter>
@@ -193,7 +199,16 @@
       <Filter>JEngine\Helpers</Filter>
     </ClCompile>
     <ClCompile Include="ColorManager.cpp">
-      <Filter>Game\Managers\Color</Filter>
+      <Filter>Game\Level\Managers\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelectScene.cpp">
+      <Filter>Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mirror.cpp">
+      <Filter>Game\Level\Mirror</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelectManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,29 +269,26 @@
     <ClInclude Include="Button.h">
       <Filter>JEngine\Components\Graphics\Button</Filter>
     </ClInclude>
-    <ClInclude Include="PrismaMovementController.h">
-      <Filter>Game\Prisma</Filter>
-    </ClInclude>
     <ClInclude Include="ReflectorBeamManager.h">
-      <Filter>Game\Managers\Beam</Filter>
+      <Filter>Game\Level\Managers\Beam</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="TimeManager.h">
-      <Filter>Game\Managers\Time</Filter>
+      <Filter>Game\Level\Managers\Time</Filter>
     </ClInclude>
     <ClInclude Include="ScoreManager.h">
-      <Filter>Game\Managers\Score</Filter>
+      <Filter>Game\Level\Managers\Score</Filter>
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="ReflectorBeam.h">
-      <Filter>Game\Beam</Filter>
+      <Filter>Game\Level\Beam</Filter>
     </ClInclude>
     <ClInclude Include="MirrorManager.h">
-      <Filter>Game\Managers\Mirror</Filter>
+      <Filter>Game\Level\Managers\Mirror</Filter>
     </ClInclude>
     <ClInclude Include="Equations.h">
       <Filter>JEngine\Helpers</Filter>
@@ -285,7 +297,16 @@
       <Filter>JEngine\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="ColorManager.h">
-      <Filter>Game\Managers\Color</Filter>
+      <Filter>Game\Level\Managers\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelectScene.h">
+      <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Mirror.h">
+      <Filter>Game\Level\Mirror</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelectManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
