@@ -24,11 +24,11 @@ void ReflectorBeamManager::Start() {
 	//Set begin values
 	beamIndex = 0;
 
-	sf::Vector2f beamPos = sf::Vector2f(Window::GetInstance()->GetWindowSize().x / 6, 200);
+	sf::Vector2f beamPos = sf::Vector2f(Window::GetInstance()->GetWindowSize().x / 7, 200);
 
 	//Add first beams
-	for (int i = 0; i < 6; i++) {
-		AddBeam(sf::Vector2f(beamPos.x * i, beamPos.y));
+	for (int i = 0; i != 6; i++) {
+		AddBeam(sf::Vector2f((beamPos.x + 20) * i, beamPos.y));
 	}
 	//AddBeam(sf::Vector2f(prisma->getPosition().x, prisma->getPosition().y - 100));
 }

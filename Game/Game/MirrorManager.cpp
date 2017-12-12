@@ -107,8 +107,8 @@ void MirrorManager::AddMirror() {
 }
 
 sf::Vertex* Mirror::GetLine() {
-	if (line != nullptr) {
-		return line;
+	if (reflectLine != nullptr) {
+		return reflectLine;
 	}
 	else {
 		return nullptr;
@@ -116,31 +116,42 @@ sf::Vertex* Mirror::GetLine() {
 }
 
 float Mirror::GetSlope() {
-	if (line != nullptr) {
-		float y = line[0].position.y - line[1].position.y;
-		float x = line[0].position.x - line[1].position.x;
+	if (reflectLine != nullptr) {
+		float y = reflectLine[0].position.y - reflectLine[1].position.y;
+		float x = reflectLine[0].position.x - reflectLine[1].position.x;
 		return y / x;
 	}
 	return 0;
 }
 
 void Mirror::DrawMirrorLine() {
-	if (line != nullptr) {
+	if (reflectLine != nullptr) {
 		BC::BoxCollider* thisCollider = gameObject->GetComponent<BC::BoxCollider>();
 
-		sf::Vector2f leftBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(0));
-		sf::Vector2f rightBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(1));
+		sf::Vector2f leftTopPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(0));
+		sf::Vector2f righTopPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(1));
+		sf::Vector2f rightBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(2));
+		sf::Vector2f leftBottomPoint = thisCollider->GetBoxCollider().getTransform().transformPoint(thisCollider->GetBoxCollider().getPoint(3));
 
-		//std::cout << leftBottomPoint.x << " " << leftBottomPoint.y << std::endl;
-		//std::cout << rightBottomPoint.x << " " << rightBottomPoint.y << std::endl;
+		reflectLine = new sf::Vertex[2];
+		reflectLine[0].position = leftTopPoint;
+		reflectLine[0].color = sf::Color::Blue;
+		reflectLine[1].position = righTopPoint;
+		reflectLine[1].color = sf::Color::Red;
 
-		line = new sf::Vertex[2];
-		line[0].position = leftBottomPoint;
-		line[0].color = sf::Color::Blue;
-		line[1].position = rightBottomPoint;
-		line[1].color = sf::Color::Red;
+		sf::Vertex* backline = new sf::Vertex[2];
+		backline[0].position = leftBottomPoint;
+		backline[0].color = sf::Color::Black;
+		backline[1].position = rightBottomPoint;
+		backline[1].color = sf::Color::Black;
+		ignoreLines.push_back(backline);
 	}
 	else {
-		Window::GetInstance()->GetRenderer().Draw(line, 2, sf::Lines);
+		Window::GetInstance()->GetRenderer().Draw(reflectLine, 2, sf::Lines);
+
+		for (auto it = ignoreLines.begin(); it != ignoreLines.end(); it++) {
+			std::cout << "hello" << std::endl;
+			Window::GetInstance()->GetRenderer().Draw(*it._Ptr, 2, sf::Lines);
+		}
 	}
 }

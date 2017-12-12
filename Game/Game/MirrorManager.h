@@ -39,11 +39,13 @@ private:
 class Mirror : public Component {
 public:
 	bool canMove;
+	sf::Vector2f pointOfIntersect;
 
 	sf::Vertex* GetLine();
 	float GetSlope();
 
-	sf::Vertex* line = new sf::Vertex[2];
+	sf::Vertex* reflectLine = new sf::Vertex[2];
+	std::vector<sf::Vertex*> ignoreLines;
 
 	void DrawMirrorLine();
 };
