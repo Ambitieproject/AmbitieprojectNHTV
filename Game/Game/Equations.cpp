@@ -21,7 +21,7 @@ float Equations::CalculateSlopeOfLine(sf::Vector2f p1, sf::Vector2f p2) {
 }
 
 //Checks if two line given as parameters are colliding
-bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f p2, sf::Vector2f direction, sf::Vector2f c1, sf::Vector2f c2, Mirror& mirrorCollider) {
+sf::Vector2f Equations::LineCollide(sf::Vector2f p1, sf::Vector2f p2, sf::Vector2f direction, sf::Vector2f c1, sf::Vector2f c2, Mirror& mirrorCollider) {
 	float pm = CalculateSlopeOfLine(p1, direction);
 	float pb = p1.y - pm * p1.x;
 	
@@ -34,13 +34,13 @@ bool Equations::LineCollide(sf::Vector2f p1, sf::Vector2f p2, sf::Vector2f direc
 
 		if (mirrorCollider.gameObject->GetComponent<BC::BoxCollider>()->GetBoxCollider().getGlobalBounds().contains(sf::Vector2f(x,y))) {
 			pointOfIntersection = sf::Vector2f(x, y);
-			return true;
+			return sf::Vector2f(x,y);
 		}
 		else {
-			return false;
+			return sf::Vector2f(-100, -100);
 		}
 	}
 	else {
-		return false;
+		return sf::Vector2f(-100, -100);
 	}
 }

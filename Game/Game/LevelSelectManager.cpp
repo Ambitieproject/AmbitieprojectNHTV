@@ -14,6 +14,10 @@ LevelSelectManager::~LevelSelectManager() {
 void LevelSelectManager::Start() {
 	Component::Start();
 
+	//Call create buttons method
+	CreateLevelButtons();
+
+	//Set default methods
 	hasSelectedLevel = false;
 }
 

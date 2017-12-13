@@ -35,8 +35,10 @@ public:
 	//Main Update method that runs in the whole game
 	void Update();
 
+	//Makes a GameObject into a singleton
 	GameObject& AddSingleton(GameObject& gameObject);
-	GameObject& GetSingleton(std::string gameObjectName);
+	//Gets an already made singleton GameObject
+	GameObject* GetSingleton(std::string gameObjectName);
 
 	//Gets Window class method
 	Window& GetWindowClass();
@@ -51,7 +53,8 @@ private:
 	//Private clock to get a delta time
 	sf::Clock clock;
 
-	std::vector<GameObject*> Singletons;
+	//Vector containing Singleton GameObjects
+	std::vector<GameObject*> singletons;
 
 	///main components
 	Window* window;

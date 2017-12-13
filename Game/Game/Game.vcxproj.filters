@@ -208,7 +208,7 @@
       <Filter>Game\Level\Mirror</Filter>
     </ClCompile>
     <ClCompile Include="LevelSelectManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\LevelSelect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -306,7 +306,7 @@
       <Filter>Game\Level\Mirror</Filter>
     </ClInclude>
     <ClInclude Include="LevelSelectManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\LevelSelect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

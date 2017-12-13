@@ -53,4 +53,3 @@ private:
 	//Reference sprite
 	BC::Sprite refSprite = BC::Sprite("../Assets/Menu/JP2017.png");
 };
-

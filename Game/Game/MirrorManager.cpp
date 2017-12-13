@@ -33,7 +33,7 @@ void MirrorManager::AddMirror() {
 
 	//Make components
 	Mirror* mirrorComponent = new Mirror();
-	BC::Sprite* mirrorSprite = new BC::Sprite("../Assets/Mirror.png");
+	BC::Sprite* mirrorSprite = new BC::Sprite("../Assets/Mirror2.png");
 	BC::BoxCollider* mirrorBoxCollider = new BC::BoxCollider(*mirrorSprite);
 
 	//Add components to GameObject

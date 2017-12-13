@@ -29,27 +29,27 @@ void ReflectorBeamManager::Start() {
 		sf::Color color;
 		switch (i) {
 		case 0:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color::Red;
 			break;
 		case 1:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color(255, 153, 0);
 			break;
 		case 2:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color::Yellow;
 			break;
 		case 3:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color::Green;
 			break;
 		case 4:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color::Blue;
 			break;
 		case 5:
-			position = sf::Vector2f(83 * (i + 1), 20);
+			position = sf::Vector2f(83 * (i + 1), 90);
 			color = sf::Color(153, 0, 204);
 			break;
 		}

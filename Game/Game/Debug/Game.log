@@ -1,10 +1,23 @@
-﻿  LevelSelectScene.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(30): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(34): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(38): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(39): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+﻿  SceneManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ReflectorBeam.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(81): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(85): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(86): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(30): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::BoxCollider>(void)' being compiled
+          with
+          [
+              component=BC::BoxCollider
+          ]
+  Generating Code...
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(143): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(157): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

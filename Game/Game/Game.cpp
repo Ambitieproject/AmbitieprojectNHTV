@@ -42,16 +42,29 @@ void Game::Update() {
 	Input::UpdatePollEvent(DeltaTime);
 }
 
+//Makes a GameObject into a singleton
 GameObject& Game::AddSingleton(GameObject& gameObject) {
+	//Make temp pointer object that copies content of parameter GameObject
 	GameObject* go = &gameObject;
-	Singletons.push_back(go);
+	//Pushback the temp GameObject into the singleton vector
+	singletons.push_back(go);
+	//Return temp GameObject
 	return *go;
 }
 
-GameObject& Game::GetSingleton(std::string gameObjectName) {
+//Gets an already made singleton GameObject
+GameObject* Game::GetSingleton(std::string gameObjectName) {
+	//Make temp pointer object that copies content of parameter GameObject
 	GameObject* go;
-	std::cout << "trieng to find" << std::endl;
-	return *go;
+	//Go through the Singletons
+	for (int i = 0; i < singletons.size(); i++) {
+		//If name of index Singleton is the same as the GameObjects name then return that GameObject
+		if (singletons[i]->Name == gameObjectName) {
+			return singletons[i];
+		}
+	}
+	//If no match is found return nullptr
+	return nullptr;
 }
 
 //Gets Window class method
@@ -59,6 +72,7 @@ Window& Game::GetWindowClass() {
 	return *window;
 }
 
+//Gets SceneManager method
 SceneManager& Game::GetSceneManager() {
 	return *sceneManager;
 }

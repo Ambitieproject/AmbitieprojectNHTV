@@ -32,24 +32,18 @@ void ReflectorBeam::Update(float deltaTime) {
 			sf::Vector2f p2 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(2));
 			sf::Vector2f p3 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(3));
 
-			
+			sf::Vector2f frontsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p2, p3, *it->second->GetComponent<Mirror>());
 
-			bool frontsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p1, *it->second->GetComponent<Mirror>());
-			bool backsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p2, p3, *it->second->GetComponent<Mirror>());
-			bool rightsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p1, p2, *it->second->GetComponent<Mirror>());
-			bool leftsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p3, *it->second->GetComponent<Mirror>());
-
-			if(frontsideMirrorCollider) {
-				std::cout << "front" << std::endl;
+			if(frontsideMirrorCollider != sf::Vector2f(-100,-100)) {
 				nobodyCollides = true;
 				reflectingMirror = mirror;
-				line[1].position = Equations::pointOfIntersection;;
+				line[1].position = frontsideMirrorCollider;
 				if (!newBeam) {
-					newBeam = &reflectorBeamManager->AddBeam(Equations::pointOfIntersection, line[0].color);
+					newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
 					newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 				}
 				else {
-					newBeam->GetComponent<ReflectorBeam>()->line[0].position = Equations::pointOfIntersection;;
+					newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
 				}
 			}
 		}
