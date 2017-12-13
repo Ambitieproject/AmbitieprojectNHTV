@@ -9,7 +9,6 @@
 #include "GameObject.h"
 
 #include "BaseComponents.hpp"
-
 //Manager class that takes care of managing the level selecting
 class LevelSelectManager : public Component {
 public:
@@ -23,12 +22,27 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	//Returns the state of level selected
+	bool HasSelectedLevel();
+
+	//Gets the current selected level number
+	int GetCurrentSelectedLevel();
+
+private:
+	//Creates level buttons
+	void CreateLevelButtons();
+
 private:
 	//Font used in level select
 	BC::Font font = BC::Font("../Assets/Fonts/Myriad Pro Regular.ttf");
 
+	//Map of different level buttons
 	std::map<int, BC::Button*> levelButtons;
 
+	//Current level number
+	int currentSelectedLevel;
+
+	//Has selected a level
 	bool hasSelectedLevel;
 };
 

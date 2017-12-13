@@ -42,15 +42,21 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	
 	//For every scene, if index of that scene is equal to parameter,
 	//set new currentScene
-	for (auto it = scenes.begin(); it != scenes.end(); it++) {
-		if (it->second->SceneIndex == sceneIndex) {
-			currentScene = it->second;
-			canLoad = true;
+	std::cout << scenes.size() << std::endl;
+	if (!scenes.empty()) {
+		for (auto it = scenes.begin(); it != scenes.end(); it++) {
+			if (it->second != nullptr) {
+				if (it->second->SceneIndex == sceneIndex) {
+					currentScene = it->second;
+					canLoad = true;
+				}
+			}
 		}
 	}
 
 	//If new currentScene is succesfully transferred than
 	//run setup, start and awake method of new scene
+	//Reset the last scene that was loaded
 	//Finally return out of function
 	if (canLoad) {
 		currentScene->Setup();

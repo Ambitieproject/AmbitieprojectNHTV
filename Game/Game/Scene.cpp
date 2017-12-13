@@ -28,6 +28,8 @@ void Scene::Setup() {
 
 //Virtual Awake Method of a scene that can be overwritten in a supper class 
 void Scene::Awake() {
+	canUpdate = true;
+
 	//For every GameObject in the scene
 	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
 		//if GameObject is active
@@ -50,25 +52,28 @@ void Scene::Start() {
 
 //Virtual Update Method of a scene that can be overwritten in a supper class
 void Scene::Update(float deltaTime) {
-	//For every GameObject in the scene
-	for (auto objects = GameObjects.begin(); objects != GameObjects.end();) {
+	if (canUpdate) {
+		//For every GameObject in the scene
+		for (auto objects = GameObjects.begin(); objects != GameObjects.end();) {
 
-		if (objects->second != nullptr) {
-			//if GameObject is active
-			if (objects->second->Active) {
-				objects->second->Update(deltaTime);
-				objects++;
+			if (objects->second != nullptr) {
+				//if GameObject is active
+				if (objects->second->Active) {
+					objects->second->Update(deltaTime);
+					objects++;
+				}
+			}
+			else {
+				objects = GameObjects.erase(objects);
 			}
 		}
-		else {
-			objects = GameObjects.erase(objects);
-		}
 	}
+	
 }
 
 //Virutal Quit Method of a scene that can be overwritten in a supper class
 void Scene::Quit() {
-
+	canUpdate = false;
 }
 
 //Adds a given GameObject to the list of GameObjects in the scene

@@ -1,10 +1,10 @@
 ﻿  LevelSelectScene.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(35): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(39): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(43): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(44): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(30): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(34): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(38): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(39): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

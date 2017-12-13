@@ -8,6 +8,8 @@
 #include "Input.h"
 #include "SceneManager.h"
 
+#include "GameObject.h"
+
 //Main Game class which is the upper class of all classes in this framework
 class Game {
 
@@ -33,6 +35,9 @@ public:
 	//Main Update method that runs in the whole game
 	void Update();
 
+	GameObject& AddSingleton(GameObject& gameObject);
+	GameObject& GetSingleton(std::string gameObjectName);
+
 	//Gets Window class method
 	Window& GetWindowClass();
 	//Gets SceneManager method
@@ -45,6 +50,8 @@ public:
 private:
 	//Private clock to get a delta time
 	sf::Clock clock;
+
+	std::vector<GameObject*> Singletons;
 
 	///main components
 	Window* window;

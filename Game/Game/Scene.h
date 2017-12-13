@@ -63,4 +63,6 @@ private:
 
 	//Local instance of the SceneManager
 	SceneManager* sceneManager;
+
+	bool canUpdate;
 };

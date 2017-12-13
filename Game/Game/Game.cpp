@@ -42,6 +42,18 @@ void Game::Update() {
 	Input::UpdatePollEvent(DeltaTime);
 }
 
+GameObject& Game::AddSingleton(GameObject& gameObject) {
+	GameObject* go = &gameObject;
+	Singletons.push_back(go);
+	return *go;
+}
+
+GameObject& Game::GetSingleton(std::string gameObjectName) {
+	GameObject* go;
+	std::cout << "trieng to find" << std::endl;
+	return *go;
+}
+
 //Gets Window class method
 Window& Game::GetWindowClass() {
 	return *window;
