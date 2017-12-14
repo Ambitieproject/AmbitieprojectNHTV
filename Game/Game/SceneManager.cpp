@@ -214,6 +214,7 @@ void SceneManager::RenderCurrentScene() {
 								}
 							}
 
+							//Comment out if you want the box collider to show up when playing the game for testing purposes
 							/*
 							BC::BoxCollider* boxCollider = dynamic_cast<BC::BoxCollider*>(it2->second);
 

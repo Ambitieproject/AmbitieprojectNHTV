@@ -112,6 +112,9 @@
     <Filter Include="Game\LevelSelect">
       <UniqueIdentifier>{90de92d1-0beb-40d5-b172-174381f986ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Level\Managers\Validate">
+      <UniqueIdentifier>{67210f88-c673-484a-91b8-61b3e7a37d59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -210,6 +213,9 @@
     <ClCompile Include="LevelSelectManager.cpp">
       <Filter>Game\LevelSelect</Filter>
     </ClCompile>
+    <ClCompile Include="ValidationManager.cpp">
+      <Filter>Game\Level\Managers\Validate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -307,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="LevelSelectManager.h">
       <Filter>Game\LevelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidationManager.h">
+      <Filter>Game\Level\Managers\Validate</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -24,11 +24,15 @@ void MainScene::Setup() {
 	GOPrisma.SetDrawIndex(2);
 	GOColorManager.SetDrawIndex(2);
 
+	//Adding components to ValidationManager GameObject
+	GOValidationManager.AddComponent(&validationManager);
+
 	//Adding components to ColorManager GameObject
 	GOColorManager.AddComponent(&colorManager);
 
 	//Adding components to Prisma GameObject
 	GOPrisma.AddComponent(&prismaSprite);
+	GOPrisma.AddComponent(&prismBoxCollider);
 
 	//Adding components to ReflectorBeamManager GameObject
 	GOReflectorBeamManager.AddComponent(&reflectorBeam);

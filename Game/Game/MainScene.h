@@ -14,6 +14,7 @@
 #include "ScoreManager.h"
 #include "ShapeAssignmentManager.h"
 #include "ColorManager.h"
+#include "ValidationManager.h"
 
 class MainScene : public Scene {
 public:
@@ -31,6 +32,7 @@ private:
 	//Prisma GameObject and Components
 	GameObject GOPrisma = GameObject("Prisma", *this);
 	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
+	BC::BoxCollider prismBoxCollider = BC::BoxCollider(prismaSprite, sf::Vector2f(0,0), sf::Vector2f(0,0));
 
 	//ReflectorBeamManager GameObject and Components
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
@@ -58,4 +60,8 @@ private:
 	//BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
 	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
+
+	//ValidationManager GameObject and Components
+	GameObject GOValidationManager = GameObject("ValidationManager", *this);
+	ValidationManager validationManager = ValidationManager(&prismaSprite, &reflectorBeam);
 };

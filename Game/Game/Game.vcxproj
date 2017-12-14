@@ -178,6 +178,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="ValidationManager.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="ValidationManager.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Scene.h" />
