@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 //Constructor with values to be added for a Collider to be created
-BoxCollider::BoxCollider(const sf::Transformable& transform) : Collider(transform) {
+BoxCollider::BoxCollider(const sf::Transformable& transform, sf::Vector2f originOffset, sf::Vector2f scaleOffset) : Collider(transform), originOffset(originOffset), scaleOffset(scaleOffset) {
 	
 }
 
@@ -26,17 +26,17 @@ void BoxCollider::Update(float deltaTime) {
 	case ColliderObjectType::Sprite:
 		//Set box collider size, scale and position depending on the sprite casted object
 		boxCollider.setSize(sf::Vector2f(GetSpriteCast().getLocalBounds().width, GetSpriteCast().getLocalBounds().height));
-		boxCollider.setScale(GetSpriteCast().getScale());
+		boxCollider.setScale(GetSpriteCast().getScale() + scaleOffset);
 		boxCollider.setPosition(GetSpriteCast().getPosition());
-		boxCollider.setOrigin(GetSpriteCast().getOrigin());
+		boxCollider.setOrigin(GetSpriteCast().getOrigin() + originOffset);
 		boxCollider.setRotation(GetSpriteCast().getRotation());
 		break;
 	case ColliderObjectType::Text:
 		//Set box collider size, scale and position depending on the text casted object
 		boxCollider.setSize(sf::Vector2f(GetTextCast().getGlobalBounds().width, GetTextCast().getLocalBounds().height));
-		boxCollider.setScale(GetTextCast().getScale());
+		boxCollider.setScale(GetTextCast().getScale() + scaleOffset);
 		boxCollider.setPosition(GetTextCast().getPosition());
-		boxCollider.setOrigin(GetTextCast().getOrigin());
+		boxCollider.setOrigin(GetTextCast().getOrigin() + originOffset);
 		boxCollider.setRotation(GetTextCast().getRotation());
 		break;
 	}

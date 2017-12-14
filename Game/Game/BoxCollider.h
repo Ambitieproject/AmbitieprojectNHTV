@@ -39,7 +39,7 @@ namespace BC {
 	class BoxCollider : public Collider {
 	public:
 		//Constructor with values to be added for a Collider to be created
-		BoxCollider(const sf::Transformable& transform);
+		BoxCollider(const sf::Transformable& transform, sf::Vector2f originOffset, sf::Vector2f scaleOffset);
 		//Destructor
 		~BoxCollider();
 
@@ -67,6 +67,9 @@ namespace BC {
 	private:
 		//The box collider
 		sf::RectangleShape boxCollider;
+
+		sf::Vector2f originOffset;
+		sf::Vector2f scaleOffset;
 
 		bool isMouseOverlapping;
 		bool isMouseDown;

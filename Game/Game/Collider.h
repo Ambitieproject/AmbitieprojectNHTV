@@ -61,7 +61,9 @@ namespace BC {
 		std::map<Collider*, ColliderData*> CollideableObjects;
 
 		//Colliding object pointer
-		Collider* collidingObject;
+		Collider* CollidingObject;
+
+		std::string ColliderTag;
 
 	private:
 		//Local collide transform variable

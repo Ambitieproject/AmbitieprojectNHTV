@@ -34,34 +34,158 @@ void ReflectorBeam::Update(float deltaTime) {
 			sf::Vector2f p3 = it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(it->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(3));
 
 			sf::Vector2f frontsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p1, *it->second->GetComponent<Mirror>());
-			sf::Vector2f backSideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p3, p2, *it->second->GetComponent<Mirror>());
+			sf::Vector2f backsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p3, p2, *it->second->GetComponent<Mirror>());
+			sf::Vector2f rightsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p1, p2, *it->second->GetComponent<Mirror>());
+			sf::Vector2f leftsideMirrorCollider = Equations::LineCollide(line[0].position, line[1].position, line[0].position + GetDirection(), p0, p3, *it->second->GetComponent<Mirror>());
 
-			if(frontsideMirrorCollider != sf::Vector2f(-100,-100)) {
-				if (backSideMirrorCollider != sf::Vector2f(-100, -100)) {
+			sf::Vector2f frontDifference = sf::Vector2f(frontsideMirrorCollider.x - line[0].position.x, frontsideMirrorCollider.y - line[0].position.y);
+			sf::Vector2f backDifference = sf::Vector2f(backsideMirrorCollider.x - line[0].position.x, backsideMirrorCollider.y - line[0].position.y);
 
-					if (mirrorSprite->getRotation() > 180 && mirrorSprite->getRotation() <= 360) {
-						nobodyCollides = true;
-						reflectingMirror = mirror;
-						line[1].position = backSideMirrorCollider;
-						std::cout << "back" << std::endl;
-					}
+			sf::Vector2f diff = frontDifference - backDifference;
 
-					std::cout << "front" << std::endl;
-					nobodyCollides = true;
-					reflectingMirror = mirror;
-					line[1].position = frontsideMirrorCollider;
-					if (!newBeam) {
-						newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
-						newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
-					}
-					else {
-						newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+			if (rightsideMirrorCollider != sf::Vector2f(-100, -100)) {
+				nobodyCollides = true;
+				reflectingMirror = mirror;
+
+				if (frontsideMirrorCollider == sf::Vector2f(-100, -100) || backsideMirrorCollider == sf::Vector2f(-100, -100)) {
+					line[1].position = rightsideMirrorCollider;
+					std::cout << "right" << std::endl;
+					if (newBeam) {
+						DestroyNewLaser();
 					}
 				}
 				else {
-					
+					nobodyCollides = true;
+					reflectingMirror = mirror;
+
+					if (mirrorSprite->getPosition().y > line[0].position.y) {
+						if (diff.y < 0) {
+							line[1].position = frontsideMirrorCollider;
+							std::cout << "front" << std::endl;
+							if (!newBeam) {
+								newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+								newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+							}
+							else {
+								newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+							}
+						}
+						else {
+							std::cout << "back" << std::endl;
+							line[1].position = backsideMirrorCollider;
+						}
+					}
+					else {
+						if (diff.y > 0) {
+							std::cout << "front" << std::endl;
+							line[1].position = frontsideMirrorCollider;
+
+							if (!newBeam) {
+								newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+								newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+							}
+							else {
+								newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+							}
+						}
+						else {
+							std::cout << "back" << std::endl;
+							line[1].position = backsideMirrorCollider;
+						}
+					}
 				}
-				
+			}
+			else if (leftsideMirrorCollider != sf::Vector2f(-100, -100)) {
+				nobodyCollides = true;
+				reflectingMirror = mirror;
+
+				if (frontsideMirrorCollider == sf::Vector2f(-100, -100) || backsideMirrorCollider == sf::Vector2f(-100, -100)) {
+					line[1].position = leftsideMirrorCollider;
+					std::cout << "left" << std::endl;
+					if (newBeam) {
+						DestroyNewLaser();
+					}
+				}
+				else {
+					nobodyCollides = true;
+					reflectingMirror = mirror;
+
+					if (mirrorSprite->getPosition().y > line[0].position.y) {
+						if (diff.y < 0) {
+							line[1].position = frontsideMirrorCollider;
+							std::cout << "front" << std::endl;
+							if (!newBeam) {
+								newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+								newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+							}
+							else {
+								newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+							}
+						}
+						else {
+							std::cout << "back" << std::endl;
+							line[1].position = backsideMirrorCollider;
+						}
+					}
+					else {
+						if (diff.y > 0) {
+							std::cout << "front" << std::endl;
+							line[1].position = frontsideMirrorCollider;
+
+							if (!newBeam) {
+								newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+								newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+							}
+							else {
+								newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+							}
+						}
+						else {
+							std::cout << "back" << std::endl;
+							line[1].position = backsideMirrorCollider;
+						}
+					}
+				}
+			}
+			else if(frontsideMirrorCollider != sf::Vector2f(-100,-100)) {
+				nobodyCollides = true;
+				reflectingMirror = mirror;
+
+				if (mirrorSprite->getPosition().y > line[0].position.y) {
+					if (diff.y < 0) {
+						line[1].position = frontsideMirrorCollider;
+						std::cout << "front" << std::endl;
+						if (!newBeam) {
+							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+							newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+						}
+						else {
+							newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+						}
+					}
+					else {
+						std::cout << "back" << std::endl;
+						line[1].position = backsideMirrorCollider;
+					}
+				}
+				else {
+					if (diff.y > 0) {
+						std::cout << "front" << std::endl;
+						line[1].position = frontsideMirrorCollider;
+
+						if (!newBeam) {
+							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+							newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
+						}
+						else {
+							newBeam->GetComponent<ReflectorBeam>()->line[0].position = frontsideMirrorCollider;
+						}
+					}
+					else {
+						std::cout << "back" << std::endl;
+						line[1].position = backsideMirrorCollider;
+					}
+				}
 			}
 		}
 	}
