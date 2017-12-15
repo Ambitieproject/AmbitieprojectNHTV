@@ -9,6 +9,8 @@
 //Include Base Components so I can make Components in this class
 #include "BaseComponents.hpp"
 
+#include "GameFlowManager.h"
+
 //Menu Scene, Custom made Scene class
 class MenuScene : public Scene {
 public:
@@ -52,4 +54,8 @@ private:
 	GameObject GOUIRefHolder = GameObject("RefHolder", *this);
 	//Reference sprite
 	BC::Sprite refSprite = BC::Sprite("../Assets/Menu/JP2017.png");
+
+	//Game Manager GameObject
+	GameObject GOGameManager = GameObject("GameManager", *this);
+	GameFlowManager gameFlowManager = GameFlowManager();
 };

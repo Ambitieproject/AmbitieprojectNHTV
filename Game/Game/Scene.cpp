@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include "SceneManager.h"
+#include "Game.h"
 
 //Constructor
 Scene::Scene(std::string sceneName) {
@@ -31,10 +32,22 @@ void Scene::Awake() {
 	canUpdate = true;
 
 	//For every GameObject in the scene
-	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
+	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
 		//if GameObject is active
-		if (objects->second->Active) {
-			objects->second->Awake();
+		if (it->second->Active) {
+			it->second->Awake();
+		}
+	}
+
+	//If singleton map has a bigger size then 0
+	if (Game::GetInstance()->GetSingletons().size() > 0) {
+		std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
+		//For every singleton GameObject in the scene
+		for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
+			//if GameObject is active
+			if (it->second->Active) {
+				it->second->Awake();
+			}
 		}
 	}
 }
@@ -42,10 +55,22 @@ void Scene::Awake() {
 //Virtual Start Method of a scene that can be overwritten in a supper class
 void Scene::Start() {
 	//For every GameObject in the scene
-	for (auto objects = GameObjects.begin(); objects != GameObjects.end(); objects++) {
+	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
 		//if GameObject is active
-		if (objects->second->Active) {
-			objects->second->Start();
+		if (it->second->Active) {
+			it->second->Start();
+		}
+	}
+
+	//If singleton map has a bigger size then 0
+	if (Game::GetInstance()->GetSingletons().size() > 0) {
+		std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
+		//For every singleton GameObject in the scene
+		for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
+			//if GameObject is active
+			if (it->second->Active) {
+				it->second->Start();
+			}
 		}
 	}
 }
@@ -54,21 +79,32 @@ void Scene::Start() {
 void Scene::Update(float deltaTime) {
 	if (canUpdate) {
 		//For every GameObject in the scene
-		for (auto objects = GameObjects.begin(); objects != GameObjects.end();) {
+		for (auto it = GameObjects.begin(); it != GameObjects.end();) {
 
-			if (objects->second != nullptr) {
+			if (it->second != nullptr) {
 				//if GameObject is active
-				if (objects->second->Active) {
-					objects->second->Update(deltaTime);
-					objects++;
+				if (it->second->Active) {
+					it->second->Update(deltaTime);
+					it++;
 				}
 			}
 			else {
-				objects = GameObjects.erase(objects);
+				it = GameObjects.erase(it);
+			}
+		}
+
+		//If singleton map has a bigger size then 0
+		if (Game::GetInstance()->GetSingletons().size() > 0) {
+			std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
+			//For every singleton GameObject in the scene
+			for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
+				//if GameObject is active
+				if (it->second->Active) {
+					it->second->Update(deltaTime);
+				}
 			}
 		}
 	}
-	
 }
 
 //Virutal Quit Method of a scene that can be overwritten in a supper class

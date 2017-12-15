@@ -15,6 +15,7 @@ Game* Game::GetInstance() {
 Game::Game() {
 	sceneManager = SceneManager::GetInstance();
 	window = Window::GetInstance();
+	singletonIndex = 0;
 }
 
 //Destructor
@@ -47,7 +48,9 @@ GameObject& Game::AddSingleton(GameObject& gameObject) {
 	//Make temp pointer object that copies content of parameter GameObject
 	GameObject* go = &gameObject;
 	//Pushback the temp GameObject into the singleton vector
-	singletons.push_back(go);
+	singletons.insert(std::pair<int, GameObject*>(singletonIndex, go));
+	//Increase singleton index
+	singletonIndex++;
 	//Return temp GameObject
 	return *go;
 }
@@ -65,6 +68,12 @@ GameObject* Game::GetSingleton(std::string gameObjectName) {
 	}
 	//If no match is found return nullptr
 	return nullptr;
+}
+
+//Gets all the singletons
+std::map<int, GameObject*> Game::GetSingletons() {
+	std::cout << singletons.size() << std::endl;
+	return singletons;
 }
 
 //Gets Window class method

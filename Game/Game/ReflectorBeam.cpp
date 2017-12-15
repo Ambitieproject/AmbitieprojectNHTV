@@ -49,7 +49,6 @@ void ReflectorBeam::Update(float deltaTime) {
 
 				if (frontsideMirrorCollider == sf::Vector2f(-100, -100)) {
 					line[1].position = rightsideMirrorCollider;
-					std::cout << "right" << std::endl;
 					if (newBeam) {
 						DestroyNewLaser();
 					}
@@ -74,7 +73,6 @@ void ReflectorBeam::Update(float deltaTime) {
 
 				if (frontsideMirrorCollider == sf::Vector2f(-100, -100)) {
 					line[1].position = leftsideMirrorCollider;
-					std::cout << "left" << std::endl;
 					if (newBeam) {
 						DestroyNewLaser();
 					}
@@ -100,7 +98,6 @@ void ReflectorBeam::Update(float deltaTime) {
 				if (mirrorSprite->getPosition().y > line[0].position.y) {
 					if (diff.y < 0) {
 						line[1].position = frontsideMirrorCollider;
-						std::cout << "front" << std::endl;
 						if (!newBeam) {
 							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
 							newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
@@ -110,13 +107,11 @@ void ReflectorBeam::Update(float deltaTime) {
 						}
 					}
 					else {
-						std::cout << "back" << std::endl;
 						line[1].position = backsideMirrorCollider;
 					}
 				}
 				else {
 					if (diff.y > 0) {
-						std::cout << "front" << std::endl;
 						line[1].position = frontsideMirrorCollider;
 
 						if (!newBeam) {
@@ -128,7 +123,6 @@ void ReflectorBeam::Update(float deltaTime) {
 						}
 					}
 					else {
-						std::cout << "back" << std::endl;
 						line[1].position = backsideMirrorCollider;
 					}
 				}

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 #include <SFML\Graphics.hpp>
 
 #include "Window.h"
@@ -39,6 +40,8 @@ public:
 	GameObject& AddSingleton(GameObject& gameObject);
 	//Gets an already made singleton GameObject
 	GameObject* GetSingleton(std::string gameObjectName);
+	//Gets all the singletons
+	std::map<int, GameObject*> GetSingletons();
 
 	//Gets Window class method
 	Window& GetWindowClass();
@@ -54,7 +57,8 @@ private:
 	sf::Clock clock;
 
 	//Vector containing Singleton GameObjects
-	std::vector<GameObject*> singletons;
+	std::map<int, GameObject*> singletons;
+	int singletonIndex;
 
 	///main components
 	Window* window;

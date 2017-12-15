@@ -34,9 +34,12 @@ void ValidationManager::Update(float deltaTime) {
 			collidePointWithChecker = Equations::LineCollide(line[0].position, line[1].position, line[0].position + it->second->GetComponent<ReflectorBeam>()->GetDirection(), p3, p1, *checkerSprite);
 
 			if (collidePointWithChecker != sf::Vector2f(-100, -100)) {
-				std::cout << "point from left side" << std::endl;
 
-				checkerSprite->setColor(line[0].color);
+				//Make iterator and try to find this object in already existing map
+				if (std::find(activeValidationColors.begin(), activeValidationColors.end(), line[0].color) == activeValidationColors.end()) {
+					activeValidationColors.push_back(line[0].color);
+					CheckLaserCountColor();
+				}
 			}
 		}
 		//Faces right from checker
@@ -44,10 +47,47 @@ void ValidationManager::Update(float deltaTime) {
 			collidePointWithChecker = Equations::LineCollide(line[0].position, line[1].position, line[0].position + it->second->GetComponent<ReflectorBeam>()->GetDirection(), p2, p0, *checkerSprite);
 
 			if (collidePointWithChecker != sf::Vector2f(-100, -100)) {
-				std::cout << "point from right side" << std::endl;
 
-				checkerSprite->setColor(line[0].color);
+				//Make iterator and try to find this object in already existing map
+				if (std::find(activeValidationColors.begin(), activeValidationColors.end(), line[0].color) == activeValidationColors.end()) {
+					activeValidationColors.push_back(line[0].color);
+					CheckLaserCountColor();
+				}
 			}
 		}
 	}
+}
+
+bool ValidationManager::Validate() {
+	return validation;
+}
+
+bool ValidationManager::CheckLaserCountColor() {
+	int count = 0;
+	for (auto it = activeValidationColors.begin(); it < activeValidationColors.end(); it++) {
+		if (*it._Ptr == sf::Color::Red) {
+			count++;
+		}
+		else if (*it._Ptr == sf::Color(255, 153, 0)) {
+			count++;
+		}
+		else if (*it._Ptr == sf::Color::Yellow) {
+			count++;
+		}
+		else if (*it._Ptr == sf::Color::Green) {
+			count++;
+		}
+		else if (*it._Ptr == sf::Color::Blue) {
+			count++;
+		}
+		else if (*it._Ptr == sf::Color(153, 0, 204)) {
+			count++;
+		}
+	}
+
+	if (count >= 6) {
+		std::cout << "done" << std::endl;
+		validation = true;
+	}
+	return false;
 }

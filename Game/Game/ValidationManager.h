@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
@@ -24,8 +23,17 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	bool Validate();
+
 private:
+	bool CheckLaserCountColor();
+	
+private:
+	bool validation;
+
 	BC::Sprite* checkerSprite;
 	ReflectorBeamManager* reflectorBeamManager;
+
+	std::vector<sf::Color> activeValidationColors;
 };
 

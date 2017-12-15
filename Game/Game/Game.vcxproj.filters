@@ -115,6 +115,9 @@
     <Filter Include="Game\Level\Managers\Validate">
       <UniqueIdentifier>{67210f88-c673-484a-91b8-61b3e7a37d59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Level\Managers\Game">
+      <UniqueIdentifier>{786ddaa3-c14a-432a-8e6e-47a6361992a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -216,6 +219,9 @@
     <ClCompile Include="ValidationManager.cpp">
       <Filter>Game\Level\Managers\Validate</Filter>
     </ClCompile>
+    <ClCompile Include="GameFlowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -316,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="ValidationManager.h">
       <Filter>Game\Level\Managers\Validate</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFlowManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

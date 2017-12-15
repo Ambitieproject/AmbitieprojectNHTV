@@ -2,6 +2,7 @@
 #include "Window.h"
 #include "SceneManager.h"
 #include "Window.h"
+#include "Game.h"
 
 //Constructor
 MenuScene::MenuScene(std::string sceneName) : Scene(sceneName) {
@@ -16,6 +17,12 @@ MenuScene::~MenuScene() {
 //Override Awake method from base Component class
 void MenuScene::Awake() {
 	Scene::Awake();
+
+	//Adding components to GameManager singleton GameObject
+	GOGameManager.AddComponent(&gameFlowManager);
+
+	//Setting up singletons
+	Game::GetInstance()->AddSingleton(GOGameManager);
 
 	//Setting drawing indexes of GameObjects
 	GOUILogoHolder.SetDrawIndex(0);
