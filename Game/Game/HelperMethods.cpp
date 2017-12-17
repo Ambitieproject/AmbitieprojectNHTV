@@ -1,14 +1,13 @@
 #include "HelperMethods.h"
 
 //Constructor
-HelperMethods::HelperMethods()
-{
+HelperMethods::HelperMethods(){
 	
 }
 
 //Destructor
-HelperMethods::~HelperMethods()
-{
+HelperMethods::~HelperMethods() {
+
 }
 
 //Gets a random int between the given parameters

@@ -220,7 +220,10 @@
       <Filter>Game\Level\Managers\Validate</Filter>
     </ClCompile>
     <ClCompile Include="GameFlowManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Level\Managers\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReadWrite.cpp">
+      <Filter>JEngine\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -324,7 +327,10 @@
       <Filter>Game\Level\Managers\Validate</Filter>
     </ClInclude>
     <ClInclude Include="GameFlowManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\Level\Managers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReadWrite.h">
+      <Filter>JEngine\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

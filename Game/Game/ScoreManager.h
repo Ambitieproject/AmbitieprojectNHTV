@@ -6,11 +6,14 @@
 #include "Component.h"
 #include "BaseComponents.hpp"
 
+#include "MirrorManager.h"
+#include "TimeManager.h"
+
 //ScoreManager class that takes care of score
 class ScoreManager : public Component {
 public:
 	//Constructor
-	ScoreManager();
+	ScoreManager(MirrorManager& mirrorManager, TimeManager& timeManager);
 	//Destructor
 	~ScoreManager();
 
@@ -19,17 +22,26 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
-	//Adjusts score by a specific parameter
-	int AdjustScore(int adjustment);
-
 	//Gets the score
 	int GetScore();
+
+	//Gets the final score
+	int GetFinalScore();
+
+private:
+	//Adjusts score by a specific parameter
+	int AdjustScore(int adjustment);
 
 private:
 	//Local score variable
 	int score;
 
-	//Pointer to score text variable
-	BC::Text* scoreText = nullptr;
+	//Local max score variable
+	int maxScore;
+
+	//MirrorManager reference
+	MirrorManager& mirrorManager;
+	//TimeManager reference
+	TimeManager& timeManager;
 };
 

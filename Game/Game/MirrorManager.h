@@ -15,7 +15,7 @@
 class MirrorManager : public Component {
 public:
 	//Constructor
-	MirrorManager();
+	MirrorManager(BC::Button* addMirrorButton);
 	//Destructor
 	~MirrorManager();
 
@@ -43,4 +43,7 @@ private:
 	std::map<int, GameObject*> mirrors;
 	//Index of map with mirrors
 	int mirrorIndex;
+
+	//Local add mirror button pointer
+	BC::Button* localAddMirrorButton;
 };

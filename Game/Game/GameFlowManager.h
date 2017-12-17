@@ -2,17 +2,23 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
+#include <fstream>
 
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 #include "BaseComponents.hpp"
 
 #include "ValidationManager.h"
+#include "ScoreManager.h"
+
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 //Game Manager
 class GameFlowManager : public Component {
 public:
-	GameFlowManager();
+	GameFlowManager(ScoreManager& scoreManager, ValidationManager& validationManager);
 	~GameFlowManager();
 
 	//Override Start method from base Component class
@@ -20,10 +26,24 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	bool FromLevelToScene();
+
 private:
 	bool IsGameOver();
 
+	void ActivateGameOverScreen();
+	void EndGame();
+
+	void PauseGame();
+
+private:
+	bool isGameOver;
+
+	BC::Button* localToMenuButton;
+
 	//ValidationManager reference
-	ValidationManager* validationManager;
+	ValidationManager& validationManager;
+	//ScoreManager reference
+	ScoreManager& scoreManager;
 };
 

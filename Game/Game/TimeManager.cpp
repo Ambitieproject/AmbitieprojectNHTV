@@ -1,5 +1,6 @@
 #include "TimeManager.h"
 #include "GameObject.h"
+#include "SceneManager.h"
 
 
 //Constructor
@@ -23,8 +24,8 @@ void TimeManager::Start() {
 
 	canCount = true;
 
-	//Getting Text component of GameObject
-	timeText = gameObject->GetComponent<BC::Text>();
+	//Finding Text component of GameObject
+	timeText = gameObject->GetScene().FindGameObjectByName("GOUIManager")->GetComponent<BC::Text>();
 }
 
 //Override Update method from base Component class
@@ -79,4 +80,16 @@ void TimeManager::Update(float deltaTime) {
 			}
 		}
 	}
+}
+
+//Gets the time converted from minutes and seconds to seconds
+int TimeManager::GetTimeInSeconds() {
+	int allSeconds = 0;
+	allSeconds = allSeconds + seconds;
+	if (minutes > 0) {
+		for (int i = 0; i < minutes; i++) {
+			allSeconds = allSeconds + 60;
+		}
+	}
+	return allSeconds;
 }

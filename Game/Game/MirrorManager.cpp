@@ -4,7 +4,7 @@
 #include "Window.h"
 
 //Constructor
-MirrorManager::MirrorManager() {
+MirrorManager::MirrorManager(BC::Button* addMirrorButton) : localAddMirrorButton(addMirrorButton) {
 	
 }
 
@@ -21,6 +21,10 @@ void MirrorManager::Start() {
 //Override Update method from base Component class
 void MirrorManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
+
+	if (localAddMirrorButton->IsClicked()) {
+		AddMirror();
+	}
 }
 
 //Adds a mirror

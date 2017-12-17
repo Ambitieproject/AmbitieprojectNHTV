@@ -17,7 +17,7 @@ ReflectorBeamManager::~ReflectorBeamManager() {
 void ReflectorBeamManager::Start() {
 	//Setting references
 	prisma = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<BC::Sprite>();
-	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("MirrorManager")->GetComponent<MirrorManager>();
+	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("GameManager")->GetComponent<MirrorManager>();
 	colorManager = SceneManager::GetActiveScene().FindGameObjectByName("ColorManager")->GetComponent<ColorManager>();
 
 	//Set begin values

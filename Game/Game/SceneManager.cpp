@@ -42,7 +42,6 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	
 	//For every scene, if index of that scene is equal to parameter,
 	//set new currentScene
-	std::cout << scenes.size() << std::endl;
 	if (!scenes.empty()) {
 		for (auto it = scenes.begin(); it != scenes.end(); it++) {
 			if (it->second != nullptr) {

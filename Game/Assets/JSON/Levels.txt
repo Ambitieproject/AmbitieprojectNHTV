@@ -1,8 +1,0 @@
-{
-  "Levels": {
-      1: {
-        "Lasers": 6,
-        "Static-Mirrors": 3
-      }
-    }
-}

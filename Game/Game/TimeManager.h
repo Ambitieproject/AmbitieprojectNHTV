@@ -19,6 +19,9 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	//Gets the time converted from minutes and seconds to seconds
+	int GetTimeInSeconds();
+
 private:
 	//Local minutes variable
 	int minutes;

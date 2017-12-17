@@ -13,6 +13,8 @@ ValidationManager::~ValidationManager() {
 //Override Start method from base Component class
 void ValidationManager::Start() {
 	Component::Start();
+
+	validation = false;
 }
 
 //Override Update method from base Component class
@@ -41,6 +43,16 @@ void ValidationManager::Update(float deltaTime) {
 					CheckLaserCountColor();
 				}
 			}
+			else {
+				for (auto it = activeValidationColors.begin(); it != activeValidationColors.end(); ) {
+					if (it._Ptr == &line[0].color) {
+						it = activeValidationColors.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+			}
 		}
 		//Faces right from checker
 		else {
@@ -52,6 +64,16 @@ void ValidationManager::Update(float deltaTime) {
 				if (std::find(activeValidationColors.begin(), activeValidationColors.end(), line[0].color) == activeValidationColors.end()) {
 					activeValidationColors.push_back(line[0].color);
 					CheckLaserCountColor();
+				}
+			}
+			else {
+				for (auto it = activeValidationColors.begin(); it != activeValidationColors.end(); ) {
+					if (it._Ptr == &line[0].color) {
+						it = activeValidationColors.erase(it);
+					}
+					else {
+						++it;
+					}
 				}
 			}
 		}

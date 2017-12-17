@@ -72,7 +72,6 @@ GameObject* Game::GetSingleton(std::string gameObjectName) {
 
 //Gets all the singletons
 std::map<int, GameObject*> Game::GetSingletons() {
-	std::cout << singletons.size() << std::endl;
 	return singletons;
 }
 

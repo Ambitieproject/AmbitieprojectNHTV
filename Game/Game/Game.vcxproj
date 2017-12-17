@@ -159,6 +159,7 @@
     <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Equations.cpp" />
+    <ClCompile Include="FileReadWrite.cpp" />
     <ClCompile Include="GameFlowManager.cpp" />
     <ClCompile Include="HelperMethods.cpp" />
     <ClCompile Include="LevelSelectManager.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="BaseComponents.hpp" />
     <ClInclude Include="Equations.h" />
+    <ClInclude Include="FileReadWrite.h" />
     <ClInclude Include="GameFlowManager.h" />
     <ClInclude Include="HelperMethods.h" />
     <ClInclude Include="LevelSelectManager.h" />

@@ -18,12 +18,6 @@ MenuScene::~MenuScene() {
 void MenuScene::Awake() {
 	Scene::Awake();
 
-	//Adding components to GameManager singleton GameObject
-	GOGameManager.AddComponent(&gameFlowManager);
-
-	//Setting up singletons
-	Game::GetInstance()->AddSingleton(GOGameManager);
-
 	//Setting drawing indexes of GameObjects
 	GOUILogoHolder.SetDrawIndex(0);
 	GOUIAudioHolder.SetDrawIndex(0);

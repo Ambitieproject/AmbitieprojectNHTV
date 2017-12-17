@@ -15,6 +15,7 @@
 #include "ShapeAssignmentManager.h"
 #include "ColorManager.h"
 #include "ValidationManager.h"
+#include "GameFlowManager.h"
 
 class MainScene : public Scene {
 public:
@@ -41,20 +42,10 @@ private:
 	GameObject GOColorManager = GameObject("ColorManager", *this);
 	ColorManager colorManager = ColorManager();
 
-	//MirrorManager GameObject and Components
-	GameObject GOMirrorManager = GameObject("MirrorManager", *this);
-	MirrorManager mirrorManager = MirrorManager();
-
 	//UIManager GameObject and components
 	GameObject GOUIManager = GameObject("GOUIManager", *this);
 	BC::Sprite timeBackgroundSprite = BC::Sprite("../Assets/Level/TopCircle.png");
 	BC::Text timeText = BC::Text(&font);
-	TimeManager timeManager = TimeManager();
-
-	BC::Text scoreText = BC::Text(&font);
-	BC::Text scoreTextStatic = BC::Text(&font);
-	ScoreManager scoreManager = ScoreManager();
-
 	BC::Button addMirrorButton = BC::Button("../Assets/Level/AddMirror.png");
 
 	//BackgroundBars GameObject and components
@@ -64,4 +55,11 @@ private:
 	//ValidationManager GameObject and Components
 	GameObject GOValidationManager = GameObject("ValidationManager", *this);
 	ValidationManager validationManager = ValidationManager(&prismaSprite, &reflectorBeam);
+
+	//Game Manager GameObject
+	GameObject GOGameManager = GameObject("GameManager", *this);
+	GameFlowManager gameFlowManager = GameFlowManager(scoreManager, validationManager);
+	ScoreManager scoreManager = ScoreManager(mirrorManager, timeManager);
+	TimeManager timeManager = TimeManager();
+	MirrorManager mirrorManager = MirrorManager(&addMirrorButton);
 };
