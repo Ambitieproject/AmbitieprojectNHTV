@@ -9,6 +9,7 @@
 #include "GameObject.h"
 
 #include "BaseComponents.hpp"
+
 //Manager class that takes care of managing the level selecting
 class LevelSelectManager : public Component {
 public:

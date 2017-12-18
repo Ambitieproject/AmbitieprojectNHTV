@@ -1,22 +1,23 @@
 ﻿  GameFlowManager.cpp
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(64): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(65): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(76): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(83): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(68): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(73): warning C4996: 'sf::Text::setColor': was declared deprecated
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(98): note: see reference to function template instantiation 'component *GameObject::GetComponent<TimeManager>(void)' being compiled
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(70): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(82): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(83): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(89): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(74): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(79): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(104): note: see reference to function template instantiation 'component *GameObject::GetComponent<TimeManager>(void)' being compiled
           with
           [
               component=TimeManager
           ]
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\filereadwrite.h(88): warning C4172: returning address of local variable or temporary: j
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

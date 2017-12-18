@@ -1,14 +1,13 @@
 #include "FileReadWrite.h"
 
+//Constructor
+FileReadWrite::FileReadWrite() {
 
-
-FileReadWrite::FileReadWrite()
-{
 }
 
+//Destructor
+FileReadWrite::~FileReadWrite() {
 
-FileReadWrite::~FileReadWrite()
-{
 }
 
 

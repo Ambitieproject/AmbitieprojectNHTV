@@ -10,10 +10,16 @@
 
 #include "ValidationManager.h"
 #include "ScoreManager.h"
+#include "FileReadWrite.h"
 
 #include "json.hpp"
 
 using json = nlohmann::json;
+
+struct Test {
+	int i = 9;
+	std::string hoi = "test";
+};
 
 //Game Manager
 class GameFlowManager : public Component {

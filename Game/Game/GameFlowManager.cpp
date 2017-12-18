@@ -2,11 +2,12 @@
 #include "SceneManager.h"
 #include "Window.h"
 
+//Constructor
 GameFlowManager::GameFlowManager(ScoreManager& scoreManager, ValidationManager& validationManager) : scoreManager(scoreManager), validationManager(validationManager) {
 
 }
 
-
+//Destructor
 GameFlowManager::~GameFlowManager() {
 
 }
@@ -14,6 +15,13 @@ GameFlowManager::~GameFlowManager() {
 //Override Start method from base Component class
 void GameFlowManager::Start() {
 	isGameOver = false;
+	Test test;
+
+	//FileReadWrite::WriteToJSONFile("../Assets/JSON/Levels.json", "");
+	json* levelJSON = FileReadWrite::GetJSONFromFile("../Assets/JSON/Levels.json");
+	
+	std::string testString = levelJSON->at("name").get<std::string>();
+	std::cout << testString << std::endl;
 }
 
 //Override Update method from base Component class
@@ -88,11 +96,8 @@ void GameFlowManager::ActivateGameOverScreen() {
 
 void GameFlowManager::EndGame(){
 	isGameOver = true;
-
 	ActivateGameOverScreen();
 	PauseGame();
-
-
 }
 
 void GameFlowManager::PauseGame() {
