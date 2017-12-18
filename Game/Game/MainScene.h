@@ -16,6 +16,7 @@
 #include "ColorManager.h"
 #include "ValidationManager.h"
 #include "GameFlowManager.h"
+#include "LevelLoader.h"
 
 class MainScene : public Scene {
 public:
@@ -62,4 +63,5 @@ private:
 	ScoreManager scoreManager = ScoreManager(mirrorManager, timeManager);
 	TimeManager timeManager = TimeManager();
 	MirrorManager mirrorManager = MirrorManager(&addMirrorButton);
+	LevelLoader levelLoader = LevelLoader();
 };

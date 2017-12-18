@@ -11,6 +11,7 @@
 #include "ValidationManager.h"
 #include "ScoreManager.h"
 #include "FileReadWrite.h"
+#include "Level.h"
 
 #include "json.hpp"
 

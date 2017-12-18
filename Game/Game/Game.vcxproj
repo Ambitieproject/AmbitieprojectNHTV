@@ -162,7 +162,7 @@
     <ClCompile Include="FileReadWrite.cpp" />
     <ClCompile Include="GameFlowManager.cpp" />
     <ClCompile Include="HelperMethods.cpp" />
-    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="LevelSelectManager.cpp" />
     <ClCompile Include="LevelSelectScene.cpp" />
     <ClCompile Include="MainScene.cpp" />
@@ -201,7 +201,7 @@
     <ClInclude Include="FileReadWrite.h" />
     <ClInclude Include="GameFlowManager.h" />
     <ClInclude Include="HelperMethods.h" />
-    <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="LevelSelectManager.h" />
     <ClInclude Include="LevelSelectScene.h" />
     <ClInclude Include="MainScene.h" />

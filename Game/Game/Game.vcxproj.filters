@@ -225,7 +225,7 @@
     <ClCompile Include="FileReadWrite.cpp">
       <Filter>JEngine\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="Level.cpp">
+    <ClCompile Include="LevelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -335,7 +335,7 @@
     <ClInclude Include="FileReadWrite.h">
       <Filter>JEngine\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
+    <ClInclude Include="LevelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

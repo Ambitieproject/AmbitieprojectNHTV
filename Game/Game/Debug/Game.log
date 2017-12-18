@@ -1,23 +1,145 @@
-﻿  GameFlowManager.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(70): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(82): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(83): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(89): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(74): warning C4996: 'sf::Text::setColor': was declared deprecated
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(79): warning C4996: 'sf::Text::setColor': was declared deprecated
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(104): note: see reference to function template instantiation 'component *GameObject::GetComponent<TimeManager>(void)' being compiled
+﻿  LevelLoader.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  TimeManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\timemanager.cpp(28): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Text>(void)' being compiled
+          with
+          [
+              component=BC::Text
+          ]
+  SceneManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Scene.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Renderer.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ReflectorBeamManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(19): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+          with
+          [
+              component=BC::Sprite
+          ]
+  ReflectorBeam.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(161): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(162): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(166): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(167): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(28): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
+          with
+          [
+              component=BC::Sprite
+          ]
+  MirrorManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(52): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(65): note: see reference to function template instantiation 'component *GameObject::GetComponent<Mirror>(void)' being compiled
+          with
+          [
+              component=Mirror
+          ]
+  MenuScene.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(43): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(46): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(47): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(65): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(66): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  MainScene.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(63): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(68): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(73): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mainscene.cpp(69): warning C4996: 'sf::Text::setColor': was declared deprecated
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+  Main.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  LevelSelectScene.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(30): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(34): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(38): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\levelselectscene.cpp(39): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Input.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameFlowManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(63): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(64): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(70): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(75): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(76): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(82): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(67): warning C4996: 'sf::Text::setColor': was declared deprecated
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(72): warning C4996: 'sf::Text::setColor': was declared deprecated
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\sfml\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
+  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameflowmanager.cpp(97): note: see reference to function template instantiation 'component *GameObject::GetComponent<TimeManager>(void)' being compiled
           with
           [
               component=TimeManager
           ]
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\filereadwrite.h(88): warning C4172: returning address of local variable or temporary: j
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+  Game.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\game.cpp(63): warning C4018: '<': signed/unsigned mismatch
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\game.cpp(61): warning C4101: 'go': unreferenced local variable
+  FileReadWrite.cpp
+  Collider.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(142): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(156): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

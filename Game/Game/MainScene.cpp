@@ -47,6 +47,7 @@ void MainScene::Setup() {
 	GOGameManager.AddComponent(&scoreManager);
 	GOGameManager.AddComponent(&timeManager);
 	GOGameManager.AddComponent(&mirrorManager);
+	GOGameManager.AddComponent(&levelLoader);
 
 	//Setting default values of prism
 	prismaSprite.setScale(0.25f, 0.25f);
