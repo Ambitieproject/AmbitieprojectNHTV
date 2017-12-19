@@ -20,7 +20,7 @@ public:
 	~FileReadWrite();
 	
 	static void WriteJSONToFile(std::string filePath, json& j);
-	static json* GetJSONFromFile(std::string filePath);
+	static void GetJSONFromFile(std::string filePath, json& j);
 
 private:
 	static std::vector<std::fstream*> files;
@@ -31,9 +31,16 @@ inline void FileReadWrite::WriteJSONToFile(std::string filePath, json& j) {
 	ofstreamFile << std::setw(5) << j << std::endl;
 }
 
-inline json* FileReadWrite::GetJSONFromFile(std::string filePath) {
+inline void FileReadWrite::GetJSONFromFile(std::string filePath, json& j) {
 	std::ifstream i(filePath);
-	json j;
-	i >> j;
-	return &j;
+	std::string line;
+	std::string lines;
+
+	if (i.is_open()) {
+		while (std::getline(i, line)) {
+			lines.append(line + "\n");
+		}
+		i.close();
+	}
+	j = json::parse(lines);
 }

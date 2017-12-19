@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <fstream>
 
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
@@ -18,7 +19,9 @@ using json = nlohmann::json;
 
 struct Level {
 	int level;
-	std::vector<sf::Vector2f> Translations;
+	std::vector<sf::Vector2f> Positions;
+	std::vector<float> Rotations;
+	int MirrorsNeededCount;
 };
 
 class LevelLoader : public Component {
@@ -32,5 +35,11 @@ public:
 	void Start();
 	//Override Update method from base Component class
 	void Update(float deltaTime);
+
+private:
+	void LoadCurrentLevelData();
+
+private:
+	Level currentLevel;
 };
 

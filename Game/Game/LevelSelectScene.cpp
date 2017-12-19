@@ -57,7 +57,9 @@ void LevelSelectScene::Update(float deltaTime) {
 	//If any level button is clicked
 	//load new scene
 	if (levelSelectManager.HasSelectedLevel()) {
-		std::cout << levelSelectManager.GetCurrentSelectedLevel() << std::endl;
+		json j;
+		j["CurrentLevel"] = levelSelectManager.GetCurrentSelectedLevel();
+		FileReadWrite::WriteJSONToFile("../Assets/JSON/CurrentLevel.json", j);
 		SceneManager::LoadScene(2);
 	}
 	

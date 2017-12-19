@@ -11,28 +11,70 @@ LevelLoader::~LevelLoader() {
 
 }
 
-void to_json(json& j, const Level& level) {
-	j["Level"] = level.level;
-	j["Translations"] = { { "PositionX", level.Translations[0].x },{ "PositionY", level.Translations[0].y },{ "Rotation", 240 } };
+/*
+void to_json(json& j, const Level& level, int iterator) {
+	j[iterator]["Level"] = iterator + 1;
+	j[iterator]["LaserTranslations"][0]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][0]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][0]["Rotation"] = 190;
+	j[iterator]["LaserTranslations"][1]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][1]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][1]["Rotation"] = 190;
+	j[iterator]["LaserTranslations"][2]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][2]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][2]["Rotation"] = 190;
+	j[iterator]["LaserTranslations"][3]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][3]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][3]["Rotation"] = 190;
+	j[iterator]["LaserTranslations"][4]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][4]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][4]["Rotation"] = 190;
+	j[iterator]["LaserTranslations"][5]["PositionX"] = 83;
+	j[iterator]["LaserTranslations"][5]["PositionY"] = 100;
+	j[iterator]["LaserTranslations"][5]["Rotation"] = 190;
+	j[iterator]["MirrorsNeededCount"] = 5;
 }
-void from_json(const json& j, Level& p) {
-	p.level = j.at("Level").get<int>();
+*/
+
+void from_json(const json& j, Level& level, int iterator) {
+	level.level = j[iterator].at("Level").get<int>();
+	level.MirrorsNeededCount = j[iterator].at("MirrorsNeededCount").get<int>();
+
+	for (int i = 0; i < 5; i++) {
+		level.Positions.push_back(sf::Vector2f(0, 0));
+		level.Positions[i].x = j[iterator].at("LaserTranslations")[i]["PositionX"].get<float>();
+		level.Positions[i].y = j[iterator].at("LaserTranslations")[i]["PositionY"].get<float>();
+
+		level.Rotations.push_back(0);
+		level.Rotations[i] = j[iterator].at("LaserTranslations")[i]["Rotation"].get<float>();
+	}
 }
 
 void LevelLoader::Start() {
 	Component::Start();
 
-	Level level;
+	LoadCurrentLevelData();
 
-	level.level = 0;
-	level.Translations.push_back(sf::Vector2f(83, 100));
-
-	json j;
-	to_json(j, level);
-	FileReadWrite::WriteJSONToFile("../Assets/JSON/Levels.json", j);
+	std::cout << "Position: " << currentLevel.Positions[4].x << ", " << currentLevel.Positions[4].y << std::endl;
+	std::cout << "Rotation: " << currentLevel.Rotations[4] << std::endl;
 }
 
 void LevelLoader::Update(float deltaTime) {
 	Component::Update(deltaTime);
+}
+
+void LevelLoader::LoadCurrentLevelData() {
+	//Level data
+	json levelData;
+	//CurrentLevelNumber data 
+	json currentLevelNumber;
+
+	//Set currentLevenNumber by loading it from json file
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/CurrentLevel.json", currentLevelNumber);
+	//Set levelData by loading it from json file
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/Levels.json", levelData);
+
+	//Set currentLevel data equal to loaded json level data
+	from_json(levelData, currentLevel, currentLevelNumber["CurrentLevel"] - 1);
 }
 

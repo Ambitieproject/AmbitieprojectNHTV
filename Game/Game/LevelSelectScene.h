@@ -10,6 +10,10 @@
 #include "BaseComponents.hpp"
 
 #include "LevelSelectManager.h"
+#include "FileReadWrite.h"
+
+#include "json.hpp"
+using json = nlohmann::json;
 
 //LevelSelectScene Scene, Custom made Scene class
 class LevelSelectScene : public Scene {
