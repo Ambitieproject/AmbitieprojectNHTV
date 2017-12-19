@@ -11,7 +11,6 @@
 #include "BaseComponents.hpp"
 #include "MirrorManager.h"
 #include "ReflectorBeam.h"
-#include "ColorManager.h"
 
 //Manager class that takes care of managing the reflector beams
 class ReflectorBeamManager : public Component {
@@ -27,7 +26,7 @@ public:
 	void Update(float deltaTime);
 
 	//Adds a beam with a position
-	GameObject& AddBeam(sf::Vector2f position, sf::Color color);
+	GameObject& AddBeam(sf::Vector2f position, int rotation, sf::Color color);
 
 	//Destroy a beam
 	void DestroyBeam(GameObject* beam);
@@ -44,7 +43,5 @@ private:
 	BC::Sprite* prisma;
 	//MirrorManager reference
 	MirrorManager* mirrorManager;
-	//ColorManager reference
-	ColorManager* colorManager;
 };
 

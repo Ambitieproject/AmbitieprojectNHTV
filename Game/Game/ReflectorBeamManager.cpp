@@ -18,44 +18,9 @@ void ReflectorBeamManager::Start() {
 	//Setting references
 	prisma = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<BC::Sprite>();
 	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("GameManager")->GetComponent<MirrorManager>();
-	colorManager = SceneManager::GetActiveScene().FindGameObjectByName("ColorManager")->GetComponent<ColorManager>();
 
 	//Set begin values
 	beamIndex = 0;
-
-	//Add beams
-	for (int i = 0; i != 6; i++) {
-		sf::Vector2f position;
-		sf::Color color;
-		switch (i) {
-		case 0:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color::Red;
-			break;
-		case 1:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color(255, 153, 0);
-			break;
-		case 2:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color::Yellow;
-			break;
-		case 3:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color::Green;
-			break;
-		case 4:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color::Blue;
-			break;
-		case 5:
-			position = sf::Vector2f(83 * (i + 1), 90);
-			color = sf::Color(153, 0, 204);
-			break;
-		}
-
-		AddBeam(position, color);
-	}
 }
 
 //Override Update method from base Component class
@@ -73,7 +38,7 @@ void ReflectorBeamManager::Update(float deltaTime) {
 }
 
 //Adds a beam with a position and rotation
-GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, sf::Color color) {
+GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, int rotation, sf::Color color) {
 	//Make new GameObject instance pointer
 	GameObject* beam = new GameObject("Beam", SceneManager::GetActiveScene());
 
@@ -81,7 +46,7 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, sf::Color color
 	beam->SetDrawIndex(4);
 
 	//Make new beam instance pointer
-	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this, beamIndex);
+	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this, beamIndex, rotation);
 
 	//Add components from the beam to the GameObject
 	beam->AddComponent(reflectorBeamComponent);

@@ -15,7 +15,7 @@ class ReflectorBeamManager;
 
 class ReflectorBeam : public Component {
 public:
-	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap);
+	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap, int beamRotation);
 	~ReflectorBeam();
 
 	void Start();
@@ -44,6 +44,8 @@ private:
 	GameObject* reflectingMirror = nullptr;
 	
 	int beamIndexInMap;
+
+	float beamRotation;
 
 	//MirrorManager reference
 	MirrorManager* mirrorManager;

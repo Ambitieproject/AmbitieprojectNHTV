@@ -63,5 +63,5 @@ private:
 	ScoreManager scoreManager = ScoreManager(mirrorManager, timeManager);
 	TimeManager timeManager = TimeManager();
 	MirrorManager mirrorManager = MirrorManager(&addMirrorButton);
-	LevelLoader levelLoader = LevelLoader();
+	LevelLoader levelLoader = LevelLoader(&reflectorBeam);
 };

@@ -158,6 +158,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="CreditsScene.cpp" />
     <ClCompile Include="Equations.cpp" />
     <ClCompile Include="FileReadWrite.cpp" />
     <ClCompile Include="GameFlowManager.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="ColorManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="BaseComponents.hpp" />
+    <ClInclude Include="CreditsScene.h" />
     <ClInclude Include="Equations.h" />
     <ClInclude Include="FileReadWrite.h" />
     <ClInclude Include="GameFlowManager.h" />

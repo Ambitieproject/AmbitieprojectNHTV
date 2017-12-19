@@ -11,6 +11,7 @@ class Renderer;
 #include "MainScene.h"
 #include "LevelSelectScene.h"
 #include "MenuScene.h"
+#include "CreditsScene.h"
 
 //SceneManager class. Takes care of the scene flow of the game and calls different methods of the "active" scene
 class SceneManager {
@@ -86,5 +87,5 @@ private:
 	MenuScene menuSceneClass = MenuScene("MenuScene");
 	LevelSelectScene levelSelectScene = LevelSelectScene("LevelSelectScene");
 	MainScene mainSceneClass = MainScene("MainScene");
-	
+	CreditsScene creditsSceneClass = CreditsScene("CreditsScene");
 };

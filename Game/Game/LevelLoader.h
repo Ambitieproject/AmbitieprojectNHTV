@@ -12,6 +12,7 @@
 
 #include "BaseComponents.hpp"
 #include "FileReadWrite.h"
+#include "ReflectorBeamManager.h"
 
 #include "json.hpp"
 
@@ -27,7 +28,7 @@ struct Level {
 class LevelLoader : public Component {
 public:
 	//Constructor
-	LevelLoader();
+	LevelLoader(ReflectorBeamManager* reflectorBeamManager);
 	//Destructor
 	~LevelLoader();
 
@@ -41,5 +42,8 @@ private:
 
 private:
 	Level currentLevel;
+
+	//ReflectorBeamManager pointer
+	ReflectorBeamManager* reflectorBeamManager;
 };
 

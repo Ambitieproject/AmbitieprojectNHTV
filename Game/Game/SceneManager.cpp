@@ -273,6 +273,12 @@ void SceneManager::ResetScene(Scene* scene) {
 		new (&levelSelectScene) LevelSelectScene("LevelSelectScene");
 		levelSelectScene.SceneIndex = lastSceneIndex;
 	}
+	if (scene->Name == "CreditsScene") {
+		scenes.erase(LocalIt);
+		creditsSceneClass.~creditsSceneClass();
+		new (&creditsSceneClass) CreditsScene("CreditsScene");
+		creditsSceneClass.SceneIndex = lastSceneIndex;
+	}
 	
 }
 

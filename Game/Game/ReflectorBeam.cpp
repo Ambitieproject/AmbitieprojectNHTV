@@ -6,7 +6,7 @@
 #include "Equations.h"
 #include "SceneManager.h"
 
-ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap) : mirrorManager(mirrorManager), reflectorBeamManager(reflectorBeamManager), beamIndexInMap(beamIndexInMap) {
+ReflectorBeam::ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap, int beamRotation) : mirrorManager(mirrorManager), reflectorBeamManager(reflectorBeamManager), beamIndexInMap(beamIndexInMap), beamRotation(beamRotation) {
 	isCollidingWithMirror = false;
 }
 
@@ -59,7 +59,7 @@ void ReflectorBeam::Update(float deltaTime) {
 
 					line[1].position = frontsideMirrorCollider;
 					if (!newBeam) {
-						newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+						newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, mirror->GetComponent<BC::Sprite>()->getRotation(), line[0].color);
 						newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 					}
 					else {
@@ -83,7 +83,7 @@ void ReflectorBeam::Update(float deltaTime) {
 
 					line[1].position = frontsideMirrorCollider;
 					if (!newBeam) {
-						newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+						newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, mirror->GetComponent<BC::Sprite>()->getRotation(), line[0].color);
 						newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 					}
 					else {
@@ -99,7 +99,7 @@ void ReflectorBeam::Update(float deltaTime) {
 					if (diff.y < 0) {
 						line[1].position = frontsideMirrorCollider;
 						if (!newBeam) {
-							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, mirror->GetComponent<BC::Sprite>()->getRotation(), line[0].color);
 							newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 						}
 						else {
@@ -115,7 +115,7 @@ void ReflectorBeam::Update(float deltaTime) {
 						line[1].position = frontsideMirrorCollider;
 
 						if (!newBeam) {
-							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, line[0].color);
+							newBeam = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, mirror->GetComponent<BC::Sprite>()->getRotation(), line[0].color);
 							newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = mirror;
 						}
 						else {
@@ -157,16 +157,9 @@ sf::Vector2f ReflectorBeam::GetDirection() {
 	float x = 0;
 	float y = 0;
 
-	if (mirrorSpawningFrom) {
-		x = sin(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() * PI / 180);
-		y = cos(mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() * PI / 180);
-		y = -y;
-	}
-	else {
-		x = sin(225 * PI / 180);
-		y = cos(225 * PI / 180);
-		y = -y;
-	}
+	x = sin(beamRotation * PI / 180);
+	y = cos(beamRotation * PI / 180);
+	y = -y;
 
 	return sf::Vector2f(x, y);
 }

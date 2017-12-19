@@ -41,8 +41,8 @@ private:
 	BC::Button buttonStart = BC::Button("../Assets/Menu/Buttons/Start/ButtonStartIdle.png", "../Assets/Menu/Buttons/Start/ButtonStartHovered.png", "../Assets/Menu/Buttons/Start/ButtonStartPressed.png");
 	//Shop button
 	BC::Button buttonShop = BC::Button("../Assets/Menu/Buttons/Shop/ButtonShopIdle.png", "../Assets/Menu/Buttons/Shop/ButtonShopHovered.png", "../Assets/Menu/Buttons/Shop/ButtonShopPressed.png");
-	//Score button
-	BC::Button buttonScore = BC::Button("../Assets/Menu/Buttons/Score/ButtonScoreIdle.png", "../Assets/Menu/Buttons/Score/ButtonScoreHovered.png", "../Assets/Menu/Buttons/Score/ButtonScorePressed.png");
+	//Credits button
+	BC::Button buttonCredits = BC::Button("../Assets/Menu/Buttons/Credits/ButtonCreditsIdle.png", "../Assets/Menu/Buttons/Credits/ButtonCreditsHovered.png", "../Assets/Menu/Buttons/Credits/ButtonCreditsPressed.png");
 	//Quit button
 	BC::Button buttonQuit = BC::Button("../Assets/Menu/Buttons/Quit/ButtonQuitIdle.png", "../Assets/Menu/Buttons/Quit/ButtonQuitHovered.png", "../Assets/Menu/Buttons/Quit/ButtonQuitPressed.png");
 	//List of menu buttons

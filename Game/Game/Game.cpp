@@ -26,7 +26,7 @@ Game::~Game() {
 //Main Start function that runs in the whole game
 void Game::Start() {
 	//Creates window with custom values
-	window->CreateWindow(sf::Vector2u(500, 800), "Laser Space");
+	window->CreateWindow(sf::Vector2u(500, 800), "Prism");
 	//Start SceneManager method that loads the first scene
 	sceneManager->StartSceneManager();
 

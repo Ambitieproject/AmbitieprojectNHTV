@@ -2,7 +2,7 @@
 
 
 
-LevelLoader::LevelLoader() {
+LevelLoader::LevelLoader(ReflectorBeamManager* reflectorBeamManager) : reflectorBeamManager(reflectorBeamManager) {
 
 }
 
@@ -40,7 +40,7 @@ void from_json(const json& j, Level& level, int iterator) {
 	level.level = j[iterator].at("Level").get<int>();
 	level.MirrorsNeededCount = j[iterator].at("MirrorsNeededCount").get<int>();
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 6; i++) {
 		level.Positions.push_back(sf::Vector2f(0, 0));
 		level.Positions[i].x = j[iterator].at("LaserTranslations")[i]["PositionX"].get<float>();
 		level.Positions[i].y = j[iterator].at("LaserTranslations")[i]["PositionY"].get<float>();
@@ -55,8 +55,33 @@ void LevelLoader::Start() {
 
 	LoadCurrentLevelData();
 
-	std::cout << "Position: " << currentLevel.Positions[4].x << ", " << currentLevel.Positions[4].y << std::endl;
-	std::cout << "Rotation: " << currentLevel.Rotations[4] << std::endl;
+	for (int i = 0; i < 6; i++) {
+
+		sf::Color beamColor;
+
+		switch (i) {
+		case 0:
+			beamColor = sf::Color::Red;
+			break;
+		case 1:
+			beamColor = sf::Color(255, 153, 0);
+			break;
+		case 2:
+			beamColor = sf::Color::Yellow;
+			break;
+		case 3:
+			beamColor = sf::Color::Green;
+			break;
+		case 4:
+			beamColor = sf::Color::Blue;
+			break;
+		case 5:
+			beamColor = sf::Color(153, 0, 204);
+			break;
+		}
+
+		reflectorBeamManager->AddBeam(currentLevel.Positions[i], currentLevel.Rotations[i], beamColor);
+	}
 }
 
 void LevelLoader::Update(float deltaTime) {

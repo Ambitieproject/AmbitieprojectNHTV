@@ -31,7 +31,7 @@ void MenuScene::Awake() {
 	//Adding components to UIButton holder GameObject
 	GOUIButtonHolder.AddComponent(&buttonStart);
 	GOUIButtonHolder.AddComponent(&buttonShop);
-	GOUIButtonHolder.AddComponent(&buttonScore);
+	GOUIButtonHolder.AddComponent(&buttonCredits);
 	GOUIButtonHolder.AddComponent(&buttonQuit);
 
 	//Adding components to ref holder GameObject
@@ -48,7 +48,7 @@ void MenuScene::Awake() {
 
 	menuButton.push_back(&buttonStart);
 	menuButton.push_back(&buttonShop);
-	menuButton.push_back(&buttonScore);
+	menuButton.push_back(&buttonCredits);
 	menuButton.push_back(&buttonQuit);
 
 	for (auto it = menuButton.begin(); it != menuButton.end(); it++) {
@@ -57,7 +57,7 @@ void MenuScene::Awake() {
 	}
 
 	buttonShop.GetCurrentButtonSprite().setPosition(buttonShop.GetCurrentButtonSprite().getPosition().x + buttonShop.GetCurrentButtonSprite().getTexture()->getSize().x / 2, buttonShop.GetCurrentButtonSprite().getPosition().y);
-	buttonScore.GetCurrentButtonSprite().setPosition(buttonScore.GetCurrentButtonSprite().getPosition().x, buttonScore.GetCurrentButtonSprite().getPosition().y + 60);
+	buttonCredits.GetCurrentButtonSprite().setPosition(buttonCredits.GetCurrentButtonSprite().getPosition().x, buttonCredits.GetCurrentButtonSprite().getPosition().y + 60);
 	buttonQuit.GetCurrentButtonSprite().setPosition(buttonQuit.GetCurrentButtonSprite().getPosition().x, buttonQuit.GetCurrentButtonSprite().getPosition().y + 60);
 	buttonQuit.GetCurrentButtonSprite().setPosition(buttonQuit.GetCurrentButtonSprite().getPosition().x + buttonQuit.GetCurrentButtonSprite().getTexture()->getSize().x / 2, buttonQuit.GetCurrentButtonSprite().getPosition().y);
 
@@ -79,10 +79,10 @@ void MenuScene::Update(float deltaTime) {
 		SceneManager::LoadScene(1);
 	}
 	if (buttonShop.IsClicked()) {
-
+		
 	}
-	if (buttonScore.IsClicked()) {
-
+	if (buttonCredits.IsClicked()) {
+		SceneManager::LoadScene(3);
 	}
 	if (buttonQuit.IsClicked()) {
 		Window::GetInstance()->IsClosed = true;

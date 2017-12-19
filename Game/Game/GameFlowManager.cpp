@@ -35,13 +35,13 @@ bool GameFlowManager::FromLevelToScene() {
 }
 
 bool GameFlowManager::IsGameOver() {
-	return true;
-	/*
+	//return true;
+	
 	if (validationManager.Validate()) {
 		return true;
 	}
 	return false;
-	*/
+	
 }
 
 void GameFlowManager::ActivateGameOverScreen() {
