@@ -53,6 +53,7 @@ int ScoreManager::GetFinalScore() {
 	}
 	
 	if (score > 0) {
+		std::cout << score << std::endl;
 		return score;
 	}
 	else {

@@ -79,7 +79,7 @@ void MenuScene::Update(float deltaTime) {
 		SceneManager::LoadScene(1);
 	}
 	if (buttonShop.IsClicked()) {
-		
+		SceneManager::LoadScene(4);
 	}
 	if (buttonCredits.IsClicked()) {
 		SceneManager::LoadScene(3);

@@ -4,12 +4,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <numeric>
 #include <fstream>
 #include <map>
 
+//Include and use for making use of the Modern JSON library frmo nlohmann
+//For more information go to the json hpp file 
 #include "json.hpp"
-
 using json = nlohmann::json;
 
 class FileReadWrite {

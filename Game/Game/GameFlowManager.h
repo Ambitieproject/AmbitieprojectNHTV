@@ -13,8 +13,9 @@
 #include "FileReadWrite.h"
 #include "Level.h"
 
+//Include and use for making use of the Modern JSON library frmo nlohmann
+//For more information go to the json hpp file 
 #include "json.hpp"
-
 using json = nlohmann::json;
 
 struct Test {
@@ -39,6 +40,7 @@ private:
 	bool IsGameOver();
 
 	void ActivateGameOverScreen();
+	void UploadScoreAsCurrency();
 	void EndGame();
 
 	void PauseGame();
@@ -52,5 +54,7 @@ private:
 	ValidationManager& validationManager;
 	//ScoreManager reference
 	ScoreManager& scoreManager;
+	//Score value
+	int score;
 };
 

@@ -14,8 +14,9 @@
 #include "FileReadWrite.h"
 #include "ReflectorBeamManager.h"
 
+//Include and use for making use of the Modern JSON library frmo nlohmann
+//For more information go to the json hpp file 
 #include "json.hpp"
-
 using json = nlohmann::json;
 
 struct Level {

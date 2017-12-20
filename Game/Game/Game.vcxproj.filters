@@ -70,9 +70,6 @@
     <Filter Include="Game">
       <UniqueIdentifier>{ef0b1e24-73a3-4b19-903d-0b2eff265bf5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Menu">
-      <UniqueIdentifier>{d48041f1-6cfc-4397-bae0-4a4f9f19acd6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Scenes">
       <UniqueIdentifier>{6702af9c-8a34-4ced-b15a-c5c63a9c7bc2}</UniqueIdentifier>
     </Filter>
@@ -120,6 +117,21 @@
     </Filter>
     <Filter Include="Game\Scenes\Credits">
       <UniqueIdentifier>{459b3753-0514-49ca-abb8-fee2091b4d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes\Menu">
+      <UniqueIdentifier>{ed84dd13-6074-4d66-a5e8-ab1964a9df08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes\LevelSelect">
+      <UniqueIdentifier>{36376d8f-f229-4545-a10f-b813951df63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes\MainLevel">
+      <UniqueIdentifier>{0122ccf0-54fb-41f1-bbbb-7b40b394ab37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes\Shop">
+      <UniqueIdentifier>{03de826d-a17c-40b5-befd-62ecf54c6bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Shop">
+      <UniqueIdentifier>{bd67f9d1-ea5e-489d-b4f9-14d2a2889e7e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -183,17 +195,11 @@
     <ClCompile Include="ReflectorBeamManager.cpp">
       <Filter>Game\Level\Managers\Beam</Filter>
     </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
-      <Filter>Game\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>Game\Level\Managers\Time</Filter>
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
       <Filter>Game\Level\Managers\Score</Filter>
-    </ClCompile>
-    <ClCompile Include="MainScene.cpp">
-      <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="ReflectorBeam.cpp">
       <Filter>Game\Level\Beam</Filter>
@@ -209,9 +215,6 @@
     </ClCompile>
     <ClCompile Include="ColorManager.cpp">
       <Filter>Game\Level\Managers\Color</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelSelectScene.cpp">
-      <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Mirror.cpp">
       <Filter>Game\Level\Mirror</Filter>
@@ -233,6 +236,21 @@
     </ClCompile>
     <ClCompile Include="CreditsScene.cpp">
       <Filter>Game\Scenes\Credits</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Game\Scenes\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelectScene.cpp">
+      <Filter>Game\Scenes\LevelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>Game\Scenes\MainLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopScene.cpp">
+      <Filter>Game\Scenes\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -296,17 +314,11 @@
     <ClInclude Include="ReflectorBeamManager.h">
       <Filter>Game\Level\Managers\Beam</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>Game\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="TimeManager.h">
       <Filter>Game\Level\Managers\Time</Filter>
     </ClInclude>
     <ClInclude Include="ScoreManager.h">
       <Filter>Game\Level\Managers\Score</Filter>
-    </ClInclude>
-    <ClInclude Include="MainScene.h">
-      <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="ReflectorBeam.h">
       <Filter>Game\Level\Beam</Filter>
@@ -322,9 +334,6 @@
     </ClInclude>
     <ClInclude Include="ColorManager.h">
       <Filter>Game\Level\Managers\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelSelectScene.h">
-      <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Mirror.h">
       <Filter>Game\Level\Mirror</Filter>
@@ -346,6 +355,21 @@
     </ClInclude>
     <ClInclude Include="CreditsScene.h">
       <Filter>Game\Scenes\Credits</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Game\Scenes\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelectScene.h">
+      <Filter>Game\Scenes\LevelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>Game\Scenes\MainLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopScene.h">
+      <Filter>Game\Scenes\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

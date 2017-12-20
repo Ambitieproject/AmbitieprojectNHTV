@@ -279,7 +279,12 @@ void SceneManager::ResetScene(Scene* scene) {
 		new (&creditsSceneClass) CreditsScene("CreditsScene");
 		creditsSceneClass.SceneIndex = lastSceneIndex;
 	}
-	
+	if (scene->Name == "ShopScene") {
+		scenes.erase(LocalIt);
+		shopSceneClass.~shopSceneClass();
+		new (&shopSceneClass) ShopScene("ShopScene");
+		shopSceneClass.SceneIndex = lastSceneIndex;
+	}
 }
 
 //Adds scene to list of scenes

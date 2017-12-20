@@ -35,13 +35,13 @@ bool GameFlowManager::FromLevelToScene() {
 }
 
 bool GameFlowManager::IsGameOver() {
-	//return true;
-	
+	return true;
+	/*
 	if (validationManager.Validate()) {
 		return true;
 	}
 	return false;
-	
+	*/
 }
 
 void GameFlowManager::ActivateGameOverScreen() {
@@ -63,7 +63,9 @@ void GameFlowManager::ActivateGameOverScreen() {
 	gameOverScreenSprite->setOrigin(gameOverScreenSprite->GetTexture().getSize().x / 2, gameOverScreenSprite->GetTexture().getSize().y / 2);
 	gameOverScreenSprite->setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y / 2);
 
-	scoreText->setString(std::to_string(scoreManager.GetFinalScore()));
+	score = scoreManager.GetFinalScore();
+
+	scoreText->setString(std::to_string(score));
 	scoreText->setColor(sf::Color::Black);
 
 	scoreTextStatic->setScale(0.8f, 0.8f);
@@ -90,7 +92,19 @@ void GameFlowManager::ActivateGameOverScreen() {
 void GameFlowManager::EndGame(){
 	isGameOver = true;
 	ActivateGameOverScreen();
+	UploadScoreAsCurrency();
 	PauseGame();
+}
+
+void GameFlowManager::UploadScoreAsCurrency() {
+	json json;
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/Currency.json", json);
+	int currentScore = json["Currency"];
+	std::cout << currentScore << std::endl;
+	int newScore = currentScore + score;
+	json["Currency"] = newScore;
+	std::cout << newScore << std::endl;
+	FileReadWrite::WriteJSONToFile("../Assets/JSON/Currency.json", json);
 }
 
 void GameFlowManager::PauseGame() {

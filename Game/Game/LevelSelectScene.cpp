@@ -24,6 +24,11 @@ void LevelSelectScene::Awake() {
 	GOUIBackgroundBars.AddComponent(&backgroundBarTop);
 	GOUIBackgroundBars.AddComponent(&backgroundBarBottom);
 
+	//Adding components to UIManager GameObject
+	GOUIManager.AddComponent(&levelSelectText);
+	GOUIManager.AddComponent(&levelSelectManager);
+	GOUIManager.AddComponent(&buttonBack);
+
 	//Set default values for background bars
 	backgroundBarTop.setScale(0.5155f, 0.5155f);
 	backgroundBarBottom.setScale(0.7f, 0.7f);
@@ -37,12 +42,6 @@ void LevelSelectScene::Awake() {
 	levelSelectText.setScale(0.4f, 0.4f);
 	levelSelectText.setOrigin(levelSelectText.getTexture()->getSize().x / 2, levelSelectText.getTexture()->getSize().y / 2);
 	levelSelectText.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 33);
-
-	//Adding components to UIManager GameObject
-	GOUIManager.AddComponent(&levelSelectText);
-	GOUIManager.AddComponent(&levelSelectManager);
-	GOUIManager.AddComponent(&buttonBack);
-
 }
 
 //Override Start method from base Component class
