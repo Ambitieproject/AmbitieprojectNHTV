@@ -15,6 +15,8 @@ BoxCollider::~BoxCollider() {
 void BoxCollider::Start() {
 	Collider::Start();	
 
+	isMouseDown = false;
+	isMouseOverlapping = false;
 }
 
 //Override Update method from base Component class
@@ -156,6 +158,9 @@ bool BoxCollider::OnMouseDown(sf::Mouse::Button mouseButton) {
 	if (boxCollider.getGlobalBounds().contains(mousePos)) {
 		isMouseDown = true;
 	}
+	else {
+		isMouseDown = false;
+	}
 	if(OnMouseExit() && Input::GetMouseKeyUp(mouseButton)) {
 		isMouseDown = false;
 	}
@@ -170,7 +175,7 @@ bool BoxCollider::OnMouseDown(sf::Mouse::Button mouseButton) {
 		isMouseDown = false;
 		return false;
 	}
-}
+} 
 
 bool BoxCollider::OnMouseExit() {
 	//Get the mouse position

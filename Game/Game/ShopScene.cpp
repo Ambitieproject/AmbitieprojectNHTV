@@ -18,15 +18,15 @@ void ShopScene::Setup() {
 
 	//Setting drawing layers index
 	GOShopManager.SetDrawIndex(0);
-	GOUIManager.SetDrawIndex(1);
-	GOUIBackgroundBars.SetDrawIndex(2);
+	GOUIManager.SetDrawIndex(3);
 
 	//Adding components to ShopManager GameObject
 	GOShopManager.AddComponent(&shopManager);
 
 	//Adding components to Background bars GameObject
-	GOUIBackgroundBars.AddComponent(&backgroundBarTop);
-	GOUIBackgroundBars.AddComponent(&backgroundBarBottom);
+	GOUIManager.AddComponent(&backgroundBarTop);
+	GOUIManager.AddComponent(&backgroundItemHolder);
+	GOUIManager.AddComponent(&backgroundBarBottom);
 
 	//Adding components to UIManager GameObject
 	GOUIManager.AddComponent(&shopTitleText);
@@ -36,6 +36,10 @@ void ShopScene::Setup() {
 	backgroundBarTop.setScale(0.5155f, 0.5155f);
 	backgroundBarBottom.setScale(0.7f, 0.7f);
 	backgroundBarBottom.setPosition(-10, Window::GetInstance()->GetWindowSize().y - (backgroundBarBottom.getTexture()->getSize().y / 2 + 10));
+
+	//Set default values for background item holder
+	backgroundItemHolder.setScale(0.5155f, 0.5155f);
+	backgroundItemHolder.setPosition(backgroundItemHolder.getPosition().x, 150);
 
 	//Set default values for back button
 	buttonBack.GetCurrentButtonSprite().setScale(0.6f, 0.6f);

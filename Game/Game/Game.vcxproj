@@ -178,6 +178,7 @@
     <ClCompile Include="ReflectorBeamManager.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="ShopCategoryItem.cpp" />
     <ClCompile Include="ShopManager.cpp" />
     <ClCompile Include="ShopScene.cpp" />
     <ClCompile Include="Sound.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="ReflectorBeamManager.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ScoreManager.h" />
+    <ClInclude Include="ShopCategoryItem.h" />
     <ClInclude Include="ShopManager.h" />
     <ClInclude Include="ShopScene.h" />
     <ClInclude Include="Sound.h" />

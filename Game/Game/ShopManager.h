@@ -6,6 +6,8 @@
 
 #include "Component.h"
 #include "BaseComponents.hpp"
+#include "ShopCategoryItem.h"
+
 #include "FileReadWrite.h"
 
 //Include and use for making use of the Modern JSON library frmo nlohmann
@@ -29,5 +31,11 @@ public:
 private:
 	//Load currency method
 	float LoadCurrency();
+
+	void AddCategory();
+	void SetCategoriesPositions();
+
+private:
+	std::vector<ShopCategoryItem*> shopCategoryItems;
 };
 

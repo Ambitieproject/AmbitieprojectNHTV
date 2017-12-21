@@ -252,6 +252,9 @@
     <ClCompile Include="ShopManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShopCategoryItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -369,6 +372,9 @@
       <Filter>Game\Scenes\Shop</Filter>
     </ClInclude>
     <ClInclude Include="ShopManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopCategoryItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

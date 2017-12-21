@@ -34,8 +34,9 @@ private:
 	ShopManager shopManager = ShopManager();
 
 	//BackgroundBars GameObject and components
-	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
+	GameObject GOUIBackgroundManager = GameObject("BackgroundManager", *this);
 	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
+	BC::Sprite backgroundItemHolder = BC::Sprite("../Assets/Art/Shop/ShopItemHolderBackground.png");
 	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Bar.png");
 
 	//UIManager GameObject and components
