@@ -37,6 +37,8 @@ public:
 	//Adds a given GameObject to the list of GameObjects in the scene
 	void AddToGameObjectList(GameObject* gameObject);
 
+	void DontDestroyGameObject(GameObject& gameObject);
+
 	//Destroys a specified GameObject
 	bool DestroyGameObject(GameObject* gameObject);
 	//Destroys a specified Component
@@ -44,6 +46,8 @@ public:
 
 	//Finds a GameObject by name
 	GameObject* FindGameObjectByName(std::string gameObjectName);
+	//Finds all GameObjects with name
+	std::vector<GameObject*> FindGameObjectsByName(std::string gameObjectsName);
 
 public:
 	//Name of the scene

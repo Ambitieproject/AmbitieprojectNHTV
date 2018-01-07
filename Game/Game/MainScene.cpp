@@ -14,21 +14,18 @@ MainScene::~MainScene() {
 
 }
 
-
+//Override Setup method from base Scene class
 void MainScene::Setup() {
 	Scene::Setup();
 
 	//Setting draw indexes of GameObjects
 	GOUIManager.SetDrawIndex(1);
+	GOValidationManager.SetDrawIndex(1);
 	GOUIBackgroundBars.SetDrawIndex(2);
 	GOPrisma.SetDrawIndex(2);
-	GOColorManager.SetDrawIndex(2);
 
 	//Adding components to ValidationManager GameObject
 	GOValidationManager.AddComponent(&validationManager);
-
-	//Adding components to ColorManager GameObject
-	GOColorManager.AddComponent(&colorManager);
 
 	//Adding components to Prisma GameObject
 	GOPrisma.AddComponent(&prismaSprite);
@@ -73,17 +70,21 @@ void MainScene::Setup() {
 	addMirrorButton.GetCurrentButtonSprite().setPosition(Window::GetInstance()->GetWindowSize().x - 80, 7);
 }
 
+//Override Start method from base Scene class
 void MainScene::Start() {
 	Scene::Start();
 }
 
+//Override Update method from base Scene class
 void MainScene::Update(float deltaTime) {
 	Scene::Update(deltaTime); 
 
+	//If escape key is pressed
 	if (Input::GetKeyReleased(sf::Keyboard::Escape)) {
 		SceneManager::LoadScene(0);
 	}
 
+	//If switching bool is true switch to other scene
 	if (gameFlowManager.FromLevelToScene()) {
 		SceneManager::LoadScene(0);
 	}

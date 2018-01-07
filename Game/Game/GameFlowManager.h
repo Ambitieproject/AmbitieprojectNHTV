@@ -13,20 +13,17 @@
 #include "FileReadWrite.h"
 #include "Level.h"
 
-//Include and use for making use of the Modern JSON library frmo nlohmann
+//Include and use for making use of the Modern JSON library from nlohmann
 //For more information go to the json hpp file 
 #include "json.hpp"
 using json = nlohmann::json;
 
-struct Test {
-	int i = 9;
-	std::string hoi = "test";
-};
-
-//Game Manager
+//Game Flow Manager
 class GameFlowManager : public Component {
 public:
+	//Constructor
 	GameFlowManager(ScoreManager& scoreManager, ValidationManager& validationManager);
+	//Destructor
 	~GameFlowManager();
 
 	//Override Start method from base Component class
@@ -34,27 +31,38 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	//Sends message to the active scene that level transitation can be done or not
 	bool FromLevelToScene();
 
 private:
+	//Checks if game is over
 	bool IsGameOver();
 
+	//Creates and activates Game Over screen
 	void ActivateGameOverScreen();
+
+	//Uploads the score as currency
 	void UploadScoreAsCurrency();
+	
+	//Ends the game
 	void EndGame();
 
+	//Pauses the game
 	void PauseGame();
 
 private:
+	//Score value
+	int score;
+
+	//Is game over bool
 	bool isGameOver;
 
+	//Local pointer of menu button
 	BC::Button* localToMenuButton;
 
 	//ValidationManager reference
 	ValidationManager& validationManager;
 	//ScoreManager reference
 	ScoreManager& scoreManager;
-	//Score value
-	int score;
 };
 

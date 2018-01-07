@@ -8,8 +8,8 @@
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 
+//Include needed costum header files
 #include "BaseComponents.hpp"
-#include "MirrorManager.h"
 #include "ReflectorBeam.h"
 
 //Manager class that takes care of managing the reflector beams
@@ -35,13 +35,12 @@ public:
 	std::map<int, GameObject*>& GetBeams();
 
 private:
-
+	//Map with beam GameObject pointers
 	std::map<int, GameObject*> beams;
+	//Index of beam
 	int beamIndex;
 
 	//Prisma reference
 	BC::Sprite* prisma;
-	//MirrorManager reference
-	MirrorManager* mirrorManager;
 };
 

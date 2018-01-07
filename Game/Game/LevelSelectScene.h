@@ -9,9 +9,12 @@
 //Include Base Components so I can make Components in this class
 #include "BaseComponents.hpp"
 
+//Include needed header files
 #include "LevelSelectManager.h"
 #include "FileReadWrite.h"
 
+//Include and use for making use of the Modern JSON library from nlohmann
+//For more information go to the json hpp file 
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -23,20 +26,20 @@ public:
 	//Destructor
 	~LevelSelectScene();
 
-	//Override Awake method from base Component class
-	void Awake();
-	//Override Start method from base Component class
+	//Override Setup method from base Scene class
+	void Setup();
+	//Override Start method from base Scene class
 	void Start();
-	//Override Update method from base Component class
+	//Override Update method from base Scene class
 	void Update(float deltaTime);
 
 private:
-	//BackgroundBars GameObject and components
+	///BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
 	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
 	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Bar.png");
 
-	//UIManager GameObject and components
+	///UIManager GameObject and components
 	GameObject GOUIManager = GameObject("UIManager", *this);
 	BC::Sprite levelSelectText = BC::Sprite("../Assets/LevelSelect/levelSelectText.png");
 	LevelSelectManager levelSelectManager = LevelSelectManager();

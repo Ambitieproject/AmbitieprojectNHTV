@@ -12,9 +12,9 @@ LevelSelectScene::~LevelSelectScene() {
 
 }
 
-//Override Awake method from base Component class
-void LevelSelectScene::Awake() {
-	Scene::Awake();
+//Override Setup method from base Scene class
+void LevelSelectScene::Setup() {
+	Scene::Setup();
 
 	//Setting drawing layers index
 	GOUIBackgroundBars.SetDrawIndex(2);
@@ -44,12 +44,12 @@ void LevelSelectScene::Awake() {
 	levelSelectText.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 33);
 }
 
-//Override Start method from base Component class
+//Override Start method from base Scene class
 void LevelSelectScene::Start(){
 	Scene::Start();
 }
 
-//Override Update method from base Component class
+//Override Update method from base Scene class
 void LevelSelectScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
 	

@@ -13,23 +13,37 @@
 #include "BaseComponents.hpp"
 #include "FileReadWrite.h"
 #include "ReflectorBeamManager.h"
+#include "MirrorManager.h"
 
-//Include and use for making use of the Modern JSON library frmo nlohmann
+//Include and use for making use of the Modern JSON library from nlohmann
 //For more information go to the json hpp file 
 #include "json.hpp"
 using json = nlohmann::json;
 
+//Level struct with values needed for a level to be contructed
 struct Level {
+	//Level int
 	int level;
-	std::vector<sf::Vector2f> Positions;
-	std::vector<float> Rotations;
+
+	//Vector with positions of the lasers
+	std::vector<sf::Vector2f> LaserPositions;
+	//Vector with rotations of the lasers
+	std::vector<float> LaserRotations;
+	
+	//Count of minimum mirrors needed to complete a level
 	int MirrorsNeededCount;
+	
+	//Vector with positions for blocking mirrors, if there are any
+	std::vector<sf::Vector2f> BlockingMirrorsPositions;
+	//Vector with rotations for blocking mirrors, if there are any
+	std::vector<float> BlockingMirrorsRotations;
 };
 
+//Class that loads a level
 class LevelLoader : public Component {
 public:
 	//Constructor
-	LevelLoader(ReflectorBeamManager* reflectorBeamManager);
+	LevelLoader(ReflectorBeamManager* reflectorBeamManager, MirrorManager* mirrorManager);
 	//Destructor
 	~LevelLoader();
 
@@ -39,12 +53,18 @@ public:
 	void Update(float deltaTime);
 
 private:
+	//Loads the data from a level
 	void LoadCurrentLevelData();
+	//Get JSON data and put it inside a Level object
+	void SetLevelData(const json& j, Level& level, int iterator);
 
 private:
+	//Local current level holder
 	Level currentLevel;
 
 	//ReflectorBeamManager pointer
 	ReflectorBeamManager* reflectorBeamManager;
+	//MirrorManager pointer
+	MirrorManager* mirrorManager;
 };
 

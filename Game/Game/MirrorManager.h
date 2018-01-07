@@ -10,12 +10,13 @@
 #include "BaseComponents.hpp"
 
 #include "Mirror.h"
+#include "ReflectorBeamManager.h"
 
 //Manager for the mirrors
 class MirrorManager : public Component {
 public:
 	//Constructor
-	MirrorManager(BC::Button* addMirrorButton);
+	MirrorManager(BC::Button* addMirrorButton, ReflectorBeamManager* reflectorBeamManager);
 	//Destructor
 	~MirrorManager();
 
@@ -25,7 +26,7 @@ public:
 	void Update(float deltaTime);
 
 	//Adds a mirror
-	void AddMirror();
+	Mirror& AddMirror(sf::Vector2f position, float rotation);
 
 	//Returns if a mirror is being moved
 	bool IsMovingAMirror();
@@ -46,4 +47,6 @@ private:
 
 	//Local add mirror button pointer
 	BC::Button* localAddMirrorButton;
+
+	ReflectorBeamManager* reflectorBeamManager = nullptr;
 };

@@ -12,7 +12,7 @@ ShopScene::~ShopScene() {
 
 }
 
-//Override Setup method from base Component class
+//Override Setup method from base Scene class
 void ShopScene::Setup() {
 	Scene::Setup();
 
@@ -27,6 +27,7 @@ void ShopScene::Setup() {
 	GOUIManager.AddComponent(&backgroundBarTop);
 	GOUIManager.AddComponent(&backgroundItemHolder);
 	GOUIManager.AddComponent(&backgroundBarBottom);
+	GOUIManager.AddComponent(&backgroundCurrencyHolder);
 
 	//Adding components to UIManager GameObject
 	GOUIManager.AddComponent(&shopTitleText);
@@ -41,6 +42,10 @@ void ShopScene::Setup() {
 	backgroundItemHolder.setScale(0.5155f, 0.5155f);
 	backgroundItemHolder.setPosition(backgroundItemHolder.getPosition().x, 150);
 
+	//Set default values for currency background holder
+	backgroundCurrencyHolder.setScale(0.5155f, 0.5155f);
+	backgroundCurrencyHolder.setPosition(290, 78);
+
 	//Set default values for back button
 	buttonBack.GetCurrentButtonSprite().setScale(0.6f, 0.6f);
 	buttonBack.GetCurrentButtonSprite().setPosition(4, Window::GetInstance()->GetWindowSize().y - 68);
@@ -51,12 +56,12 @@ void ShopScene::Setup() {
 	shopTitleText.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 33);
 }
 
-//Override Start method from base Component class
+//Override Start method from base Scene class
 void ShopScene::Start() {
 	Scene::Start();
 }
 
-//Override Update method from base Component class
+//Override Update method from base Scene class
 void ShopScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
 

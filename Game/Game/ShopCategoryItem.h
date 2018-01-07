@@ -1,9 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <limits>
-#include <math.h>
 
+//Include needed headers files
 #include "Component.h"
 #include "BaseComponents.hpp"
 
@@ -20,10 +19,18 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	//Set the category name
+	std::string SetCategoryName(std::string name);
+	//Get the category name
+	std::string GetCategoryName();
+
+	//Not pressed Item background texture
 	sf::Texture categoryItemBackgroundTexture;
+	//Pressed Item background texture
 	sf::Texture categoryItemBackgroundPressedTexture;
 
 private:
-	
+	//Category name
+	std::string categoryName;
 };
 

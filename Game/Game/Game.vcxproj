@@ -156,7 +156,6 @@
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CreditsScene.cpp" />
     <ClCompile Include="Equations.cpp" />
@@ -179,6 +178,7 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="ShopCategoryItem.cpp" />
+    <ClCompile Include="ShopItem.cpp" />
     <ClCompile Include="ShopManager.cpp" />
     <ClCompile Include="ShopScene.cpp" />
     <ClCompile Include="Sound.cpp" />
@@ -198,7 +198,6 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Collider.h" />
-    <ClInclude Include="ColorManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="BaseComponents.hpp" />
     <ClInclude Include="CreditsScene.h" />
@@ -222,6 +221,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="ShopCategoryItem.h" />
+    <ClInclude Include="ShopItem.h" />
     <ClInclude Include="ShopManager.h" />
     <ClInclude Include="ShopScene.h" />
     <ClInclude Include="Sound.h" />

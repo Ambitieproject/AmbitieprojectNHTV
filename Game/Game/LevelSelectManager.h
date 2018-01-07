@@ -9,6 +9,12 @@
 #include "GameObject.h"
 
 #include "BaseComponents.hpp"
+#include "FileReadWrite.h"
+
+//Include and use for making use of the Modern JSON library from nlohmann
+//For more information go to the json hpp file 
+#include "json.hpp"
+using json = nlohmann::json;
 
 //Manager class that takes care of managing the level selecting
 class LevelSelectManager : public Component {

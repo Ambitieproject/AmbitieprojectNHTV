@@ -17,11 +17,11 @@ public:
 	//Destructor
 	~MenuScene();
 
-	//Override Awake method from base Component class
-	void Awake();
-	//Override Start method from base Component class
+	//Override Setup method from base Scene class
+	void Setup();
+	//Override Start method from base Scene class
 	void Start();
-	//Override Update method from base Component class
+	//Override Update method from base Scene class
 	void Update(float deltaTime);
 
 private:
@@ -32,8 +32,16 @@ private:
 	//Logo prism text sprite
 	BC::Sprite logoPrismText = BC::Sprite("../Assets/Menu/PrismText.png");
 
-	//UI Sound Holder
+	///Audio holder and components
+	GameObject GOAudioHolder = GameObject("AudioHolder", *this);
+	BC::Music* backgroundMusic = new BC::Music("../Assets/Audio/BackgroundMusic.wav");
+
+	///UI Sound Holder and components
 	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this);
+	BC::Sprite audioSwitchSprite = BC::Sprite("../Assets/Art/Images/SoundNotMutedImage.png");
+	BC::BoxCollider audioSwitchBoxCollider = BC::BoxCollider(audioSwitchSprite, sf::Vector2f(0, 0), sf::Vector2f(0, 0));
+	sf::Texture audioTextureNotMuted;
+	sf::Texture audioTextureMuted;
 
 	//UI Button Holder
 	GameObject GOUIButtonHolder = GameObject("UIButtonHolder", *this);

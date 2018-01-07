@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML\Audio.hpp>
 
+//Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 
 //Namespace Base Component

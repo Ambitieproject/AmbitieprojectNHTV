@@ -119,6 +119,10 @@ void Scene::AddToGameObjectList(GameObject* gameObject) {
 	gameObjectLayerIndex++;
 }
 
+void Scene::DontDestroyGameObject(GameObject& gameObject) {
+	sceneManager->DontDestroyGameObject(gameObject);
+}
+
 //Destroys a specified GameObject
 bool Scene::DestroyGameObject(GameObject* gameObject) {
 	//Bool to determine if component is found
@@ -187,5 +191,21 @@ GameObject* Scene::FindGameObjectByName(std::string gameObjectName) {
 	}
 
 	return nullptr;
+}
+
+//Finds all GameObjects with name
+std::vector<GameObject*> Scene::FindGameObjectsByName(std::string gameObjectsName) {
+	//Vector that will hold all the GameObjects
+	std::vector<GameObject*> gameObjects;
+
+	//For every GameObject in the scene check if name is equal to the parameter's specified name
+	//if so return the GameObject else return nullptr
+	for (auto it = GameObjects.begin(); it != GameObjects.end(); it++) {
+		if (it->second->Name == gameObjectsName) {
+			gameObjects.push_back(it->second);
+		}
+	}
+
+	return gameObjects;
 }
  

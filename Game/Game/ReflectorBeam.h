@@ -5,7 +5,6 @@
 #include <math.h>
 
 #include "BaseComponents.hpp"
-#include "MirrorManager.h"
 #include "Component.h"
 
 #define PI 3.14159265
@@ -15,11 +14,13 @@ class ReflectorBeamManager;
 
 class ReflectorBeam : public Component {
 public:
-	ReflectorBeam(MirrorManager* mirrorManager, ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap, int beamRotation);
+	ReflectorBeam(ReflectorBeamManager* reflectorBeamManager, int beamIndexInMap, int beamRotation);
 	~ReflectorBeam();
 
 	void Start();
 	void Update(float deltaTime);
+
+	void DestroyNewLaser();
 
 	sf::Vertex* GetLine();
 
@@ -28,8 +29,13 @@ public:
 	sf::Vector2f GetDirection();
 	int GetBeamIndexInMap();
 
-private:
-	void DestroyNewLaser();
+public:
+	GameObject* mirrorSpawningFrom = nullptr;
+	GameObject* reflectingMirror = nullptr;
+	GameObject* newBeam = nullptr;
+
+	float beamRotation;
+	bool isReflecting;
 
 private:
 	//Line in Vertexes
@@ -39,16 +45,8 @@ private:
 
 	bool isCollidingWithMirror;
 
-	GameObject* newBeam = nullptr;
-	GameObject* mirrorSpawningFrom = nullptr;
-	GameObject* reflectingMirror = nullptr;
-	
 	int beamIndexInMap;
 
-	float beamRotation;
-
-	//MirrorManager reference
-	MirrorManager* mirrorManager;
 	//ReflectorBeamManager reference
 	ReflectorBeamManager* reflectorBeamManager;
 };

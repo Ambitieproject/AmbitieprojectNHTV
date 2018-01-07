@@ -35,6 +35,8 @@ void Game::Start() {
 
 //Main Update function that runs in the whole game
 void Game::Update() {
+	//std::cout << singletons.size() << std::endl;
+
 	//Set the deltaTime which is going to be passed troughout the whole game
 	DeltaTime = clock.restart().asSeconds();
 	//Call Update method of SceneManager which calls the Update method of the current Scene

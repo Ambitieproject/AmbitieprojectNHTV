@@ -17,7 +17,6 @@ ReflectorBeamManager::~ReflectorBeamManager() {
 void ReflectorBeamManager::Start() {
 	//Setting references
 	prisma = SceneManager::GetActiveScene().FindGameObjectByName("Prisma")->GetComponent<BC::Sprite>();
-	mirrorManager = SceneManager::GetActiveScene().FindGameObjectByName("GameManager")->GetComponent<MirrorManager>();
 
 	//Set begin values
 	beamIndex = 0;
@@ -27,6 +26,9 @@ void ReflectorBeamManager::Start() {
 void ReflectorBeamManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
+	//For every beam
+	//If beam is not equal to a nullpltr then increase iterator
+	//Else erase beam object from the map
 	for (auto it = beams.begin(); it != beams.end();) {
 		if (it->second != nullptr) {
 			it++;
@@ -46,7 +48,7 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, int rotation, s
 	beam->SetDrawIndex(4);
 
 	//Make new beam instance pointer
-	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(mirrorManager, this, beamIndex, rotation);
+	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(this, beamIndex, rotation);
 
 	//Add components from the beam to the GameObject
 	beam->AddComponent(reflectorBeamComponent);
@@ -66,10 +68,12 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, int rotation, s
 
 //Destroy a beam
 void ReflectorBeamManager::DestroyBeam(GameObject* beam) {
-	bool found = false;
+
+	//For each beam
 	for (auto it = beams.begin(); it != beams.end(); it++) {
+		//If iterator is equal to the parameter beam
+		//then make the beam a nullptr
 		if (it->second == beam) {
-			found = true;
 			it->second = nullptr;
 		}
 	}

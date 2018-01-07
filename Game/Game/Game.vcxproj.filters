@@ -94,17 +94,11 @@
     <Filter Include="Game\Level\Managers\Mirror">
       <UniqueIdentifier>{3df52825-c487-4ffd-85b0-5b465c9c7db1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Level\Managers\Color">
-      <UniqueIdentifier>{605ff0af-ab5c-41f4-915d-46648b88c5c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Level\Beam">
       <UniqueIdentifier>{13f7a9cd-f277-4654-8c6f-8226e2edfcb2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Level\Mirror">
       <UniqueIdentifier>{7113a397-d356-44f3-90c3-423ae5022808}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Level\Prisma">
-      <UniqueIdentifier>{0c04935d-c5c4-4975-9dfa-870ae4efafd0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\LevelSelect">
       <UniqueIdentifier>{90de92d1-0beb-40d5-b172-174381f986ea}</UniqueIdentifier>
@@ -132,6 +126,12 @@
     </Filter>
     <Filter Include="Game\Shop">
       <UniqueIdentifier>{bd67f9d1-ea5e-489d-b4f9-14d2a2889e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Shop\Manager">
+      <UniqueIdentifier>{e446129f-c90e-4bf2-a5fd-cc32479e36e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Level\Loader">
+      <UniqueIdentifier>{2d2a62e3-d682-4fe9-831b-96695a4dd470}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -213,9 +213,6 @@
     <ClCompile Include="HelperMethods.cpp">
       <Filter>JEngine\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="ColorManager.cpp">
-      <Filter>Game\Level\Managers\Color</Filter>
-    </ClCompile>
     <ClCompile Include="Mirror.cpp">
       <Filter>Game\Level\Mirror</Filter>
     </ClCompile>
@@ -230,9 +227,6 @@
     </ClCompile>
     <ClCompile Include="FileReadWrite.cpp">
       <Filter>JEngine\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelLoader.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CreditsScene.cpp">
       <Filter>Game\Scenes\Credits</Filter>
@@ -250,10 +244,16 @@
       <Filter>Game\Scenes\Shop</Filter>
     </ClCompile>
     <ClCompile Include="ShopManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Shop\Manager</Filter>
     </ClCompile>
     <ClCompile Include="ShopCategoryItem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopItem.cpp">
+      <Filter>Game\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Game\Level\Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -335,9 +335,6 @@
     <ClInclude Include="HelperMethods.h">
       <Filter>JEngine\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="ColorManager.h">
-      <Filter>Game\Level\Managers\Color</Filter>
-    </ClInclude>
     <ClInclude Include="Mirror.h">
       <Filter>Game\Level\Mirror</Filter>
     </ClInclude>
@@ -352,9 +349,6 @@
     </ClInclude>
     <ClInclude Include="FileReadWrite.h">
       <Filter>JEngine\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelLoader.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CreditsScene.h">
       <Filter>Game\Scenes\Credits</Filter>
@@ -372,10 +366,16 @@
       <Filter>Game\Scenes\Shop</Filter>
     </ClInclude>
     <ClInclude Include="ShopManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\Shop\Manager</Filter>
     </ClInclude>
     <ClInclude Include="ShopCategoryItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopItem.h">
+      <Filter>Game\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Game\Level\Loader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -50,8 +50,14 @@ void LevelSelectManager::CreateLevelButtons() {
 	int x = 45;
 	int y = 120;
 
+	//Level data
+	json levelData;
+
+	//Set levelData by loading it from json file
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/Levels.json", levelData);
+
 	//For the amount of buttons you want + 1 
-	for (int i = 1; i < 31; i++) {
+	for (int i = 1; i < levelData.size() + 1; i++) {
 		//Create button and text
 		BC::Button* button = new BC::Button("../Assets/LevelSelect/levelSelectButtonNormal.png");
 		BC::Text* levelNumber = new BC::Text(&font);

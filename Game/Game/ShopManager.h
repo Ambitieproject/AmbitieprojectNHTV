@@ -4,13 +4,14 @@
 #include <limits>
 #include <math.h>
 
+//Include needed headers files
 #include "Component.h"
 #include "BaseComponents.hpp"
 #include "ShopCategoryItem.h"
-
+#include "ShopItem.h"
 #include "FileReadWrite.h"
 
-//Include and use for making use of the Modern JSON library frmo nlohmann
+//Include and use for making use of the Modern JSON library from nlohmann
 //For more information go to the json hpp file 
 #include "json.hpp"
 using json = nlohmann::json;
@@ -30,12 +31,40 @@ public:
 
 private:
 	//Load currency method
-	float LoadCurrency();
+	int LoadCurrency();
+	//Save currency method
+	int SaveCurrency();
 
-	void AddCategory();
+	//Adds a category
+	void AddCategory(std::string categoryName);
+	//Sets the position of all categories
 	void SetCategoriesPositions();
 
+	//Adds a shop item
+	ShopItem& AddShopItem();
+	
+	//Loads a shop item
+	void LoadShopItems(int categoryIndex);
+	//Saves a shop item
+	void SaveShopItems(int categoryIndex);
+	//Buys a shop item
+	void BuyShopItem(ShopItem& shopItem);
+
 private:
+	//Font used for text
+	BC::Font font = BC::Font("../Assets/Fonts/Myriad Pro Regular.ttf");
+
+	//Currency text
+	BC::Text currencyText = BC::Text(&font);
+	//Local currency holder
+	int currency;
+
+	//Vector of all the shop categories
 	std::vector<ShopCategoryItem*> shopCategoryItems;
+	//Vector of all the shop items
+	std::vector<ShopItem*> shopItems;
+
+	//Current active category
+	int currentActiveCategory;
 };
 

@@ -21,11 +21,11 @@ public:
 	//Destructor
 	~ShopScene();
 
-	//Override Setup method from base Component class
+	//Override Setup method from base Scene class
 	void Setup();
-	//Override Start method from base Component class
+	//Override Start method from base Scene class
 	void Start();
-	//Override Update method from base Component class
+	//Override Update method from base Scene class
 	void Update(float deltaTime);
 
 private:
@@ -38,6 +38,7 @@ private:
 	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
 	BC::Sprite backgroundItemHolder = BC::Sprite("../Assets/Art/Shop/ShopItemHolderBackground.png");
 	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Bar.png");
+	BC::Sprite backgroundCurrencyHolder = BC::Sprite("../Assets/Art/Shop/CurrencyHolderBackground.png");
 
 	//UIManager GameObject and components
 	GameObject GOUIManager = GameObject("UIManager", *this);

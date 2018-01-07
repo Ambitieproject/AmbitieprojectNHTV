@@ -33,14 +33,5 @@ inline void FileReadWrite::WriteJSONToFile(std::string filePath, json& j) {
 
 inline void FileReadWrite::GetJSONFromFile(std::string filePath, json& j) {
 	std::ifstream i(filePath);
-	std::string line;
-	std::string lines;
-
-	if (i.is_open()) {
-		while (std::getline(i, line)) {
-			lines.append(line + "\n");
-		}
-		i.close();
-	}
-	j = json::parse(lines);
+	i >> j;
 }

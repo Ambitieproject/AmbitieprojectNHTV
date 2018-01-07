@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+//Include needed framework header files
 #include "Component.h"
 #include "BaseComponents.hpp"
 

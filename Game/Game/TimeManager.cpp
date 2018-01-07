@@ -2,7 +2,6 @@
 #include "GameObject.h"
 #include "SceneManager.h"
 
-
 //Constructor
 TimeManager::TimeManager() {
 	
@@ -84,12 +83,19 @@ void TimeManager::Update(float deltaTime) {
 
 //Gets the time converted from minutes and seconds to seconds
 int TimeManager::GetTimeInSeconds() {
+	//Make temp variable
 	int allSeconds = 0;
+	//Calculate new seconds
 	allSeconds = allSeconds + seconds;
+
+	//if minutes is bigger then 0
 	if (minutes > 0) {
+		//Increase seconds with 60 for every minute
 		for (int i = 0; i < minutes; i++) {
 			allSeconds = allSeconds + 60;
 		}
 	}
+
+	//Return seconds
 	return allSeconds;
 }

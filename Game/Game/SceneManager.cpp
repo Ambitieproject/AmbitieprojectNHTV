@@ -10,9 +10,12 @@ Scene* SceneManager::currentScene;
 std::map<int, Scene*> SceneManager::scenes;
 int SceneManager::sceneIndexAmount;
 
+std::map<int, GameObject&> SceneManager::dontDestroyGameObjects;
+int SceneManager::dontDestroyGameObjectsLayerIndex;
+
 //Constructor
 SceneManager::SceneManager() {
-
+	
 }
 
 //Destructor
@@ -58,6 +61,15 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	//Reset the last scene that was loaded
 	//Finally return out of function
 	if (canLoad) {
+
+		if (Game::GetInstance()->GetSingletons().size() > 0) {
+			std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
+			for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
+				currentScene->AddToGameObjectList(it->second);
+			}
+		}
+		
+
 		currentScene->Setup();
 		currentScene->Awake();
 		currentScene->Start();
@@ -155,9 +167,20 @@ Scene& SceneManager::GetSceneByName(std::string sceneName) {
 	std::cout << "Scene with name " << sceneName << " not found" << std::endl;
 }
 
+void SceneManager::DontDestroyGameObject(GameObject& gameObject) {
+
+	GameObject* go = &gameObject;
+
+	dontDestroyGameObjects.insert(std::pair<int, GameObject&>(dontDestroyGameObjectsLayerIndex, *go));
+	dontDestroyGameObjectsLayerIndex++;
+}
+
 //Start the SceneManager
 void SceneManager::StartSceneManager() {
 	LoadScene(0);
+
+	sceneIndexAmount = 0;
+	dontDestroyGameObjectsLayerIndex = 0;
 }
 
 //Method that updates the current active scene
@@ -250,37 +273,31 @@ void SceneManager::ResetScene(Scene* scene) {
 	}
 
 	//If parameter scene has a certain name
-	//erase from scenes map
 	//call destructor of that scene
 	//make a new scene scene
 	//set scene index to be the last index
 	//which is the index the scene lived in previously
 	if (scene->Name == "MenuScene") {
-		scenes.erase(LocalIt);
 		menuSceneClass.~MenuScene();
 		new (&menuSceneClass) MenuScene("MenuScene");
 		menuSceneClass.SceneIndex = lastSceneIndex;
 	}
 	if (scene->Name == "MainScene") {
-		scenes.erase(LocalIt);
 		mainSceneClass.~MainScene();
 		new (&mainSceneClass) MainScene("MainScene");
 		mainSceneClass.SceneIndex = lastSceneIndex;
 	}
 	if (scene->Name == "LevelSelectScene") {
-		scenes.erase(LocalIt);
 		levelSelectScene.~LevelSelectScene();
 		new (&levelSelectScene) LevelSelectScene("LevelSelectScene");
 		levelSelectScene.SceneIndex = lastSceneIndex;
 	}
 	if (scene->Name == "CreditsScene") {
-		scenes.erase(LocalIt);
 		creditsSceneClass.~creditsSceneClass();
 		new (&creditsSceneClass) CreditsScene("CreditsScene");
 		creditsSceneClass.SceneIndex = lastSceneIndex;
 	}
 	if (scene->Name == "ShopScene") {
-		scenes.erase(LocalIt);
 		shopSceneClass.~shopSceneClass();
 		new (&shopSceneClass) ShopScene("ShopScene");
 		shopSceneClass.SceneIndex = lastSceneIndex;

@@ -21,15 +21,27 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
+	//Moves the mirror
+	void Move(float deltaTime);
+
 	//Get line
 	sf::Vertex* GetLine();
 	
-	//Get can move
-	bool CanMove();
+	//Get the state of this mirror being moved
+	bool IsMoving();
+
+	//Get the state of the object being a static object
+	bool IsStaticObject();
+
+	//Set the state of the object being a static object
+	void SetIsStaticObject(bool isStatic);
 
 private:
 	//Determine if you can move this mirror
-	bool canMove;
+	bool isMoving;
+
+	//Is a static object
+	bool isStaticObject;
 
 	//Speed to rotate with
 	float rotateSpeed;

@@ -12,7 +12,7 @@ CreditsScene::~CreditsScene() {
 
 }
 
-//Override Setup method from base Component class
+//Override Setup method from base Scene class
 void CreditsScene::Setup() {
 	Scene::Setup();
 
@@ -29,12 +29,12 @@ void CreditsScene::Setup() {
 
 }
 
-//Override Start method from base Component class
+//Override Start method from base Scene class
 void CreditsScene::Start() {
 	Scene::Start();
 }
 
-//Override Update method from base Component class
+//Override Update method from base Scene class
 void CreditsScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
 

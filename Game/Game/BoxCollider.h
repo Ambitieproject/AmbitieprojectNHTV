@@ -9,10 +9,10 @@ public:
 	{
 		sf::Transform trans = Object.getTransform();
 		sf::IntRect local = Object.getTextureRect();
-		Points[0] = trans.transformPoint(0.f, 0.f);
-		Points[1] = trans.transformPoint(local.width, 0.f);
-		Points[2] = trans.transformPoint(local.width, local.height);
-		Points[3] = trans.transformPoint(0.f, local.height);
+		Points[0] = trans.transformPoint(0, 0);
+		Points[1] = trans.transformPoint((int)local.width, 0);
+		Points[2] = trans.transformPoint((int)local.width, (int)local.height);
+		Points[3] = trans.transformPoint(0, (int)local.height);
 	}
 
 	sf::Vector2f Points[4];

@@ -17,15 +17,15 @@ public:
 	//Destructor
 	~CreditsScene();
 
-	//Override Setup method from base Component class
+	//Override Setup method from base Scene class
 	void Setup();
-	//Override Start method from base Component class
+	//Override Start method from base Scene class
 	void Start();
-	//Override Update method from base Component class
+	//Override Update method from base Scene class
 	void Update(float deltaTime);
 
 private:
-	//CreditManager GameObject and components
+	///CreditManager GameObject and components
 	GameObject GOcreditManager = GameObject("CreditManager", *this);
 	BC::Sprite CreditSprite = BC::Sprite("../Assets/Credits/Credits.png");
 };
