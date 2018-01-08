@@ -20,7 +20,7 @@ void GameFlowManager::Start() {
 //Override Update method from base Component class
 void GameFlowManager::Update(float deltaTime) {
 	//If game is over
-	if (IsGameOver() && !isGameOver || Input::GetKeyDown(sf::Keyboard::T)) {
+	if (IsGameOver() && !isGameOver) {
 		//End game
 		EndGame();
 	}

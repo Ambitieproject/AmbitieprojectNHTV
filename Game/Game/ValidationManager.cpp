@@ -1,4 +1,5 @@
 #include "ValidationManager.h"
+#include "GameObject.h"
 
 //Constructor
 ValidationManager::ValidationManager(BC::Sprite* checkerSprite, ReflectorBeamManager* reflectorBeamManager) : checkerSprite(checkerSprite), reflectorBeamManager(reflectorBeamManager) {

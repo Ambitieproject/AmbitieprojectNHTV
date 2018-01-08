@@ -62,14 +62,14 @@
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "My first job was being\na shelf stacker at Jumbo Boxtel",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "Next to programming,\nI like working out in the gym",
@@ -83,7 +83,7 @@
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "Now I am a teamleader\nat Dominos Boxtel",

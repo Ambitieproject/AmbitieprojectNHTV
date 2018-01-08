@@ -31,15 +31,7 @@ void ReflectorBeam::SetLineColor(sf::Color color) {
 }
 
 sf::Vector2f ReflectorBeam::GetDirection() {
-
-	float x = 0;
-	float y = 0;
-
-	x = sin(beamRotation * PI / 180);
-	y = cos(beamRotation * PI / 180);
-	y = -y;
-
-	return sf::Vector2f(x, y);
+	return Equations::CreateDirectionFromRotation(beamRotation);
 }
 
 int ReflectorBeam::GetBeamIndexInMap() {

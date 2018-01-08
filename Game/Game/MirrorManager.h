@@ -3,11 +3,13 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <map>
+#include <cmath>
 
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 #include "GameObject.h"
 #include "BaseComponents.hpp"
+#include "Equations.h"
 
 #include "Mirror.h"
 #include "ReflectorBeamManager.h"

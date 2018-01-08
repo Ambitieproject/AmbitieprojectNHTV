@@ -75,7 +75,7 @@ void MirrorManager::Update(float deltaTime) {
 						}
 						
 					}
-
+					float radians = 0;
 					if (closestMirror) {
 						//Get the four points of the mirror object
 						//Top left, top right, bottom right, bottom left
@@ -128,12 +128,89 @@ void MirrorManager::Update(float deltaTime) {
 									shortestDist = it;
 								}
 							}
-
+							
 							if (shortestDist->first == "Front") {
 								line[1].position = frontsideMirrorCollider;
 
+								sf::Vector2f pointA;
+								sf::Vector2f pointB;
+								sf::Vector2f pointC;
+								sf::Vector2f pointD;
+
+								sf::Vector2f diffAC;
+								sf::Vector2f diffCB;
+								sf::Vector2f diffAD;
+
+								float lengthAC;
+								float lengthCB;
+								float lengthAD;
+
+
+
+								float distLength = 20;
+
+								if (shortestDist->first == "Front") {
+									pointA = frontsideMirrorCollider;
+								}
+								else if (shortestDist->first == "Back") {
+									pointA = backsideMirrorCollider;
+								}
+								else if (shortestDist->first == "Left") {
+									pointA = leftsideMirrorCollider;
+								}
+								else if (shortestDist->first == "Right") {
+									pointA = rightsideMirrorCollider;
+								}
+
+								pointB = pointA - beam->GetDirection() * distLength;
+								pointC = pointA + Equations::CreateDirectionFromRotation(closestMirror->GetComponent<BC::Sprite>()->getRotation()) * distLength;
+
+								diffAC = pointC - pointA;
+								diffCB = pointC - pointB;
+
+								pointD = pointC - (diffCB * 0.5f);
+
+								diffAD = pointD - pointA;
+
+								lengthAC = sqrt((diffAC.x * diffAC.x) + (diffAC.y * diffAC.y));
+								lengthCB = sqrt((diffCB.x * diffCB.x) + (diffCB.y * diffCB.y));
+								lengthAD = sqrt((diffAD.x * diffAD.x) + (diffAD.y * diffAD.y));
+
+								radians = atan((lengthCB / 2) / lengthAD) * 180 / PI;
+								radians = radians * 2;
+
+								std::cout << closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians << std::endl;
+								std::cout << radians << std::endl;
+								/*
+								gameObject->SetDrawIndex(0);
+
+								BC::Sprite* spritePointA = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+								spritePointA->setOrigin(spritePointA->getTexture()->getSize().x * 0.5f, spritePointA->getTexture()->getSize().y * 0.5f);
+								spritePointA->setPosition(pointA);
+								spritePointA->setColor(sf::Color::Red);
+								gameObject->AddComponent(spritePointA);
+
+								BC::Sprite* spritePointB = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+								spritePointB->setOrigin(spritePointB->getTexture()->getSize().x * 0.5f, spritePointB->getTexture()->getSize().y * 0.5f);
+								spritePointB->setPosition(pointB);
+								spritePointB->setColor(sf::Color::Blue);
+								gameObject->AddComponent(spritePointB);
+
+								BC::Sprite* spritePointC = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+								spritePointC->setOrigin(spritePointC->getTexture()->getSize().x * 0.5f, spritePointC->getTexture()->getSize().y * 0.5f);
+								spritePointC->setPosition(pointC);
+								spritePointC->setColor(sf::Color::Green);
+								gameObject->AddComponent(spritePointC);
+
+								BC::Sprite* spritePointD = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+								spritePointD->setOrigin(spritePointD->getTexture()->getSize().x * 0.5f, spritePointD->getTexture()->getSize().y * 0.5f);
+								spritePointD->setPosition(pointD);
+								spritePointD->setColor(sf::Color::Yellow);
+								gameObject->AddComponent(spritePointD);
+								*/
+
 								if (!beam->newBeam) {
-									GameObject* go = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, closestMirror->GetComponent<BC::Sprite>()->getRotation(), line[0].color);
+									GameObject* go = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians, line[0].color);
 
 									beam->newBeam = go;
 									beam->newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = closestMirror;
@@ -175,7 +252,7 @@ void MirrorManager::Update(float deltaTime) {
 					if (!beam->reflectingMirror) {
 
 						if (beam->mirrorSpawningFrom)
-							beam->beamRotation = beam->mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation();
+							beam->beamRotation = beam->mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() + radians;
 
 						line[1].position = line[0].position + sf::Vector2f(beam->GetDirection().x * 1000, beam->GetDirection().y * 1000);
 

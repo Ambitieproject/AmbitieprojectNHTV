@@ -7,7 +7,7 @@
 #include "BaseComponents.hpp"
 #include "Component.h"
 
-#define PI 3.14159265
+#include "Equations.h"
 
 class MirrorManager;
 class ReflectorBeamManager;
