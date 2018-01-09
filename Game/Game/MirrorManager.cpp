@@ -128,7 +128,7 @@ void MirrorManager::Update(float deltaTime) {
 									shortestDist = it;
 								}
 							}
-							
+
 							if (shortestDist->first == "Front") {
 								line[1].position = frontsideMirrorCollider;
 
@@ -145,7 +145,7 @@ void MirrorManager::Update(float deltaTime) {
 								float lengthCB;
 								float lengthAD;
 
-
+								bool plusRadians = true;
 
 								float distLength = 20;
 
@@ -179,35 +179,48 @@ void MirrorManager::Update(float deltaTime) {
 								radians = atan((lengthCB / 2) / lengthAD) * 180 / PI;
 								radians = radians * 2;
 
-								std::cout << closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians << std::endl;
-								std::cout << radians << std::endl;
-								/*
+								sf::Vector2f diffMirrorPointLeftPointB = pointB - p0;
+								sf::Vector2f diffMirrorPointRightPointB = pointB - p1;
+
+								float lengthMirrorLeftPointB = sqrt((diffMirrorPointLeftPointB.x * diffMirrorPointLeftPointB.x) + (diffMirrorPointLeftPointB.y * diffMirrorPointLeftPointB.y));
+								float lengthMirrorRightPointB = sqrt((diffMirrorPointRightPointB.x * diffMirrorPointRightPointB.x) + (diffMirrorPointRightPointB.y * diffMirrorPointRightPointB.y));
+
+								if (lengthMirrorLeftPointB > lengthMirrorRightPointB) {
+									//Is on right side
+									plusRadians = false;
+								}
+								else {
+									//Is on left side
+									plusRadians = true;
+								}
+
 								gameObject->SetDrawIndex(0);
 
-								BC::Sprite* spritePointA = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-								spritePointA->setOrigin(spritePointA->getTexture()->getSize().x * 0.5f, spritePointA->getTexture()->getSize().y * 0.5f);
-								spritePointA->setPosition(pointA);
-								spritePointA->setColor(sf::Color::Red);
-								gameObject->AddComponent(spritePointA);
+								if (Input::GetKeyPressed(sf::Keyboard::T)) {
+									BC::Sprite* spritePointA = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+									spritePointA->setOrigin(spritePointA->getTexture()->getSize().x * 0.5f, spritePointA->getTexture()->getSize().y * 0.5f);
+									spritePointA->setPosition(pointA);
+									spritePointA->setColor(sf::Color::Red);
+									gameObject->AddComponent(spritePointA);
 
-								BC::Sprite* spritePointB = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-								spritePointB->setOrigin(spritePointB->getTexture()->getSize().x * 0.5f, spritePointB->getTexture()->getSize().y * 0.5f);
-								spritePointB->setPosition(pointB);
-								spritePointB->setColor(sf::Color::Blue);
-								gameObject->AddComponent(spritePointB);
+									BC::Sprite* spritePointB = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+									spritePointB->setOrigin(spritePointB->getTexture()->getSize().x * 0.5f, spritePointB->getTexture()->getSize().y * 0.5f);
+									spritePointB->setPosition(pointB);
+									spritePointB->setColor(sf::Color::Blue);
+									gameObject->AddComponent(spritePointB);
 
-								BC::Sprite* spritePointC = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-								spritePointC->setOrigin(spritePointC->getTexture()->getSize().x * 0.5f, spritePointC->getTexture()->getSize().y * 0.5f);
-								spritePointC->setPosition(pointC);
-								spritePointC->setColor(sf::Color::Green);
-								gameObject->AddComponent(spritePointC);
+									BC::Sprite* spritePointC = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+									spritePointC->setOrigin(spritePointC->getTexture()->getSize().x * 0.5f, spritePointC->getTexture()->getSize().y * 0.5f);
+									spritePointC->setPosition(pointC);
+									spritePointC->setColor(sf::Color::Green);
+									gameObject->AddComponent(spritePointC);
 
-								BC::Sprite* spritePointD = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-								spritePointD->setOrigin(spritePointD->getTexture()->getSize().x * 0.5f, spritePointD->getTexture()->getSize().y * 0.5f);
-								spritePointD->setPosition(pointD);
-								spritePointD->setColor(sf::Color::Yellow);
-								gameObject->AddComponent(spritePointD);
-								*/
+									BC::Sprite* spritePointD = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+									spritePointD->setOrigin(spritePointD->getTexture()->getSize().x * 0.5f, spritePointD->getTexture()->getSize().y * 0.5f);
+									spritePointD->setPosition(pointD);
+									spritePointD->setColor(sf::Color::Yellow);
+									gameObject->AddComponent(spritePointD);
+								}
 
 								if (!beam->newBeam) {
 									GameObject* go = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians, line[0].color);
@@ -217,6 +230,14 @@ void MirrorManager::Update(float deltaTime) {
 								}
 								else {
 									beam->newBeam->GetComponent<ReflectorBeam>()->GetLine()[0].position = frontsideMirrorCollider;
+
+									if (plusRadians) {
+										beam->newBeam->GetComponent<ReflectorBeam>()->beamRotation = closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians;
+									}
+									else {
+										beam->newBeam->GetComponent<ReflectorBeam>()->beamRotation = closestMirror->GetComponent<BC::Sprite>()->getRotation() - radians;
+									}
+									
 								}	
 							}
 							else if (shortestDist->first == "Back") {
@@ -250,9 +271,6 @@ void MirrorManager::Update(float deltaTime) {
 					}
 
 					if (!beam->reflectingMirror) {
-
-						if (beam->mirrorSpawningFrom)
-							beam->beamRotation = beam->mirrorSpawningFrom->GetComponent<BC::Sprite>()->getRotation() + radians;
 
 						line[1].position = line[0].position + sf::Vector2f(beam->GetDirection().x * 1000, beam->GetDirection().y * 1000);
 

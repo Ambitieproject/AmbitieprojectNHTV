@@ -29,12 +29,14 @@ public:
 	sf::Vector2f GetDirection();
 	int GetBeamIndexInMap();
 
+	float beamRotation;
+
 public:
 	GameObject* mirrorSpawningFrom = nullptr;
 	GameObject* reflectingMirror = nullptr;
 	GameObject* newBeam = nullptr;
 
-	float beamRotation;
+	
 	bool isReflecting;
 
 private:

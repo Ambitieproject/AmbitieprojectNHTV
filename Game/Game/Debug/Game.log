@@ -3,36 +3,13 @@ c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieproj
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(179): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(213): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(310): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(226): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(328): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(72): warning C4018: '<': signed/unsigned mismatch
   c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(38): note: see reference to function template instantiation 'component *GameObject::GetComponent<ReflectorBeam>(void)' being compiled
           with
           [
               component=ReflectorBeam
           ]
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Equations.cpp
-  ValidationManager.cpp
-  TimeManager.cpp
-  ShopScene.cpp
-  ShopManager.cpp
-  ScoreManager.cpp
-  SceneManager.cpp
-  Scene.cpp
-  Renderer.cpp
-  ReflectorBeamManager.cpp
-  ReflectorBeam.cpp
-  MenuScene.cpp
-  MainScene.cpp
-  Main.cpp
-  LevelSelectScene.cpp
-  LevelLoader.cpp
-  Input.cpp
-  GameFlowManager.cpp
-  Game.cpp
-  CreditsScene.cpp
-  Collider.cpp
   Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
   Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
