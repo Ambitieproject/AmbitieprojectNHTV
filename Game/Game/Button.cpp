@@ -1,5 +1,6 @@
 #include "Button.h"
 
+//Use Base Components namespace
 using namespace BC;
 
 //Constructor
@@ -17,9 +18,9 @@ Button::Button(std::string normalImagePath, std::string hoveredImagePath, std::s
 
 	//Set a standard texture to start the button with
 	currentButtonSpriteImage.setTexture(normalTexture);
-	//Set isClicked to false by default
+	
+	//Set default values
 	isClicked = false;
-
 	deActiveButtonTimer = 0;
 }
 

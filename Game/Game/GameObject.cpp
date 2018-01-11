@@ -26,6 +26,7 @@ void GameObject::Awake() {
 	for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 		//if GameObject is active
 		if (objects->second->Enabled) {
+			//Run Awake method of Component
 			objects->second->Awake();
 		}
 	}
@@ -38,6 +39,7 @@ void GameObject::Start() {
 		for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 			//if GameObject is active
 			if (objects->second->Enabled) {
+				//Run start method of Component
 				objects->second->Start();
 			}
 		}
@@ -52,6 +54,7 @@ void GameObject::Update(float deltaTime) {
 		for (auto objects = Components.begin(); objects != Components.end(); objects++) {
 			//if GameObject is active
 			if (objects->second && objects->second->Enabled) {
+				//Run Update method of Component
 				objects->second->Update(deltaTime);
 			}
 		}
@@ -61,7 +64,9 @@ void GameObject::Update(float deltaTime) {
 
 //Sets the draw index of this GameObject
 void GameObject::SetDrawIndex(int index) {
+	//Set draw index
 	drawIndex = index;
+	//Insert GameObject in draw index
 	GetScene().OrderedGameObjects[this->drawIndex].insert(GetScene().OrderedGameObjects[this->drawIndex].end(), this);
 }
 

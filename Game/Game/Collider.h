@@ -3,8 +3,10 @@
 #include <iostream>
 #include <map>
 
+//Include sprite class
 #include "Sprite.h"
 
+//Use Basic Components namespace
 using namespace BC;
 
 //enum that holds different types of objects a colliding type can be

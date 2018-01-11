@@ -14,6 +14,8 @@
 #include "Mirror.h"
 #include "ReflectorBeamManager.h"
 
+#include <math.h>
+
 //Manager for the mirrors
 class MirrorManager : public Component {
 public:

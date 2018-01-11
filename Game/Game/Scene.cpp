@@ -38,18 +38,6 @@ void Scene::Awake() {
 			it->second->Awake();
 		}
 	}
-
-	//If singleton map has a bigger size then 0
-	if (Game::GetInstance()->GetSingletons().size() > 0) {
-		std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
-		//For every singleton GameObject in the scene
-		for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
-			//if GameObject is active
-			if (it->second->Active) {
-				it->second->Awake();
-			}
-		}
-	}
 }
 
 //Virtual Start Method of a scene that can be overwritten in a supper class
@@ -59,18 +47,6 @@ void Scene::Start() {
 		//if GameObject is active
 		if (it->second->Active) {
 			it->second->Start();
-		}
-	}
-
-	//If singleton map has a bigger size then 0
-	if (Game::GetInstance()->GetSingletons().size() > 0) {
-		std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
-		//For every singleton GameObject in the scene
-		for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
-			//if GameObject is active
-			if (it->second->Active) {
-				it->second->Start();
-			}
 		}
 	}
 }
@@ -92,18 +68,6 @@ void Scene::Update(float deltaTime) {
 				it = GameObjects.erase(it);
 			}
 		}
-
-		//If singleton map has a bigger size then 0
-		if (Game::GetInstance()->GetSingletons().size() > 0) {
-			std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
-			//For every singleton GameObject in the scene
-			for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
-				//if GameObject is active
-				if (it->second->Active) {
-					it->second->Update(deltaTime);
-				}
-			}
-		}
 	}
 }
 
@@ -114,13 +78,12 @@ void Scene::Quit() {
 
 //Adds a given GameObject to the list of GameObjects in the scene
 void Scene::AddToGameObjectList(GameObject* gameObject) {
+	//Insert GameObject into map
 	GameObjects.insert(std::pair<int, GameObject*>(gameObjectLayerIndex, gameObject));
+	//Set GameObject's sceneIndex
 	gameObject->GameObjectSceneIndex = gameObjectLayerIndex;
+	//Increase local GameObject index
 	gameObjectLayerIndex++;
-}
-
-void Scene::DontDestroyGameObject(GameObject& gameObject) {
-	sceneManager->DontDestroyGameObject(gameObject);
 }
 
 //Destroys a specified GameObject

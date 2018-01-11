@@ -42,7 +42,10 @@ void BoxCollider::Update(float deltaTime) {
 		boxCollider.setRotation(GetTextCast().getRotation());
 		break;
 	}
+
+	//Make rect
 	sf::IntRect  r = boxCollider.getTextureRect();
+	//Set rect values equal to boxCollider values
 	r.top = boxCollider.getPosition().x;
 	r.left = boxCollider.getPosition().y;
 	r.width = boxCollider.getSize().x;
@@ -127,12 +130,16 @@ Collider* BoxCollider::OnEndOverlap() {
 	return nullptr;
 }
 
+//Returns the state of the mouse being over the object
 bool BoxCollider::OnMouseEnter() {
 	//Get the mouse position
 	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
 
+	//If mouse does not overlap
 	if (!isMouseOverlapping) {
+		//If mousePos is inside the boxCollider
 		if (boxCollider.getGlobalBounds().contains(mousePos)) {
+			//Set mouse overlapping
 			isMouseOverlapping = true;
 			return true;
 		}
@@ -141,7 +148,9 @@ bool BoxCollider::OnMouseEnter() {
 		}
 	}
 	else {
+		//If mousePos is not inside the boxCollider
 		if (!boxCollider.getGlobalBounds().contains(mousePos)) {
+			//Set mouse overlapping
 			isMouseOverlapping = false;
 			return false;
 		}
@@ -151,20 +160,26 @@ bool BoxCollider::OnMouseEnter() {
 	}
 }
 
+//Returns the state of a specific mouse button being pressed on the object
 bool BoxCollider::OnMouseDown(sf::Mouse::Button mouseButton) {
 	//Get the mouse position
 	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
 
+	//If mouse does not overlap
 	if (boxCollider.getGlobalBounds().contains(mousePos)) {
+		//Set mouse down
 		isMouseDown = true;
 	}
 	else {
+		//Set mouse down
 		isMouseDown = false;
 	}
+	//If mouse is exited and mouse key is up
 	if(OnMouseExit() && Input::GetMouseKeyUp(mouseButton)) {
+		//Set mouse down
 		isMouseDown = false;
 	}
-
+	//If mouse key is down and mouse is down
 	if (Input::GetMouseKeyDown(mouseButton) && isMouseDown) {
 		return true;
 	}
@@ -172,17 +187,22 @@ bool BoxCollider::OnMouseDown(sf::Mouse::Button mouseButton) {
 		return false;
 	}
 	if (Input::GetMouseKeyUp(mouseButton)) {
+		//Set mouse down
 		isMouseDown = false;
 		return false;
 	}
 } 
 
+//Returns the state of the mouse exciting the object
 bool BoxCollider::OnMouseExit() {
 	//Get the mouse position
 	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
 
+	//If mouse is overlapping
 	if (isMouseOverlapping) {
+		//If mousePos is not inside the boxCollider
 		if (!boxCollider.getGlobalBounds().contains(mousePos)) {
+			//Set mouse overlapping
 			isMouseOverlapping = false;
 			return true;
 		}
@@ -191,7 +211,9 @@ bool BoxCollider::OnMouseExit() {
 		}
 	}
 	else {
+		//If mousePos is inside the boxCollider
 		if (boxCollider.getGlobalBounds().contains(mousePos)) {
+			//Set mouse overlapping
 			isMouseOverlapping = true;
 			return false;
 		}
@@ -206,6 +228,7 @@ sf::RectangleShape& BoxCollider::GetBoxCollider() {
 	return boxCollider;
 }
 
+//Bounding box test
 bool BoxCollider::CheckBoundingBox(const sf::RectangleShape & Object1, const sf::RectangleShape & Object2) {
 	OrientedBoundingBox OBB1(Object1);
 	OrientedBoundingBox OBB2(Object2);

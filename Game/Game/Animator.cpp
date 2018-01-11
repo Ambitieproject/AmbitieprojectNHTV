@@ -35,7 +35,9 @@ void Animator::Update(float deltaTime) {
 //Play animation with a parameter value
 AnimationClip* Animator::PlayAnimation(std::string animationName) {
 	
+	//If clip is nullptr
 	if (currentAnimationClip != nullptr) {
+		//Stop previous animation
 		currentAnimationClip->Stop();
 	}
 	

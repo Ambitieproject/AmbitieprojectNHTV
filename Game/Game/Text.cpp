@@ -1,5 +1,6 @@
 #include "Text.h"
 
+//Use Base Components namespace
 using namespace BC;
 
 //Constructor

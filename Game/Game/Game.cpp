@@ -13,6 +13,7 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
+	//Set Components
 	sceneManager = SceneManager::GetInstance();
 	window = Window::GetInstance();
 	singletonIndex = 0;
@@ -29,52 +30,18 @@ void Game::Start() {
 	window->CreateWindow(sf::Vector2u(500, 800), "Prism");
 	//Start SceneManager method that loads the first scene
 	sceneManager->StartSceneManager();
-
+	//Setup input
 	Input::SetupInput();
 }
 
 //Main Update function that runs in the whole game
 void Game::Update() {
-	//std::cout << singletons.size() << std::endl;
-
 	//Set the deltaTime which is going to be passed troughout the whole game
 	DeltaTime = clock.restart().asSeconds();
 	//Call Update method of SceneManager which calls the Update method of the current Scene
 	sceneManager->UpdateCurrentScene(DeltaTime);
 	//call Update PollEvent method
 	Input::UpdatePollEvent(DeltaTime);
-}
-
-//Makes a GameObject into a singleton
-GameObject& Game::AddSingleton(GameObject& gameObject) {
-	//Make temp pointer object that copies content of parameter GameObject
-	GameObject* go = &gameObject;
-	//Pushback the temp GameObject into the singleton vector
-	singletons.insert(std::pair<int, GameObject*>(singletonIndex, go));
-	//Increase singleton index
-	singletonIndex++;
-	//Return temp GameObject
-	return *go;
-}
-
-//Gets an already made singleton GameObject
-GameObject* Game::GetSingleton(std::string gameObjectName) {
-	//Make temp pointer object that copies content of parameter GameObject
-	GameObject* go;
-	//Go through the Singletons
-	for (int i = 0; i < singletons.size(); i++) {
-		//If name of index Singleton is the same as the GameObjects name then return that GameObject
-		if (singletons[i]->Name == gameObjectName) {
-			return singletons[i];
-		}
-	}
-	//If no match is found return nullptr
-	return nullptr;
-}
-
-//Gets all the singletons
-std::map<int, GameObject*> Game::GetSingletons() {
-	return singletons;
 }
 
 //Gets Window class method

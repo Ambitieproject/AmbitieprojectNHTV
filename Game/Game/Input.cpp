@@ -2,8 +2,6 @@
 #include "Window.h"
 #include "Game.h"
 
-//Initialise static members
-
 //Window Event, when a Event happens it's basicly input
 sf::Event Input::event;
 
@@ -185,12 +183,16 @@ sf::Vector2i & Input::GetMousePosition() {
 
 //Creates an Axis with a positive and negative key that can specified
 void Input::CreateAxis(std::string axisName, sf::Keyboard::Key positiveKey, sf::Keyboard::Key negativeKey) {
+	//Create Axis
 	Axis axis;
+
+	//Set axis standard values
 	axis.AxisName = axisName;
 	axis.PositiveKey = positiveKey;
 	axis.NegativeKey = negativeKey;
 	axis.axisMultiplier = 0;
 
+	//Insert axis into map
 	InputAxis.insert(std::pair<std::string, Axis>(axis.AxisName, axis));
 }
 

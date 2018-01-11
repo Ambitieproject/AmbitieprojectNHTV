@@ -69,7 +69,7 @@
                     "Item intensity": 0
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "Next to programming,\nI like working out in the gym",

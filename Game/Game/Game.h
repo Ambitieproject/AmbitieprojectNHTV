@@ -5,11 +5,10 @@
 #include <map>
 #include <SFML\Graphics.hpp>
 
+//Include Component header files
 #include "Window.h"
 #include "Input.h"
 #include "SceneManager.h"
-
-#include "GameObject.h"
 
 //Main Game class which is the upper class of all classes in this framework
 class Game {
@@ -35,13 +34,6 @@ public:
 	void Start();
 	//Main Update method that runs in the whole game
 	void Update();
-
-	//Makes a GameObject into a singleton
-	GameObject& AddSingleton(GameObject& gameObject);
-	//Gets an already made singleton GameObject
-	GameObject* GetSingleton(std::string gameObjectName);
-	//Gets all the singletons
-	std::map<int, GameObject*> GetSingletons();
 
 	//Gets Window class method
 	Window& GetWindowClass();

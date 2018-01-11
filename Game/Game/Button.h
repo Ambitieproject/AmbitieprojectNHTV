@@ -3,6 +3,7 @@
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 
+//Include needed header files
 #include "Sprite.h"
 
 //Namespace Base Component

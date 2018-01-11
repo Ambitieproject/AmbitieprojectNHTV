@@ -141,9 +141,12 @@ void MirrorManager::Update(float deltaTime) {
 								sf::Vector2f diffCB;
 								sf::Vector2f diffAD;
 
+								sf::Vector2f diffAB;
+
 								float lengthAC;
 								float lengthCB;
 								float lengthAD;
+								float lengthAB;
 
 								bool plusRadians = true;
 
@@ -167,6 +170,7 @@ void MirrorManager::Update(float deltaTime) {
 
 								diffAC = pointC - pointA;
 								diffCB = pointC - pointB;
+								diffAB = pointB - pointA;
 
 								pointD = pointC - (diffCB * 0.5f);
 
@@ -175,25 +179,12 @@ void MirrorManager::Update(float deltaTime) {
 								lengthAC = sqrt((diffAC.x * diffAC.x) + (diffAC.y * diffAC.y));
 								lengthCB = sqrt((diffCB.x * diffCB.x) + (diffCB.y * diffCB.y));
 								lengthAD = sqrt((diffAD.x * diffAD.x) + (diffAD.y * diffAD.y));
+								lengthAB = sqrt((diffAB.x * diffAB.x) + (diffAB.y * diffAB.y));
 
-								radians = atan((lengthCB / 2) / lengthAD) * 180 / PI;
+								float test = lengthAB / lengthAD;
+								radians = acos(lengthAD / lengthAB) * 180 / PI;
 								radians = radians * 2;
-
-								sf::Vector2f diffMirrorPointLeftPointB = pointB - p0;
-								sf::Vector2f diffMirrorPointRightPointB = pointB - p1;
-
-								float lengthMirrorLeftPointB = sqrt((diffMirrorPointLeftPointB.x * diffMirrorPointLeftPointB.x) + (diffMirrorPointLeftPointB.y * diffMirrorPointLeftPointB.y));
-								float lengthMirrorRightPointB = sqrt((diffMirrorPointRightPointB.x * diffMirrorPointRightPointB.x) + (diffMirrorPointRightPointB.y * diffMirrorPointRightPointB.y));
-
-								if (lengthMirrorLeftPointB > lengthMirrorRightPointB) {
-									//Is on right side
-									plusRadians = false;
-								}
-								else {
-									//Is on left side
-									plusRadians = true;
-								}
-
+							
 								gameObject->SetDrawIndex(0);
 
 								if (Input::GetKeyPressed(sf::Keyboard::T)) {
@@ -221,24 +212,46 @@ void MirrorManager::Update(float deltaTime) {
 									spritePointD->setColor(sf::Color::Yellow);
 									gameObject->AddComponent(spritePointD);
 								}
-
+								
 								if (!beam->newBeam) {
 									GameObject* go = &reflectorBeamManager->AddBeam(frontsideMirrorCollider, closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians, line[0].color);
 
 									beam->newBeam = go;
+									beam->newBeam->GetComponent<ReflectorBeam>()->NoRotationBeam = true;
 									beam->newBeam->GetComponent<ReflectorBeam>()->mirrorSpawningFrom = closestMirror;
 								}
 								else {
 									beam->newBeam->GetComponent<ReflectorBeam>()->GetLine()[0].position = frontsideMirrorCollider;
 
-									if (plusRadians) {
-										beam->newBeam->GetComponent<ReflectorBeam>()->beamRotation = closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians;
-									}
-									else {
-										beam->newBeam->GetComponent<ReflectorBeam>()->beamRotation = closestMirror->GetComponent<BC::Sprite>()->getRotation() - radians;
-									}
+									sf::Vector2f dir = Equations::CreateDirectionFromRotation(closestMirror->GetComponent<BC::Sprite>()->getRotation() + radians);
+
+									beam->newBeam->GetComponent<ReflectorBeam>()->SetDirection(dir);
 									
-								}	
+									float beamX = roundf(beam->GetDirection().x * 100) / 100;
+									float beamY = roundf(beam->GetDirection().y * 100) / 100;
+
+									float newBeamX = roundf(beam->newBeam->GetComponent<ReflectorBeam>()->GetDirection().x * 100) / 100;
+									float newBeamY = roundf(beam->newBeam->GetComponent<ReflectorBeam>()->GetDirection().y * 100) / 100;
+
+									newBeamX = newBeamX * -1;
+									newBeamY = newBeamY * -1;
+
+									if (newBeamX == beamX && newBeamY == beamY) {
+										sf::Vector2f dir = Equations::CreateDirectionFromRotation(closestMirror->GetComponent<BC::Sprite>()->getRotation() - radians);
+
+										beam->newBeam->GetComponent<ReflectorBeam>()->SetDirection(dir);
+									}
+
+									/*
+									beam->newBeam->GetComponent<ReflectorBeam>()->GetLine()[0].position = frontsideMirrorCollider;
+
+									//sf::Vector2f dir = sf::Vector2f(beam->GetDirection().x * -1, beam->GetDirection().y * -1);
+									sf::Vector2f dir = beam->GetDirection();
+									dir = sf::Vector2f(dir.x * -1, dir.y * -1);
+									beam->newBeam->GetComponent<ReflectorBeam>()->SetDirecttion(dir);
+									*/
+								}
+								
 							}
 							else if (shortestDist->first == "Back") {
 								line[1].position = backsideMirrorCollider;

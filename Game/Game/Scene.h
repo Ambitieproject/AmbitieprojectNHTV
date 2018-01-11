@@ -11,8 +11,7 @@ class SceneManager;
 #include <vector>
 
 //Base scene class. A custom Scene class needs to be inherited from this class to be able to be a scene
-class Scene
-{
+class Scene {
 public:
 	//Constructor
 	Scene(std::string sceneName);
@@ -37,8 +36,6 @@ public:
 	//Adds a given GameObject to the list of GameObjects in the scene
 	void AddToGameObjectList(GameObject* gameObject);
 
-	void DontDestroyGameObject(GameObject& gameObject);
-
 	//Destroys a specified GameObject
 	bool DestroyGameObject(GameObject* gameObject);
 	//Destroys a specified Component
@@ -59,6 +56,7 @@ public:
 	//Map of GameObjects in the scene
 	std::map<int, GameObject*> GameObjects;
 
+	//List of ordered GameObjects
 	std::list<GameObject*> OrderedGameObjects[5];
 
 private:

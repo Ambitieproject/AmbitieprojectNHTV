@@ -2,6 +2,7 @@
 
 #include <SFML\Graphics.hpp>
 
+//Include needed header files
 #include "Component.h"
 
 //Namespace Base Component

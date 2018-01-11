@@ -1,5 +1,6 @@
 #pragma once
 
+//Include Component class for using Components
 #include "Component.h"
 
 #include <iostream>
@@ -7,6 +8,7 @@
 #include <map>
 #include <vector>
 
+//Include upper class hierachy Scene class
 class Scene;
 
 //Custom Object made to hold components and run them

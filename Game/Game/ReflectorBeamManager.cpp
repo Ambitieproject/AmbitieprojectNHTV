@@ -68,7 +68,6 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, int rotation, s
 
 //Destroy a beam
 void ReflectorBeamManager::DestroyBeam(GameObject* beam) {
-
 	//For each beam
 	for (auto it = beams.begin(); it != beams.end(); it++) {
 		//If iterator is equal to the parameter beam

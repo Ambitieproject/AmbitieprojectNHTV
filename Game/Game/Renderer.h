@@ -2,6 +2,7 @@
 
 #include <SFML\Graphics.hpp>
 
+//Forward include upper hierachy class Window
 class Window;
 
 class Renderer {
@@ -26,7 +27,5 @@ public:
 private:
 	//Reference to sfml renderwindow of the window class
 	sf::RenderWindow* window;
-
-	//Reference to the scene that needs to be rendered
 };
 

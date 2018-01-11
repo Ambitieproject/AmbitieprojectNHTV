@@ -46,7 +46,6 @@ public:
 	//Gets a scene by a name specified as a parameter
 	static Scene& GetSceneByName(std::string sceneName);
 
-	static void DontDestroyGameObject(GameObject& gameObject);
 private:
 	//Destructor
 	~SceneManager();
@@ -71,9 +70,6 @@ private:
 	//Define the friend class Scene
 	friend class Scene;
 
-	static std::map<int, GameObject&> dontDestroyGameObjects;
-	static int dontDestroyGameObjectsLayerIndex;
-
 	//Pointer to the renderer class
 	Renderer* renderer;
 
@@ -82,6 +78,7 @@ private:
 	//Index that holds the amount of Scenes in the game
 	static int sceneIndexAmount;
 
+	//Vector that holds the GameObjects in a specific ordered layout
 	std::vector<GameObject*> orderedDrawGameObjectVector;
 
 	//Pointer that holds the current active scene

@@ -1,6 +1,7 @@
 #include "Sprite.h"
 #include "Scene.h"
 
+//Use Base Components namespace
 using namespace BC;
 
 //Constructor with values to be added for a Sprite to be created

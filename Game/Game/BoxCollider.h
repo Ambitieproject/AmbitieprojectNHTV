@@ -2,6 +2,13 @@
 
 #include "Collider.h"
 
+// * File:   collision.h
+// * Authors: Nick Koirala(original version), ahnonay(SFML2 compatibility)
+// *
+// * Collision Detection and handling class
+// * For SFML2.
+// * Website: https://github.com/SFML/SFML/wiki/Source:-Simple-Collision-Detection-for-SFML-2
+
 class OrientedBoundingBox // Used in the BoundingBoxTest
 {
 public:
@@ -55,23 +62,31 @@ namespace BC {
 		//Collide method that returns the Collider that is colliding with this object when in the end overlap state
 		Collider* OnEndOverlap();
 
+		//Returns the state of the mouse being over the object
 		bool OnMouseEnter();
+		//Returns the state of a specific mouse button being pressed on the object
 		bool OnMouseDown(sf::Mouse::Button mouseButton);
+		//Returns the state of the mouse exciting the object
 		bool OnMouseExit();
 
 		//Gets the box collider
 		sf::RectangleShape& GetBoxCollider();
 		
+		//Bounding box test
 		bool CheckBoundingBox(const sf::RectangleShape& Object1, const sf::RectangleShape& Object2);
 
 	private:
 		//The box collider
 		sf::RectangleShape boxCollider;
 
+		//Offset of the origin
 		sf::Vector2f originOffset;
+		//Offset of the scale
 		sf::Vector2f scaleOffset;
 
+		//Bool to check if mouse is overlapping
 		bool isMouseOverlapping;
+		//Bool to check if mouse is down
 		bool isMouseDown;
 	};
 }

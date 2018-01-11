@@ -1,5 +1,6 @@
 #include "Font.h"
 
+//Use Base Components namespace
 using namespace BC;
 
 //Constructor

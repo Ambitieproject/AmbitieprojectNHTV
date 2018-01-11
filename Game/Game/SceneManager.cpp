@@ -10,9 +10,6 @@ Scene* SceneManager::currentScene;
 std::map<int, Scene*> SceneManager::scenes;
 int SceneManager::sceneIndexAmount;
 
-std::map<int, GameObject&> SceneManager::dontDestroyGameObjects;
-int SceneManager::dontDestroyGameObjectsLayerIndex;
-
 //Constructor
 SceneManager::SceneManager() {
 	
@@ -61,15 +58,6 @@ bool SceneManager::LoadScene(int sceneIndex) {
 	//Reset the last scene that was loaded
 	//Finally return out of function
 	if (canLoad) {
-
-		if (Game::GetInstance()->GetSingletons().size() > 0) {
-			std::map<int, GameObject*> tempSingletonGameObjects = Game::GetInstance()->GetSingletons();
-			for (auto it = tempSingletonGameObjects.begin(); it != tempSingletonGameObjects.end(); it++) {
-				currentScene->AddToGameObjectList(it->second);
-			}
-		}
-		
-
 		currentScene->Setup();
 		currentScene->Awake();
 		currentScene->Start();
@@ -167,22 +155,6 @@ Scene& SceneManager::GetSceneByName(std::string sceneName) {
 	std::cout << "Scene with name " << sceneName << " not found" << std::endl;
 }
 
-void SceneManager::DontDestroyGameObject(GameObject& gameObject) {
-
-	GameObject* go = &gameObject;
-
-	dontDestroyGameObjects.insert(std::pair<int, GameObject&>(dontDestroyGameObjectsLayerIndex, *go));
-	dontDestroyGameObjectsLayerIndex++;
-}
-
-//Start the SceneManager
-void SceneManager::StartSceneManager() {
-	LoadScene(0);
-
-	sceneIndexAmount = 0;
-	dontDestroyGameObjectsLayerIndex = 0;
-}
-
 //Method that updates the current active scene
 void SceneManager::UpdateCurrentScene(float deltaTime) {
 	currentScene->Update(deltaTime);
@@ -202,8 +174,7 @@ void SceneManager::RenderCurrentScene() {
 					for (auto it2 = (*it)->Components.begin(); it2 != (*it)->Components.end(); it2++) {
 						//if Component is enabled
 						if (it2->second != nullptr && it2->second->Enabled) {
-							//dynamic sprite casting
-							//dynamic sprite rendering
+							//dynamic casting and rendering of different Components
 							BC::Sprite* sprite = dynamic_cast<BC::Sprite*>(it2->second);
 
 							if (sprite) {
@@ -309,4 +280,9 @@ void SceneManager::AddSceneToSceneManager(Scene* scene) {
 	scenes.insert(std::pair<int, Scene*>(sceneIndexAmount, scene));
 	scene->SceneIndex = sceneIndexAmount;
 	sceneIndexAmount++;
+}
+
+//Start the SceneManager
+void SceneManager::StartSceneManager() {
+	LoadScene(0);
 }

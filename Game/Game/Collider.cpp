@@ -22,7 +22,6 @@ Collider::Collider(const sf::Transformable& transform) : Transformable(transform
 			colliderObjectType = ColliderObjectType::Text;
 		}
 	}
-	
 }
 
 //Destructor
