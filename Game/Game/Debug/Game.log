@@ -1,76 +1,15 @@
-﻿  Collider.cpp
+﻿  MirrorManager.cpp
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
-  ValidationManager.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(234): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(272): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(410): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(74): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\validationmanager.cpp(37): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::BoxCollider>(void)' being compiled
-          with
-          [
-              component=BC::BoxCollider
-          ]
-  SceneManager.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  ReflectorBeamManager.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(74): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeammanager.cpp(19): note: see reference to function template instantiation 'component *GameObject::GetComponent<BC::Sprite>(void)' being compiled
-          with
-          [
-              component=BC::Sprite
-          ]
-  ReflectorBeam.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(74): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\reflectorbeam.cpp(50): note: see reference to function template instantiation 'component *GameObject::GetComponent<ReflectorBeam>(void)' being compiled
+  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(44): note: see reference to function template instantiation 'component *GameObject::GetComponent<ReflectorBeam>(void)' being compiled
           with
           [
               component=ReflectorBeam
           ]
-  MirrorManager.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(185): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(217): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(341): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(74): warning C4018: '<': signed/unsigned mismatch
-  c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(38): note: see reference to function template instantiation 'component *GameObject::GetComponent<ReflectorBeam>(void)' being compiled
-          with
-          [
-              component=ReflectorBeam
-          ]
-  Generating Code...
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(142): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(156): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
-  Skipping... (no relevant changes detected)
-  Equations.cpp
-  TimeManager.cpp
-  ShopScene.cpp
-  ShopManager.cpp
-  ScoreManager.cpp
-  Scene.cpp
-  Renderer.cpp
-  MenuScene.cpp
-  MainScene.cpp
-  Main.cpp
-  LevelSelectScene.cpp
-  LevelLoader.cpp
-  Input.cpp
-  GameFlowManager.cpp
-  Game.cpp
-  CreditsScene.cpp
   Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
   Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
