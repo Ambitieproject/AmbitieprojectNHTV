@@ -90,7 +90,7 @@ void LevelLoader::Start() {
 
 	//For the length of BlockingMirrorsPositions map in the currentLevel variable
 	for (int i = 0; i < currentLevel.BlockingMirrorsPositions.size(); i++) {
-		//Add the beame with the all the data the method needs to create a beam
+		//Add the beam with all the data the method needs to create a beam
 		Mirror& mirror = mirrorManager->AddMirror(sf::Vector2f(currentLevel.BlockingMirrorsPositions[i].x, currentLevel.BlockingMirrorsPositions[i].y), currentLevel.BlockingMirrorsRotations[i]);
 		//Set mirror to be static
 		mirror.SetIsStaticObject(true);

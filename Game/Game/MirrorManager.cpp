@@ -351,7 +351,7 @@ void MirrorManager::Update(float deltaTime) {
 					}
 
 					//If reflecting mirror of beam is nullptr
-					if (!beam->reflectingMirror) {
+					if (!beam->reflectingMirror || mirrors.size() == 0) {
 						//Set line end to shoot straight ahead
 						line[1].position = line[0].position + sf::Vector2f(beam->GetDirection().x * 1000, beam->GetDirection().y * 1000);
 
