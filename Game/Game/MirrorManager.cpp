@@ -16,6 +16,9 @@ MirrorManager::~MirrorManager() {
 //Override Start method from base Component class
 void MirrorManager::Start() {
 	Component::Start();
+
+	//Add first beam
+	AddMirror(sf::Vector2f(430, 100), 330);
 }
 
 //Override Update method from base Component class

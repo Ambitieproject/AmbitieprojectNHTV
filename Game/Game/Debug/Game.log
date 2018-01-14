@@ -1,15 +1,39 @@
-﻿  MirrorManager.cpp
+﻿  MenuScene.cpp
 d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(234): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(272): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(410): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\gameobject.h(74): warning C4018: '<': signed/unsigned mismatch
-  d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\mirrormanager.cpp(44): note: see reference to function template instantiation 'component *GameObject::GetComponent<ReflectorBeam>(void)' being compiled
-          with
-          [
-              component=ReflectorBeam
-          ]
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(49): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(55): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(78): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  SceneManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(142): warning C4715: 'SceneManager::GetSceneByIndex': not all control paths return a value
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\scenemanager.cpp(156): warning C4715: 'SceneManager::GetSceneByName': not all control paths return a value
+  Skipping... (no relevant changes detected)
+  TimeManager.cpp
+  ShopScene.cpp
+  ShopManager.cpp
+  Scene.cpp
+  Renderer.cpp
+  ReflectorBeamManager.cpp
+  ReflectorBeam.cpp
+  MirrorManager.cpp
+  MainScene.cpp
+  Main.cpp
+  LevelSelectScene.cpp
+  Input.cpp
+  GameFlowManager.cpp
+  Game.cpp
+  CreditsScene.cpp
+  Collider.cpp
   Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
   Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

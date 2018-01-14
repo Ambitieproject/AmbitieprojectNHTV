@@ -35,6 +35,7 @@ private:
 	///Audio holder and components
 	GameObject GOAudioHolder = GameObject("AudioHolder", *this);
 	BC::Music* backgroundMusic = new BC::Music("../Assets/Audio/BackgroundMusic.wav");
+	BC::Sound* buttonClickSound = new BC::Sound("../Assets/Audio/ButtonClick.wav");
 
 	///UI Sound Holder and components
 	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this);

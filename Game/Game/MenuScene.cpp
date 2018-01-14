@@ -25,7 +25,7 @@ void MenuScene::Setup() {
 	GOUIRefHolder.SetDrawIndex(0);
 
 	//Adding comopnents to Audio holder GameObject
-	GOAudioHolder.AddComponent(backgroundMusic);
+	//GOAudioHolder.AddComponent(backgroundMusic);
 
 	//Adding components to UI AudioManager GameObject
 	GOUIAudioHolder.AddComponent(&audioSwitchSprite);
@@ -90,6 +90,9 @@ void MenuScene::Setup() {
 //Override Start method from base Scene class
 void MenuScene::Start() {
 	Scene::Start();
+
+	backgroundMusic->play();
+	backgroundMusic->setVolume(70.0f);
 }
 
 //Override Update method from base Scene class
@@ -99,18 +102,22 @@ void MenuScene::Update(float deltaTime) {
 	//Load scene if button is pressed
 	if (buttonStart.IsClicked()) {
 		SceneManager::LoadScene(1);
+		buttonClickSound->play();
 	}
 	//Load scene if button is pressed
 	if (buttonShop.IsClicked()) {
 		SceneManager::LoadScene(4);
+		buttonClickSound->play();
 	}
 	//Load scene if button is pressed
 	if (buttonCredits.IsClicked()) {
 		SceneManager::LoadScene(3);
+		buttonClickSound->play();
 	}
 	//Quit game if quit button is pressed
 	if (buttonQuit.IsClicked()) {
 		Window::GetInstance()->IsClosed = true;
+		buttonClickSound->play();
 	}
 
 	//If mouse is down on the audioSwitchSprite
@@ -120,9 +127,11 @@ void MenuScene::Update(float deltaTime) {
 			//Change sprite of audioSwitchSprite variable relative to witch sprite is active
 			if (audioSwitchSprite.getTexture() == &audioTextureNotMuted) {
 				audioSwitchSprite.setTexture(audioTextureMuted);
+				backgroundMusic->setVolume(0.0f);
 			}
 			else {
 				audioSwitchSprite.setTexture(audioTextureNotMuted);
+				backgroundMusic->setVolume(70.0f);
 			}
 		}
 		
