@@ -27,9 +27,12 @@ void GameFlowManager::Update(float deltaTime) {
 }
 
 //Sends message to the active scene that level transitation can be done or not
-bool GameFlowManager::FromLevelToScene() {
+bool GameFlowManager::FromLevelToMenu() {
 	//If game is over and to menu button is clicked return true
 	if (isGameOver && localToMenuButton->IsClicked()) {
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
+		//Set is game over
 		isGameOver = false;
 		return true;
 	}

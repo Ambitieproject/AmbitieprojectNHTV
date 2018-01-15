@@ -65,13 +65,11 @@ void ShopScene::Start() {
 void ShopScene::Update(float deltaTime) {
 	Scene::Update(deltaTime);
 
-	//Load Menu if escape key is pressed
-	if (Input::GetKeyDown(sf::Keyboard::Escape)) {
-		SceneManager::LoadScene(0);
-	}
-
 	//Load Menu if back button is clicked
 	if (buttonBack.IsClicked()) {
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
+		//Load scene
 		SceneManager::LoadScene(0);
 	}
 }

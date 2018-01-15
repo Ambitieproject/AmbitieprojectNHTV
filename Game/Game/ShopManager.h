@@ -10,6 +10,7 @@
 #include "ShopCategoryItem.h"
 #include "ShopItem.h"
 #include "FileReadWrite.h"
+#include "AudioManager.h"
 
 //Include and use for making use of the Modern JSON library from nlohmann
 //For more information go to the json hpp file 

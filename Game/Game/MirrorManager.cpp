@@ -27,6 +27,9 @@ void MirrorManager::Update(float deltaTime) {
 
 	//If add mirror button is pressed add a mirror
 	if (localAddMirrorButton->IsClicked()) {
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
+		//Add mirror
 		AddMirror(sf::Vector2f(430, 100), 330);
 	}
 

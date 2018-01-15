@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 
+//Include Audio manage accessibility
+#include "AudioManager.h"
+
 //Include Scene header so this class can inherit from Scene
 #include "Scene.h"
 

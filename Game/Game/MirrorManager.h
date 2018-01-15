@@ -5,6 +5,9 @@
 #include <map>
 #include <cmath>
 
+//Include Audio manage accessibility
+#include "AudioManager.h"
+
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 #include "GameObject.h"

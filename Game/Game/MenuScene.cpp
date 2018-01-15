@@ -91,8 +91,18 @@ void MenuScene::Setup() {
 void MenuScene::Start() {
 	Scene::Start();
 
-	backgroundMusic->play();
-	backgroundMusic->setVolume(70.0f);
+	BC::Music* audio = AudioManager::GetMusic("BackgroundMusic");
+
+	if (!audio) {
+		backgroundMusic->play();
+		backgroundMusic->setLoop(true);
+		AudioManager::AddMusic(*backgroundMusic, "BackgroundMusic");
+		AudioManager::AddSound(*buttonClickSound, "ButtonClickSound");
+	}
+	else {
+		//Set texture
+		audioSwitchSprite.setTexture(audioTextureMuted);
+	}
 }
 
 //Override Update method from base Scene class
@@ -101,23 +111,31 @@ void MenuScene::Update(float deltaTime) {
 	
 	//Load scene if button is pressed
 	if (buttonStart.IsClicked()) {
+		//Load scene
 		SceneManager::LoadScene(1);
-		buttonClickSound->play();
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
 	}
 	//Load scene if button is pressed
 	if (buttonShop.IsClicked()) {
+		//Load scene
 		SceneManager::LoadScene(4);
-		buttonClickSound->play();
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
 	}
 	//Load scene if button is pressed
 	if (buttonCredits.IsClicked()) {
+		//Load scene
 		SceneManager::LoadScene(3);
-		buttonClickSound->play();
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
 	}
 	//Quit game if quit button is pressed
 	if (buttonQuit.IsClicked()) {
+		//Set closed boolean
 		Window::GetInstance()->IsClosed = true;
-		buttonClickSound->play();
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
 	}
 
 	//If mouse is down on the audioSwitchSprite
@@ -126,14 +144,22 @@ void MenuScene::Update(float deltaTime) {
 		if (Input::GetMouseKeyPressed(sf::Mouse::Left)) {
 			//Change sprite of audioSwitchSprite variable relative to witch sprite is active
 			if (audioSwitchSprite.getTexture() == &audioTextureNotMuted) {
+				//Set texture
 				audioSwitchSprite.setTexture(audioTextureMuted);
-				backgroundMusic->setVolume(0.0f);
+				//Set volumes
+				AudioManager::GetSound("ButtonClickSound")->setVolume(0);
+				AudioManager::GetMusic("BackgroundMusic")->setVolume(0);
 			}
 			else {
 				audioSwitchSprite.setTexture(audioTextureNotMuted);
+				//Set texture
 				backgroundMusic->setVolume(70.0f);
+				//Set volumes
+				AudioManager::GetSound("ButtonClickSound")->setVolume(70);
+				AudioManager::GetMusic("BackgroundMusic")->setVolume(70);
+				//Play click sound
+				AudioManager::GetSound("ButtonClickSound")->play();
 			}
 		}
-		
 	}
 }

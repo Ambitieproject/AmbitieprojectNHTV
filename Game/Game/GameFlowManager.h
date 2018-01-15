@@ -4,6 +4,9 @@
 #include <iostream>
 #include <fstream>
 
+//Include Audio manage accessibility
+#include "AudioManager.h"
+
 //Include upper hierachy class Component because it does inherit from the base class Component
 #include "Component.h"
 #include "BaseComponents.hpp"
@@ -32,7 +35,7 @@ public:
 	void Update(float deltaTime);
 
 	//Sends message to the active scene that level transitation can be done or not
-	bool FromLevelToScene();
+	bool FromLevelToMenu();
 
 private:
 	//Checks if game is over

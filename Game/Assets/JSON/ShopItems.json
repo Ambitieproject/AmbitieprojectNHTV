@@ -2,7 +2,7 @@
      {
           "Shop Items": [
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Mirror",
                     "Cost": 400,
                     "Description": "Get 1 mirrors extra in\n total to play with\nbefore you lose score",
@@ -62,7 +62,7 @@
                     "Item intensity": 0
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "My first job was being\na shelf stacker at Jumbo Boxtel",
@@ -83,7 +83,7 @@
                     "Item intensity": 0
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
                     "Description": "Now I am a teamleader\nat Dominos Boxtel",

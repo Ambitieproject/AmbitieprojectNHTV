@@ -45,6 +45,9 @@ void ShopManager::Update(float deltaTime) {
 			//If category is clicked reset texture, reset and load shop items of that category and set the current active category
 			if (shopCategoryItems[i]->gameObject->GetComponent<BC::BoxCollider>()->OnMouseDown(sf::Mouse::Left)) {
 				if (shopCategoryItems[i]->gameObject->GetComponent<BC::Sprite>()->getTexture() != &shopCategoryItems[i]->categoryItemBackgroundPressedTexture) {
+					//Play click sound
+					AudioManager::GetSound("ButtonClickSound")->play();
+					//Set new category
 					shopCategoryItems[i]->gameObject->GetComponent<BC::Sprite>()->setTexture(shopCategoryItems[i]->categoryItemBackgroundPressedTexture);
 					LoadShopItems(i);
 					currentActiveCategory = i;
@@ -69,6 +72,8 @@ void ShopManager::Update(float deltaTime) {
 			if (!shopItems[i]->Bought) {
 				//If shop item buy button is clicked then buy the item, save the item and update and save the currency etc...
 				if (shopItems[i]->gameObject->GetComponent<BC::Button>()->IsClicked()) {
+					//Play click sound
+					AudioManager::GetSound("ButtonClickSound")->play();
 					//Buy item
 					BuyShopItem(*shopItems[i]);
 					//Save shop items

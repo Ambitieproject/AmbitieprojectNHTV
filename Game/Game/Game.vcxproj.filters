@@ -133,6 +133,9 @@
     <Filter Include="Game\Level\Loader">
       <UniqueIdentifier>{2d2a62e3-d682-4fe9-831b-96695a4dd470}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JEngine\Audio">
+      <UniqueIdentifier>{2720bc09-965a-4b0d-8336-b722d680f3a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -255,6 +258,9 @@
     <ClCompile Include="LevelLoader.cpp">
       <Filter>Game\Level\Loader</Filter>
     </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -376,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="LevelLoader.h">
       <Filter>Game\Level\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

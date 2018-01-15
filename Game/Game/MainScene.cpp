@@ -61,7 +61,7 @@ void MainScene::Setup() {
 	timeBackgroundSprite.setScale(0.5f, 0.5f);
 
 	//Setting standard values for the timeText
-	timeText.setString("02:00");
+	timeText.setString("00:00");
 	timeText.setPosition(Window::GetInstance()->GetWindowSize().x / 2 - 36, 50);
 	timeText.setColor(sf::Color::Black);
 
@@ -85,7 +85,7 @@ void MainScene::Update(float deltaTime) {
 	}
 
 	//If switching bool is true switch to other scene
-	if (gameFlowManager.FromLevelToScene()) {
+	if (gameFlowManager.FromLevelToMenu()) {
 		SceneManager::LoadScene(0);
 	}
 }

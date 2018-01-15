@@ -56,6 +56,11 @@ void LevelSelectScene::Update(float deltaTime) {
 	//If any level button is clicked
 	//load new scene
 	if (levelSelectManager.HasSelectedLevel()) {
+
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
+
+		//Save JSON
 		json j;
 		j["CurrentLevel"] = levelSelectManager.GetCurrentSelectedLevel();
 		FileReadWrite::WriteJSONToFile("../Assets/JSON/CurrentLevel.json", j);
@@ -64,6 +69,9 @@ void LevelSelectScene::Update(float deltaTime) {
 	
 	//Back button
 	if (buttonBack.IsClicked()) {
+		//Play click sound
+		AudioManager::GetSound("ButtonClickSound")->play();
+		//Load scene
 		SceneManager::LoadScene(0);
 	}
 }
