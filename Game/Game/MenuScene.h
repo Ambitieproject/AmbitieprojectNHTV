@@ -35,8 +35,7 @@ private:
 	//Logo prism text sprite
 	BC::Sprite logoPrismText = BC::Sprite("../Assets/Menu/PrismText.png");
 
-	///Audio holder and components
-	GameObject GOAudioHolder = GameObject("AudioHolder", *this);
+	///Audio components
 	BC::Music* backgroundMusic = new BC::Music("../Assets/Audio/BackgroundMusic.wav");
 	BC::Sound* buttonClickSound = new BC::Sound("../Assets/Audio/ButtonClick.wav");
 

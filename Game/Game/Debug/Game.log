@@ -1,13 +1,18 @@
 ﻿  MenuScene.cpp
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(49): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(55): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\jens\documents\school\schooljaar 2017 & 2018\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(78): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
-  Game.vcxproj -> C:\Users\Jens\Documents\School\Schooljaar 2017 & 2018\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(49): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(55): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\menuscene.cpp(78): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  AudioManager.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\boxcollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.exe
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Debug\Game.pdb (Partial PDB)

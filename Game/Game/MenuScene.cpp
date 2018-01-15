@@ -24,9 +24,6 @@ void MenuScene::Setup() {
 	GOUIButtonHolder.SetDrawIndex(0);
 	GOUIRefHolder.SetDrawIndex(0);
 
-	//Adding comopnents to Audio holder GameObject
-	//GOAudioHolder.AddComponent(backgroundMusic);
-
 	//Adding components to UI AudioManager GameObject
 	GOUIAudioHolder.AddComponent(&audioSwitchSprite);
 	GOUIAudioHolder.AddComponent(&audioSwitchBoxCollider);
@@ -100,8 +97,11 @@ void MenuScene::Start() {
 		AudioManager::AddSound(*buttonClickSound, "ButtonClickSound");
 	}
 	else {
-		//Set texture
-		audioSwitchSprite.setTexture(audioTextureMuted);
+		if (audio->getVolume() == 0) {
+			//Set texture
+			audioSwitchSprite.setTexture(audioTextureMuted);
+		}
+		
 	}
 }
 
