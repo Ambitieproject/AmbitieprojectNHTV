@@ -27,8 +27,6 @@ float Input::deltaTime;
 //Setup Input, sets references
 void Input::SetupInput() {
 	if (renderWindow == nullptr) {
-		//Set RenderWindow references to Game class singleton's RenderWindow class
-		renderWindow = Window::GetInstance();
 		//Set SFML RenderWindow class
 		window = &renderWindow->GetWindow();
 	}

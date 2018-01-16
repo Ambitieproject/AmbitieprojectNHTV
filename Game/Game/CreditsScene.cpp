@@ -25,7 +25,7 @@ void CreditsScene::Setup() {
 	//Setting default values for credit sprite
 	CreditSprite.setScale(0.5, 0.5f);
 	CreditSprite.setOrigin(CreditSprite.getTexture()->getSize().x * 0.5f, 0);
-	CreditSprite.setPosition(Window::GetInstance()->GetWindowSize().x * 0.5f, Window::GetInstance()->GetWindowSize().y);
+	CreditSprite.setPosition(Window::GetWindowSize().x * 0.5f, Window::GetWindowSize().y);
 
 }
 

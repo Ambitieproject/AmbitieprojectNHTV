@@ -15,7 +15,7 @@ Renderer::~Renderer() {
 
 //Sets the renderer up, does reference setup
 void Renderer::SetupRenderer() {
-	window = &Game::GetInstance()->GetWindowClass().GetWindow();
+	window = &Window::GetWindow();
 }
 
 //Begin draw method

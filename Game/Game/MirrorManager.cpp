@@ -241,35 +241,6 @@ void MirrorManager::Update(float deltaTime) {
 								//Multiply radians by 2
 								radians = radians * 2;
 
-#pragma region CanDO?
-								gameObject->SetDrawIndex(0);
-
-								if (Input::GetKeyPressed(sf::Keyboard::T)) {
-									BC::Sprite* spritePointA = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-									spritePointA->setOrigin(spritePointA->getTexture()->getSize().x * 0.5f, spritePointA->getTexture()->getSize().y * 0.5f);
-									spritePointA->setPosition(pointA);
-									spritePointA->setColor(sf::Color::Red);
-									gameObject->AddComponent(spritePointA);
-
-									BC::Sprite* spritePointB = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-									spritePointB->setOrigin(spritePointB->getTexture()->getSize().x * 0.5f, spritePointB->getTexture()->getSize().y * 0.5f);
-									spritePointB->setPosition(pointB);
-									spritePointB->setColor(sf::Color::Blue);
-									gameObject->AddComponent(spritePointB);
-
-									BC::Sprite* spritePointC = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-									spritePointC->setOrigin(spritePointC->getTexture()->getSize().x * 0.5f, spritePointC->getTexture()->getSize().y * 0.5f);
-									spritePointC->setPosition(pointC);
-									spritePointC->setColor(sf::Color::Green);
-									gameObject->AddComponent(spritePointC);
-
-									BC::Sprite* spritePointD = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
-									spritePointD->setOrigin(spritePointD->getTexture()->getSize().x * 0.5f, spritePointD->getTexture()->getSize().y * 0.5f);
-									spritePointD->setPosition(pointD);
-									spritePointD->setColor(sf::Color::Yellow);
-									gameObject->AddComponent(spritePointD);
-								}
-#pragma endregion
 								//If mirror is not static
 								if (!closestMirror->GetComponent<Mirror>()->IsStaticObject()) {
 									//If new beam of beam is not yet made

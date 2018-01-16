@@ -44,12 +44,12 @@ void MenuScene::Setup() {
 	//Setting standard values for logoPrism
 	logoPrism.setScale(0.4f, 0.4f);
 	logoPrism.setOrigin(logoPrism.getTexture()->getSize().x / 2, logoPrism.getTexture()->getSize().y / 2);
-	logoPrism.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 220);
+	logoPrism.setPosition(Window::GetWindowSize().x / 2, 220);
 
 	//Setting standard values for logoPrismText
 	logoPrismText.setScale(0.4f, 0.4f);
 	logoPrismText.setOrigin(logoPrismText.getTexture()->getSize().x / 2, logoPrismText.getTexture()->getSize().y / 2);
-	logoPrismText.setPosition(Window::GetInstance()->GetWindowSize().x / 2, logoPrism.getPosition().y + (logoPrismText.getTexture()->getSize().y));
+	logoPrismText.setPosition(Window::GetWindowSize().x / 2, logoPrism.getPosition().y + (logoPrismText.getTexture()->getSize().y));
 
 	//Push back all the menu buttons
 	menuButton.push_back(&buttonStart);
@@ -72,7 +72,7 @@ void MenuScene::Setup() {
 	//Setting standard values of refSprite
 	refSprite.setScale(0.6f, 0.6f);
 	refSprite.setOrigin(refSprite.getTexture()->getSize().x / 2, refSprite.getTexture()->getSize().y / 2);
-	refSprite.setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y - 30);
+	refSprite.setPosition(Window::GetWindowSize().x / 2, Window::GetWindowSize().y - 30);
 
 	//Load audio textures
 	audioTextureNotMuted.loadFromFile("../Assets/Art/Images/SoundNotMutedImage.png");
@@ -88,8 +88,10 @@ void MenuScene::Setup() {
 void MenuScene::Start() {
 	Scene::Start();
 
+	//Get background audio
 	BC::Music* audio = AudioManager::GetMusic("BackgroundMusic");
 
+	//If audio does not yet live set values
 	if (!audio) {
 		backgroundMusic->play();
 		backgroundMusic->setLoop(true);
@@ -97,6 +99,7 @@ void MenuScene::Start() {
 		AudioManager::AddSound(*buttonClickSound, "ButtonClickSound");
 	}
 	else {
+		//If audio lives and volume of audio is 0
 		if (audio->getVolume() == 0) {
 			//Set texture
 			audioSwitchSprite.setTexture(audioTextureMuted);
@@ -133,7 +136,7 @@ void MenuScene::Update(float deltaTime) {
 	//Quit game if quit button is pressed
 	if (buttonQuit.IsClicked()) {
 		//Set closed boolean
-		Window::GetInstance()->IsClosed = true;
+		Window::IsClosed = true;
 		//Play click sound
 		AudioManager::GetSound("ButtonClickSound")->play();
 	}

@@ -10,7 +10,7 @@ int main() {
 	game->Start();
 
 	//while the SFML Renderwindow is not closed
-	while (!game->GetWindowClass().IsClosed) {
+	while (!Window::IsClosed) {
 		//Run Update method of game class
 		game->Update();
 	}

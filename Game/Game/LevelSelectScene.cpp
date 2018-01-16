@@ -32,16 +32,16 @@ void LevelSelectScene::Setup() {
 	//Set default values for background bars
 	backgroundBarTop.setScale(0.5155f, 0.5155f);
 	backgroundBarBottom.setScale(0.7f, 0.7f);
-	backgroundBarBottom.setPosition(-10, Window::GetInstance()->GetWindowSize().y - (backgroundBarBottom.getTexture()->getSize().y / 2 + 10));
+	backgroundBarBottom.setPosition(-10, Window::GetWindowSize().y - (backgroundBarBottom.getTexture()->getSize().y / 2 + 10));
 
 	//Set default values for back button
 	buttonBack.GetCurrentButtonSprite().setScale(0.6f, 0.6f);
-	buttonBack.GetCurrentButtonSprite().setPosition(4, Window::GetInstance()->GetWindowSize().y - 68);
+	buttonBack.GetCurrentButtonSprite().setPosition(4, Window::GetWindowSize().y - 68);
 
 	//Set default values for levelSelectText
 	levelSelectText.setScale(0.4f, 0.4f);
 	levelSelectText.setOrigin(levelSelectText.getTexture()->getSize().x / 2, levelSelectText.getTexture()->getSize().y / 2);
-	levelSelectText.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 33);
+	levelSelectText.setPosition(Window::GetWindowSize().x / 2, 33);
 }
 
 //Override Start method from base Scene class

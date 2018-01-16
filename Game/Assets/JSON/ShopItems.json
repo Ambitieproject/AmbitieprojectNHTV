@@ -9,21 +9,21 @@
                     "Item intensity": 1
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Mirror",
                     "Cost": 800,
                     "Description": "Get 2 mirrors extra in\n total to play with\nbefore you lose score",
                     "Item intensity": 2
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Mirror",
                     "Cost": 1600,
                     "Description": "Get 3 mirrors extra in\n total to play with\nbefore you lose score",
                     "Item intensity": 3
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Time",
                     "Cost": 500,
                     "Description": "Get 10 seconds extra play\ntime in total before you\nlose score",
@@ -37,7 +37,7 @@
                     "Item intensity": 20
                },
                {
-                    "Bought": false,
+                    "Bought": true,
                     "Category": "Time",
                     "Cost": 1200,
                     "Description": "Get 60 seconds extra play\ntime in total before you\nlose score",

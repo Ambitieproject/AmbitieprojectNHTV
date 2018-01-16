@@ -13,9 +13,7 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
-	//Set Components
 	sceneManager = SceneManager::GetInstance();
-	window = Window::GetInstance();
 	singletonIndex = 0;
 }
 
@@ -27,7 +25,7 @@ Game::~Game() {
 //Main Start function that runs in the whole game
 void Game::Start() {
 	//Creates window with custom values
-	window->CreateWindow(sf::Vector2u(500, 800), "Prism");
+	Window::CreateWindow(sf::Vector2u(500, 800), "Prism", "../Assets/Art/Icon/Icon.png");
 	//Start SceneManager method that loads the first scene
 	sceneManager->StartSceneManager();
 	//Setup input
@@ -42,11 +40,6 @@ void Game::Update() {
 	sceneManager->UpdateCurrentScene(DeltaTime);
 	//call Update PollEvent method
 	Input::UpdatePollEvent(DeltaTime);
-}
-
-//Gets Window class method
-Window& Game::GetWindowClass() {
-	return *window;
 }
 
 //Gets SceneManager method

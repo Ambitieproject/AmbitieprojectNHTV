@@ -5,6 +5,7 @@
 //Forward include upper hierachy class Window
 class Window;
 
+//Renderer 
 class Renderer {
 public:
 	//Constructor

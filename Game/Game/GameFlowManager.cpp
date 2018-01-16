@@ -71,7 +71,7 @@ void GameFlowManager::ActivateGameOverScreen() {
 	//Set default values of gameOverScreenSprite
 	gameOverScreenSprite->setScale(0.6f, 0.6f);
 	gameOverScreenSprite->setOrigin(gameOverScreenSprite->GetTexture().getSize().x / 2, gameOverScreenSprite->GetTexture().getSize().y / 2);
-	gameOverScreenSprite->setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y / 2);
+	gameOverScreenSprite->setPosition(Window::GetWindowSize().x / 2, Window::GetWindowSize().y / 2);
 
 	//Set score equal to result of method in scoreManager class
 	score = scoreManager.GetFinalScore();
@@ -80,18 +80,18 @@ void GameFlowManager::ActivateGameOverScreen() {
 	scoreText->setString(std::to_string(score));
 	scoreText->setColor(sf::Color::Black);
 	sf::FloatRect bounds = scoreText->getGlobalBounds();
-	scoreText->setPosition((Window::GetInstance()->GetWindowSize().x / 2) - (bounds.width / 2) + 90, Window::GetInstance()->GetWindowSize().y / 2 - 100);
+	scoreText->setPosition((Window::GetWindowSize().x / 2) - (bounds.width / 2) + 90, Window::GetWindowSize().y / 2 - 100);
 
 	//Set default values of scoreTextStatic
 	scoreTextStatic->setScale(0.8f, 0.8f);
-	scoreTextStatic->setPosition(Window::GetInstance()->GetWindowSize().x / 2 - 140, Window::GetInstance()->GetWindowSize().y / 2 - 95);
+	scoreTextStatic->setPosition(Window::GetWindowSize().x / 2 - 140, Window::GetWindowSize().y / 2 - 95);
 	scoreTextStatic->setString("Score:");
 	scoreTextStatic->setColor(sf::Color::Black);
 
 	//Set default values of the localToMenuButton
 	localToMenuButton->GetCurrentButtonSprite().setScale(0.6f, 0.6f);
 	localToMenuButton->GetCurrentButtonSprite().setOrigin(localToMenuButton->GetCurrentButtonSprite().getTexture()->getSize().x / 2, localToMenuButton->GetCurrentButtonSprite().getTexture()->getSize().y / 2);
-	localToMenuButton->GetCurrentButtonSprite().setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y / 2 + 50);
+	localToMenuButton->GetCurrentButtonSprite().setPosition(Window::GetWindowSize().x / 2, Window::GetWindowSize().y / 2 + 50);
 	
 	//Add Components to the GameObject
 	go->AddComponent(gameOverScreenSprite);

@@ -1,0 +1,292 @@
+[
+	{  
+          "LaserTranslations": [
+               {
+                    "PositionX": -10,
+                    "PositionY": 430,
+                    "Rotation": 50
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 370,
+                    "Rotation": 59
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 260,
+                    "Rotation": 80
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 260,
+                    "Rotation": -80
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 370,
+                    "Rotation": -59
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 430,
+                    "Rotation": -50
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               
+          ],
+          "Level": 1,
+          "MirrorsNeededCount": 1
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": 62.5,
+                    "PositionY": 20,
+                    "Rotation": 150
+               },
+               {
+                    "PositionX": 125,
+                    "PositionY": 20,
+                    "Rotation": 170
+               },
+               {
+                    "PositionX": 187.5,
+                    "PositionY": 20,
+                    "Rotation": 175
+               },
+               {
+                    "PositionX": 312.5,
+                    "PositionY": 20,
+                    "Rotation": 185
+               },
+               {
+                    "PositionX": 375,
+                    "PositionY": 20,
+                    "Rotation": 190
+               },
+               {
+                    "PositionX": 437.5,
+                    "PositionY": 20,
+                    "Rotation": 195
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               
+          ],
+          "Level": 2,
+          "MirrorsNeededCount": 1
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": -10,
+                    "PositionY": 400,
+                    "Rotation": 30
+               },
+               {
+                    "PositionX": 125,
+                    "PositionY": 20,
+                    "Rotation": 170
+               },
+               {
+                    "PositionX": 187.5,
+                    "PositionY": 20,
+                    "Rotation": 175
+               },
+               {
+                    "PositionX": 312.5,
+                    "PositionY": 20,
+                    "Rotation": 185
+               },
+               {
+                    "PositionX": 375,
+                    "PositionY": 20,
+                    "Rotation": 190
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 400,
+                    "Rotation": -30
+               }
+          ],
+          "BlockingMirrorsTranslations": [
+              
+          ],
+          "Level": 3,
+          "MirrorsNeededCount": 2
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": -10,
+                    "PositionY": 220,
+                    "Rotation": 100
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 250,
+                    "Rotation": 90
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 280,
+                    "Rotation": 80
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 420,
+                    "Rotation": 260
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 450,
+                    "Rotation": 270
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 480,
+                    "Rotation": 280
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               
+          ],
+          "Level": 4,
+          "MirrorsNeededCount": 2
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": 62.5,
+                    "PositionY": 20,
+                    "Rotation": 150
+               },
+               {
+                    "PositionX": 125,
+                    "PositionY": 20,
+                    "Rotation": 170
+               },
+               {
+                    "PositionX": 187.5,
+                    "PositionY": 20,
+                    "Rotation": 175
+               },
+               {
+                    "PositionX": 312.5,
+                    "PositionY": 20,
+                    "Rotation": 185
+               },
+               {
+                    "PositionX": 375,
+                    "PositionY": 20,
+                    "Rotation": 190
+               },
+               {
+                    "PositionX": 437.5,
+                    "PositionY": 20,
+                    "Rotation": 210
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               {
+                    "PositionX": 250,
+                    "PositionY": 630,
+                    "Rotation": 0
+               }
+          ],
+          "Level": 5,
+          "MirrorsNeededCount": 2
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 10
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 20
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 30
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 40
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 50
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 60
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               {
+                    "PositionX": 240,
+                    "PositionY": 420,
+                    "Rotation": 45
+               }
+          ],
+          "Level": 6,
+          "MirrorsNeededCount": 2
+     },
+     {
+          "LaserTranslations": [
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 10
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 90
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 170
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 190
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 270
+               },
+               {
+                    "PositionX": 250,
+                    "PositionY": 400,
+                    "Rotation": 350
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               {
+                    "PositionX": 220,
+                    "PositionY": 630,
+                    "Rotation": 315
+               },
+	       {
+                    "PositionX": 280,
+                    "PositionY": 630,
+                    "Rotation": 45
+               }
+          ],
+          "Level": 7,
+          "MirrorsNeededCount": 2
+     }
+]

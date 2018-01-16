@@ -35,8 +35,6 @@ public:
 	//Main Update method that runs in the whole game
 	void Update();
 
-	//Gets Window class method
-	Window& GetWindowClass();
 	//Gets SceneManager method
 	SceneManager& GetSceneManager();
 
@@ -53,7 +51,7 @@ private:
 	int singletonIndex;
 
 	///main components
-	Window* window;
+	//The Window component class is a static class
 	SceneManager* sceneManager;
-	//The Input component is a static class
+	//The Input component class is a static class
 };

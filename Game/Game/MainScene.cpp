@@ -48,7 +48,7 @@ void MainScene::Setup() {
 
 	//Setting default values of prism
 	prismaSprite.setScale(0.25f, 0.25f);
-	prismaSprite.setPosition(Window::GetInstance()->GetWindowSize().x / 2, Window::GetInstance()->GetWindowSize().y - 60);
+	prismaSprite.setPosition(Window::GetWindowSize().x / 2, Window::GetWindowSize().y - 60);
 	prismaSprite.setOrigin(prismaSprite.getTexture()->getSize().x * 0.5f, (prismaSprite.getTexture()->getSize().y * 0.5f) + 40);
 
 	//Adding components to BackgroundBars GameObject
@@ -57,17 +57,17 @@ void MainScene::Setup() {
 	backgroundBarTop.setScale(0.5155f, 0.5155f);
 
 	timeBackgroundSprite.setOrigin(timeBackgroundSprite.getTexture()->getSize().x / 2, timeBackgroundSprite.getTexture()->getSize().y / 2);
-	timeBackgroundSprite.setPosition(Window::GetInstance()->GetWindowSize().x / 2, 70);
+	timeBackgroundSprite.setPosition(Window::GetWindowSize().x / 2, 70);
 	timeBackgroundSprite.setScale(0.5f, 0.5f);
 
 	//Setting standard values for the timeText
 	timeText.setString("00:00");
-	timeText.setPosition(Window::GetInstance()->GetWindowSize().x / 2 - 36, 50);
+	timeText.setPosition(Window::GetWindowSize().x / 2 - 36, 50);
 	timeText.setColor(sf::Color::Black);
 
 	//Setting standard values of the addMirrorButton
 	addMirrorButton.GetCurrentButtonSprite().setScale(0.5f, 0.5f);
-	addMirrorButton.GetCurrentButtonSprite().setPosition(Window::GetInstance()->GetWindowSize().x - 80, 7);
+	addMirrorButton.GetCurrentButtonSprite().setPosition(Window::GetWindowSize().x - 80, 7);
 }
 
 //Override Start method from base Scene class

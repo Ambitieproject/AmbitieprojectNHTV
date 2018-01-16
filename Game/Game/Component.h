@@ -25,9 +25,6 @@ public:
 	//Bool to determine if component is enabled
 	bool Enabled;
 
-	//Bool to determine if start method did already run
-	bool DidStart;
-
 	//Index of component in GameObject
 	int GameObjectLayerIndex;
 

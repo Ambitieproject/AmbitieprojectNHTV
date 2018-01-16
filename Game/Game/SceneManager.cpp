@@ -24,7 +24,7 @@ SceneManager::~SceneManager() {
 SceneManager* SceneManager::GetInstance() {
 	if (instance == 0) {
 		instance = new SceneManager();
-		instance->renderer = &Game::GetInstance()->GetWindowClass().GetRenderer();
+		instance->renderer = &Window::GetRenderer();
 	}
 
 	return instance;
