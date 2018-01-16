@@ -34,6 +34,8 @@ public:
 
 	//Adds a mirror
 	Mirror& AddMirror(sf::Vector2f position, float rotation);
+	//Removes a mirror
+	void DestroyMirror(GameObject& mirror);
 
 	//Returns if a mirror is being moved
 	bool IsMovingAMirror();

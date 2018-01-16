@@ -8,11 +8,13 @@
 #include "GameObject.h"
 #include "BaseComponents.hpp"
 
+class MirrorManager;
+
 //Mirror class
 class Mirror : public Component {
 public:
 	//Constructor
-	Mirror();
+	Mirror(MirrorManager* mirrorManager);
 	//Destructor
 	~Mirror();
 
@@ -50,4 +52,6 @@ private:
 	sf::Vertex* reflectLine = new sf::Vertex[2];
 	//Vector of lines to ignore (backside and left, right side)
 	std::vector<sf::Vertex*> ignoreLines;
+
+	MirrorManager* mirrorManager;
 };

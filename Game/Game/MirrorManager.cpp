@@ -55,7 +55,7 @@ void MirrorManager::Update(float deltaTime) {
 					//For every mirror
 					for (auto ITMIRROR = mirrors.begin(); ITMIRROR != mirrors.end(); ITMIRROR++) {
 						//For every beam
-						if (beam->mirrorSpawningFrom != ITMIRROR->second) {
+						if (beam->mirrorSpawningFrom != ITMIRROR->second &&ITMIRROR->second != nullptr) {
 							//Get the four points of the mirror object
 							//Top left, top right, bottom right, bottom left
 							sf::Vector2f p0 = ITMIRROR->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getTransform().transformPoint(ITMIRROR->second->GetComponent<BC::BoxCollider>()->GetBoxCollider().getPoint(0));
@@ -345,15 +345,21 @@ void MirrorManager::Update(float deltaTime) {
 	if (mirrors.size() > 0) {
 		//For every mirror call the Move method when mirror is being moved
 		//Then return out of this method so that only one mirror can be moved
-		for (auto it = mirrors.begin(); it != mirrors.end(); it++) {
-			if (!it->second->GetComponent<Mirror>()->IsStaticObject()) {
-				if (it->second->GetComponent<Mirror>()->IsMoving()) {
-					it->second->GetComponent<Mirror>()->Move(deltaTime);
-					return;
+		for (auto it = mirrors.begin(); it != mirrors.end();) {
+			if (it->second != nullptr) {
+				if (!it->second->GetComponent<Mirror>()->IsStaticObject()) {
+					if (it->second->GetComponent<Mirror>()->IsMoving()) {
+						it->second->GetComponent<Mirror>()->Move(deltaTime);
+						return;
+					}
+					else {
+						it->second->GetComponent<Mirror>()->Move(deltaTime);
+					}
 				}
-				else {
-					it->second->GetComponent<Mirror>()->Move(deltaTime);
-				}
+				it++;
+			}
+			else {
+				it = mirrors.erase(it);
 			}
 		}		
 	}
@@ -368,7 +374,7 @@ Mirror& MirrorManager::AddMirror(sf::Vector2f position, float rotation) {
 	mirror->SetDrawIndex(3);
 
 	//Make components
-	Mirror* mirrorComponent = new Mirror();
+	Mirror* mirrorComponent = new Mirror(this);
 	BC::Sprite* mirrorSprite = new BC::Sprite("../Assets/Mirror2.png");
 	BC::BoxCollider* mirrorBoxCollider = new BC::BoxCollider(*mirrorSprite, sf::Vector2f(0, 0), sf::Vector2f(0, 0));
 
@@ -394,6 +400,20 @@ Mirror& MirrorManager::AddMirror(sf::Vector2f position, float rotation) {
 
 	//Return mirror component
 	return *mirrorComponent;
+}
+
+//Removes a mirror
+void MirrorManager::DestroyMirror(GameObject& mirror) {
+	//For each mirror
+	for (auto it = mirrors.begin(); it != mirrors.end(); it++) {
+		//If iterator is equal to the parameter beam
+		//then make the mirror a nullptr
+		if (it->second == &mirror) {
+			it->second = nullptr;
+		}
+	}
+	//Call destroy GameObject method from scene class
+	SceneManager::GetActiveScene().DestroyGameObject(&mirror);
 }
 
 //Returns if a mirror is being moved

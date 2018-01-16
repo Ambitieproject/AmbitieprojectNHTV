@@ -1,8 +1,8 @@
 #include "Mirror.h"
-#include "Window.h"
+#include "MirrorManager.h"
 
 //Constructor
-Mirror::Mirror() {
+Mirror::Mirror(MirrorManager* mirrorManager) : mirrorManager(mirrorManager) {
 	//Set default values
 	rotateSpeed = 100;
 	isMoving = false;
@@ -56,6 +56,11 @@ void Mirror::Move(float deltaTime) {
 
 			//Set position to the mouse position
 			sprite->setPosition(mousePos);
+
+			//If right mouse is pressed while dragging then delete mirror object
+			if (Input::GetMouseKeyDown(sf::Mouse::Button::Right)) {
+				mirrorManager->DestroyMirror(*gameObject);
+			}
 		}
 	}
 
