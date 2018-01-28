@@ -8,6 +8,7 @@
 #include "GameObject.h"
 #include "BaseComponents.hpp"
 
+//Forward include the MirrorManager class
 class MirrorManager;
 
 //Mirror class
@@ -29,6 +30,8 @@ public:
 	//Get line
 	sf::Vertex* GetLine();
 	
+	void SetMoving(bool moveState);
+
 	//Get the state of this mirror being moved
 	bool IsMoving();
 
@@ -53,5 +56,6 @@ private:
 	//Vector of lines to ignore (backside and left, right side)
 	std::vector<sf::Vertex*> ignoreLines;
 
+	//Pointer to the MirrorManager class
 	MirrorManager* mirrorManager;
 };

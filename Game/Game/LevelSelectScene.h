@@ -39,13 +39,11 @@ public:
 private:
 	///BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
-	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
-	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Bar.png");
+	BC::Sprite backgroundBarTitle = BC::Sprite("../Assets/Art/LevelSelect/levelSelectText.png");
 
 	///UIManager GameObject and components
 	GameObject GOUIManager = GameObject("UIManager", *this);
-	BC::Sprite levelSelectText = BC::Sprite("../Assets/LevelSelect/levelSelectText.png");
 	LevelSelectManager levelSelectManager = LevelSelectManager();
-	BC::Button buttonBack = BC::Button("../Assets/buttonBack.png");
+	BC::Button buttonBack = BC::Button("../Assets/Art/ButtonBack.png");
 };
 

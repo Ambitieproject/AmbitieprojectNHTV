@@ -17,7 +17,7 @@ void ScoreManager::Start() {
 
 	//Setting variables to start value
 	score = 0;
-	maxScore = 10000;
+	maxScore = 200;
 }
 
 //Override Update method from base Component class
@@ -134,6 +134,20 @@ int ScoreManager::GetExtraTimeFromShop() {
 	return secondsCount;
 }
 
+//Gets the amount of mirrors used
+int ScoreManager::GetMirrorsUsed() {
+	//Get size of mirros
+	int mirrorCount = mirrorManager.GetMirrors().size();
+
+	//Return depending on the size of the mirrors
+	if (mirrorCount > 0) {
+		return mirrorCount;
+	}
+	else {
+		return 0;
+	}
+}
+
 //Gets the score
 int ScoreManager::GetScore() {
 	return score;
@@ -145,24 +159,27 @@ int ScoreManager::GetFinalScore() {
 	AdjustScore(maxScore);
 
 	//Calculate mirrorCount
-	int mirrorCount = mirrorManager.GetMirrors().size() - (3 + GetExtraMirrorsFromShop());
+	int mirrorCount = mirrorManager.GetMirrors().size() - (GetMaximumMirrorsAllowed() + GetExtraMirrorsFromShop());
 	
 	//If count is bigger then 0
 	if (mirrorCount > 0) {
 		//For the length of the count
 		//Adjust the score every time
 		for (int i = 0; i < mirrorCount; i++) {
-			AdjustScore(-100);
+			AdjustScore(-20);
 		}
 	}
 
 	//Calculate timeToDecrease
-	int timeToDecrase = timeManager.GetTimeInSeconds() - (10 + GetExtraTimeFromShop());
+	int timeToDecrease = timeManager.GetTimeInSeconds() - (10 + GetExtraTimeFromShop());
 
 	//If the variable is bigger then 0
-	if (timeToDecrase > 0) {
-		//Adjust score
-		AdjustScore(-timeToDecrase);
+	if (timeToDecrease > 0) {
+		//For the length of the count
+		//Adjust the score every time
+		for (int i = 0; i < timeToDecrease; i++) {
+			AdjustScore(-1);
+		}
 	}
 	
 	//If total score is bigger then 0
@@ -174,4 +191,23 @@ int ScoreManager::GetFinalScore() {
 	else {
 		return 0;
 	}
+}
+
+//Get the maximum mirrors allowed in a level
+int ScoreManager::GetMaximumMirrorsAllowed() {
+	//Level data
+	json levelData;
+	//CurrentLevelNumber data 
+	json currentLevelNumber;
+
+	//Get currentLevenNumber by loading it from json file
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/CurrentLevel.json", currentLevelNumber);
+	//Get level data
+	FileReadWrite::GetJSONFromFile("../Assets/JSON/Levels.json", levelData);
+
+	//Get level count
+	int levelCount = currentLevelNumber["CurrentLevel"];
+
+	//Return the amount of mirrors needed to complete the level with index of current level
+	return levelData[levelCount - 1].at("MirrorsNeededCount").get<int>();
 }

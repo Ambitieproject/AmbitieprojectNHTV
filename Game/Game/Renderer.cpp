@@ -5,7 +5,8 @@
 
 //Constructor
 Renderer::Renderer() {
-	
+	//Set default values for variables
+	renderBackgroundColor = sf::Color::White;
 }
 
 //Destructor
@@ -18,10 +19,15 @@ void Renderer::SetupRenderer() {
 	window = &Window::GetWindow();
 }
 
+//Sets the background render color
+void Renderer::SetRenderBackgroundColor(sf::Color color) {
+	renderBackgroundColor = color;
+}
+
 //Begin draw method
 void Renderer::BeginDraw() {
-	//Clears the window with a given color as a parameter
-	window->clear(sf::Color(97,97,97,255));
+	//Clears the window
+	window->clear(renderBackgroundColor);
 }
 
 //Draw method that draws a SFML Drawable

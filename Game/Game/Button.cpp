@@ -21,6 +21,7 @@ Button::Button(std::string normalImagePath, std::string hoveredImagePath, std::s
 	
 	//Set default values
 	isClicked = false;
+	isHoldingDown = false;
 	deActiveButtonTimer = 0;
 }
 
@@ -32,7 +33,6 @@ Button::~Button() {
 //Override Start method from base Component class
 void Button::Start() {
 	Component::Start();
-	deActiveButtonTimer = 0;
 }
 
 //Override Update method from base Component class
@@ -42,53 +42,53 @@ void Button::Update(float deltaTime) {
 	//Get the mouse position
 	const sf::Vector2f mousePos = sf::Vector2f(Input::GetMousePosition().x, Input::GetMousePosition().y);
 
-	//If mouse is inside the button sprite
-	if (currentButtonSpriteImage.getGlobalBounds().contains(mousePos)) {
-		//If left mouse is clicked
-		if (Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
-			if (pressedTexture.getSize() != sf::Vector2u(0,0)) {
-				currentButtonSpriteImage.setTexture(pressedTexture);
+	//If countdown for clicking button is reached
+	if (deActiveButtonTimer > 0.3f) {
+		//If mouse is inside the button sprite
+		if (currentButtonSpriteImage.getGlobalBounds().contains(mousePos)) {
+
+			//Set hover texture
+			if (hoveredTexture.getSize() != sf::Vector2u(0, 0)) {
+				currentButtonSpriteImage.setTexture(hoveredTexture);
 			}
-			
-		}
-		else {
-			//If left mouse is released
-			if (Input::GetMouseKeyUp(sf::Mouse::Button::Left)) {
-				HandleClicking();
-				//If texture is buttonPressed so it is actually being pressed
-				if (currentButtonSpriteImage.getTexture() == &pressedTexture) {
-					currentButtonSpriteImage.setTexture(hoveredTexture);
+
+			//If left mouse is clicked
+			if (Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
+				isHoldingDown = true;
+				if (pressedTexture.getSize() != sf::Vector2u(0, 0)) {
+					currentButtonSpriteImage.setTexture(pressedTexture);
 				}
+
 			}
 			else {
-				if (hoveredTexture.getSize() != sf::Vector2u(0, 0)) {
-					currentButtonSpriteImage.setTexture(hoveredTexture);
+				//If button was held down earlier
+				if (isHoldingDown) {
+					//If left mouse is released
+					if (Input::GetMouseKeyUp(sf::Mouse::Button::Left)) {
+						isClicked = true;
+						//If texture is buttonPressed so it is actually being pressed
+						if (currentButtonSpriteImage.getTexture() == &pressedTexture) {
+							currentButtonSpriteImage.setTexture(hoveredTexture);
+						}
+					}
+				}
+				
+			}
+		}
+		//If mouse is not inside the button sprite
+		else {
+			//If Mouse is not down set texture
+			if (!Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
+				if (normalTexture.getSize() != sf::Vector2u(0, 0)) {
+					currentButtonSpriteImage.setTexture(normalTexture);
 				}
 			}
 		}
 	}
-	//If mouse is not inside the button sprite
 	else {
-		//If Mouse is not down set texture
-		if (!Input::GetMouseKeyDown(sf::Mouse::Button::Left)) {
-			if (normalTexture.getSize() != sf::Vector2u(0, 0)) {
-				currentButtonSpriteImage.setTexture(normalTexture);
-			}
-		}
-	}
-
-	//If activateButtonUp is true
-	if (activateButtonUp) {
-		//Increase timer with deltaTime
-		deActiveButtonTimer += deltaTime;
-		//If timer is bigger then deltaTime which should be one time
-		if (deActiveButtonTimer > deltaTime) {
-			//Reset variable
-			deActiveButtonTimer = 0;
-			activateButtonUp = false;
-			isClicked = false;
-		}
-	}
+		//Increase button timer
+		deActiveButtonTimer = deActiveButtonTimer + deltaTime;
+	}	
 }
 
 //Handles variable setting when the button is clicked
@@ -99,7 +99,15 @@ void Button::HandleClicking() {
 
 //Returns the click state of the button
 bool Button::IsClicked() {
-	return isClicked;
+	if (isClicked) {
+		//Reset variables
+		isClicked = false;
+		deActiveButtonTimer = 0;
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 //Gets the current button sprite

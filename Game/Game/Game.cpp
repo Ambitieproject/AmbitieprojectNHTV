@@ -13,6 +13,7 @@ Game* Game::GetInstance() {
 
 //Constructor
 Game::Game() {
+	//Setting start values
 	sceneManager = SceneManager::GetInstance();
 	singletonIndex = 0;
 }

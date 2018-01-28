@@ -19,6 +19,9 @@ public:
 	//Creates a window with custom values
 	static void CreateWindow(sf::Vector2u size, std::string name, std::string iconPath);
 
+	//Sets a plain color as the background of the window
+	static void SetWindowRenderColor(sf::Color color);
+
 	//Gets the window size
 	static sf::Vector2u GetWindowSize();
 	//Gets the SFML Renderwindow

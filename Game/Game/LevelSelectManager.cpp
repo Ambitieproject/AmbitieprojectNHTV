@@ -47,8 +47,8 @@ int LevelSelectManager::GetCurrentSelectedLevel() {
 //Creates level buttons
 void LevelSelectManager::CreateLevelButtons() {
 	//Start x and y position values
-	int x = 45;
-	int y = 120;
+	int x = 120;
+	int y = 200;
 
 	//Level data
 	json levelData;
@@ -59,11 +59,11 @@ void LevelSelectManager::CreateLevelButtons() {
 	//For the amount of buttons you want + 1 
 	for (int i = 1; i < levelData.size() + 1; i++) {
 		//Create button and text
-		BC::Button* button = new BC::Button("../Assets/LevelSelect/levelSelectButtonNormal.png");
+		BC::Button* button = new BC::Button("../Assets/Art/LevelSelect/Buttons/levelSelectButtonIdle.png", "../Assets/Art/LevelSelect/Buttons/levelSelectButtonHovered.png");
 		BC::Text* levelNumber = new BC::Text(&font);
 
 		//Set button standard values
-		button->GetCurrentButtonSprite().setScale(0.4f, 0.4f);
+		button->GetCurrentButtonSprite().setScale(1.0f, 1.0f);
 		button->GetCurrentButtonSprite().setOrigin(button->GetCurrentButtonSprite().getTexture()->getSize().x / 2, button->GetCurrentButtonSprite().getTexture()->getSize().y / 2);
 		button->GetCurrentButtonSprite().setPosition(x, y);
 
@@ -88,12 +88,12 @@ void LevelSelectManager::CreateLevelButtons() {
 		levelButtons.insert(std::pair<int, BC::Button*>(i, button));
 
 		//Increase x value
-		x = x + 100;
+		x = x + 125;
 
 		//Increase y value and reset x value based on the current i value
-		if (i == 5 || i == 10 || i == 15 || i == 20 || i == 25 || i == 30) {
-			y = y + 80;
-			x = 45;
+		if (i == 3 || i == 6 || i == 9 || i == 12 || i == 15 || i == 18) {
+			y = y + 125;
+			x = 120;
 		}
 	}
 }

@@ -26,8 +26,8 @@ public:
 	//Override Update method from base Component class
 	void Update(float deltaTime);
 
-	//Destroys laser
-	void DestroyNewLaser();
+	//Destroys beam
+	void DestroyNewBeam();
 
 	//Set laser line color
 	void SetLineColor(sf::Color color);

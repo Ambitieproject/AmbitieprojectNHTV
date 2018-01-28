@@ -151,7 +151,7 @@ bool ValidationManager::CheckLaserCountColor() {
 	//If count is equal to the exact same number as there are different lasers
 	if (count >= 6) {
 		//Create sparkle image
-		validatedSprakleImage = new BC::Sprite("../Assets/Art/Images/FlashImage.png");
+		validatedSprakleImage = new BC::Sprite("../Assets/Art/FlashImage.png");
 
 		//Set default values for sparkle image
 		validatedSprakleImage->setOrigin(validatedSprakleImage->getTexture()->getSize().x * 0.5f, validatedSprakleImage->getTexture()->getSize().y * 0.5f);

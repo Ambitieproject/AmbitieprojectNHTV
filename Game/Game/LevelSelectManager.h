@@ -41,7 +41,7 @@ private:
 
 private:
 	//Font used in level select
-	BC::Font font = BC::Font("../Assets/Fonts/Myriad Pro Regular.ttf");
+	BC::Font font = BC::Font("../Assets/Fonts/Century Gothic.ttf");
 
 	//Map of different level buttons
 	std::map<int, BC::Button*> levelButtons;

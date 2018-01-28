@@ -36,12 +36,12 @@ public:
 
 private:
 	//Font used in this scene
-	BC::Font font = BC::Font("../Assets/Fonts/Myriad Pro Regular.ttf");
+	BC::Font font = BC::Font("../Assets/Fonts/Century Gothic.ttf");
 
-	///Prisma GameObject and Components
-	GameObject GOPrisma = GameObject("Prisma", *this);
-	BC::Sprite prismaSprite = BC::Sprite("../Assets/Prism.png");
-	BC::BoxCollider prismBoxCollider = BC::BoxCollider(prismaSprite, sf::Vector2f(0,0), sf::Vector2f(0,0));
+	///Prism GameObject and Components
+	GameObject GOPrism = GameObject("Prisma", *this);
+	BC::Sprite prismSprite = BC::Sprite("../Assets/Art/Level/Prism.png");
+	BC::BoxCollider prismBoxCollider = BC::BoxCollider(prismSprite, sf::Vector2f(0,0), sf::Vector2f(0,0));
 
 	///ReflectorBeamManager GameObject and Components
 	GameObject GOReflectorBeamManager = GameObject("ReflectorBeamManager", *this);
@@ -49,17 +49,17 @@ private:
 
 	///UIManager GameObject and components
 	GameObject GOUIManager = GameObject("GOUIManager", *this);
-	BC::Sprite timeBackgroundSprite = BC::Sprite("../Assets/Level/TopCircle.png");
+	BC::Sprite timeBackgroundSprite = BC::Sprite("../Assets/Art/Level/BackgroundTopCircle.png");
 	BC::Text timeText = BC::Text(&font);
-	BC::Button addMirrorButton = BC::Button("../Assets/Level/AddMirror.png");
+	BC::Button addMirrorButton = BC::Button("../Assets/Art/Level/Buttons/AddMirror.png");
 
 	///BackgroundBars GameObject and components
 	GameObject GOUIBackgroundBars = GameObject("BackgroundBars", *this);
-	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
+	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Art/Level/BackgroundBar.png");
 
 	///ValidationManager GameObject and Components
 	GameObject GOValidationManager = GameObject("ValidationManager", *this);
-	ValidationManager validationManager = ValidationManager(&prismaSprite, &reflectorBeam);
+	ValidationManager validationManager = ValidationManager(&prismSprite, &reflectorBeam);
 
 	///Game Manager GameObject
 	GameObject GOGameManager = GameObject("GameManager", *this);

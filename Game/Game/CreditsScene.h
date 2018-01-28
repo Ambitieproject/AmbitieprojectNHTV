@@ -27,6 +27,6 @@ public:
 private:
 	///CreditManager GameObject and components
 	GameObject GOcreditManager = GameObject("CreditManager", *this);
-	BC::Sprite CreditSprite = BC::Sprite("../Assets/Credits/Credits.png");
+	BC::Sprite CreditSprite = BC::Sprite("../Assets/Art/Credits/Credits.png");
 };
 

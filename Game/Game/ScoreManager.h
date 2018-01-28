@@ -36,14 +36,20 @@ public:
 	//Gets the final score
 	int GetFinalScore();
 
-private:
-	//Adjusts score by a specific parameter
-	int AdjustScore(int adjustment);
+	//Gets the amount of mirrors used
+	int GetMirrorsUsed();
 
 	//Get extra mirrors from shop
 	int GetExtraMirrorsFromShop();
 	//Get extra time from shop
 	int GetExtraTimeFromShop();
+
+	//Get the maximum mirrors allowed in a level
+	int GetMaximumMirrorsAllowed();
+
+private:
+	//Adjusts score by a specific parameter
+	int AdjustScore(int adjustment);
 
 private:
 	//Local score variable

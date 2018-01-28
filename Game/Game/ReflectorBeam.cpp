@@ -25,12 +25,12 @@ void ReflectorBeam::Update(float deltaTime) {
 	Component::Update(deltaTime);
 }
 
-//Destroys laser
-void ReflectorBeam::DestroyNewLaser() {
+//Destroys beam
+void ReflectorBeam::DestroyNewBeam() {
 	//If the new beam has a new beam
 	if (newBeam->GetComponent<ReflectorBeam>()->newBeam) {
 		//Destor that new beam
-		newBeam->GetComponent<ReflectorBeam>()->DestroyNewLaser();
+		newBeam->GetComponent<ReflectorBeam>()->DestroyNewBeam();
 	}
 
 	//Destroy new beam

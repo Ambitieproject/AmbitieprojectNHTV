@@ -50,6 +50,9 @@ GameObject& ReflectorBeamManager::AddBeam(sf::Vector2f position, int rotation, s
 	//Make new beam instance pointer
 	ReflectorBeam* reflectorBeamComponent = new ReflectorBeam(this, beamIndex, rotation);
 
+	//Set direction of mirror
+	reflectorBeamComponent->SetDirection(Equations::CreateDirectionFromRotation(rotation));
+
 	//Add components from the beam to the GameObject
 	beam->AddComponent(reflectorBeamComponent);
 

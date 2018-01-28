@@ -39,6 +39,11 @@ void Window::CreateWindow(sf::Vector2u size, std::string name, std::string iconP
 	window.setIcon(32, 32, icon.getPixelsPtr());
 }
 
+//Sets a plain color as the background of the window
+void Window::SetWindowRenderColor(sf::Color color) {
+	renderer.SetRenderBackgroundColor(color);
+}
+
 //Gets the window size
 sf::Vector2u Window::GetWindowSize() {
 	return windowSize;

@@ -37,7 +37,7 @@ private:
 	int SaveCurrency();
 
 	//Adds a category
-	void AddCategory(std::string categoryName);
+	void AddCategory(std::string categoryName, std::string categoryIconFilepath);
 	//Sets the position of all categories
 	void SetCategoriesPositions();
 
@@ -53,7 +53,7 @@ private:
 
 private:
 	//Font used for text
-	BC::Font font = BC::Font("../Assets/Fonts/Myriad Pro Regular.ttf");
+	BC::Font font = BC::Font("../Assets/Fonts/Century Gothic.ttf");
 
 	//Currency text
 	BC::Text currencyText = BC::Text(&font);

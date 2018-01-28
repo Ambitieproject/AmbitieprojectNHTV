@@ -37,14 +37,12 @@ private:
 
 	//BackgroundBars GameObject and components
 	GameObject GOUIBackgroundManager = GameObject("BackgroundManager", *this);
-	BC::Sprite backgroundBarTop = BC::Sprite("../Assets/Bar.png");
+	BC::Sprite backgroundBarTitle = BC::Sprite("../Assets/Art/Shop/TextShop.png");
 	BC::Sprite backgroundItemHolder = BC::Sprite("../Assets/Art/Shop/ShopItemHolderBackground.png");
-	BC::Sprite backgroundBarBottom = BC::Sprite("../Assets/Bar.png");
 	BC::Sprite backgroundCurrencyHolder = BC::Sprite("../Assets/Art/Shop/CurrencyHolderBackground.png");
 
 	//UIManager GameObject and components
 	GameObject GOUIManager = GameObject("UIManager", *this);
-	BC::Sprite shopTitleText = BC::Sprite("../Assets/Art/Texts/TextShop.png");
-	BC::Button buttonBack = BC::Button("../Assets/buttonBack.png");
+	BC::Button buttonBack = BC::Button("../Assets/Art/ButtonBack.png");
 };
 

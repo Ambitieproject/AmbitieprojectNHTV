@@ -46,6 +46,20 @@ public:
 	GameObject* GetCurrentMirror();
 
 private:
+	//Get the closest mirror to a beam
+	GameObject* GetClosestMirrorForBeam(ReflectorBeam& beam);
+
+	//Gets the closest hit location inside the closest mirror to a beam
+	std::string GetClosestHitLocationInClosestMirrorForBeam(ReflectorBeam& beam, GameObject& closestMirror);
+	//Gets a hit point by a specified side
+	sf::Vector2f GetSideHitpointInClosestMirrorForBeamByName(std::string sideName, ReflectorBeam& beam, GameObject& closestMirror);
+
+	//Gets the angle between a mirror and a beam
+	float GetAngleBetweenMirrorAndIncomingBeam(ReflectorBeam& beam, GameObject& closestMirror);
+	//Gets the rotation for a new beam that spawns out of a mirror
+	float GetRotationForNewBeam(ReflectorBeam& beam, GameObject& closestMirror, float angleBetweenBeamAndMirror);
+
+private:
 	//Local current mirror
 	GameObject* currentMirror;
 
@@ -57,5 +71,6 @@ private:
 	//Local add mirror button pointer
 	BC::Button* localAddMirrorButton;
 
+	//ReflectorBeamManager pointer
 	ReflectorBeamManager* reflectorBeamManager = nullptr;
 };

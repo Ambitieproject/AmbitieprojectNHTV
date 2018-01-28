@@ -41,11 +41,12 @@ private:
 
 	///Audio components
 	BC::Music* backgroundMusic = new BC::Music("../Assets/Audio/BackgroundMusic.wav");
-	BC::Sound* buttonClickSound = new BC::Sound("../Assets/Audio/ButtonClick.wav");
+	BC::Sound* buttonClickForwardSound = new BC::Sound("../Assets/Audio/ButtonClickForward.wav");
+	BC::Sound* buttonClickBackSound = new BC::Sound("../Assets/Audio/ButtonClickBack.wav");
 
 	///UI Sound Holder and components
 	GameObject GOUIAudioHolder = GameObject("UIAudioHolder", *this);
-	BC::Sprite audioSwitchSprite = BC::Sprite("../Assets/Art/Images/SoundNotMutedImage.png");
+	BC::Sprite audioSwitchSprite = BC::Sprite("../Assets/Art/Menu/SoundNotMutedImage.png");
 	BC::BoxCollider audioSwitchBoxCollider = BC::BoxCollider(audioSwitchSprite, sf::Vector2f(0, 0), sf::Vector2f(0, 0));
 	sf::Texture audioTextureNotMuted;
 	sf::Texture audioTextureMuted;
@@ -55,11 +56,11 @@ private:
 	//Start button
 	BC::Button buttonStart = BC::Button("../Assets/Art/Menu/Buttons/Start/ButtonStartIdle.png", "../Assets/Art/Menu/Buttons/Start/ButtonStartHovered.png", "../Assets/Art/Menu/Buttons/Start/ButtonStartPressed.png");
 	//Shop button
-	BC::Button buttonShopt = BC::Button("../Assets/Art/Menu/Buttons/Shop/ButtonShopIdle.png", "../Assets/Art/Menu/Buttons/Shop/ButtonShopHovered.png", "../Assets/Art/Menu/Buttons/Shop/ButtonShopPressed.png");
+	BC::Button buttonShop = BC::Button("../Assets/Art/Menu/Buttons/Shop/ButtonShopIdle.png", "../Assets/Art/Menu/Buttons/Shop/ButtonShopHovered.png", "../Assets/Art/Menu/Buttons/Shop/ButtonShopPressed.png");
 	//Credits button
-	BC::Button buttonCreditss = BC::Button("../Assets/Art/Menu/Buttons/Credits/ButtonCreditsIdle.png", "../Assets/Art/Menu/Buttons/Credits/ButtonCreditsHovered.png", "../Assets/Art/Menu/Buttons/Credits/ButtonCreditsPressed.png");
+	BC::Button buttonCredits = BC::Button("../Assets/Art/Menu/Buttons/Credits/ButtonCreditsIdle.png", "../Assets/Art/Menu/Buttons/Credits/ButtonCreditsHovered.png", "../Assets/Art/Menu/Buttons/Credits/ButtonCreditsPressed.png");
 	//Quit button
-	BC::Button buttonQuits = BC::Button("../Assets/Art/Menu/Buttons/Quit/ButtonQuitIdle.png", "../Assets/Art/Menu/Buttons/Quit/ButtonQuitHovered.png", "../Assets/Art/Menu/Buttons/Quit/ButtonQuitPressed.png");
+	BC::Button buttonQuit = BC::Button("../Assets/Art/Menu/Buttons/Quit/ButtonQuitIdle.png", "../Assets/Art/Menu/Buttons/Quit/ButtonQuitHovered.png", "../Assets/Art/Menu/Buttons/Quit/ButtonQuitPressed.png");
 	//List of menu buttons
-	std::list<BC::Button*> menuButton;
+	std::vector<BC::Button*> menuButton;
 };

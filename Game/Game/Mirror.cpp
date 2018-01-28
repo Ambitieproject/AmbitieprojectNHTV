@@ -75,6 +75,10 @@ sf::Vertex* Mirror::GetLine() {
 	return reflectLine;
 }
 
+void Mirror::SetMoving(bool moveState) {
+	isMoving = moveState;
+}
+
 //Get the state of this mirror being moved
 bool Mirror::IsMoving() {
 	return isMoving;
@@ -93,7 +97,7 @@ void Mirror::SetIsStaticObject(bool isStatic) {
 	//Change its texture
 	if (isStaticObject) {
 		sf::Texture* texture = &gameObject->GetComponent<BC::Sprite>()->GetTexture();
-		texture->loadFromFile("../Assets/mirror.png");
+		texture->loadFromFile("../Assets/Art/Level/NoMoveMirror.png");
 		gameObject->GetComponent<BC::Sprite>()->setTexture(*texture);
 	}
 }

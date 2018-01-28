@@ -32,6 +32,9 @@ void CreditsScene::Setup() {
 //Override Start method from base Scene class
 void CreditsScene::Start() {
 	Scene::Start();
+
+	//Set background render color
+	Window::SetWindowRenderColor(sf::Color(11, 3, 44));
 }
 
 //Override Update method from base Scene class
@@ -43,10 +46,10 @@ void CreditsScene::Update(float deltaTime) {
 
 	//Load scene if creditSprite is out of the screen
 	if (CreditSprite.getPosition().y <= -860) {
-		SceneManager::LoadScene(0);
+		SceneManager::LoadScene(1);
 	}
 	//Load scene if any key is down
 	if (Input::GetAnyKeyDown()) {
-		SceneManager::LoadScene(0);
+		SceneManager::LoadScene(1);
 	}
 }

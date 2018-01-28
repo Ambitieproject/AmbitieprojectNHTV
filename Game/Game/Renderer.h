@@ -16,6 +16,9 @@ public:
 	//Sets the renderer up, does reference setup
 	void SetupRenderer();
 
+	//Sets the background render color
+	void SetRenderBackgroundColor(sf::Color color);
+
 	//Begin draw method
 	void BeginDraw();
 	//Draw method that draws a SFML Drawable
@@ -28,5 +31,8 @@ public:
 private:
 	//Reference to sfml renderwindow of the window class
 	sf::RenderWindow* window;
+
+	//Render color of the window its background
+	sf::Color renderBackgroundColor;
 };
 

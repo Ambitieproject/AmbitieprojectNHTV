@@ -5,6 +5,7 @@
 
 //Include needed header files
 #include "Sprite.h"
+#include "BoxCollider.h"
 
 //Namespace Base Component
 namespace BC {
@@ -33,6 +34,8 @@ namespace BC {
 	private:
 		//Is clicked value
 		bool isClicked;
+
+		bool isHoldingDown;
 
 		//Normal button texture
 		sf::Texture normalTexture;

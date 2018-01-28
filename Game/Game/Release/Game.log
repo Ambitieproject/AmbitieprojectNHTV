@@ -1,1 +1,11 @@
-﻿  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Release\Game.exe
+﻿  Game.cpp
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\BoxCollider.h(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\BoxCollider.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\school\2016-2017\ambitieproject\ambitieprojectnhtv\game\game\BoxCollider.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     Creating library D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Release\Game.lib and object D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Release\Game.exp
+  Generating code
+  2 of 2809 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    16 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Game.vcxproj -> D:\School\2016-2017\Ambitieproject\AmbitieprojectNHTV\Game\Release\Game.exe

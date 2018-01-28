@@ -18,10 +18,10 @@ void ShopManager::Start() {
 
 	//Load currency first
 	LoadCurrency();
-
+	
 	//Add categories
-	AddCategory("SelfReflections");
-	AddCategory("GameItems");
+	AddCategory("SelfReflections", "../Assets/Art/Shop/IconGameItems.png");
+	AddCategory("GameItems", "../Assets/Art/Shop/IconSelfReflection.png");
 
 	//Load all the items of the first category
 	LoadShopItems(0);
@@ -35,6 +35,13 @@ void ShopManager::Start() {
 void ShopManager::Update(float deltaTime) {
 	Component::Update(deltaTime);
 
+	//God mode
+	if (Input::GetKeyPressed(sf::Keyboard::G)) {
+		currency = currency + 2000;
+		SaveCurrency();
+		LoadCurrency();
+	}
+
 	//Update currency text
 	currencyText.setString(std::to_string(currency));
 
@@ -46,7 +53,7 @@ void ShopManager::Update(float deltaTime) {
 			if (shopCategoryItems[i]->gameObject->GetComponent<BC::BoxCollider>()->OnMouseDown(sf::Mouse::Left)) {
 				if (shopCategoryItems[i]->gameObject->GetComponent<BC::Sprite>()->getTexture() != &shopCategoryItems[i]->categoryItemBackgroundPressedTexture) {
 					//Play click sound
-					AudioManager::GetSound("ButtonClickSound")->play();
+					AudioManager::GetSound("ButtonClickForwardSound")->play();
 					//Set new category
 					shopCategoryItems[i]->gameObject->GetComponent<BC::Sprite>()->setTexture(shopCategoryItems[i]->categoryItemBackgroundPressedTexture);
 					LoadShopItems(i);
@@ -73,7 +80,7 @@ void ShopManager::Update(float deltaTime) {
 				//If shop item buy button is clicked then buy the item, save the item and update and save the currency etc...
 				if (shopItems[i]->gameObject->GetComponent<BC::Button>()->IsClicked()) {
 					//Play click sound
-					AudioManager::GetSound("ButtonClickSound")->play();
+					AudioManager::GetSound("ButtonClickForwardSound")->play();
 					//Buy item
 					BuyShopItem(*shopItems[i]);
 					//Save shop items
@@ -99,7 +106,7 @@ int ShopManager::LoadCurrency() {
 
 	//Set basic values of the currency text
 	currencyText.setColor(sf::Color::Black);
-	currencyText.setPosition(305, 87);
+	currencyText.setPosition(320, 129);
 	currencyText.setString(std::to_string(currency));
 
 	//Add component to GameObject
@@ -121,13 +128,14 @@ int ShopManager::SaveCurrency() {
 }
 
 //Adds a category
-void ShopManager::AddCategory(std::string categoryName) {
+void ShopManager::AddCategory(std::string categoryName, std::string categoryIconFilepath) {
 	//Create GameObject
 	GameObject* GOShopCategoryItem = new GameObject("ShopCategoryItem", gameObject->GetScene());
 	
 	//Create Components
 	ShopCategoryItem* shopCategoryItem = new ShopCategoryItem("", "../Assets/Art/Shop/ShopCategoryNotSelected.png", "../Assets/Art/Shop/ShopCategorySelected.png");
 	BC::Sprite* categoryItemSprite = new BC::Sprite("../Assets/Art/Shop/ShopCategoryNotSelected.png");
+	BC::Sprite* categoryItemIconSprite = new BC::Sprite(categoryIconFilepath);
 	BC::BoxCollider* categoryItemBoxCollider = new BC::BoxCollider(*categoryItemSprite, sf::Vector2f(0, 0), sf::Vector2f(0, 0));;
 
 	//Set GameObject draw layer
@@ -137,18 +145,23 @@ void ShopManager::AddCategory(std::string categoryName) {
 	GOShopCategoryItem->AddComponent(shopCategoryItem);
 	GOShopCategoryItem->AddComponent(categoryItemSprite);
 	GOShopCategoryItem->AddComponent(categoryItemBoxCollider);
+	GOShopCategoryItem->AddComponent(categoryItemIconSprite);
 
 	//Add to vector
 	shopCategoryItems.push_back(shopCategoryItem);
 
 	//Set default values for sprite
-	categoryItemSprite->setScale(0.6f, 0.6f);
+	categoryItemSprite->setScale(0.55f, 0.55f);
 
 	//Set default values for shopCategoryItem
 	shopCategoryItem->SetCategoryName(categoryName);
 
 	//Set positions of categories
 	SetCategoriesPositions();
+
+	//Set default values for icon sprite
+	categoryItemIconSprite->setScale(0.9f, 0.9f);
+	categoryItemIconSprite->setPosition(categoryItemSprite->getPosition().x + 5, categoryItemSprite->getPosition().y + 5);
 }
 
 //Sets the position of all categories
@@ -167,7 +180,7 @@ void ShopManager::SetCategoriesPositions() {
 		}
 		else {
 			//Set position
-			thisSprite->setPosition(20, 100);
+			thisSprite->setPosition(20, 120);
 		}
 	}
 }
@@ -185,7 +198,7 @@ ShopItem& ShopManager::AddShopItem() {
 	go->SetDrawIndex(2);
 
 	//Set default values for sprite
-	goSprite->setScale(0.4f, 0.4f);
+	goSprite->setScale(0.35f, 0.3f);
 
 	//Add new shop item to vector
 	shopItems.push_back(goShopItem);
@@ -221,7 +234,7 @@ void ShopManager::LoadShopItems(int categoryIndex) {
 	//If size of Shop Items list is bigger then 0
 	if (json[categoryIndex]["Shop Items"].size() > 0) {
 		//Create default x and y position values
-		float x = 40;
+		float x = 34;
 		float y = 200;
 
 		int it = 2;
@@ -270,11 +283,11 @@ void ShopManager::LoadShopItems(int categoryIndex) {
 				shopItem.gameObject->GetComponent<BC::Sprite>()->setTexture(texture);
 			
 				//Create buy button for shop item
-				BC::Button* shopItemButton = new BC::Button("../Assets/Art/Buttons/ShopBuy/ButtonBuyNormal.png", "../Assets/Art/Buttons/ShopBuy/ButtonBuyHovered.png", "../Assets/Art/Buttons/ShopBuy/ButtonBuyPressed.png");
+				BC::Button* shopItemButton = new BC::Button("../Assets/Art/Shop/Buttons/ShopBuy/ButtonBuyIdle.png", "../Assets/Art/Shop/Buttons/ShopBuy/ButtonBuyHovered.png", "../Assets/Art/Shop/Buttons/ShopBuy/ButtonBuyPressed.png");
 
 				//Set default values of shop item buy button
 				shopItemButton->GetCurrentButtonSprite().setScale(0.5f, 0.5f);
-				shopItemButton->GetCurrentButtonSprite().setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 35, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 80);
+				shopItemButton->GetCurrentButtonSprite().setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 47, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 80);
 
 				//Create shopCostText
 				BC::Text* shopCostText = new BC::Text(&font);
@@ -287,30 +300,38 @@ void ShopManager::LoadShopItems(int categoryIndex) {
 				//center text
 				sf::FloatRect textRect = shopCostText->getLocalBounds();
 				shopCostText->setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-				shopCostText->setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 83, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 70);
+				shopCostText->setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 95, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 70);
 
 				//Add Components to GameObject
 				shopItem.gameObject->AddComponent(shopItemButton);
 				shopItem.gameObject->AddComponent(shopCostText);
 			}
 
-			//Create ifo text for shop item
+			//Create info text for shop item
 			BC::Text* shopInfoText = new BC::Text(&font);
 
 			//Set text standard values
 			shopInfoText->setScale(0.4f, 0.4f);
 			shopInfoText->setString(shopItem.Description);
 			shopInfoText->setColor(sf::Color::White);
-
-			if (!shopItem.Bought && shopItem.Category == "Selfreflection Info") {
-				shopInfoText->setString("?");
-			}
+			shopInfoText->setStyle(sf::Text::Bold);
 
 			//center text
 			sf::FloatRect textRect = shopInfoText->getLocalBounds();
-			shopInfoText->setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-			shopInfoText->setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 83, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 30);
-			shopItem.gameObject->AddComponent(shopInfoText);
+			shopInfoText->setOrigin(textRect.left + textRect.width / 2.0f, 0);
+			shopInfoText->setPosition(shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().x + 95, shopItem.gameObject->GetComponent<BC::Sprite>()->getPosition().y + 10);
+			
+			//Add description depending on bought and category value
+			if (shopItem.Category != "Selfreflection Info") {
+				shopItem.gameObject->AddComponent(shopInfoText);
+			}
+			else {
+				if (shopItem.Bought) {
+					shopItem.gameObject->AddComponent(shopInfoText);
+				}
+			}
+
+			
 		}
 	}
 }

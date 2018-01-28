@@ -9,7 +9,7 @@
                     "Item intensity": 1
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Mirror",
                     "Cost": 800,
                     "Description": "Get 2 mirrors extra in\n total to play with\nbefore you lose score",
@@ -30,7 +30,7 @@
                     "Item intensity": 10
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Time",
                     "Cost": 600,
                     "Description": "Get 20 seconds extra play\ntime in total before you\nlose score",
@@ -48,45 +48,45 @@
      {
           "Shop Items": [
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "I made my first\ngame 4 years ago",
+                    "Description": "4 Years ago\nI made my first game",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "I don't yet have\nmy driver license",
+                    "Description": "I think that if you\nconstantly make something\nyou already know,\nyou're not improving.",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "My first job was being\na shelf stacker at Jumbo Boxtel",
+                    "Description": "I am a person who\nwants to learn.",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "Next to programming,\nI like working out in the gym",
+                    "Description": "Throughout the years\nmy personality has grown.",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "I like playing\nacoustic guitar",
+                    "Description": "I'm a teamplayer\nand teamleader",
                     "Item intensity": 0
                },
                {
-                    "Bought": true,
+                    "Bought": false,
                     "Category": "Selfreflection Info",
                     "Cost": 400,
-                    "Description": "Now I am a teamleader\nat Dominos Boxtel",
+                    "Description": "I'm known as\na hard worker",
                     "Item intensity": 0
                }
           ]

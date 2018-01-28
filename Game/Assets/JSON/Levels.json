@@ -1,44 +1,5 @@
 [
-	{  
-          "LaserTranslations": [
-               {
-                    "PositionX": -10,
-                    "PositionY": 430,
-                    "Rotation": 50
-               },
-               {
-                    "PositionX": -10,
-                    "PositionY": 370,
-                    "Rotation": 59
-               },
-               {
-                    "PositionX": -10,
-                    "PositionY": 260,
-                    "Rotation": 80
-               },
-               {
-                    "PositionX": 510,
-                    "PositionY": 260,
-                    "Rotation": -80
-               },
-               {
-                    "PositionX": 510,
-                    "PositionY": 370,
-                    "Rotation": -59
-               },
-               {
-                    "PositionX": 510,
-                    "PositionY": 430,
-                    "Rotation": -50
-               }
-          ],
-	  "BlockingMirrorsTranslations": [
-               
-          ],
-          "Level": 1,
-          "MirrorsNeededCount": 1
-     },
-     {
+        {
           "LaserTranslations": [
                {
                     "PositionX": 62.5,
@@ -74,9 +35,9 @@
 	  "BlockingMirrorsTranslations": [
                
           ],
-          "Level": 2,
+          "Level": 1,
           "MirrorsNeededCount": 1
-     },
+        },
      {
           "LaserTranslations": [
                {
@@ -107,13 +68,13 @@
                {
                     "PositionX": 510,
                     "PositionY": 400,
-                    "Rotation": -30
+                    "Rotation": 330
                }
           ],
           "BlockingMirrorsTranslations": [
               
           ],
-          "Level": 3,
+          "Level": 2,
           "MirrorsNeededCount": 2
      },
      {
@@ -152,8 +113,8 @@
 	  "BlockingMirrorsTranslations": [
                
           ],
-          "Level": 4,
-          "MirrorsNeededCount": 2
+          "Level": 3,
+          "MirrorsNeededCount": 4
      },
      {
           "LaserTranslations": [
@@ -165,7 +126,7 @@
                {
                     "PositionX": 125,
                     "PositionY": 20,
-                    "Rotation": 170
+                    "Rotation": 185
                },
                {
                     "PositionX": 187.5,
@@ -180,7 +141,7 @@
                {
                     "PositionX": 375,
                     "PositionY": 20,
-                    "Rotation": 190
+                    "Rotation": 175
                },
                {
                     "PositionX": 437.5,
@@ -190,13 +151,57 @@
           ],
 	  "BlockingMirrorsTranslations": [
                {
-                    "PositionX": 250,
-                    "PositionY": 630,
-                    "Rotation": 0
+                    "PositionX": 430,
+                    "PositionY": 655,
+                    "Rotation": 330
+               },
+	       {
+                    "PositionX": 70,
+                    "PositionY": 655,
+                    "Rotation": 30
                }
           ],
+          "Level": 4,
+          "MirrorsNeededCount": 4
+     },
+     {  
+          "LaserTranslations": [
+               {
+                    "PositionX": -10,
+                    "PositionY": 430,
+                    "Rotation": 50
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 370,
+                    "Rotation": 59
+               },
+               {
+                    "PositionX": -10,
+                    "PositionY": 260,
+                    "Rotation": 80
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 260,
+                    "Rotation": 280
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 370,
+                    "Rotation": 301
+               },
+               {
+                    "PositionX": 510,
+                    "PositionY": 430,
+                    "Rotation": 310
+               }
+          ],
+	  "BlockingMirrorsTranslations": [
+               
+          ],
           "Level": 5,
-          "MirrorsNeededCount": 2
+          "MirrorsNeededCount": 5
      },
      {
           "LaserTranslations": [
@@ -239,39 +244,39 @@
                }
           ],
           "Level": 6,
-          "MirrorsNeededCount": 2
+          "MirrorsNeededCount": 6
      },
      {
           "LaserTranslations": [
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 10
+                    "PositionX": -20,
+                    "PositionY": 750,
+                    "Rotation": 30
                },
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 90
+                    "PositionX": -20,
+                    "PositionY": 700,
+                    "Rotation": 30
                },
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 170
+                    "PositionX": -20,
+                    "PositionY": 650,
+                    "Rotation": 30
                },
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 190
+                    "PositionX": 520,
+                    "PositionY": 650,
+                    "Rotation": 330
                },
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 270
+                    "PositionX": 520,
+                    "PositionY": 700,
+                    "Rotation": 330
                },
                {
-                    "PositionX": 250,
-                    "PositionY": 400,
-                    "Rotation": 350
+                    "PositionX": 520,
+                    "PositionY": 750,
+                    "Rotation": 330
                }
           ],
 	  "BlockingMirrorsTranslations": [
@@ -287,6 +292,6 @@
                }
           ],
           "Level": 7,
-          "MirrorsNeededCount": 2
+          "MirrorsNeededCount": 7
      }
 ]

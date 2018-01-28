@@ -136,6 +136,9 @@
     <Filter Include="JEngine\AudioManagement">
       <UniqueIdentifier>{2720bc09-965a-4b0d-8336-b722d680f3a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Scenes\Tutorial">
+      <UniqueIdentifier>{9edeaf85-03ba-4c16-aa74-6093bf4ad4ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -261,6 +264,9 @@
     <ClCompile Include="AudioManager.cpp">
       <Filter>JEngine\AudioManagement</Filter>
     </ClCompile>
+    <ClCompile Include="TutorialScene.cpp">
+      <Filter>Game\Scenes\Tutorial</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -385,6 +391,9 @@
     </ClInclude>
     <ClInclude Include="AudioManager.h">
       <Filter>JEngine\AudioManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialScene.h">
+      <Filter>Game\Scenes\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

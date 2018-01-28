@@ -24,41 +24,36 @@ void ShopScene::Setup() {
 	GOShopManager.AddComponent(&shopManager);
 
 	//Adding components to Background bars GameObject
-	GOUIManager.AddComponent(&backgroundBarTop);
+	GOUIManager.AddComponent(&backgroundBarTitle);
 	GOUIManager.AddComponent(&backgroundItemHolder);
-	GOUIManager.AddComponent(&backgroundBarBottom);
 	GOUIManager.AddComponent(&backgroundCurrencyHolder);
 
 	//Adding components to UIManager GameObject
-	GOUIManager.AddComponent(&shopTitleText);
 	GOUIManager.AddComponent(&buttonBack);
 
-	//Set default values for background bars
-	backgroundBarTop.setScale(0.5155f, 0.5155f);
-	backgroundBarBottom.setScale(0.7f, 0.7f);
-	backgroundBarBottom.setPosition(-10, Window::GetWindowSize().y - (backgroundBarBottom.getTexture()->getSize().y / 2 + 10));
+	//Set default values the title background bar
+	backgroundBarTitle.setScale(1, 1);
+	backgroundBarTitle.setPosition(15, 20);
 
 	//Set default values for background item holder
-	backgroundItemHolder.setScale(0.5155f, 0.5155f);
-	backgroundItemHolder.setPosition(backgroundItemHolder.getPosition().x, 150);
+	backgroundItemHolder.setScale(0.49f, 0.49f);
+	backgroundItemHolder.setPosition(12, 190);
 
 	//Set default values for currency background holder
 	backgroundCurrencyHolder.setScale(0.5155f, 0.5155f);
-	backgroundCurrencyHolder.setPosition(290, 78);
+	backgroundCurrencyHolder.setPosition(300, 128);
 
 	//Set default values for back button
-	buttonBack.GetCurrentButtonSprite().setScale(0.6f, 0.6f);
-	buttonBack.GetCurrentButtonSprite().setPosition(4, Window::GetWindowSize().y - 68);
-
-	//Set default values for levelSelectText
-	shopTitleText.setScale(0.4f, 0.4f);
-	shopTitleText.setOrigin(shopTitleText.getTexture()->getSize().x / 2, shopTitleText.getTexture()->getSize().y / 2);
-	shopTitleText.setPosition(Window::GetWindowSize().x / 2, 33);
+	buttonBack.GetCurrentButtonSprite().setScale(0.7f, 0.7f);
+	buttonBack.GetCurrentButtonSprite().setPosition(15, Window::GetWindowSize().y - 70);
 }
 
 //Override Start method from base Scene class
 void ShopScene::Start() {
 	Scene::Start();
+
+	//Set background render color
+	Window::SetWindowRenderColor(sf::Color(238, 24, 78));
 }
 
 //Override Update method from base Scene class
@@ -68,8 +63,8 @@ void ShopScene::Update(float deltaTime) {
 	//Load Menu if back button is clicked
 	if (buttonBack.IsClicked()) {
 		//Play click sound
-		AudioManager::GetSound("ButtonClickSound")->play();
+		AudioManager::GetSound("ButtonClickBackSound")->play();
 		//Load scene
-		SceneManager::LoadScene(0);
+		SceneManager::LoadScene(1);
 	}
 }

@@ -36,32 +36,30 @@ void MenuScene::Setup() {
 
 	//Adding components to UIButton holder GameObject
 	GOUIButtonHolder.AddComponent(&buttonStart);
-	GOUIButtonHolder.AddComponent(&buttonShopt);
-	GOUIButtonHolder.AddComponent(&buttonCreditss);
-	GOUIButtonHolder.AddComponent(&buttonQuits);
+	GOUIButtonHolder.AddComponent(&buttonShop);
+	GOUIButtonHolder.AddComponent(&buttonCredits);
+	GOUIButtonHolder.AddComponent(&buttonQuit);
 
 	//Setting standard values for logoPrism
 	logoPrism.setScale(0.4f, 0.4f);
 	logoPrism.setOrigin(logoPrism.getTexture()->getSize().x / 2, logoPrism.getTexture()->getSize().y / 2);
-	logoPrism.setPosition(Window::GetWindowSize().x / 2, 220);
+	logoPrism.setPosition(Window::GetWindowSize().x / 2, 170);
 
 	//Push back all the menu buttons
 	menuButton.push_back(&buttonStart);
-	menuButton.push_back(&buttonShopt);
-	menuButton.push_back(&buttonCreditss);
-	menuButton.push_back(&buttonQuits);
+	menuButton.push_back(&buttonShop);
+	menuButton.push_back(&buttonCredits);
+	menuButton.push_back(&buttonQuit);
 
 	//Set scale and position for every menu button
-	for (auto it = menuButton.begin(); it != menuButton.end(); it++) {
-		it._Ptr->_Myval->GetCurrentButtonSprite().setScale(0.4, 0.4f);
-		it._Ptr->_Myval->GetCurrentButtonSprite().setPosition(80, 400);
-	}
+	for (int i = 0; i < menuButton.size(); i++) {
+		menuButton[i]->GetCurrentButtonSprite().setScale(0.4, 0.4f);
+		menuButton[i]->GetCurrentButtonSprite().setPosition(Window::GetWindowSize().x / 2 - 77.8f, 380);
 
-	//Set position of buttons
-	buttonShopt.GetCurrentButtonSprite().setPosition(buttonShopt.GetCurrentButtonSprite().getPosition().x + buttonShopt.GetCurrentButtonSprite().getTexture()->getSize().x / 2, buttonShopt.GetCurrentButtonSprite().getPosition().y);
-	buttonCreditss.GetCurrentButtonSprite().setPosition(buttonCreditss.GetCurrentButtonSprite().getPosition().x, buttonCreditss.GetCurrentButtonSprite().getPosition().y + 60);
-	buttonQuits.GetCurrentButtonSprite().setPosition(buttonQuits.GetCurrentButtonSprite().getPosition().x, buttonQuits.GetCurrentButtonSprite().getPosition().y + 60);
-	buttonQuits.GetCurrentButtonSprite().setPosition(buttonQuits.GetCurrentButtonSprite().getPosition().x + buttonQuits.GetCurrentButtonSprite().getTexture()->getSize().x / 2, buttonQuits.GetCurrentButtonSprite().getPosition().y);
+		if (i != 0) {
+			menuButton[i]->GetCurrentButtonSprite().setPosition(menuButton[i]->GetCurrentButtonSprite().getPosition().x, menuButton[i - 1]->GetCurrentButtonSprite().getPosition().y + 60);
+		}
+	}
 
 	//Load audio textures
 	audioTextureNotMuted.loadFromFile("../Assets/Art/Menu/SoundNotMutedImage.png");
@@ -85,7 +83,8 @@ void MenuScene::Start() {
 		backgroundMusic->play();
 		backgroundMusic->setLoop(true);
 		AudioManager::AddMusic(*backgroundMusic, "BackgroundMusic");
-		AudioManager::AddSound(*buttonClickSound, "ButtonClickSound");
+		AudioManager::AddSound(*buttonClickForwardSound, "ButtonClickForwardSound");
+		AudioManager::AddSound(*buttonClickBackSound, "ButtonClickBackSound");
 	}
 	else {
 		//If audio lives and volume of audio is 0
@@ -104,30 +103,30 @@ void MenuScene::Update(float deltaTime) {
 	//Load scene if button is pressed
 	if (buttonStart.IsClicked()) {
 		//Load scene
-		SceneManager::LoadScene(1);
+		SceneManager::LoadScene(2);
 		//Play click sound
-		AudioManager::GetSound("ButtonClickSound")->play();
+		AudioManager::GetSound("ButtonClickForwardSound")->play();
 	}
 	//Load scene if button is pressed
-	if (buttonShopt.IsClicked()) {
+	if (buttonShop.IsClicked()) {
+		//Load scene
+		SceneManager::LoadScene(5);
+		//Play click sound
+		AudioManager::GetSound("ButtonClickForwardSound")->play();
+	}
+	//Load scene if button is pressed
+	if (buttonCredits.IsClicked()) {
 		//Load scene
 		SceneManager::LoadScene(4);
 		//Play click sound
-		AudioManager::GetSound("ButtonClickSound")->play();
-	}
-	//Load scene if button is pressed
-	if (buttonCreditss.IsClicked()) {
-		//Load scene
-		SceneManager::LoadScene(3);
-		//Play click sound
-		AudioManager::GetSound("ButtonClickSound")->play();
+		AudioManager::GetSound("ButtonClickForwardSound")->play();
 	}
 	//Quit game if quit button is pressed
-	if (buttonQuits.IsClicked()) {
+	if (buttonQuit.IsClicked()) {
 		//Set closed boolean
 		Window::IsClosed = true;
 		//Play click sound
-		AudioManager::GetSound("ButtonClickSound")->play();
+		AudioManager::GetSound("ButtonClickBackSound")->play();
 	}
 
 	//If mouse is down on the audioSwitchSprite
@@ -139,7 +138,8 @@ void MenuScene::Update(float deltaTime) {
 				//Set texture
 				audioSwitchSprite.setTexture(audioTextureMuted);
 				//Set volumes
-				AudioManager::GetSound("ButtonClickSound")->setVolume(0);
+				AudioManager::GetSound("ButtonClickForwardSound")->setVolume(0);
+				AudioManager::GetSound("ButtonClickBackSound")->setVolume(0);
 				AudioManager::GetMusic("BackgroundMusic")->setVolume(0);
 			}
 			else {
@@ -147,10 +147,11 @@ void MenuScene::Update(float deltaTime) {
 				//Set texture
 				backgroundMusic->setVolume(70.0f);
 				//Set volumes
-				AudioManager::GetSound("ButtonClickSound")->setVolume(70);
+				AudioManager::GetSound("ButtonClickForwardSound")->setVolume(70);
+				AudioManager::GetSound("ButtonClickBackSound")->setVolume(70);
 				AudioManager::GetMusic("BackgroundMusic")->setVolume(70);
 				//Play click sound
-				AudioManager::GetSound("ButtonClickSound")->play();
+				AudioManager::GetSound("ButtonClickForwardSound")->play();
 			}
 		}
 	}
